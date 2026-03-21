@@ -1,0 +1,52 @@
+{
+  "Type": "Selector",
+  "RunTime": 0.2,
+  "Selector": {
+    "Id": "Stab",
+    "TestLineOfSight": true,
+    "ExtendTop": 1.0,
+    "ExtendBottom": 1.5,
+    "StartDistance": 0.1,
+    "EndDistance": 4.0
+  },
+  "Effects": {
+    "ItemAnimationId": "SwingDown",
+    "Trails": [
+      {
+        "TargetEntityPart": "PrimaryItem",
+        "TargetNodeName": "Handle",
+        "TrailId": "Medium_Signature",
+        "PositionOffset": { "X": 0.8 },
+        "RotationOffset": { "Roll": 90.0 }
+      }
+    ],
+    "Particles": [
+      {
+        "SystemId": "Sword_Signature_AoE",
+        "Scale": 1.2,
+        "TargetNodeName": "Hip",
+        "TargetEntityPart": "Entity",
+        "PositionOffset": { "Y": 1.0 }
+      }
+    ],
+    "CameraEffect": "Sword_Stab"
+  },
+  "Next": {
+    "Type": "Simple",
+    "RunTime": 0.15
+  },
+  "HitEntity": {
+    "Interactions": [
+      {
+        "Type": "Replace",
+        "Var": "Longsword_Signature_Slam_Damage",
+        "DefaultOk": true,
+        "DefaultValue": {
+          "Interactions": [
+            "Weapon_Longsword_Signature_Slam_Damage"
+          ]
+        }
+      }
+    ]
+  }
+}

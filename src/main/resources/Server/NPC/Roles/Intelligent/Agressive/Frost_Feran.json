@@ -1,0 +1,37 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Intelligent",
+  "Modify": {
+    "Appearance": "Frost_Feran",
+    "AttitudeGroup": "Feran",
+    "DropList": "Drop_Frost_Feran",
+    "Weapons": ["Weapon_Sword_Bone_Frost"],
+    "MaxHealth": 150,
+    "MaxSpeed": 10,
+    "WanderRadius": 15,
+    "ViewRange": 20,
+    "HearingRange": 15,
+    "AlertedRange": 25,
+    "AlertedTime": [1, 2],
+    "HardLeashDistance": 60,
+    "LeashDistance": 30,
+    "CombatBehaviorDistance": 4,
+    "Attack": "Root_NPC_Frost_Feran_Attack",
+    "AttackDistance": 2.5,
+    "ChaseRelativeSpeed": 0.8,
+    "CombatMovingRelativeSpeed": 0.7,
+    "IsMemory": true,
+    "MemoriesCategory": "Feran",
+    "MemoriesNameOverride": "Feran_Sharptooth",
+    "DefaultPlayerAttitude": "HOSTILE",
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Feran_Sharptooth.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

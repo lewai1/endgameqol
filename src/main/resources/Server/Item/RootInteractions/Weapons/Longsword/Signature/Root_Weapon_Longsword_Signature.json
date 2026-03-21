@@ -1,0 +1,20 @@
+{
+  "RequireNewClick": true,
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  },
+  "Interactions": [
+    {
+      "Type": "Replace",
+      "Var": "Longsword_Signature",
+      "DefaultOk": true,
+      "DefaultValue": {
+        "Interactions": [
+          "Weapon_Longsword_Signature"
+        ]
+      }
+    }
+  ]
+}

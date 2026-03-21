@@ -1,0 +1,44 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Flocon_Currency.name",
+    "Description": "server.items.Flocon_Currency.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Flocon_Currency.png",
+  "Categories": [
+    "Endgame.Misc"
+  ],
+  "PlayerAnimationsId": "Item",
+  "BlockType": {
+    "Material": "Empty",
+    "DrawType": "Model",
+    "CustomModel": "Resources/DungeonCurrency/Flocon_Currency_Model.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Resources/DungeonCurrency/Flocon_Currency.png",
+        "Weight": 1
+      }
+    ],
+    "CustomModelScale": 0.8
+  },
+  "IconProperties": {
+    "Scale": 0.5,
+    "Translation": [
+      -3.6,
+      -16.2
+    ],
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ]
+  },
+  "Tags": {
+    "Family": [
+      "BossItem"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "MaxStack": 20,
+  "DropOnDeath": true,
+  "Quality": "Epic"
+}

@@ -1,0 +1,53 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Outlander_Brute_Default",
+    "ItemAnimationId": "BackswingLeft"
+  },
+  "RunTime": 0.583,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.333,
+            "Selector": {
+              "Id": "Horizontal",
+              "Direction": "ToLeft",
+              "TestLineOfSight": true,
+              "ExtendTop": 0.5,
+              "ExtendBottom": 1.5,
+              "StartDistance": 0.75,
+              "EndDistance": 3.5,
+              "Length": 135,
+              "RollOffset": -15,
+              "YawStartOffset": -45
+            },
+            "HitEntity": {
+              "Interactions": [
+                "Endgame_Outlander_Brute_Medium_Damage"
+              ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "RunTime": 0.584
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0.417,
+            "Effects": {
+              "WorldSoundEventId": "SFX_Light_Melee_T2_Swing"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

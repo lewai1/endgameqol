@@ -1,0 +1,75 @@
+{
+    "Type": "Simple",
+    "Effects": {
+        "ItemPlayerAnimationsId": "Endgame_Dragon_Frost",
+        "ItemAnimationId": "SwingLeft",
+        "WorldSoundEventId": "SFX_Golem_Sand_Swing",
+        "Particles": [
+            {
+                "SystemId": "Weapon_Frost_Mist"
+            }
+        ]
+    },
+    "RunTime": 0.5,
+    "Next": {
+        "Type": "Parallel",
+        "Interactions": [
+            {
+                "Interactions": [
+                    {
+                        "Type": "Selector",
+                        "RunTime": 0.2,
+                        "Selector": {
+                            "Id": "Stab",
+                            "TestLineOfSight": false,
+                            "ExtendTop": 4,
+                            "ExtendBottom": 3,
+                            "ExtendLeft": 5,
+                            "ExtendRight": 5,
+                            "StartDistance": -2,
+                            "EndDistance": 8
+                        },
+                        "HitEntity": {
+                            "Interactions": [
+                                {
+                                    "Type": "Replace",
+                                    "DefaultOk": true,
+                                    "DefaultValue": {
+                                        "Interactions": [
+                                            "NPC_Attack_Melee_Damage"
+                                        ]
+                                    },
+                                    "Var": "Melee_Damage"
+                                }
+                            ]
+                        },
+                        "Next": {
+                            "Type": "Simple",
+                            "RunTime": 0.4
+                        }
+                    }
+                ]
+            },
+            {
+                "Interactions": [
+                    {
+                        "Type": "Simple",
+                        "RunTime": 0.6,
+                        "Effects": {
+                            "WorldSoundEventId": "SFX_Golem_Earth_Slam_Impact",
+                            "Particles": [
+                                {
+                                    "SystemId": "Impact_Ice"
+                                },
+                                {
+                                    "SystemId": "Ice_Blast",
+                                    "Scale": 2
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,46 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Endgame_Accessory_Frostwalkers.name",
+    "Description": "server.items.Endgame_Accessory_Frostwalkers.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Frost_walkers_Icon.png",
+  "Categories": [
+    "Endgame.Accessories"
+  ],
+  "PlayerAnimationsId": "Item",
+  "BlockType": {
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "DrawType": "Model",
+    "CustomModel": "Items/Accessories/Frost_walkers.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Accessories/Frost_walkers_Texture.png",
+        "Weight": 1
+      }
+    ]
+  },
+  "IconProperties": {
+    "Scale": 1.4,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0.0,
+      -3.0
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Accessory"
+    ],
+    "Family": [
+      "Endgame"
+    ]
+  },
+  "Quality": "Legendary",
+  "MaxStack": 1,
+  "DropOnDeath": true
+}

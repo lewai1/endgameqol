@@ -1,0 +1,25 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Golem_Eye_Void",
+  "Modify": {
+    "Appearance": "Eye_Void",
+    "DropList": "Drop_Eye_Void",
+    "AttackSequence": "Component_Instruction_Attack_Sequence_Eye_Void",
+    "MaxHealth": 250,
+    "AttackDamage": 25,
+    "ViewRange": 50,
+    "AttackDistance": 12,
+    "IsMemory": true,
+    "MemoriesCategory": "Voidspawn",
+    "MemoriesNameOverride": "Eye_Void",
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Golem_Eye_Void.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Predator",
+  "Modify": {
+    "Appearance": "Swamp_Crocodile",
+    "AttitudeGroup": "PredatorsBig",
+    "WanderRadius": 8,
+    "ViewRange": 15,
+    "AlertedRange": 15,
+    "FleeRange": 15,
+    "HearingRange": 12,
+    "LeashDistance": 40,
+    "HardLeashDistance": 80,
+    "LeashMinPlayerDistance": 10,
+    "LeashTimer": [
+      10,
+      14
+    ],
+    "Chase": true,
+    "DropList": "Drop_Endgame_Swamp_Crocodile",
+    "MaxSpeed": 5,
+    "Attack": "Root_NPC_Endgame_Swamp_Crocodile_Attack",
+    "AttackDistance": 4.5,
+    "CombatBehaviorDistance": 9,
+    "CombatAlwaysMovingWeight": 800,
+    "RunThreshold": 0.1,
+    "KnockbackScale": 0.15,
+    "ClimbHeight": 2,
+    "MinJumpHeight": 1.5,
+    "AscentAnimationType": "Walk",
+    "ClimbSpeedMult": 1,
+    "ClimbSpeedPow": 1,
+    "ClimbSpeedConst": 4,
+    "DescendSpeedCompensation": 1,
+    "DescendFlatness": 0.9,
+    "DescentSteepness": 0.9,
+    "DescentBlending": 1.5,
+    "TimidDuringDay": false,
+    "AlwaysSleepAtNight": false,
+    "MaxHealth": 900,
+    "IsMemory": true,
+    "MemoriesCategory": "Reptile",
+    "MemoriesNameOverride": "Crocodile",
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Endgame_Swamp_Crocodile.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

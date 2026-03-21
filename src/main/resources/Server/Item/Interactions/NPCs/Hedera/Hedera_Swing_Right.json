@@ -1,0 +1,58 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Default",
+    "ItemAnimationId": "SwingRight",
+    "WorldSoundEventId": "SFX_Unarmed_Swing",
+    "LocalSoundEventId": "SFX_Player_Unarmed_Swing_Right"
+  },
+  "RunTime": 0.111,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.25,
+            "Selector": {
+              "Id": "Horizontal",
+              "Direction": "ToRight",
+              "TestLineOfSight": true,
+              "ExtendTop": 0.5,
+              "ExtendBottom": 2,
+              "StartDistance": 0.1,
+              "EndDistance": 2.8,
+              "Length": 90,
+              "RollOffset": -30,
+              "YawStartOffset": -45,
+              "PitchOffset": -20
+            },
+            "HitEntity": {
+              "Interactions": [
+                {
+                  "Type": "Replace",
+                  "DefaultOk": true,
+                  "DefaultValue": {
+                    "Interactions": [
+                      "Hedera_Swing_Right_Damage"
+                    ]
+                  },
+                  "Var": "Swing_Right_Damage"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0
+          }
+        ]
+      }
+    ]
+  }
+}

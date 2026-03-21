@@ -1,0 +1,51 @@
+{
+  "Environments": [
+    "Env_Zone4_Jungles"
+  ],
+  "NPCs": [
+    {
+      "Weight": 1,
+      "SpawnBlockSet": "Soil",
+      "Id": "Rex_Cave"
+    },
+    {
+      "Weight": 0.5,
+      "SpawnBlockSet": "Soil",
+      "Id": "Alpha_Rex"
+    },
+    {
+      "Weight": 10,
+      "SpawnBlockSet": "Soil",
+      "Id": "Raptor_Cave"
+    },
+    {
+      "Weight": 10,
+      "SpawnBlockSet": "Soil",
+      "Id": "Snapdragon"
+    },
+    {
+      "Weight": 10,
+      "SpawnBlockSet": "Soil",
+      "Id": "Pterodactyl"
+    },
+    {
+      "Weight": 1,
+      "SpawnBlockSet": "Soil",
+      "Id": "Endgame_Saurian_Warrior"
+    },
+    {
+      "Weight": 1,
+      "SpawnBlockSet": "Soil",
+      "Id": "Endgame_Saurian_Hunter"
+    },
+    {
+      "Weight": 1,
+      "SpawnBlockSet": "Soil",
+      "Id": "Endgame_Saurian_Rogue"
+    }
+  ],
+  "DayTimeRange": [
+    6,
+    18
+  ]
+}

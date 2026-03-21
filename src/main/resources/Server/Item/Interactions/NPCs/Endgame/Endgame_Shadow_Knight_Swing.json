@@ -1,0 +1,53 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Goblin_Club",
+    "ItemAnimationId": "SwingDown"
+  },
+  "RunTime": 0.5,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.2,
+            "Selector": {
+              "Id": "Horizontal",
+              "Direction": "ToLeft",
+              "TestLineOfSight": true,
+              "ExtendTop": 1.5,
+              "ExtendBottom": 1.5,
+              "StartDistance": 0.5,
+              "EndDistance": 3.5,
+              "Length": 100,
+              "RollOffset": 45,
+              "YawStartOffset": -50
+            },
+            "HitEntity": {
+              "Interactions": [
+                "Endgame_Shadow_Knight_Melee_Damage"
+              ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "RunTime": 0.583
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0.25,
+            "Effects": {
+              "WorldSoundEventId": "SFX_Golem_Earth_Swing"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

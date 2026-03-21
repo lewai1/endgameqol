@@ -1,0 +1,109 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Weapon_Spear_Crude.name",
+    "Description": "server.items.Weapon_Spear_Crude.description"
+  },
+  "Categories": [
+    "Items.Weapons",
+    "Endgame.Weapons"
+  ],
+  "Quality": "Common",
+  "ItemLevel": 5,
+  "Model": "Items/Weapons/Spear/Crude.blockymodel",
+  "Texture": "Items/Weapons/Spear/Crude_Texture.png",
+  "IconProperties": {
+    "Scale": 0.26,
+    "Translation": [
+      -57,
+      -57
+    ],
+    "Rotation": [
+      45,
+      90,
+      0
+    ]
+  },
+  "Interactions": {
+    "Primary": "Spear_Attack",
+    "Secondary": "Spear_Block"
+  },
+  "InteractionVars": {
+    "Spear_Block_Damage": "Spear_Block_Damage",
+    "Spear_Stab_Effect": {
+      "Interactions": [
+        {
+          "Parent": "Spear_Stab_Effect",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Axe_Special_Swing"
+          }
+        }
+      ]
+    },
+    "Spear_Stab_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Spear_Stab_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 12
+            },
+            "Type": "Absolute"
+          },
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Spear_Impact"
+          }
+        }
+      ]
+    },
+    "Spear_Throw_Charged_Projectile": {
+      "Interactions": [
+        {
+          "Parent": "Spear_Throw_Charged_Projectile",
+          "ProjectileId": "Endgame_Spear_Crude"
+        }
+      ]
+    }
+  },
+  "Icon": "Icons/ItemsGenerated/Weapon_Spear_Crude.png",
+  "DroppedItemAnimation": "Items/Animations/Dropped/Dropped_Diagonal_Left.blockyanim",
+  "PlayerAnimationsId": "Spear",
+  "Tags": {
+    "Type": [
+      "Weapon"
+    ],
+    "Family": [
+      "Spear"
+    ]
+  },
+  "Recipe": {
+    "OutputQuantity": 1,
+    "Input": [
+      {
+        "ResourceTypeId": "Rubble",
+        "Quantity": 3
+      },
+      {
+        "ItemId": "Ingredient_Stick",
+        "Quantity": 3
+      },
+      {
+        "ItemId": "Ingredient_Fibre",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Endgame_Bench",
+        "Type": "Crafting",
+        "Categories": [
+          "Endgame_Spear"
+        ]
+      }
+    ]
+  },
+  "MaxDurability": 80,
+  "DurabilityLossOnHit": 0.21,
+  "BrokenItem": "Weapon_Spear_Crude",
+  "Weapon": {},
+  "ItemSoundSetId": "ISS_Weapons_Wood"
+}

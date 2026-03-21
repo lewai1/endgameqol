@@ -1,0 +1,19 @@
+{
+  "Interactions": [
+    {
+      "Type": "Chaining",
+      "ChainId": "Slashes",
+      "ChainingAllowance": 15,
+      "Next": [
+        "Endgame_Scarak_Fighter_Swipe_Left",
+        "Endgame_Scarak_Fighter_Swipe_Right",
+        "Endgame_Scarak_Fighter_Bite"
+      ]
+    }
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "Type": "StatsCondition",
+  "Costs": {
+    "Mana": 30
+  },
+  "$Comment": "Prepare Delay",
+  "RunTime": 0.162,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Replace",
+            "DefaultValue": {
+              "Interactions": [
+                "Mithril_Staff_Cast_Cost"
+              ]
+            },
+            "Var": "Staff_Cast_Summon_Cost"
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Replace",
+            "DefaultValue": {
+              "Interactions": [
+                "Mithril_Staff_Cast_Launch"
+              ]
+            },
+            "Var": "Staff_Cast_Summon_Launch"
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Replace",
+            "DefaultValue": {
+              "Interactions": [
+                "Staff_Cast_Effect"
+              ]
+            },
+            "Var": "Staff_Cast_Summon_Effect"
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "ModifyInventory",
+            "AdjustHeldItemDurability": -1
+          }
+        ]
+      }
+    ]
+  },
+  "Failed": {
+    "Type": "Replace",
+    "DefaultValue": {
+      "Interactions": [
+        "Staff_Cast_Fail"
+      ]
+    },
+    "Var": "Staff_Cast_Summon_Fail"
+  }
+}

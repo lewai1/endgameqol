@@ -1,0 +1,29 @@
+{
+  "Interactions": [
+    {
+      "Type": "Chaining",
+      "ChainId": "Slashes",
+      "ChainingAllowance": 15,
+      "Next": [
+        "Golem_Void_Swing_Left",
+        "Golem_Void_Swing_Right",
+        "Golem_Void_Slam_Left",
+        "Golem_Void_Slam_Right",
+        "Golem_Void_Ground_Slam",
+        "Golem_Void_Grind",
+        "Golem_Void_Spin",
+        "Golem_Void_Clap",
+        "Golem_Void_Rumble",
+        "Golem_Void_Throw",
+        "Golem_Void_Pound_Double",
+        "Golem_Void_Throw_Double",
+        "Golem_Void_Spin"
+      ]
+    }
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

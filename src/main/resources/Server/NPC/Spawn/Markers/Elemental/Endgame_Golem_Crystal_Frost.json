@@ -1,0 +1,13 @@
+{
+  "Model": "NPC_Spawn_Marker",
+  "NPCs": [
+    {
+      "Name": "Endgame_Golem_Crystal_Frost",
+      "Weight": 100,
+      "SpawnAfterGameTime": "PT1H"
+    }
+  ],
+  "ExclusionRadius": 0,
+  "MaxDropHeight": 8,
+  "DeactivationDistance": 150
+}

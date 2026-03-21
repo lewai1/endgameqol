@@ -1,0 +1,70 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Ingredient_Bar_Prisma.name",
+    "Description": "server.items.Ingredient_Bar_Prisma.description"
+  },
+  "Categories": [
+    "Endgame.Materials"
+  ],
+  "Recipe": {
+    "TimeSeconds": 5,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Mithril",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Bar_Onyxium",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Rock_Gem_Emerald",
+        "Quantity": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Endgame_Bench",
+        "Type": "Crafting",
+        "Categories": [
+          "Endgame_Armor_Prisma"
+        ],
+        "RequiredTierLevel": 5
+      }
+    ]
+  },
+  "Model": "Resources/Materials/Ingot.blockymodel",
+  "Texture": "Resources/Materials/Ingot_Textures/Prisma.png",
+  "Quality": "Legendary",
+  "ItemLevel": 45,
+  "PlayerAnimationsId": "Item",
+  "ResourceTypes": [
+    {
+      "Id": "Metal_Bars"
+    }
+  ],
+  "IconProperties": {
+    "Scale": 1,
+    "Translation": [
+      0,
+      -3
+    ],
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ]
+  },
+  "Icon": "Icons/ItemsGenerated/Ingredient_Bar_Prisma.png",
+  "Tags": {
+    "Type": [
+      "Ingredient"
+    ]
+  },
+  "ItemEntity": {
+    "ParticleSystemId": null
+  },
+  "ItemSoundSetId": "ISS_Items_Ingots",
+  "DropOnDeath": true
+}

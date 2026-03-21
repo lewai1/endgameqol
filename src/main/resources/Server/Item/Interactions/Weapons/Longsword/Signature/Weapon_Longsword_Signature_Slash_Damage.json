@@ -1,0 +1,41 @@
+{
+  "Parent": "DamageEntityParent",
+  "DamageCalculator": {
+    "Type": "Absolute",
+    "BaseDamage": {
+      "Physical": 40
+    },
+    "RandomPercentageModifier": 0.15
+  },
+  "Effects": {
+    "CameraEffect": "Impact"
+  },
+  "DamageEffects": {
+    "Knockback": {
+      "Type": "Force",
+      "VelocityConfig": {
+        "AirResistance": 0.99,
+        "AirResistanceMax": 0.98,
+        "GroundResistance": 0.94,
+        "GroundResistanceMax": 0.3,
+        "Threshold": 3.0,
+        "Style": "Linear"
+      },
+      "Force": 6,
+      "VelocityType": "Set",
+      "Direction": {
+        "X": 0,
+        "Y": 1,
+        "Z": -2
+      }
+    },
+    "WorldParticles": [
+      {
+        "SystemId": "Impact_Sword_Signature"
+      }
+    ],
+    "WorldSoundEventId": "SFX_Sword_T2_Signature_Part_1",
+    "CameraEffect": "Impact_Light"
+  },
+  "EntityStatsOnHit": []
+}

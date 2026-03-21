@@ -1,0 +1,45 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Endgame_Accessory_Void_Amulet.name",
+    "Description": "server.items.Endgame_Accessory_Void_Amulet.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Void_Amulet_Icon.png",
+  "Categories": [
+    "Endgame.Accessories"
+  ],
+  "PlayerAnimationsId": "Item",
+  "BlockType": {
+    "Material": "Empty",
+    "DrawType": "Model",
+    "CustomModel": "Items/Accessories/Void_Amulet.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Accessories/Void_Amulet_Texture.png",
+        "Weight": 1
+      }
+    ]
+  },
+  "IconProperties": {
+    "Scale": 1.4,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0.0,
+      -3.0
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Accessory"
+    ],
+    "Family": [
+      "Endgame"
+    ]
+  },
+  "Quality": "Legendary",
+  "MaxStack": 1,
+  "DropOnDeath": true
+}

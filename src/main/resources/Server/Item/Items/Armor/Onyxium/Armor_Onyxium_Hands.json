@@ -1,0 +1,112 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Armor_Onyxium_Hands.name",
+    "Description": "server.items.Armor_Onyxium_Hands.description"
+  },
+  "Parent": "Armor_Iron_Hands",
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Onyxium",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "Ingredient_Leather_Storm",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Voidheart",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Endgame_Bench",
+        "Type": "Crafting",
+        "Categories": [
+          "Endgame_Armor_Onyxium"
+        ],
+        "RequiredTierLevel": 4
+      }
+    ],
+    "KnowledgeRequired": false,
+    "TimeSeconds": 4
+  },
+  "Quality": "Epic",
+  "ItemLevel": 55,
+  "Icon": "Icons/ItemsGenerated/Armor_Onyxium_Hands.png",
+  "IconProperties": {
+    "Scale": 0.6,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0,
+      -4.8
+    ]
+  },
+  "Model": "Items/Armors/Onyxium/Hands.blockymodel",
+  "Texture": "Items/Armors/Onyxium/Hands_Texture.png",
+  "Armor": {
+    "ArmorSlot": "Hands",
+    "BaseDamageResistance": 0,
+    "DamageResistance": {
+      "Physical": [
+        {
+          "Amount": 0.1,
+          "CalculationType": "Multiplicative"
+        }
+      ],
+      "Projectile": [
+        {
+          "Amount": 0.1,
+          "CalculationType": "Multiplicative"
+        }
+      ],
+      "Fire": [
+        {
+          "Amount": 0.06,
+          "CalculationType": "Multiplicative"
+        }
+      ]
+    },
+    "StatModifiers": {
+      "Health": [
+        {
+          "Amount": 17,
+          "CalculationType": "Additive"
+        }
+      ],
+      "Mana": [
+        {
+          "Amount": 10,
+          "CalculationType": "Additive"
+        }
+      ]
+    },
+    "DamageClassEnhancement": {
+      "Signature": [
+        {
+          "Amount": 0.04,
+          "CalculationType": "Multiplicative"
+        }
+      ]
+    }
+  },
+  "Tags": {
+    "Type": [
+      "Armor"
+    ],
+    "Family": [
+      "Onyxium"
+    ]
+  },
+  "MaxDurability": 300,
+  "ItemSoundSetId": "ISS_Armor_Heavy",
+  "Categories": [
+    "Items.Armors",
+    "Endgame.Armor"
+  ]
+}

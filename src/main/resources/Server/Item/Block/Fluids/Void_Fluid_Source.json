@@ -1,0 +1,25 @@
+{
+  "MaxFluidLevel": 1,
+  "Effect": [
+    "Lava"
+  ],
+  "Opacity": "Transparent",
+  "Textures": [
+    {
+      "Weight": 1,
+      "All": "BlockTextures/Void_Fluid.png"
+    }
+  ],
+  "FluidFXId": "Lava",
+  "Light": {
+    "Color": "#609",
+    "Radius": 0
+  },
+  "ParticleColor": "#7030d0",
+  "BlockParticleSetId": "Water",
+  "BlockSoundSetId": "Mud",
+  "Ticker": {
+    "CanDemote": false,
+    "SpreadFluid": "Void_Fluid"
+  }
+}

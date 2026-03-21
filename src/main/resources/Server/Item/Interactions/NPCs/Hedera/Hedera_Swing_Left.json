@@ -1,0 +1,77 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Hedera_Default",
+    "ItemAnimationId": "ScratchLeft",
+    "WorldSoundEventId": "SFX_Unarmed_Swing",
+    "LocalSoundEventId": "SFX_Player_Unarmed_Swing_Left"
+  },
+  "RunTime": 0.83,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.25,
+            "Selector": {
+              "Id": "Horizontal",
+              "Direction": "ToLeft",
+              "TestLineOfSight": true,
+              "ExtendTop": 0.5,
+              "ExtendBottom": 2,
+              "StartDistance": 0.1,
+              "EndDistance": 2.8,
+              "Length": 90,
+              "RollOffset": 30,
+              "YawStartOffset": -45,
+              "PitchOffset": -20
+            },
+            "HitEntity": {
+              "Interactions": [
+                {
+                  "Type": "Replace",
+                  "DefaultOk": true,
+                  "DefaultValue": {
+                    "Interactions": [
+                      "Hedera_Swing_Left_Damage"
+                    ]
+                  },
+                  "Var": "Swing_Left_Damage"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+           {
+            "Type": "Simple",
+            "RunTime": 0.5,
+            "Effects": {
+              "Trails": [
+                {
+                  "TrailId": "Bear_Claw",
+                  "TargetNodeName": "R-Hand",
+                  "TargetEntityPart": "Entity",
+                  "RotationOffset": {
+                    "Yaw": 0,
+                    "Pitch": 0,
+                    "Roll": 90
+                  },
+                  "PositionOffset": {
+                    "X": 0,
+                    "Y": -0.1,
+                    "Z": 0.25
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

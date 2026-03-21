@@ -1,0 +1,121 @@
+{
+    "Type": "Variant",
+    "Reference": "Template_Predator",
+    "Modify": {
+        "Appearance": "Alpha_Rex",
+        "AttitudeGroup": "PredatorsBig",
+        "WanderRadius": 25,
+        "ViewRange": 15,
+        "FleeRange": 15,
+        "HearingRange": 20,
+        "DropList": "Drop_Alpha_Rex",
+        "MaxSpeed": 9,
+        "Attack": "Root_NPC_Attack_Melee",
+        "AttackDistance": 4.8,
+        "CombatBehaviorDistance": 9.6,
+        "CombatAlwaysMovingWeight": 1000,
+        "RunThreshold": 0.1,
+        "KnockbackScale": 0.1,
+        "ClimbHeight": 2,
+        "MinJumpHeight": 1.5,
+        "AscentAnimationType": "Walk",
+        "ClimbSpeedMult": 1,
+        "ClimbSpeedPow": 1,
+        "ClimbSpeedConst": 5,
+        "DescendSpeedCompensation": 1,
+        "DescendFlatness": 0.9,
+        "DescentSteepness": 0.9,
+        "DescentBlending": 1.5,
+        "LeashDistance": 60,
+        "HardLeashDistance": 100,
+        "LeashMinPlayerDistance": 15,
+        "LeashTimer": [
+            12,
+            16
+        ],
+        "AlwaysSleepAtNight": false,
+        "MaxHealth": 700,
+        "DeathAnimationTime": 2.0,
+        "DropDeathItemsInstantly": false,
+        "DeathParticles": "Explosion_Big",
+        "IsMemory": true,
+        "MemoriesCategory": "Reptile",
+        "MemoriesNameOverride": "Rex_Cave",
+        "_InteractionVars": {
+            "Melee_Start": {
+                "Interactions": [
+                    {
+                        "Parent": "NPC_Attack_Melee_Simple",
+                        "$Comment": "Sets animations and delay before hit",
+                        "Effects": {
+                            "ItemPlayerAnimationsId": "Hyena_Default",
+                            "ItemAnimationId": "Bite",
+                            "WorldSoundEventId": "SFX_Rex_Bite"
+                        },
+                        "RunTime": 0.333
+                    }
+                ]
+            },
+            "Melee_Damage": {
+                "Interactions": [
+                    {
+                        "Parent": "NPC_Attack_Melee_Damage",
+                        "$Comment": "Sets damage and onhit effects",
+                        "DamageCalculator": {
+                            "Type": "Absolute",
+                            "BaseDamage": {
+                                "Physical": 80
+                            },
+                            "RandomPercentageModifier": 0.1
+                        },
+                        "Effects": {
+                            "WorldSoundEventId": "SFX_Bone_Hit"
+                        },
+                        "DamageEffects": {
+                            "Knockback": {
+                                "Force": 0.3,
+                                "RelativeX": 0,
+                                "RelativeZ": -3,
+                                "VelocityY": 10,
+                                "VelocityType": "Set"
+                            }
+                        }
+                    }
+                ]
+            },
+            "Melee_Selector": {
+                "Interactions": [
+                    {
+                        "Parent": "NPC_Attack_Selector_Left",
+                        "$Comment": "Sets Hit shape and padding to allow effect to play and wait till animation is over",
+                        "RunTime": 0.152,
+                        "Selector": {
+                            "Id": "Stab",
+                            "TestLineOfSight": true,
+                            "ExtendTop": 1.6,
+                            "ExtendBottom": 4.8,
+                            "ExtendLeft": 1.6,
+                            "ExtendRight": 1.6,
+                            "StartDistance": 1.6,
+                            "EndDistance": 8
+                        },
+                        "Next": {
+                            "Type": "Simple",
+                            "$Comment": "Pad the interaction length",
+                            "RunTime": 0.13
+                        }
+                    }
+                ]
+            }
+        },
+        "NameTranslationKey": {
+            "Compute": "NameTranslationKey"
+        }
+    },
+    "Parameters": {
+        "NameTranslationKey": {
+            "Value": "server.npcRoles.Rex_Cave.name",
+            "Description": "Translation key for NPC name display"
+        }
+    }
+}

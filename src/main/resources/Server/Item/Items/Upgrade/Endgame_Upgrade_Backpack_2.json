@@ -1,0 +1,89 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Endgame_Upgrade_Backpack_2.name",
+    "Description": "server.items.Endgame_Upgrade_Backpack_2.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Endgame_Recipe.png",
+  "Quality": "Rare",
+  "MaxStack": 1,
+  "ItemLevel": 98,
+  "Categories": [
+    "Endgame.Misc"
+  ],
+  "Recipe": {
+    "TimeSeconds": 2,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Voidheart",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Bar_Mithril",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Big_Rex_Cave_Leather",
+        "Quantity": 10
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Endgame_Bench",
+        "Type": "Crafting",
+        "Categories": [
+          "Endgame_Misc"
+        ],
+        "RequiredTierLevel": 4
+      }
+    ],
+    "RequiredMemoriesLevel": 5
+  },
+  "PlayerAnimationsId": "Item",
+  "Model": "Items/Consumables/Recipes/Endgame_Recipe.blockymodel",
+  "Texture": "Items/Consumables/Recipes/Endgame_Recipe_Texture.png",
+  "IconProperties": {
+    "Scale": 0.76,
+    "Translation": [
+      -0.895,
+      -1.11
+    ],
+    "Rotation": [
+      33.92,
+      68.795,
+      40.67
+    ]
+  },
+  "Consumable": true,
+  "Interactions": {
+    "Primary": {
+      "Interactions": [
+        {
+          "Type": "CheckUniqueItemUsage",
+          "Next": {
+            "Type": "IncreaseBackpackCapacity",
+            "Capacity": 9
+          }
+        }
+      ]
+    },
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "CheckUniqueItemUsage",
+          "Next": {
+            "Type": "IncreaseBackpackCapacity",
+            "Capacity": 9
+          }
+        }
+      ]
+    }
+  },
+  "Tags": {
+    "Family": [
+      "Backpack"
+    ],
+    "Type": [
+      "Upgrade"
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Furniture_Human_Ruins_Door_Large.name"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Furniture.Doors"
+  ],
+  "Set": "Furniture_Temple_Earth",
+  "Interactions": {
+    "Primary": "Block_Primary",
+    "Secondary": "Block_Secondary"
+  },
+  "IconProperties": {
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Scale": 0.45,
+    "Translation": [
+      -10.8,
+      -61.71
+    ]
+  },
+  "BlockType": {
+    "BlockParticleSetId": "Wood",
+    "CustomModel": "Blocks/Decorative_Sets/Human_Ruins/Door_Large.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Swamp_Dungeon/Swamp_Dungeon_Door_Texture.png"
+      }
+    ],
+    "DrawType": "Model",
+    "Particles": [
+      {
+        "SystemId": "Block_Gem_Sparks",
+        "Color": "#4ade80",
+        "PositionOffset": {
+          "Y": 2,
+          "X": 0.5
+        }
+      },
+      {
+        "SystemId": "Block_Gem_Sparks",
+        "Color": "#4ade80",
+        "PositionOffset": {
+          "Y": 4,
+          "X": 0.5
+        }
+      }
+    ],
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Woods"
+      }
+    },
+    "HitboxType": "Door_Large",
+    "Material": "Solid",
+    "State": {
+      "Definitions": {
+        "CloseDoorIn": {
+          "InteractionSoundEventId": "SFX_Door_Temple_Light_Close",
+          "CustomModelAnimation": "Blocks/Animations/Door/Door_Close_In.blockyanim"
+        },
+        "CloseDoorOut": {
+          "InteractionSoundEventId": "SFX_Door_Temple_Light_Close",
+          "CustomModelAnimation": "Blocks/Animations/Door/Door_Close_Out.blockyanim"
+        },
+        "DoorBlocked": {},
+        "OpenDoorIn": {
+          "HitboxType": "Door_Large_Open_In",
+          "InteractionHitboxType": "Door_Large_Open_In_Interaction",
+          "InteractionSoundEventId": "SFX_Door_Temple_Light_Open",
+          "CustomModelAnimation": "Blocks/Animations/Door/Door_Open_In.blockyanim"
+        },
+        "OpenDoorOut": {
+          "HitboxType": "Door_Large_Open_Out",
+          "InteractionHitboxType": "Door_Large_Open_Out_Interaction",
+          "InteractionSoundEventId": "SFX_Door_Temple_Light_Open",
+          "CustomModelAnimation": "Blocks/Animations/Door/Door_Open_Out.blockyanim"
+        }
+      }
+    },
+    "VariantRotation": "NESW",
+    "ParticleColor": "#694b29",
+    "BlockSoundSetId": "Stone",
+    "IsDoor": true,
+    "Flags": {
+      "IsUsable": true
+    },
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "Unlock",
+            "KeyItemId": "Hedera_Key",
+            "UnlockDelayInSeconds": 1.2,
+            "UnlockedBlockId": "Swamp_Dungeon_Door_Unlocked",
+            "UnlockSfxId": "SFX_DoorUnlock_Standard"
+          }
+        ]
+      }
+    }
+  },
+  "Scale": 0.5,
+  "Icon": "Icons/ItemsGenerated/Furniture_Human_Ruins_Door_Large.png",
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ],
+    "Family": [
+      "Human"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Wood"
+}

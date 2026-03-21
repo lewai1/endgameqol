@@ -1,0 +1,46 @@
+{
+  "Type": "Selector",
+  "RunTime": 0.25,
+  "Selector": {
+    "Id": "Horizontal",
+    "Direction": "ToLeft",
+    "TestLineOfSight": true,
+    "ExtendTop": 1.0,
+    "ExtendBottom": 1.0,
+    "StartDistance": 0.1,
+    "EndDistance": 3.5,
+    "Length": 180,
+    "YawStartOffset": 0
+  },
+  "Effects": {
+    "ItemAnimationId": "SwingLeftCharged",
+    "Trails": [
+      {
+        "TargetEntityPart": "PrimaryItem",
+        "TargetNodeName": "Handle",
+        "TrailId": "Medium_Signature",
+        "PositionOffset": { "X": 0.8 },
+        "RotationOffset": { "Roll": 90.0 }
+      }
+    ],
+    "CameraEffect": "Sword_Spin"
+  },
+  "Next": {
+    "Type": "Simple",
+    "RunTime": 0.1
+  },
+  "HitEntity": {
+    "Interactions": [
+      {
+        "Type": "Replace",
+        "Var": "Longsword_Signature_Slash_Damage",
+        "DefaultOk": true,
+        "DefaultValue": {
+          "Interactions": [
+            "Weapon_Longsword_Signature_Slash_Damage"
+          ]
+        }
+      }
+    ]
+  }
+}

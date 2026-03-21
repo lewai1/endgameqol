@@ -1,0 +1,39 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Rat_Default",
+    "ItemAnimationId": "Bite"
+  },
+  "$Comment": "Prepare Delay",
+  "RunTime": 0.117,
+  "Next": {
+    "Type": "Selector",
+    "Effects": {
+      "WorldSoundEventId": "SFX_Unarmed_Swing"
+    },
+    "$Comment": "Length of Combat",
+    "RunTime": 0.133,
+    "Selector": {
+      "Id": "Horizontal",
+      "Direction": "ToLeft",
+      "TestLineOfSight": true,
+      "ExtendTop": 0.5,
+      "ExtendBottom": 0.5,
+      "StartDistance": 0.5,
+      "EndDistance": 2,
+      "Length": 30,
+      "RollOffset": 90,
+      "YawStartOffset": -15
+    },
+    "HitEntity": {
+      "Interactions": [
+        "Endgame_Rat_Frost_Bite_Damage"
+      ]
+    },
+    "Next": {
+      "Type": "Simple",
+      "$Comment": "Pad the interaction length",
+      "RunTime": 0.167
+    }
+  }
+}

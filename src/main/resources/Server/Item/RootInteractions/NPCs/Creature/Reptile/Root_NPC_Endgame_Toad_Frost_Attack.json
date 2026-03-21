@@ -1,0 +1,18 @@
+{
+  "Interactions": [
+    {
+      "Type": "Chaining",
+      "ChainId": "Attacks",
+      "ChainingAllowance": 5,
+      "Next": [
+        "Endgame_Toad_Frost_Tongue",
+        "Endgame_Toad_Frost_Headbutt"
+      ]
+    }
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

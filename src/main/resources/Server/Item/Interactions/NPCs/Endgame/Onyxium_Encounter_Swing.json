@@ -1,0 +1,52 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemAnimationId": "SwingLeft"
+  },
+  "RunTime": 0.4,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.2,
+            "Selector": {
+              "Id": "Horizontal",
+              "Direction": "ToLeft",
+              "TestLineOfSight": true,
+              "ExtendTop": 1.5,
+              "ExtendBottom": 1.5,
+              "StartDistance": 0.5,
+              "EndDistance": 3,
+              "Length": 100,
+              "RollOffset": 45,
+              "YawStartOffset": -50
+            },
+            "HitEntity": {
+              "Interactions": [
+                "Onyxium_Encounter_Melee_Damage"
+              ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "RunTime": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0.25,
+            "Effects": {
+              "WorldSoundEventId": "SFX_Sword_T2_Swing"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

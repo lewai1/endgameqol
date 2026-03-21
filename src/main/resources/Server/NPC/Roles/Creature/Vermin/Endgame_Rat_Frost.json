@@ -1,0 +1,43 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Predator",
+  "Modify": {
+    "DropList": "Drop_Endgame_Rat_Frost",
+    "Appearance": "Endgame_Rat_Frost",
+    "AttitudeGroup": "Vermin",
+    "MaxHealth": 35,
+    "MaxSpeed": 7,
+    "WanderRadius": 15,
+    "ViewRange": 10,
+    "HearingRange": 12,
+    "AlertedRange": 14,
+    "AlertedTime": [1, 2],
+    "FleeIfNotThreatened": false,
+    "FleeRange": 12,
+    "HardLeashDistance": 60,
+    "LeashDistance": 30,
+    "CombatBehaviorDistance": 3,
+    "CombatBackOffAfterAttack": false,
+    "Attack": "Root_NPC_Endgame_Rat_Frost_Attack",
+    "AttackDistance": 2,
+    "ChaseRelativeSpeed": 0.7,
+    "CombatMovingRelativeSpeed": 0.65,
+    "AlwaysSleepAtNight": false,
+    "DayTimeNapWeight": 0,
+    "TimidDuringDay": false,
+    "DayFlavorAnimation": "IdlePassive",
+    "NightFlavorAnimation": "IdlePassive",
+    "IsMemory": true,
+    "MemoriesCategory": "Critter",
+    "MemoriesNameOverride": "Rat",
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Endgame_Rat_Frost.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Golem_Void_Default",
+    "ItemAnimationId": "Grind",
+    "Particles": [
+      {
+        "SystemId": "Golem_Void_Attack",
+        "TargetEntityPart": "Entity"
+      },
+      {
+        "SystemId": "Golem_Void_Telegraph",
+        "DetachedFromModel": true,
+        "TargetEntityPart": "Entity",
+        "PositionOffset": { "Y": -2.0 },
+        "Scale": 3
+      }
+    ]
+  },
+  "RunTime": 0.6,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 1.8,
+            "Selector": {
+              "Id": "Horizontal",
+              "Direction": "ToLeft",
+              "TestLineOfSight": true,
+              "ExtendTop": 2,
+              "ExtendBottom": 10,
+              "StartDistance": 0.5,
+              "EndDistance": 5,
+              "Length": 360,
+              "RollOffset": 0,
+              "YawStartOffset": 0
+            },
+            "HitEntity": {
+              "Interactions": [
+                "NPC_Attack_Golem_Void_Damage"
+              ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "RunTime": 0.8
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0.3,
+            "Effects": {
+              "WorldSoundEventId": "SFX_Golem_Sand_Swing"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

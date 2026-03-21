@@ -1,0 +1,11 @@
+{
+  "Duration": 2,
+  "OverlapBehavior": "Overwrite",
+  "Debuff": true,
+  "StatusEffectIcon": "UI/Icons/Effects/Icon_Slow.png",
+  "ApplicationEffects": {
+    "HorizontalSpeedMultiplier": 0,
+    "EntityBottomTint": "#1a4a1a",
+    "EntityTopTint": "#2d7a2d"
+  }
+}

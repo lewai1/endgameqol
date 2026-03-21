@@ -1,0 +1,15 @@
+{
+  "Entries": [
+    {
+      "Name": "Furniture_Dungeon_Chest_Epic",
+      "Weight": 100,
+      "Components": {
+        "Components": {
+          "ItemContainerBlock": {
+            "Droplist": "Endgame_Container_Swamp_Epic"
+          }
+        }
+      }
+    }
+  ]
+}

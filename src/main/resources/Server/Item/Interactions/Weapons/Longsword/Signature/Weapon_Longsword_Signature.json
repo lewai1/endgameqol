@@ -1,0 +1,48 @@
+{
+  "Type": "StatsCondition",
+  "Costs": {
+    "SignatureEnergy": 100
+  },
+  "ValueType": "Percent",
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "Replace",
+        "Var": "Longsword_Signature_Slash",
+        "DefaultOk": true,
+        "DefaultValue": {
+          "Interactions": [
+            "Weapon_Longsword_Signature_Slash"
+          ]
+        }
+      },
+      {
+        "Type": "Replace",
+        "Var": "Longsword_Signature_Slam",
+        "DefaultOk": true,
+        "DefaultValue": {
+          "Interactions": [
+            "Weapon_Longsword_Signature_Slam"
+          ]
+        }
+      },
+      {
+        "Type": "Replace",
+        "Var": "Longsword_Signature_Cost",
+        "DefaultOk": true,
+        "DefaultValue": {
+          "Interactions": [
+            {
+              "Type": "ChangeStat",
+              "ValueType": "Percent",
+              "StatModifiers": {
+                "SignatureEnergy": -100
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

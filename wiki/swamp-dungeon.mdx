@@ -1,0 +1,106 @@
+---
+title: Swamp Dungeon
+description: Poison swamp dungeon with locked doors, tiered chest loot, and the Hedera boss.
+authors:
+    - name: "Lewai"
+---
+
+# Swamp Dungeon
+
+Poison swamp with locked doors, tiered chest loot, and the Hedera boss.
+
+## Overview
+
+| Key      | Value                                        |
+|----------|----------------------------------------------|
+| Key      | **Hedera Key** — crafted at Hedera Autel     |
+| Boss     | **Hedera** — 1800 HP                         |
+| Currency | **Swamp Currency**                           |
+| Trader   | **Morghul**                                  |
+
+![Swamp Dungeon Map {600x0}](Docs/Images/SwampDungeonMap.png)
+
+## Hedera Key Recipe
+
+The **Hedera Key** is crafted exclusively at the **Hedera Autel**, a special bench found in the swamp biome. Gather all five materials before approaching.
+
+| Material         | Qty | Source                      |
+|------------------|:---:|:----------------------------|
+| Hedera's Bramble |  1  | Bramble Elite drop          |
+| Swamp Gem        |  1  | Swamp biome mining          |
+| Swamp Ingot      |  1  | Smelted from Swamp Ore      |
+| Crocodile Scale  |  1  | Swamp Crocodile drop        |
+| Infused Rope     |  1  | Crafted (Rope + Swamp Gem)  |
+
+## Enemies
+
+| Enemy           |  HP  | Damage                         | Notes                            |
+|-----------------|:----:|--------------------------------|----------------------------------|
+| Grooble         | 250  | 10 Physical                    | Common swamp creature            |
+| Fen Stalker     | 200  | 29 Physical                    | Ambush predator                  |
+| Spirit Root     | 200  | Nature                         | Elemental                        |
+| Swamp Crocodile | 900  | Physical                       | Elite. Drops Crocodile Scale.    |
+| Bramble Elite   | 550  | 90 Bite + 70 Swipe + Poison    | Mini-boss. Drops Hedera's Bramble. |
+
+## Morghul — Swamp Trader
+
+| Item                  | Qty | Price (Swamp Currency) | Stock |
+|-----------------------|:---:|:----------------------:|:-----:|
+| Swamp Ingot           |  1  |           6            |  99   |
+| Hedera Daggers        |  1  |          40            |   1   |
+| Onyxium Chest Armor   |  1  |          20            |   3   |
+| Onyxium Head Armor    |  1  |          15            |   3   |
+| Onyxium Hatchet       |  1  |          15            |   3   |
+| Antidote              | x5  |           2            |  99   |
+| Greater Health Potion | x3  |           3            |  99   |
+| Forest Essence        | x3  |           8            |   5   |
+
+> [!NOTE]
+> Morghul restocks daily. Swamp Ingots restock to 99 per cycle. Limited items (gear, weapons) have restricted stock.
+
+## New Items
+
+| Item             | Type         | Source                                       |
+|------------------|--------------|----------------------------------------------|
+| Swamp Ingot      | Material     | Smelted from Swamp Ore, or buy from Morghul  |
+| Hedera's Bramble | Key Material | Bramble Elite drop (guaranteed)              |
+| Hedera Key       | Dungeon Key  | Crafted at Hedera Autel                      |
+| Swamp Gem        | Material     | Swamp biome mining                           |
+| Crocodile Scale  | Material     | Swamp Crocodile drop (guaranteed)            |
+| Swamp Currency   | Currency     | Dungeon mob drops                            |
+| Infused Rope     | Material     | Crafted (Rope + Swamp Gem)                   |
+
+## Boss — Hedera
+
+| Stat           | Value                                                                                  |
+|----------------|----------------------------------------------------------------------------------------|
+| Health         | **1800 HP**                                                                            |
+| Phases         | 3 phases (Poison / Roots / Scream)                                                     |
+| Player Scaling | 50% per additional player                                                              |
+| Attacks        | Poison clouds, root entanglement, scream knockback                                     |
+| Drops          | **Hedera Gem** + **Onyxium Bars** (3-7) + **Forest Essence** (10-15) + **Voidheart**  |
+
+Bring antidotes for the poison phases. The root phase locks you in place — dodge the visual telegraph before roots spawn.
+
+[View full boss guide](bosses)
+
+## Chest Loot Tiers
+
+### Common
+
+Potions, arrows, torches, food. Found in early rooms near the dungeon entrance.
+
+### Rare
+
+Swamp Ingots, Swamp Gems, Onyxium Ore. Found in mid-dungeon combat rooms.
+
+### Epic
+
+Onyxium Bars, rare materials, enchanted gear. Found in late-dungeon locked rooms.
+
+### Hidden
+
+Secret chests behind breakable walls and underwater passages. Unique loot and bonus Swamp Currency.
+
+> [!WARNING]
+> **Block Protection:** Building is restricted inside the dungeon instance. Players cannot break or place blocks, preventing sequence-breaking. Toggle: `EnableDungeonBlockProtection`

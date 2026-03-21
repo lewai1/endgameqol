@@ -1,0 +1,15 @@
+{
+  "Continue": true,
+  "Sensor": {
+    "Type": "Any",
+    "Once": true
+  },
+  "Actions": [
+    {
+      "Type": "Inventory",
+      "Operation": "EquipHotbar",
+      "UseTarget": false,
+      "Slot": 0
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "documentations": [
+    {
+      "group": "Config",
+      "id": "EndgameQoL",
+      "name": "Endgame & QoL",
+      "enabled": true,
+      "sortIndex": 100,
+      "topics": [
+        {
+          "file": "index.md",
+          "subTopics": [
+            { "file": "quick-start.md" },
+            { "file": "progression.md" }
+          ]
+        },
+        {
+          "file": "bosses.md",
+          "subTopics": [
+            { "file": "frozen-dungeon.md" },
+            { "file": "swamp-dungeon.md" },
+            { "file": "warden-trial.md" }
+          ]
+        },
+        {
+          "file": "weapons.md",
+          "subTopics": [
+            { "file": "armor-tools.md" },
+            { "file": "accessories.md" }
+          ]
+        },
+        {
+          "file": "crafting.md",
+          "subTopics": [
+            { "file": "materials.md" }
+          ]
+        },
+        {
+          "file": "npcs.md",
+          "subTopics": [
+            { "file": "bestiary-page.md" }
+          ]
+        },
+        {
+          "file": "bounty-system.md",
+          "subTopics": [
+            { "file": "achievements.md" },
+            { "file": "combo-meter.md" }
+          ]
+        },
+        {
+          "file": "commands.md",
+          "subTopics": [
+            { "file": "configuration.md" },
+            { "file": "database.md" }
+          ]
+        },
+        {
+          "file": "getting-started.md"
+        }
+      ]
+    }
+  ]
+}

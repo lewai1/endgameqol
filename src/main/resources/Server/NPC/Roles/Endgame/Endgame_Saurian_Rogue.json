@@ -1,0 +1,23 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Predator",
+  "Modify": {
+    "Appearance": "Endgame_Saurian_Rogue",
+    "WanderRadius": 10,
+    "ViewRange": 15,
+    "HearingRange": 10,
+    "DropList": "Drop_Endgame_Saurian",
+    "MaxSpeed": 10,
+    "Attack": "Root_NPC_Endgame_Saurian_Rogue_Attack",
+    "AlwaysSleepAtNight": false,
+    "MaxHealth": 150,
+    "IsMemory": false,
+    "NameTranslationKey": { "Compute": "NameTranslationKey" }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Endgame_Saurian_Rogue.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "Animations": {
+    "SwingLeft": {
+      "ThirdPerson": "NPC/Golem_Void/Animations/Attacks/Swing_Left.blockyanim",
+      "ThirdPersonMoving": "NPC/Golem_Void/Animations/Attacks/Swing_Left_Moving.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.3,
+      "Looping": false
+    },
+    "SwingRight": {
+      "ThirdPerson": "NPC/Golem_Void/Animations/Attacks/Swing_Right.blockyanim",
+      "ThirdPersonMoving": "NPC/Golem_Void/Animations/Attacks/Swing_Right_Moving.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.3,
+      "Looping": false
+    },
+    "GroundSlam": {
+      "ThirdPerson": "NPC/Golem_Void/Animations/Attacks/Ground_Slam.blockyanim",
+      "ThirdPersonMoving": "NPC/Golem_Void/Animations/Attacks/Ground_Slam_Moving.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.3,
+      "Looping": false
+    },
+    "Spin": {
+      "ThirdPerson": "NPC/Golem_Void/Animations/Attacks/Spin.blockyanim",
+      "ThirdPersonMoving": "NPC/Golem_Void/Animations/Attacks/Spin.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.3,
+      "Looping": false
+    },
+    "Clap": {
+      "ThirdPerson": "NPC/Golem_Void/Animations/Attacks/Clap.blockyanim",
+      "ThirdPersonMoving": "NPC/Golem_Void/Animations/Attacks/Clap_Moving.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.3,
+      "Looping": false
+    },
+    "PoundDouble": {
+      "ThirdPerson": "NPC/Golem_Void/Animations/Attacks/Pound_Double.blockyanim",
+      "ThirdPersonMoving": "NPC/Golem_Void/Animations/Attacks/Pound_Double_Moving.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.3,
+      "Looping": false
+    },
+    "SlamLeft": {
+      "ThirdPerson": "NPC/Golem_Void/Animations/Attacks/Slam_Left.blockyanim",
+      "ThirdPersonMoving": "NPC/Golem_Void/Animations/Attacks/Slam_Left_Moving.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.3,
+      "Looping": false
+    },
+    "SlamRight": {
+      "ThirdPerson": "NPC/Golem_Void/Animations/Attacks/Slam_Right.blockyanim",
+      "ThirdPersonMoving": "NPC/Golem_Void/Animations/Attacks/Slam_Right_Moving.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.3,
+      "Looping": false
+    },
+    "Grind": {
+      "ThirdPerson": "NPC/Golem_Void/Animations/Attacks/Grind.blockyanim",
+      "ThirdPersonMoving": "NPC/Golem_Void/Animations/Attacks/Grind.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.3,
+      "Looping": false
+    },
+    "Rumble": {
+      "ThirdPerson": "NPC/Golem_Void/Animations/Attacks/Rumble.blockyanim",
+      "ThirdPersonMoving": "NPC/Golem_Void/Animations/Attacks/Rumble.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.3,
+      "Looping": false
+    },
+    "Throw": {
+      "ThirdPerson": "NPC/Golem_Void/Animations/Attacks/Throw.blockyanim",
+      "ThirdPersonMoving": "NPC/Golem_Void/Animations/Attacks/Throw_Moving.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.3,
+      "Looping": false
+    },
+    "ThrowDouble": {
+      "ThirdPerson": "NPC/Golem_Void/Animations/Attacks/Throw_Double.blockyanim",
+      "ThirdPersonMoving": "NPC/Golem_Void/Animations/Attacks/Throw_Double_Moving.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.3,
+      "Looping": false
+    }
+  },
+  "Camera": {
+    "Pitch": {
+      "AngleRange": {
+        "Max": 45,
+        "Min": -45
+      },
+      "TargetNodes": [
+        "Head"
+      ]
+    },
+    "Yaw": {
+      "AngleRange": {
+        "Max": 45,
+        "Min": -45
+      },
+      "TargetNodes": [
+        "Head"
+      ]
+    }
+  },
+  "WiggleWeights": {
+    "Pitch": 2,
+    "PitchDeceleration": 0.1,
+    "Roll": 0.1,
+    "RollDeceleration": 0.1,
+    "X": 3,
+    "XDeceleration": 0.1,
+    "Y": 0.1,
+    "YDeceleration": 0.1,
+    "Z": 0.1,
+    "ZDeceleration": 0.1
+  }
+}

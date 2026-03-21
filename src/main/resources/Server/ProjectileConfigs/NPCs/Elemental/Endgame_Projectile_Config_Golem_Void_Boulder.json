@@ -1,0 +1,87 @@
+{
+  "Model": "Rubble_Stone",
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 15,
+    "TerminalVelocityAir": 50,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "VelocityDamped",
+    "SticksVertically": false
+  },
+  "LaunchForce": 35,
+  "SpawnOffset": {
+    "X": 0,
+    "Y": 3.0,
+    "Z": 1.0
+  },
+  "Interactions": {
+    "ProjectileHit": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "DamageEntity",
+          "DamageCalculator": {
+            "Type": "Absolute",
+            "BaseDamage": {
+              "Physical": 120
+            },
+            "RandomPercentageModifier": 0.15
+          },
+          "DamageEffects": {
+            "Knockback": {
+              "Type": "Point",
+              "VelocityConfig": {
+                "AirResistance": 0.97,
+                "AirResistanceMax": 0.96,
+                "GroundResistance": 0.94,
+                "GroundResistanceMax": 0.3,
+                "Threshold": 3.0
+              },
+              "Force": 10,
+              "VelocityType": "Set"
+            },
+            "WorldParticles": [
+              {
+                "SystemId": "Impact_Critical"
+              },
+              {
+                "SystemId": "Golem_Void_Slam"
+              }
+            ],
+            "WorldSoundEventId": "SFX_Golem_Earth_Slam_Impact",
+            "CameraEffect": "Impact_Light"
+          }
+        },
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "Simple",
+          "RunTime": 0,
+          "Effects": {
+            "WorldParticles": [
+              {
+                "SystemId": "Golem_Void_Slam"
+              }
+            ],
+            "WorldSoundEventId": "SFX_Golem_Earth_Slam_Impact"
+          }
+        },
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    }
+  }
+}

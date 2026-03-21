@@ -1,0 +1,13 @@
+{
+    "Model": "NPC_Spawn_Marker",
+    "NPCs": [
+        {
+            "Name": "Endgame_Dragon_Fire",
+            "Weight": 100,
+            "SpawnAfterGameTime": "PT1H"
+        }
+    ],
+    "ExclusionRadius": 10,
+    "MaxDropHeight": 4,
+    "DeactivationDistance": 150
+}

@@ -1,0 +1,23 @@
+{
+  "icon": "BookType",
+  "pages": [
+    "index.mdx",
+    "introduction.mdx",
+    "installation.mdx",
+    "bosses.mdx",
+    "frozen-dungeon.mdx",
+    "swamp-dungeon.mdx",
+    "warden-trials.mdx",
+    "items.mdx",
+    "armor.mdx",
+    "achievements.mdx",
+    "bestiary.mdx",
+    "bounty.mdx",
+    "combo.mdx",
+    "commands.mdx",
+    "configuration.mdx",
+    "materials.mdx",
+    "npcs.mdx",
+    "database.mdx"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Intelligent",
+  "Modify": {
+    "Appearance": "Endgame_Necromancer_Void",
+    "Weapons": [
+      "Weapon_Spellbook_Demon"
+    ],
+    "WanderRadius": 8,
+    "ViewRange": 15,
+    "ViewSector": 270,
+    "HearingRange": 10,
+    "DropList": "Drop_Endgame_Necromancer_Void",
+    "MaxSpeed": 5,
+    "Attack": "Root_NPC_Endgame_Necromancer_Void_Attack",
+    "AttackDistance": 3,
+    "MaxHealth": 500,
+    "IsMemory": false,
+    "NameTranslationKey": { "Compute": "NameTranslationKey" }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Endgame_Necromancer_Void.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "Type": "LaunchProjectile",
+  "RunTime": 0.1,
+  "Effects": {
+    "ItemAnimationId": "CastSummonCharged"
+  },
+  "ProjectileId": "Wooden_Staff_Damage_Orb"
+}

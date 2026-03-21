@@ -1,0 +1,42 @@
+{
+  "Type": "Simple",
+  "Tags": {
+    "Attack": [
+      "Ranged"
+    ]
+  },
+  "Effects": {
+    "ItemPlayerAnimationsId": "Endgame_Toad_Frost_Default",
+    "ItemAnimationId": "Tongue"
+  },
+  "$Comment": "Prepare Delay",
+  "RunTime": 0.333,
+  "Next": {
+    "Type": "Selector",
+    "Effects": {
+      "WorldSoundEventId": "SFX_Toad_Rhino_Magma_Tongue_Whoosh"
+    },
+    "$Comment": "Length of Combat",
+    "RunTime": 0.152,
+    "Selector": {
+      "Id": "Stab",
+      "TestLineOfSight": false,
+      "ExtendTop": 0.5,
+      "ExtendBottom": 0.5,
+      "ExtendLeft": 0.5,
+      "ExtendRight": 0.5,
+      "StartDistance": 1,
+      "EndDistance": 10
+    },
+    "HitEntity": {
+      "Interactions": [
+        "Endgame_Toad_Frost_Tongue_Damage"
+      ]
+    },
+    "Next": {
+      "Type": "Simple",
+      "$Comment": "Pad the interaction length",
+      "RunTime": 0.53
+    }
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Weapon_Spear_Onyxium.name",
+    "Description": "server.items.Weapon_Spear_Onyxium.description"
+  },
+  "Categories": [
+    "Items.Weapons",
+    "Endgame.Weapons"
+  ],
+  "Quality": "Epic",
+  "ItemLevel": 55,
+  "Recipe": {
+    "TimeSeconds": 4.5,
+    "KnowledgeRequired": false,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Onyxium",
+        "Quantity": 10
+      },
+      {
+        "ItemId": "Ingredient_Leather_Storm",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Voidheart",
+        "Quantity": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Endgame_Bench",
+        "Type": "Crafting",
+        "Categories": [
+          "Endgame_Armor_Onyxium"
+        ],
+        "RequiredTierLevel": 4
+      }
+    ]
+  },
+  "Model": "Items/Weapons/Spear/Onyxium.blockymodel",
+  "Texture": "Items/Weapons/Spear/Onyxium_Texture.png",
+  "Interactions": {
+    "Primary": "Spear_Attack",
+    "Secondary": "Spear_Block"
+  },
+  "InteractionVars": {
+    "Spear_Block_Damage": "Spear_Block_Damage",
+    "Spear_Stab_Effect": {
+      "Interactions": [
+        {
+          "Parent": "Spear_Stab_Effect",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Axe_Special_Swing"
+          }
+        }
+      ]
+    },
+    "Spear_Stab_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Spear_Stab_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 58
+            },
+            "Type": "Absolute"
+          },
+          "EntityStatsOnHit": [
+            {
+              "EntityStatId": "Stamina",
+              "Amount": -2
+            }
+          ],
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Axe_Special_Impact",
+            "WorldParticles": [
+              {
+                "SystemId": "Impact_Blade_01"
+              }
+            ],
+            "Knockback": {
+              "Force": 3,
+              "RelativeZ": -6,
+              "VelocityY": 5
+            }
+          },
+          "Next": {
+            "Type": "ApplyEffect",
+            "EffectId": "Endgame_Onyxium_Slow",
+            "Entity": "Target"
+          }
+        }
+      ]
+    },
+    "Spear_Throw_Charged_Projectile": {
+      "Interactions": [
+        {
+          "Parent": "Spear_Throw_Charged_Projectile",
+          "ProjectileId": "Endgame_Spear_Onyxium"
+        }
+      ]
+    }
+  },
+  "DroppedItemAnimation": "Items/Animations/Dropped/Dropped_Diagonal_Left.blockyanim",
+  "IconProperties": {
+    "Scale": 0.23,
+    "Translation": [
+      -65,
+      -65
+    ],
+    "Rotation": [
+      45,
+      90,
+      0
+    ]
+  },
+  "Icon": "Icons/ItemsGenerated/Weapon_Spear_Onyxium.png",
+  "PlayerAnimationsId": "Spear",
+  "Tags": {
+    "Type": [
+      "Weapon"
+    ],
+    "Family": [
+      "Spear"
+    ]
+  },
+  "MaxDurability": 260,
+  "DurabilityLossOnHit": 0.21,
+  "BrokenItem": "Weapon_Spear_Onyxium",
+  "Weapon": {
+    "StatModifiers": {
+      "Stamina": [
+        {
+          "Amount": 20,
+          "CalculationType": "Additive"
+        }
+      ]
+    }
+  },
+  "ItemSoundSetId": "ISS_Weapons_Wood"
+}

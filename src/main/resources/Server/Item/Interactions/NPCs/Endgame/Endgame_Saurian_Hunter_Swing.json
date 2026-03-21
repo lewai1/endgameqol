@@ -1,0 +1,53 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Goblin_Club",
+    "ItemAnimationId": "SwingLeft"
+  },
+  "RunTime": 0.4,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.15,
+            "Selector": {
+              "Id": "Horizontal",
+              "Direction": "ToLeft",
+              "TestLineOfSight": true,
+              "ExtendTop": 1,
+              "ExtendBottom": 1,
+              "StartDistance": 0.5,
+              "EndDistance": 2.5,
+              "Length": 70,
+              "RollOffset": 45,
+              "YawStartOffset": -35
+            },
+            "HitEntity": {
+              "Interactions": [
+                "Endgame_Saurian_Hunter_Melee_Damage"
+              ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "RunTime": 0.4
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0.2,
+            "Effects": {
+              "WorldSoundEventId": "SFX_Unarmed_Swing"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

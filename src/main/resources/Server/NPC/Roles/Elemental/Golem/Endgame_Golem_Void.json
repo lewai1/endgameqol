@@ -1,0 +1,60 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Intelligent",
+  "Modify": {
+    "Appearance": "Endgame_Golem_Void",
+    "DropList": "Drop_Golem_Void",
+    "ViewRange": 60,
+    "HearingRange": 40,
+    "AbsoluteDetectionRange": 25,
+    "AttackDistance": 4,
+    "DesiredAttackDistanceRange": [
+      2.5,
+      3.5
+    ],
+    "CombatStrafeWeight": 40,
+    "CombatBackOffDistanceRange": [
+      4,
+      6
+    ],
+    "CombatAttackPostDelay": [
+      0.8,
+      1.2
+    ],
+    "CombatBackOffAfterAttack": false,
+    "CombatRelativeTurnSpeed": 0.2,
+    "MaxSpeed": 8,
+    "MaxHealth": 3500,
+    "Weapons": [],
+    "OffHand": [],
+    "Attack": "Root_NPC_Golem_Void_Attack",
+    "BlockProbability": 0,
+    "UseCombatActionEvaluator": false,
+    "WakingIdleBehaviorComponent": "Component_Instruction_Stationary_Idle",
+    "LeashDistance": 99999,
+    "HardLeashDistance": 99999,
+    "LeashMinPlayerDistance": 3,
+    "LeashTimer": [
+      45,
+      90
+    ],
+    "TargetSwitchTimer": [6, 10],
+    "TargetRange": 8,
+    "DeathAnimationTime": 3.0,
+    "DropDeathItemsInstantly": false,
+    "DeathParticles": "Explosion_Big",
+    "AttitudeGroup": "Endgame_Golem_Void",
+    "IsMemory": true,
+    "MemoriesCategory": "Elemental",
+    "MemoriesNameOverride": "Golem_Crystal_Earth",
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Endgame_Golem_Void.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

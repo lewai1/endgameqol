@@ -1,0 +1,8 @@
+{
+    "Type": "Simple",
+    "Effects": {
+        "ItemAnimationId": "SignatureStart",
+        "WorldSoundEventId": "SFX_Hedera_Scream"
+    },
+    "RunTime": 0.5
+}

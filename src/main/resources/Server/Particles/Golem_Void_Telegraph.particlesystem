@@ -1,0 +1,14 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "Golem_Void_Telegraph",
+      "PositionOffset": {
+        "X": 0,
+        "Z": 0,
+        "Y": 0.2
+      }
+    }
+  ],
+  "LifeSpan": 0.6,
+  "IsImportant": true
+}

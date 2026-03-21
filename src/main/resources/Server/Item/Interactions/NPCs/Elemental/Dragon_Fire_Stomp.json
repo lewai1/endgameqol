@@ -1,0 +1,41 @@
+{
+    "Type": "Simple",
+    "Effects": {
+        "ItemAnimationId": "Stomp",
+        "WorldSoundEventId": "SFX_Golem_Sand_Swing"
+    },
+    "RunTime": 0.6,
+    "Next": {
+        "Type": "Selector",
+        "RunTime": 0.3,
+        "Selector": {
+            "Id": "Horizontal",
+            "Direction": "ToLeft",
+            "TestLineOfSight": false,
+            "ExtendTop": 5,
+            "ExtendBottom": 3,
+            "StartDistance": 0,
+            "EndDistance": 10,
+            "Length": 360,
+            "RollOffset": 0,
+            "YawStartOffset": 0
+        },
+        "HitEntity": {
+            "Interactions": [
+                {
+                    "Type": "Replace",
+                    "DefaultValue": {
+                        "Interactions": [
+                            "NPC_Attack_Melee_Damage"
+                        ]
+                    },
+                    "Var": "Melee_Damage"
+                }
+            ]
+        },
+        "Next": {
+            "Type": "Simple",
+            "RunTime": 0.5
+        }
+    }
+}

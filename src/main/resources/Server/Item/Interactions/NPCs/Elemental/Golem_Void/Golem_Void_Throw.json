@@ -1,0 +1,32 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Golem_Void_Default",
+    "ItemAnimationId": "Throw",
+    "Particles": [
+      {
+        "SystemId": "Golem_Void_Attack",
+        "TargetEntityPart": "Entity"
+      },
+      {
+        "SystemId": "Golem_Void_Telegraph",
+        "DetachedFromModel": true,
+        "TargetEntityPart": "Entity",
+        "PositionOffset": { "Y": -2.0 },
+        "Scale": 1.5
+      }
+    ],
+    "WorldSoundEventId": "SFX_Golem_Sand_Swing"
+  },
+  "RunTime": 0.6,
+  "Next": {
+    "Type": "Projectile",
+    "Config": "Endgame_Projectile_Config_Golem_Void_Boulder",
+    "RunTime": 0.2,
+    "Effects": {},
+    "Next": {
+      "Type": "Simple",
+      "RunTime": 0.5
+    }
+  }
+}

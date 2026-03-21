@@ -1,0 +1,134 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Tool_Hatchet_Prisma.name",
+    "Description": "server.items.Tool_Hatchet_Prisma.description"
+  },
+  "Parent": "Tool_Hatchet_Crude",
+  "Model": "Items/Tools/Hatchet/Prisma.blockymodel",
+  "Texture": "Items/Tools/Hatchet/Prisma_Texture.png",
+  "Light": {
+    "Color": "#b060ff",
+    "Radius": 1
+  },
+  "Recipe": {
+    "TimeSeconds": 8,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Prisma",
+        "Quantity": 10
+      },
+      {
+        "ItemId": "Ingredient_Leather_Prismic",
+        "Quantity": 3
+      },
+      {
+        "ItemId": "Rock_Gem_Emerald",
+        "Quantity": 1
+      }
+    ],
+    "KnowledgeRequired": false,
+    "BenchRequirement": [
+      {
+        "Id": "Workbench",
+        "Type": "Crafting",
+        "Categories": [
+          "Workbench_Tools"
+        ]
+      }
+    ]
+  },
+  "Tool": {
+    "Specs": [
+      {
+        "Power": 1.5,
+        "GatherType": "SoftBlocks"
+      },
+      {
+        "Power": 0.1,
+        "GatherType": "Soils"
+      },
+      {
+        "Power": 1.0,
+        "GatherType": "Woods"
+      },
+      {
+        "Power": 0.1,
+        "GatherType": "Rocks"
+      },
+      {
+        "Power": 1.0,
+        "GatherType": "Benches"
+      },
+      {
+        "Power": 0.025,
+        "GatherType": "VolcanicRocks"
+      },
+      {
+        "Power": 0.06,
+        "GatherType": "OreCopper"
+      },
+      {
+        "Power": 0.06,
+        "GatherType": "OreIron"
+      },
+      {
+        "Power": 0.06,
+        "GatherType": "OreSilver"
+      },
+      {
+        "Power": 0.06,
+        "GatherType": "OreGold"
+      },
+      {
+        "Power": 0.055,
+        "GatherType": "OreThorium"
+      },
+      {
+        "Power": 0.055,
+        "GatherType": "OreCobalt"
+      },
+      {
+        "Power": 0.055,
+        "GatherType": "OreAdamantite"
+      },
+      {
+        "Power": 0.05,
+        "GatherType": "OreMithril"
+      }
+    ],
+    "DurabilityLossBlockTypes": [
+      {
+        "BlockSets": [
+          "Stone",
+          "Rock",
+          "Ores",
+          "Soil"
+        ],
+        "DurabilityLossOnHit": 0.1
+      }
+    ]
+  },
+  "Icon": "Icons/ItemsGenerated/Prisma_Hatchet_Icon.png",
+  "MaxDurability": 1500,
+  "Quality": "Legendary",
+  "ItemLevel": 66,
+  "Interactions": {
+    "Ability3": "Root_Endgame_Hatchet_Prisma_To_AreaBreak"
+  },
+  "State": {
+    "Normal": "Tool_Hatchet_Prisma",
+    "AreaBreak": {
+      "Light": {
+        "Color": "#ff8800",
+        "Radius": 2
+      },
+      "Interactions": {
+        "Ability3": "Root_Endgame_Hatchet_Prisma_To_Normal"
+      },
+      "Variant": true
+    }
+  },
+  "Categories": [
+    "Endgame.Tools"
+  ]
+}

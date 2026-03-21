@@ -1,0 +1,8 @@
+{
+    "Type": "LaunchProjectile",
+    "RunTime": 0.1,
+    "Effects": {
+        "ItemAnimationId": "CastSummonCharged"
+    },
+    "ProjectileId": "Onyxium_Staff_Damage_Orb"
+}

@@ -1,0 +1,19 @@
+{
+  "Interactions": [
+    {
+      "Type": "Chaining",
+      "ChainId": "Throws",
+      "ChainingAllowance": 10,
+      "Next": [
+        "Golem_Void_Throw",
+        "Golem_Void_Throw_Double",
+        "Golem_Void_Throw"
+      ]
+    }
+  ],
+  "Tags": {
+    "Attack": [
+      "Ranged"
+    ]
+  }
+}

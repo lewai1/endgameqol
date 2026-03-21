@@ -1,0 +1,23 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Endgame_Accessory_Ocean_Striders.name",
+    "Description": "server.items.Endgame_Accessory_Ocean_Striders.description"
+  },
+  "Categories": [
+    "Endgame.Accessories"
+  ],
+  "MaxStack": 1,
+  "Quality": "Legendary",
+  "Model": "Items/Accessories/Ocean_Striders.blockymodel",
+  "Texture": "Items/Accessories/Ocean_Striders_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Ocean_Striders_Icon.png",
+  "DropOnDeath": true,
+  "Tags": {
+    "Type": [
+      "Accessory"
+    ],
+    "Family": [
+      "Endgame"
+    ]
+  }
+}

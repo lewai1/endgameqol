@@ -1,0 +1,80 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Hedera_Autel.name",
+    "Description": "server.items.Hedera_Autel.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Hedera_Autel.png",
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "Tags": {
+    "Type": ["Bench"]
+  },
+  "Categories": [
+    "Endgame.EndgameMisc"
+  ],
+  "BlockType": {
+    "DrawType": "Model",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/Swamp_Dungeon/Hedera_Autel_Model.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/Swamp_Dungeon/Hedera_Autel_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "CustomModelAnimation": "Blocks/Swamp_Dungeon/Hedera_Autel.blockyanim",
+    "Looping": true,
+    "HitboxType": "Plant_Tall_Full",
+    "BlockEntity": {
+      "Components": {
+        "BenchBlock": {}
+      }
+    },
+    "BlockSoundSetId": "Stone",
+    "BlockParticleSetId": "Stone",
+    "ParticleColor": "#2E8B57",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "Flags": {
+      "IsStackable": false
+    },
+    "State": {
+      "Definitions": {
+        "CraftCompleted": {
+          "CustomModelAnimation": "Blocks/Swamp_Dungeon/Hedera_Autel.blockyanim",
+          "Looping": true
+        },
+        "CraftCompletedInstant": {
+          "CustomModelAnimation": "Blocks/Swamp_Dungeon/Hedera_Autel.blockyanim"
+        }
+      }
+    },
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "Bench": {
+      "Type": "Crafting",
+      "Id": "Hedera_Autel",
+      "Categories": [
+        {
+          "Id": "Hedera_Autel_Crafting",
+          "Icon": "Icons/CraftingCategories/Endgame_Workbench/Hedera_Autel.png",
+          "Name": "server.benchCategories.hedera_autel"
+        }
+      ],
+      "TierLevels": [
+        {
+          "CraftingTimeReductionModifier": 0.0
+        }
+      ]
+    }
+  }
+}

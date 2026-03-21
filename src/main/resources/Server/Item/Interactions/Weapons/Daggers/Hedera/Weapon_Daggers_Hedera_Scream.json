@@ -1,0 +1,51 @@
+{
+    "Type": "StatsCondition",
+    "Costs": {
+        "SignatureEnergy": 100
+    },
+    "ValueType": "Percent",
+    "Next": {
+        "Type": "Serial",
+        "Interactions": [
+            {
+                "Type": "Replace",
+                "Var": "Scream_EntityEffect",
+                "DefaultOk": true,
+                "DefaultValue": {
+                    "Interactions": [
+                        {
+                            "Type": "ApplyEffect",
+                            "EffectId": "Dagger_Signature"
+                        }
+                    ]
+                }
+            },
+            {
+                "Type": "Replace",
+                "Var": "Scream_Attack",
+                "DefaultOk": true,
+                "DefaultValue": {
+                    "Interactions": [
+                        "Player_Scream"
+                    ]
+                }
+            },
+            {
+                "Type": "Replace",
+                "Var": "Scream_SignatureCost",
+                "DefaultOk": true,
+                "DefaultValue": {
+                    "Interactions": [
+                        {
+                            "Type": "ChangeStat",
+                            "ValueType": "Percent",
+                            "StatModifiers": {
+                                "SignatureEnergy": -100
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

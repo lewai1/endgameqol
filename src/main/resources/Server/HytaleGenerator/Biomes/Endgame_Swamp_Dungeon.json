@@ -1,0 +1,153 @@
+{
+  "$NodeId": "Biome-sd2a1000-e53e-4d5b-b6a4-0cb6ec297000",
+  "Terrain": {
+    "$NodeId": "Terrain-sd2a1001-c1c4-44d3-a6b2-0fbd4bb68001",
+    "Type": "DAOTerrain",
+    "Density": {
+      "$NodeId": "ConstantDensityNode-sd2a1002-80c4-480a-8a43-f6f792000002",
+      "Type": "Constant",
+      "Skip": false,
+      "Value": 0
+    }
+  },
+  "MaterialProvider": {
+    "$NodeId": "ConstantMaterialProvider-sd2a1003-44d3-4d5b-b6a4-000000003",
+    "Type": "Constant",
+    "Material": {
+      "$NodeId": "Material-sd2a1004-c1c4-44d3-a6b2-000000000004",
+      "Solid": "Empty"
+    }
+  },
+  "Props": [
+    {
+      "$NodeId": "Runtime-sd2a1010-e53e-4d5b-b6a4-000000000010",
+      "Skip": false,
+      "Runtime": 0,
+      "Positions": {
+        "$NodeId": "ListPositions-sd2a1011-c1c4-44d3-a6b2-000000000011",
+        "Type": "List",
+        "Skip": false,
+        "Positions": [
+          {
+            "$NodeId": "Point3D-sd2a1012-80c4-480a-8a43-000000000012",
+            "X": 0,
+            "Y": 22,
+            "Z": 0
+          }
+        ]
+      },
+      "Assignments": {
+        "$NodeId": "Constant.Assignments-sd2a1013-44d3-4d5b-b6a4-000000000013",
+        "Type": "Constant",
+        "Prop": {
+          "$NodeId": "Prefab.Prop-sd2a1014-c1c4-44d3-a6b2-000000000014",
+          "Type": "Prefab",
+          "Skip": false,
+          "WeightedPrefabPaths": [
+            {
+              "$NodeId": "WeightedPath.Prefab.Prop-sd2a1015-80c4-480a-8a43-000000000015",
+              "Path": "Dungeon/Swamp_Dungeon",
+              "Weight": 1
+            }
+          ],
+          "LegacyPath": false,
+          "LoadEntities": true,
+          "Directionality": {
+            "$NodeId": "Static.Directionality-sd2a1019-44d3-4d5b-b6a4-000000000019",
+            "Type": "Static",
+            "Rotation": 0,
+            "Pattern": {
+              "$NodeId": "BlockType.Pattern-sd2a1016-44d3-4d5b-b6a4-000000000016",
+              "Type": "BlockType",
+              "Skip": false,
+              "Material": {
+                "$NodeId": "Material-sd2a1017-c1c4-44d3-a6b2-000000000017",
+                "Solid": "Empty"
+              }
+            }
+          },
+          "Scanner": {
+            "$NodeId": "Origin.Scanner-sd2a1018-80c4-480a-8a43-000000000018",
+            "Type": "Origin",
+            "Skip": false
+          },
+          "MoldingDirection": "None",
+          "MoldingChildren": false
+        }
+      }
+    }
+  ],
+  "EnvironmentProvider": {
+    "$NodeId": "Constant.EnvironmentProvider-sd2a1022-44d3-4d5b-b6a4-000000000022",
+    "Type": "Constant",
+    "Environment": "Env_Endgame_Swamp_Dungeon"
+  },
+  "TintProvider": {
+    "$NodeId": "DensityDelimited.TintProvider-sd2a1023-c1c4-44d3-a6b2-000000000023",
+    "Type": "DensityDelimited",
+    "Density": {
+      "$NodeId": "SimplexNoise2DDensityNode-sd2a1024-80c4-480a-8a43-000000000024",
+      "Type": "SimplexNoise2D",
+      "Skip": false,
+      "Lacunarity": 5,
+      "Persistence": 0.3,
+      "Octaves": 2,
+      "Scale": 60,
+      "Seed": "swamp_tints"
+    },
+    "Delimiters": [
+      {
+        "$NodeId": "Delimiter1.TintProvider-sd2a1025-44d3-4d5b-b6a4-000000000025",
+        "Tint": {
+          "$NodeId": "Tint1.TintProvider-sd2a1026-c1c4-44d3-a6b2-000000000026",
+          "Type": "Constant",
+          "Color": "#1e3a18"
+        },
+        "Range": {
+          "$NodeId": "Range1.TintProvider-sd2a1027-80c4-480a-8a43-000000000027",
+          "MinInclusive": -1,
+          "MaxExclusive": -0.4
+        }
+      },
+      {
+        "$NodeId": "Delimiter2.TintProvider-sd2a1028-44d3-4d5b-b6a4-000000000028",
+        "Tint": {
+          "$NodeId": "Tint2.TintProvider-sd2a1029-c1c4-44d3-a6b2-000000000029",
+          "Type": "Constant",
+          "Color": "#3a5a20"
+        },
+        "Range": {
+          "$NodeId": "Range2.TintProvider-sd2a1030-80c4-480a-8a43-000000000030",
+          "MinInclusive": -0.4,
+          "MaxExclusive": 0
+        }
+      },
+      {
+        "$NodeId": "Delimiter3.TintProvider-sd2a1031-44d3-4d5b-b6a4-000000000031",
+        "Tint": {
+          "$NodeId": "Tint3.TintProvider-sd2a1032-c1c4-44d3-a6b2-000000000032",
+          "Type": "Constant",
+          "Color": "#4a3a1a"
+        },
+        "Range": {
+          "$NodeId": "Range3.TintProvider-sd2a1033-80c4-480a-8a43-000000000033",
+          "MinInclusive": 0,
+          "MaxExclusive": 0.4
+        }
+      },
+      {
+        "$NodeId": "Delimiter4.TintProvider-sd2a1034-44d3-4d5b-b6a4-000000000034",
+        "Tint": {
+          "$NodeId": "Tint4.TintProvider-sd2a1035-c1c4-44d3-a6b2-000000000035",
+          "Type": "Constant",
+          "Color": "#2a4a22"
+        },
+        "Range": {
+          "$NodeId": "Range4.TintProvider-sd2a1036-80c4-480a-8a43-000000000036",
+          "MinInclusive": 0.4,
+          "MaxExclusive": 1
+        }
+      }
+    ]
+  }
+}

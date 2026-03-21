@@ -1,0 +1,22 @@
+{
+    "Interactions": [
+        {
+            "Type": "Chaining",
+            "ChainId": "DragonFireAttacks",
+            "ChainingAllowance": 20,
+            "Next": [
+                "Dragon_Fire_Swing",
+                "Dragon_Fire_Swing",
+                "Dragon_Fire_Stomp",
+                "Dragon_Fire_Swing",
+                "Dragon_Fire_Swing",
+                "Dragon_Fire_Stomp"
+            ]
+        }
+    ],
+    "Tags": {
+        "Attack": [
+            "Melee"
+        ]
+    }
+}

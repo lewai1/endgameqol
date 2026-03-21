@@ -1,0 +1,786 @@
+{
+    "Type": "Generic",
+    "Appearance": "Spectre_Void",
+    "DefaultPlayerAttitude": "Ignore",
+    "StartState": "Idle",
+    "DisableDamageGroups": [
+        "Void"
+    ],
+    "BusyStates": [
+        "Chase"
+    ],
+    "KnockbackScale": 0.5,
+    "InteractionVars": {
+        "Melee_Damage": {
+            "Interactions": [
+                {
+                    "Parent": "NPC_Attack_Melee_Damage",
+                    "DamageCalculator": {
+                        "BaseDamage": {
+                            "Physical": 50
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "Parameters": {
+        "CombatRelativeTurnSpeed": {
+            "Value": 1.5,
+            "Description": "Modifier that decides turn speed difference in combat"
+        },
+        "MaxHealth": {
+            "Value": 103,
+            "Description": "Max health for the NPC"
+        }
+    },
+    "MotionControllerList": [
+        {
+            "Type": "Walk",
+            "MaxWalkSpeed": 8,
+            "Gravity": 10,
+            "MaxFallSpeed": 20,
+            "Acceleration": 10,
+            "MinHover": 1.5,
+            "MaxHover": 1.7,
+            "HoverFreq": 0.33
+        }
+    ],
+    "MaxHealth": 120,
+    "IsMemory": false,
+    "Instructions": [
+        {
+            "Instructions": [
+                {
+                    "Sensor": {
+                        "Type": "State",
+                        "State": "Idle"
+                    },
+                    "Instructions": [
+                        {
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any",
+                                "Once": true
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "PlayAnimation",
+                                    "Slot": "Status"
+                                }
+                            ]
+                        },
+                        {
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any"
+                            },
+                            "Instructions": [
+                                {
+                                    "Sensor": {
+                                        "Type": "Eval",
+                                        "Expression": "blocked"
+                                    },
+                                    "BodyMotion": {
+                                        "Type": "Timer",
+                                        "Time": [
+                                            2,
+                                            3
+                                        ],
+                                        "Motion": {
+                                            "Type": "Wander",
+                                            "MaxHeadingChange": 45,
+                                            "RelativeSpeed": 0.25
+                                        }
+                                    }
+                                },
+                                {
+                                    "Sensor": {
+                                        "Type": "Any"
+                                    },
+                                    "BodyMotion": {
+                                        "Type": "Sequence",
+                                        "Looped": true,
+                                        "Motions": [
+                                            {
+                                                "Type": "Timer",
+                                                "Time": [
+                                                    1,
+                                                    2
+                                                ],
+                                                "Motion": {
+                                                    "Type": "WanderInCircle",
+                                                    "Radius": 8,
+                                                    "MaxHeadingChange": 60,
+                                                    "RelativeSpeed": 0.18
+                                                }
+                                            },
+                                            {
+                                                "Type": "Timer",
+                                                "Time": [
+                                                    0.5,
+                                                    1
+                                                ],
+                                                "Motion": {
+                                                    "Type": "Nothing"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Damage",
+                                "Combat": true,
+                                "Other": true
+                            },
+                            "Instructions": [
+                                {
+                                    "Sensor": {
+                                        "Type": "Mob",
+                                        "Range": 20,
+                                        "LockOnTarget": true,
+                                        "GetPlayers": false,
+                                        "Filters": [
+                                            {
+                                                "Type": "LineOfSight"
+                                            }
+                                        ]
+                                    },
+                                    "Actions": [
+                                        {
+                                            "Type": "State",
+                                            "State": "Chase"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Sensor": {
+                                        "Type": "Not",
+                                        "Sensor": {
+                                            "Type": "Mob",
+                                            "Range": 20,
+                                            "GetPlayers": false,
+                                            "LockOnTarget": true
+                                        }
+                                    },
+                                    "Actions": [
+                                        {
+                                            "Type": "State",
+                                            "State": "FleeTimed"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Mob",
+                                "Range": 10,
+                                "LockOnTarget": true,
+                                "GetPlayers": false,
+                                "Filters": [
+                                    {
+                                        "Type": "LineOfSight"
+                                    }
+                                ]
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "State",
+                                    "State": "Chase"
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Mob",
+                                "Range": 20,
+                                "LockOnTarget": true,
+                                "GetPlayers": false,
+                                "Filters": [
+                                    {
+                                        "Type": "LineOfSight"
+                                    },
+                                    {
+                                        "Type": "ViewSector",
+                                        "ViewSector": 120
+                                    }
+                                ]
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "State",
+                                    "State": "Alerted"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Sensor": {
+                        "Type": "State",
+                        "State": "Alerted"
+                    },
+                    "Instructions": [
+                        {
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any",
+                                "Once": true
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "PlayAnimation",
+                                    "Slot": "Status",
+                                    "Animation": "Alerted"
+                                },
+                                {
+                                    "Type": "SpawnParticles",
+                                    "Offset": [
+                                        0,
+                                        2.1,
+                                        0
+                                    ],
+                                    "ParticleSystem": "Alerted"
+                                }
+                            ]
+                        },
+                        {
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any"
+                            },
+                            "Instructions": [
+                                {
+                                    "Sensor": {
+                                        "Type": "Mob",
+                                        "Range": 20,
+                                        "LockOnTarget": false,
+                                        "GetPlayers": false
+                                    },
+                                    "HeadMotion": {
+                                        "Type": "Watch"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Mob",
+                                "Range": 8,
+                                "LockOnTarget": true,
+                                "GetPlayers": false,
+                                "Filters": [
+                                    {
+                                        "Type": "LineOfSight"
+                                    }
+                                ]
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "Timeout",
+                                    "Delay": [
+                                        0.3,
+                                        0.5
+                                    ],
+                                    "Action": {
+                                        "Type": "State",
+                                        "State": "Chase"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Mob",
+                                "Range": 20,
+                                "LockOnTarget": true,
+                                "GetPlayers": false
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "Timeout",
+                                    "Delay": [
+                                        0.5,
+                                        0.8
+                                    ],
+                                    "Action": {
+                                        "Type": "State",
+                                        "State": "Chase"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Not",
+                                "Sensor": {
+                                    "Type": "Mob",
+                                    "Range": 20,
+                                    "GetPlayers": false
+                                }
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "Timeout",
+                                    "Delay": [
+                                        1,
+                                        1
+                                    ],
+                                    "Action": {
+                                        "Type": "State",
+                                        "State": "Idle"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Sensor": {
+                        "Type": "State",
+                        "State": "Search"
+                    },
+                    "Instructions": [
+                        {
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any",
+                                "Once": true
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "PlayAnimation",
+                                    "Slot": "Status",
+                                    "Animation": "Alerted"
+                                },
+                                {
+                                    "Type": "SpawnParticles",
+                                    "Offset": [
+                                        0,
+                                        2.1,
+                                        0
+                                    ],
+                                    "ParticleSystem": "Question"
+                                }
+                            ]
+                        },
+                        {
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any"
+                            },
+                            "Instructions": [
+                                {
+                                    "Sensor": {
+                                        "Type": "Eval",
+                                        "Expression": "blocked"
+                                    },
+                                    "BodyMotion": {
+                                        "Type": "Timer",
+                                        "Time": [
+                                            2,
+                                            3
+                                        ],
+                                        "Motion": {
+                                            "Type": "Wander",
+                                            "MaxHeadingChange": 45,
+                                            "RelativeSpeed": 0.5
+                                        }
+                                    }
+                                },
+                                {
+                                    "Sensor": {
+                                        "Type": "Any"
+                                    },
+                                    "BodyMotion": {
+                                        "Type": "Sequence",
+                                        "Motions": [
+                                            {
+                                                "Type": "Timer",
+                                                "Time": [
+                                                    2,
+                                                    3
+                                                ],
+                                                "Motion": {
+                                                    "Type": "Wander",
+                                                    "MaxHeadingChange": 1,
+                                                    "RelativeSpeed": 0.5
+                                                }
+                                            },
+                                            {
+                                                "Type": "Sequence",
+                                                "Looped": true,
+                                                "Motions": [
+                                                    {
+                                                        "Type": "Timer",
+                                                        "Time": [
+                                                            1,
+                                                            2
+                                                        ],
+                                                        "Motion": {
+                                                            "Type": "WanderInCircle",
+                                                            "Radius": 5,
+                                                            "MaxHeadingChange": 60,
+                                                            "RelativeSpeed": 0.5
+                                                        }
+                                                    },
+                                                    {
+                                                        "Type": "Timer",
+                                                        "Time": [
+                                                            1,
+                                                            2
+                                                        ],
+                                                        "Motion": {
+                                                            "Type": "Nothing"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Mob",
+                                "Range": 10,
+                                "LockOnTarget": true,
+                                "GetPlayers": false,
+                                "Filters": [
+                                    {
+                                        "Type": "LineOfSight"
+                                    }
+                                ]
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "State",
+                                    "State": "Chase"
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Mob",
+                                "Range": 20,
+                                "LockOnTarget": true,
+                                "GetPlayers": false,
+                                "Filters": [
+                                    {
+                                        "Type": "LineOfSight"
+                                    },
+                                    {
+                                        "Type": "ViewSector",
+                                        "ViewSector": 120
+                                    }
+                                ]
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "State",
+                                    "State": "Alerted"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Sensor": {
+                        "Type": "State",
+                        "State": "Chase"
+                    },
+                    "Instructions": [
+                        {
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any",
+                                "Once": true
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "PlayAnimation",
+                                    "Slot": "Status"
+                                }
+                            ]
+                        },
+                        {
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any"
+                            },
+                            "Instructions": [
+                                {
+                                    "Sensor": {
+                                        "Type": "Eval",
+                                        "Expression": "blocked"
+                                    },
+                                    "BodyMotion": {
+                                        "Type": "Timer",
+                                        "Time": [
+                                            2,
+                                            3
+                                        ],
+                                        "Motion": {
+                                            "Type": "Wander",
+                                            "MaxHeadingChange": 45,
+                                            "RelativeSpeed": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "Sensor": {
+                                        "Type": "Mob",
+                                        "Range": 20,
+                                        "LockOnTarget": true,
+                                        "GetPlayers": false,
+                                        "Filters": [
+                                            {
+                                                "Type": "LineOfSight"
+                                            }
+                                        ]
+                                    },
+                                    "BodyMotion": {
+                                        "Type": "Seek",
+                                        "SlowDownDistance": 1.5,
+                                        "StopDistance": 1,
+                                        "RelativeSpeed": 0.65
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Mob",
+                                "Range": 3,
+                                "GetPlayers": false
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "Random",
+                                    "Actions": [
+                                        {
+                                            "Action": {
+                                                "Type": "Attack",
+                                                "Attack": "Root_NPC_Attack_Melee",
+                                                "AttackPauseRange": [
+                                                    0.8,
+                                                    1.5
+                                                ]
+                                            },
+                                            "Weight": 1
+                                        },
+                                        {
+                                            "Action": {
+                                                "Type": "Attack",
+                                                "Attack": "Root_NPC_Attack_Melee",
+                                                "AttackPauseRange": [
+                                                    0.8,
+                                                    1.5
+                                                ]
+                                            },
+                                            "Weight": 1
+                                        }
+                                    ]
+                                }
+                            ],
+                            "HeadMotion": {
+                                "Type": "Aim",
+                                "RelativeTurnSpeed": {
+                                    "Compute": "CombatRelativeTurnSpeed"
+                                }
+                            }
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "And",
+                                "Sensors": [
+                                    {
+                                        "Type": "Not",
+                                        "Sensor": {
+                                            "Type": "Mob",
+                                            "Range": 20,
+                                            "GetPlayers": false,
+                                            "Filters": [
+                                                {
+                                                    "Type": "LineOfSight"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Type": "Mob",
+                                        "Range": 20,
+                                        "LockOnTarget": true,
+                                        "GetPlayers": false
+                                    }
+                                ]
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "State",
+                                    "State": "Search"
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Not",
+                                "Sensor": {
+                                    "Type": "Mob",
+                                    "Range": 20,
+                                    "GetPlayers": false
+                                }
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "State",
+                                    "State": "Idle"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Sensor": {
+                        "Type": "State",
+                        "State": "FleeTimed"
+                    },
+                    "Instructions": [
+                        {
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any",
+                                "Once": true
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "PlayAnimation",
+                                    "Slot": "Status"
+                                },
+                                {
+                                    "Type": "SpawnParticles",
+                                    "Offset": [
+                                        0,
+                                        2.1,
+                                        0
+                                    ],
+                                    "ParticleSystem": "Alerted"
+                                }
+                            ]
+                        },
+                        {
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any"
+                            },
+                            "Instructions": [
+                                {
+                                    "Sensor": {
+                                        "Type": "Eval",
+                                        "Expression": "blocked"
+                                    },
+                                    "BodyMotion": {
+                                        "Type": "Timer",
+                                        "Time": [
+                                            2,
+                                            3
+                                        ],
+                                        "Motion": {
+                                            "Type": "Wander",
+                                            "MaxHeadingChange": 45,
+                                            "RelativeSpeed": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "Sensor": {
+                                        "Type": "Any"
+                                    },
+                                    "BodyMotion": {
+                                        "Type": "Timer",
+                                        "Time": [
+                                            2,
+                                            3
+                                        ],
+                                        "Motion": {
+                                            "Type": "Wander",
+                                            "MaxHeadingChange": 45,
+                                            "RelativeSpeed": 1
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Mob",
+                                "Range": 10,
+                                "GetPlayers": false,
+                                "Filters": [
+                                    {
+                                        "Type": "LineOfSight"
+                                    }
+                                ]
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "State",
+                                    "State": "Chase"
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Mob",
+                                "Range": 20,
+                                "GetPlayers": false,
+                                "Filters": [
+                                    {
+                                        "Type": "LineOfSight"
+                                    }
+                                ]
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "Timeout",
+                                    "Delay": [
+                                        0.5,
+                                        1
+                                    ],
+                                    "Action": {
+                                        "Type": "State",
+                                        "State": "Chase"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Any"
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "Timeout",
+                                    "Delay": [
+                                        2,
+                                        3
+                                    ],
+                                    "Action": {
+                                        "Type": "State",
+                                        "State": "Idle"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "NameTranslationKey": "server.npcRoles.Prisma_Clone.name"
+}

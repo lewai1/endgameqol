@@ -1,0 +1,18 @@
+{
+    "Interactions": [
+        {
+            "Type": "Chaining",
+            "ChainId": "DragonFrostAttacks",
+            "ChainingAllowance": 20,
+            "Next": [
+                "Endgame_Dragon_Frost_Swing",
+                "Endgame_Dragon_Frost_Bite"
+            ]
+        }
+    ],
+    "Tags": {
+        "Attack": [
+            "Melee"
+        ]
+    }
+}

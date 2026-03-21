@@ -1,0 +1,112 @@
+{
+  "Type": "NoiseRange",
+  "Biomes": [
+    {
+      "Biome": "Boreal1_Henges",
+      "Min": 0,
+      "Max": 2
+    },
+    {
+      "Biome": "Void_Buffer",
+      "Min": -0.1,
+      "Max": 0
+    },
+    {
+      "Biome": "Void",
+      "Min": -2,
+      "Max": -0.1
+    }
+  ],
+  "DefaultBiome": "Void",
+  "DefaultTransitionDistance": 64,
+  "MaxBiomeEdgeDistance": 16,
+  "Density": {
+    "Type": "Imported",
+    "Name": "Biome-Map-Portals"
+  },
+  "SpawnPositions": {
+    "Type": "Offset",
+    "OffsetY": 130,
+    "Positions": {
+      "Type": "Imported",
+      "Name": "Portals-Henges-Spawns"
+    }
+  },
+  "Framework": [
+    {
+      "Type": "Positions",
+      "Entries": [
+        {
+          "Name": "Portals-Henges-Spawns",
+          "Positions": {
+            "Type": "Bound",
+            "ExportAs": "Portals-Henges-Spawns",
+            "Bounds": {
+              "PointA": {
+                "X": 500,
+                "Y": 100,
+                "Z": 500
+              },
+              "PointB": {
+                "X": -500,
+                "Z": -500
+              }
+            },
+            "Positions": {
+              "Type": "FieldFunction",
+              "FieldFunction": {
+                "Type": "Distance",
+                "Curve": {
+                  "Type": "Manual",
+                  "Points": [
+                    {
+                      "In": 200,
+                      "Out": -1
+                    },
+                    {
+                      "In": 300,
+                      "Out": 1
+                    },
+                    {
+                      "In": 400,
+                      "Out": -1
+                    }
+                  ]
+                }
+              },
+              "Delimiters": [
+                {
+                  "Min": 0,
+                  "Max": 2
+                }
+              ],
+              "Positions": {
+                "Type": "Mesh2D",
+                "PointGenerator": {
+                  "Type": "Mesh"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Type": "DecimalConstants",
+      "Entries": [
+        {
+          "Name": "Base",
+          "Value": 100
+        },
+        {
+          "Name": "Water",
+          "Value": 100
+        },
+        {
+          "Name": "Bedrock",
+          "Value": 0
+        }
+      ]
+    }
+  ]
+}

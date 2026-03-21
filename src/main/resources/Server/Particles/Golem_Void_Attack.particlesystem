@@ -1,0 +1,20 @@
+{
+  "CullDistance": 80.0,
+  "BoundingRadius": 8.0,
+  "IsImportant": true,
+  "LifeSpan": 0.6,
+  "Spawners": [
+    {
+      "SpawnerId": "Void_Lightning",
+      "PositionOffset": {
+        "Y": 1.5
+      }
+    },
+    {
+      "SpawnerId": "Void_Lightning_Random",
+      "PositionOffset": {
+        "Y": 1.0
+      }
+    }
+  ]
+}

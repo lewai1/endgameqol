@@ -1,0 +1,23 @@
+{
+  "Duration": 3,
+  "Debuff": true,
+  "StatusEffectIcon": "UI/Icons/Effects/Ice.png",
+  "ApplicationEffects": {
+    "EntityBottomTint": "#4080ff",
+    "EntityTopTint": "#80c0ff",
+    "ModelVFXId": "Freeze",
+    "ScreenEffect": "ScreenEffects/Snow.png",
+    "Particles": [
+      {
+        "SystemId": "Effect_Snow"
+      },
+      {
+        "SystemId": "Effect_Snow_Impact"
+      }
+    ],
+    "MovementEffects": {
+      "DisableAll": true
+    },
+    "KnockbackMultiplier": 0
+  }
+}

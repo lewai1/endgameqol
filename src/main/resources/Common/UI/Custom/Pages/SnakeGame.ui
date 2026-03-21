@@ -1,0 +1,599 @@
+Group {
+  LayoutMode: Center;
+
+  Group #GamePanel {
+    Background: #0a0a12;
+    Anchor: (Width: 500, Height: 570);
+    LayoutMode: Top;
+    Padding: (Left: 10, Right: 10, Top: 10, Bottom: 10);
+
+    Group #Header {
+      LayoutMode: Left;
+      Anchor: (Height: 32);
+      Padding: (Left: 20, Right: 20);
+
+      Label #Title {
+        Style: (FontSize: 20, TextColor: #00ff41);
+        Text: "SNAKE";
+        Anchor: (Width: 220);
+      }
+
+      Label #Score {
+        Style: (FontSize: 20, TextColor: #00ff41, Alignment: End);
+        Text: "Score: 0";
+        Anchor: (Width: 220);
+      }
+    }
+
+    Group #Spacer1 { Anchor: (Height: 6); }
+
+    Group #GridWrapper {
+      LayoutMode: Center;
+      Background: #080810;
+      Anchor: (Height: 404);
+      Padding: (Full: 2);
+
+      Group #GameArea {
+        LayoutMode: Top;
+        Group #R0 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y0 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R1 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y1 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R2 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y2 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R3 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y3 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R4 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y4 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R5 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y5 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R6 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y6 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R7 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y7 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R8 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y8 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R9 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y9 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R10 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y10 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R11 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y11 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R12 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y12 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R13 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y13 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R14 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y14 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R15 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y15 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R16 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y16 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R17 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y17 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R18 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y18 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+        Group #R19 {
+          LayoutMode: Left;
+          Anchor: (Height: 20);
+          Group #Cx0y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx1y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx2y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx3y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx4y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx5y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx6y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx7y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx8y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx9y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx10y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx11y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx12y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx13y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx14y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx15y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx16y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx17y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx18y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+          Group #Cx19y19 { Anchor: (Width: 20, Height: 20); Background: #111118; }
+        }
+      }
+    }
+
+    Group #Spacer2 { Anchor: (Height: 8); }
+
+    Group #Controls {
+      LayoutMode: Left;
+      Anchor: (Height: 38);
+      Padding: (Left: 20);
+
+      TextButton #BtnUp {
+        Anchor: (Width: 60, Height: 34);
+        Text: "W";
+        Background: #1a2a1a;
+      }
+
+      Group #Sp3 { Anchor: (Width: 6); }
+
+      TextButton #BtnLeft {
+        Anchor: (Width: 60, Height: 34);
+        Text: "A";
+        Background: #1a2a1a;
+      }
+
+      Group #Sp4 { Anchor: (Width: 6); }
+
+      TextButton #BtnDown {
+        Anchor: (Width: 60, Height: 34);
+        Text: "S";
+        Background: #1a2a1a;
+      }
+
+      Group #Sp5 { Anchor: (Width: 6); }
+
+      TextButton #BtnRight {
+        Anchor: (Width: 60, Height: 34);
+        Text: "D";
+        Background: #1a2a1a;
+      }
+
+      Group #Sp6 { Anchor: (Width: 14); }
+
+      TextButton #BtnRetry {
+        Anchor: (Width: 80, Height: 34);
+        Text: "Retry";
+        Background: #2d5a2d;
+        Visible: false;
+      }
+    }
+
+    Group #Spacer3 { Anchor: (Height: 6); }
+
+    Group #KeyRow {
+      LayoutMode: Left;
+      Anchor: (Height: 30);
+      Padding: (Left: 20);
+
+      Label #KeyHint {
+        Style: (FontSize: 12, TextColor: #336633);
+        Text: "Type here to use keyboard:";
+        Anchor: (Width: 200, Height: 28);
+      }
+
+      TextField #KeyInput {
+        AutoFocus: true;
+        MaxLength: 256;
+        Anchor: (Width: 60, Height: 28);
+        Background: #161620;
+        PlaceholderText: "...";
+      }
+    }
+
+    Group #Spacer4 { Anchor: (Height: 4); }
+
+    Label #GameOverLabel {
+      Style: (FontSize: 22, TextColor: #ff3333, Alignment: Center);
+      Text: "GAME OVER";
+      Visible: false;
+      Anchor: (Height: 30);
+    }
+  }
+}

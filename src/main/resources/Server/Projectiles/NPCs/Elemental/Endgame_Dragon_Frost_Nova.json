@@ -1,0 +1,23 @@
+{
+    "Appearance": "Ice_Ball",
+    "Radius": 2.0,
+    "Height": 0.5,
+    "PitchAdjustShot": false,
+    "SticksVertically": false,
+    "MuzzleVelocity": 40,
+    "TerminalVelocity": 50,
+    "Gravity": 3,
+    "Damage": 0,
+    "DeathEffectsOnHit": true,
+    "TimeToLive": 5,
+    "DeadTimeMiss": 0,
+    "DeathParticles": {
+        "SystemId": "IceBall_Explosion"
+    },
+    "HitParticles": {
+        "SystemId": "Impact_Ice"
+    },
+    "ExplosionConfig": {
+        "EntityDamageRadius": 6
+    }
+}

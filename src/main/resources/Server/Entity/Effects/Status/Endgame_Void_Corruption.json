@@ -1,0 +1,11 @@
+{
+  "Duration": 3,
+  "Debuff": true,
+  "StatusEffectIcon": "UI/Icons/Effects/Poison.png",
+  "ApplicationEffects": {
+    "EntityBottomTint": "#2a0040",
+    "EntityTopTint": "#6b20a0",
+    "HorizontalSpeedMultiplier": 0.6
+  },
+  "OverlapBehavior": "Overwrite"
+}

@@ -1,0 +1,51 @@
+{
+  "Appearance": "Fireball",
+  "Radius": 0.3,
+  "Height": 0.3,
+  "VerticalCenterShot": 0.1,
+  "HorizontalCenterShot": 0.1,
+  "DepthShot": 1,
+  "PitchAdjustShot": false,
+  "SticksVertically": true,
+  "MuzzleVelocity": 40,
+  "TerminalVelocity": 100,
+  "Gravity": 0.5,
+  "Bounciness": 0,
+  "ImpactSlowdown": 0,
+  "TimeToLive": 5,
+  "Damage": 60,
+  "DeadTime": 0,
+  "DeadTimeMiss": 0,
+  "MissParticles": {
+    "SystemId": "Explosion_Medium"
+  },
+  "BounceParticles": {
+    "SystemId": "Impact_Fire"
+  },
+  "DeathParticles": {
+    "SystemId": "Explosion_Medium"
+  },
+  "DeathEffectsOnHit": true,
+  "BounceSoundEventId": "SFX_Fireball_Bounce",
+  "MissSoundEventId": "SFX_Fireball_Miss",
+  "DeathSoundEventId": "SFX_Fireball_Death",
+  "ExplosionConfig": {
+    "DamageEntities": true,
+    "DamageBlocks": false,
+    "BlockDamageRadius": 0,
+    "EntityDamageRadius": 4,
+    "EntityDamageFalloff": 1.0,
+    "Knockback": {
+      "Type": "Point",
+      "VelocityConfig": {
+        "AirResistance": 0.97,
+        "AirResistanceMax": 0.96,
+        "GroundResistance": 0.94,
+        "GroundResistanceMax": 0.3,
+        "Threshold": 3.0
+      },
+      "Force": 10,
+      "VelocityType": "Set"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Dragon_Heart.name",
+    "Description": "server.items.Dragon_Heart.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Dragon_Heart.png",
+  "Model": "Resources/BossItems/Dragon_Heart.blockymodel",
+  "Texture": "Resources/BossItems/Dragon_Heart.png",
+  "Categories": [
+    "Endgame.Materials"
+  ],
+  "PlayerAnimationsId": "Block",
+  "IconProperties": {
+    "Scale": 0.5,
+    "Translation": [
+      -3.6,
+      -16.2
+    ],
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Ingredient"
+    ],
+    "Family": [
+      "BossItem"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "MaxStack": 100,
+  "DropOnDeath": true,
+  "Quality": "Legendary"
+}

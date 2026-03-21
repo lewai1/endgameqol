@@ -1,0 +1,11 @@
+{
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  },
+  "Interactions": [
+    "Endgame_Grooble_Bite"
+  ],
+  "DefaultOk": true
+}

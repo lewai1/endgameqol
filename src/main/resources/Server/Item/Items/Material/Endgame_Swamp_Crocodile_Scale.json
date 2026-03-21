@@ -1,0 +1,17 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Endgame_Swamp_Crocodile_Scale.name",
+    "Description": "server.items.Endgame_Swamp_Crocodile_Scale.description"
+  },
+  "Model": "Items/Material/Swamp_Crocodile_Scale/Swamp_Crocodile_Scale.blockymodel",
+  "Texture": "Items/Material/Swamp_Crocodile_Scale/Swamp_Crocodile_Scale_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Swamp_Crocodile_Scale.png",
+  "Quality": "Epic",
+  "PlayerAnimationsId": "Item",
+  "MaxStack": 100,
+  "Categories": ["Endgame.Materials"],
+  "Tags": {
+    "Type": ["Ingredient"]
+  },
+  "DropOnDeath": true
+}

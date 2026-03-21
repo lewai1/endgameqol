@@ -1,0 +1,56 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Golem_Crystal_Frost_Default",
+    "ItemAnimationId": "GroundSlam"
+  },
+  "$Comment": "Prepare Delay",
+  "RunTime": 0.733,
+  "Next": {
+    "Type": "Parallel",
+    "$Comment": "Make sure this parallel interaction is needed and can't be optimized away",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "$Comment": "Length of Combat",
+            "RunTime": 0.217,
+            "Selector": {
+              "Id": "Horizontal",
+              "Direction": "ToLeft",
+              "TestLineOfSight": true,
+              "ExtendTop": 1,
+              "ExtendBottom": 1,
+              "StartDistance": 1,
+              "EndDistance": 3.25,
+              "Length": 120,
+              "RollOffset": 90,
+              "YawStartOffset": -60
+            },
+            "HitEntity": {
+              "Interactions": ["Endgame_Golem_Crystal_Frost_Melee_Damage"]
+            },
+            "Next": {
+              "Type": "Simple",
+              "$Comment": "Pad the interaction length",
+              "RunTime": 0.55
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "$Comment": "Length of Effect",
+            "RunTime": 0.183,
+            "Effects": {
+              "WorldSoundEventId": "SFX_Golem_Earth_Swing"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

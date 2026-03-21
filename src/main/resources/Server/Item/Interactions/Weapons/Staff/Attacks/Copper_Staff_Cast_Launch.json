@@ -1,0 +1,8 @@
+{
+  "Type": "LaunchProjectile",
+  "RunTime": 0.25,
+  "Effects": {
+    "ItemAnimationId": "CastSummonCharged"
+  },
+  "ProjectileId": "Copper_Staff_Damage_Orb"
+}

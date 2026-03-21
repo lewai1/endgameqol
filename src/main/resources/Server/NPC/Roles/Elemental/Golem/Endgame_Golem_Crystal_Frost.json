@@ -1,0 +1,42 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Intelligent",
+  "Modify": {
+    "MaxHealth": 300,
+    "ViewSector": 150,
+    "DropList": "Drop_Endgame_Golem_Crystal_Frost",
+    "Appearance": "Golem_Crystal_Frost",
+    "Weapons": [],
+    "OffHand": [],
+    "MaxSpeed": 5,
+    "ViewRange": 12,
+    "WakingIdleBehaviorComponent": "Component_Instruction_Stationary_Idle",
+    "Attack": "Root_NPC_Endgame_Golem_Crystal_Frost_Attack",
+    "AttackDistance": 2.5,
+    "BlockProbability": 0,
+    "DesiredAttackDistanceRange": [
+      2,
+      2.4
+    ],
+    "CombatAttackPostDelay": [
+      0.6,
+      1.2
+    ],
+    "CombatRelativeTurnSpeed": 0.3,
+    "LeashDistance": 15,
+    "HardLeashDistance": 25,
+    "AttitudeGroup": "Golem",
+    "IsMemory": true,
+    "MemoriesCategory": "Elemental",
+    "MemoriesNameOverride": "Golem_Crystal_Frost",
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Endgame_Golem_Crystal_Frost.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

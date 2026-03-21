@@ -1,0 +1,111 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Tool_Shovel_Iron.name",
+    "Description": "server.items.Tool_Shovel_Iron.description"
+  },
+  "Parent": "Tool_Shovel_Crude",
+  "Icon": "Icons/ItemsGenerated/Tool_Shovel_Iron.png",
+  "Quality": "Uncommon",
+  "ItemLevel": 20,
+  "Model": "Items/Tools/Shovel/Iron.blockymodel",
+  "Texture": "Items/Tools/Shovel/Iron_Texture.png",
+  "Recipe": {
+    "TimeSeconds": 3.5,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "Ingredient_Leather_Light",
+        "Quantity": 3
+      },
+      {
+        "ItemId": "Ingredient_Fabric_Scrap_Linen",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Workbench",
+        "Type": "Crafting",
+        "Categories": [
+          "Workbench_Tools"
+        ]
+      }
+    ]
+  },
+  "Tool": {
+    "Specs": [
+      {
+        "Power": 1,
+        "GatherType": "SoftBlocks"
+      },
+      {
+        "Power": 0.5,
+        "GatherType": "Soils",
+        "HitSoundLayer": "SFX_Shovel_T2_Impact_Nice"
+      },
+      {
+        "Power": 0.05,
+        "GatherType": "Woods"
+      },
+      {
+        "Power": 0.05,
+        "GatherType": "Rocks"
+      },
+      {
+        "Power": 0.5,
+        "GatherType": "Benches"
+      },
+      {
+        "Power": 0.046,
+        "GatherType": "OreCopper"
+      },
+      {
+        "Power": 0.042,
+        "GatherType": "OreIron"
+      },
+      {
+        "Power": 0.042,
+        "GatherType": "OreSilver"
+      },
+      {
+        "Power": 0.042,
+        "GatherType": "OreGold"
+      },
+      {
+        "Power": 0.036,
+        "GatherType": "OreThorium"
+      },
+      {
+        "Power": 0.036,
+        "GatherType": "OreCobalt"
+      },
+      {
+        "Power": 0.032,
+        "GatherType": "OreAdamantite"
+      },
+      {
+        "Power": 0.028,
+        "GatherType": "OreMithril"
+      }
+    ],
+    "DurabilityLossBlockTypes": [
+      {
+        "BlockSets": [
+          "Stone",
+          "Rock",
+          "Ores",
+          "Soil"
+        ],
+        "DurabilityLossOnHit": 0.05
+      }
+    ]
+  },
+  "MaxDurability": 250,
+  "Categories": [
+    "Items.Tools",
+    "Endgame.Tools"
+  ]
+}

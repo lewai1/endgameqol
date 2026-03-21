@@ -1,0 +1,19 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Default",
+    "ItemAnimationId": "Throw"
+  },
+  "RunTime": 0.3,
+  "Next": {
+    "Type": "Projectile",
+    "RunTime": 0.3,
+    "Effects": {
+      "WorldSoundEventId": "SFX_Unarmed_Swing"
+    },
+    "Config": "Endgame_Scarak_Venom_Spit",
+    "Tags": {
+      "AimingReference": []
+    }
+  }
+}

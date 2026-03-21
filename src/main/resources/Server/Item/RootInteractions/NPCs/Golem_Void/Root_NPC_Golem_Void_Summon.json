@@ -1,0 +1,14 @@
+{
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  },
+  "Interactions": [
+    {
+      "Type": "TriggerSpawnMarkers",
+      "MarkerType": "Eye_Void_Manual",
+      "Range": 30
+    }
+  ]
+}

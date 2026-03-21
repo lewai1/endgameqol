@@ -1,0 +1,160 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Survival_Trap_Snapjaw.name",
+    "Description": "server.items.Survival_Trap_Snapjaw.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Trap_Bear.png",
+  "MaxStack": 1,
+  "Categories": [
+    "Blocks.Deco"
+  ],
+  "Recipe": {
+    "TimeSeconds": 1,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 3
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Workbench",
+        "Type": "Crafting",
+        "Categories": [
+          "Workbench_Tinkering"
+        ]
+      }
+    ]
+  },
+  "BlockType": {
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/Tinkering/Traps/Bear_Trap.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/Tinkering/Traps/Bear_Trap_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "Looping": false,
+    "CustomModelAnimation": "Blocks/Tinkering/Traps/Bear_Trap_Opened.blockyanim",
+    "Flags": {},
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "SoftBlocks"
+      }
+    },
+    "HitboxType": "Block_Quarter",
+    "Material": "Empty",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#4b4b4b",
+    "BlockSoundSetId": "Metal",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "State": {
+      "Definitions": {
+        "Closed": {
+          "InteractionSoundEventId": "SFX_Door_Ancient_Close",
+          "Looping": false,
+          "CustomModelAnimation": "Blocks/Tinkering/Traps/Bear_Trap_Closed.blockyanim",
+          "Interactions": {
+            "CollisionEnter": {
+              "Interactions": [
+                {
+                  "Type": "Simple"
+                }
+              ]
+            },
+            "Collision": {
+              "Cooldown": {
+                "Id": "Collision",
+                "Cooldown": 0.3
+              },
+              "Interactions": [
+                {
+                  "Type": "ApplyEffect",
+                  "EffectId": {
+                    "Duration": 0.3,
+                    "OverlapBehavior": "Overwrite",
+                    "ApplicationEffects": {
+                      "HorizontalSpeedMultiplier": 0
+                    }
+                  }
+                }
+              ]
+            },
+            "Use": {
+              "Interactions": [
+                {
+                  "Type": "ChangeState",
+                  "Changes": {
+                    "Closed": "default"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Interactions": {
+      "CollisionEnter": {
+        "Cooldown": {
+          "Id": "CollisionEnter",
+          "Cooldown": 0
+        },
+        "Interactions": [
+          {
+            "Type": "Condition",
+            "RequiredGameMode": "Adventure",
+            "Next": {
+              "Type": "ApplyEffect",
+              "EffectId": {
+                "Locale": "snapjaw",
+                "Duration": 0.2,
+                "OverlapBehavior": "Overwrite",
+                "ApplicationEffects": {
+                  "HorizontalSpeedMultiplier": 0
+                },
+                "DamageCalculator": {
+                  "BaseDamage": {
+                    "Physical": 25
+                  }
+                }
+              },
+              "Next": {
+                "Type": "ChangeState",
+                "Changes": {
+                  "default": "Closed"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "PlayerAnimationsId": "Block",
+  "IconProperties": {
+    "Scale": 0.72,
+    "Translation": [
+      0,
+      -7.1
+    ],
+    "Rotation": [
+      22.5,
+      59.81,
+      22.5
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Trap"
+    ]
+  }
+}

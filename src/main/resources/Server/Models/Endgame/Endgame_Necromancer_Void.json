@@ -1,0 +1,21 @@
+{
+  "Parent": "Necromancer_Void",
+  "DefaultAttachments": [
+    {
+      "Model": "NPC/Void/Necromancer_Void/Models/Attachments/Braids.blockymodel",
+      "Texture": "NPC/Void/Necromancer_Void/Models/Attachments/Braids_Texture.png"
+    },
+    {
+      "Model": "NPC/Void/Necromancer_Void/Models/Attachments/Bracers.blockymodel",
+      "Texture": "NPC/Void/Necromancer_Void/Models/Attachments/Bracers_Texture.png"
+    },
+    {
+      "Model": "NPC/Void/Necromancer_Void/Models/Attachments/Chest.blockymodel",
+      "Texture": "NPC/Void/Necromancer_Void/Models/Attachments/Chest_Texture.png"
+    },
+    {
+      "Model": "NPC/Void/Necromancer_Void/Models/Attachments/Head_Skull.blockymodel",
+      "Texture": "NPC/Void/Necromancer_Void/Models/Attachments/Head_Skull_Texture.png"
+    }
+  ]
+}

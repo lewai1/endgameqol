@@ -1,0 +1,24 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Endgame_Accessory_Blazefist.name",
+    "Description": "server.items.Endgame_Accessory_Blazefist.description"
+  },
+  "Categories": [
+    "Endgame.Accessories"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Item",
+  "Quality": "Legendary",
+  "Model": "Items/Accessories/Blazefist.blockymodel",
+  "Texture": "Items/Accessories/Blazefist_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Blazefist_Icon.png",
+  "DropOnDeath": true,
+  "Tags": {
+    "Type": [
+      "Accessory"
+    ],
+    "Family": [
+      "Endgame"
+    ]
+  }
+}

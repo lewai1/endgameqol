@@ -1,0 +1,29 @@
+{
+  "Parent": "Saurian_Hunter",
+  "DefaultAttachments": [
+    {
+      "Model": "NPC/Intelligent/Saurian/Models/Attachments/Hunter/Helm.blockymodel",
+      "Texture": "NPC/Intelligent/Saurian/Models/Attachments/Hunter/Helm_Texture.png"
+    },
+    {
+      "Model": "NPC/Intelligent/Saurian/Models/Attachments/Hunter/Feathers_Ornament.blockymodel",
+      "Texture": "NPC/Intelligent/Saurian/Models/Attachments/Hunter/Feathers_Ornament_Texture/Blue.png"
+    },
+    {
+      "Model": "NPC/Intelligent/Saurian/Models/Attachments/Hunter/Legs.blockymodel",
+      "Texture": "NPC/Intelligent/Saurian/Models/Attachments/Hunter/Legs_Texture.png"
+    },
+    {
+      "Model": "NPC/Intelligent/Saurian/Models/Attachments/Warrior/Chest_Armor.blockymodel",
+      "Texture": "NPC/Intelligent/Saurian/Models/Attachments/Warrior/Chest_Armor_Brown_Texture.png"
+    },
+    {
+      "Model": "NPC/Intelligent/Saurian/Models/Attachments/Hunter/Arm.blockymodel",
+      "Texture": "NPC/Intelligent/Saurian/Models/Attachments/Hunter/Arm_Texture.png"
+    },
+    {
+      "Model": "NPC/Intelligent/Saurian/Models/Weapons/Spear/Adamantite_Saurian.blockymodel",
+      "Texture": "NPC/Intelligent/Saurian/Models/Weapons/Spear/Adamantite_Saurian_Texture.png"
+    }
+  ]
+}

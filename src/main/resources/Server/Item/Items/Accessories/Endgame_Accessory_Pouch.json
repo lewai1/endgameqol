@@ -1,0 +1,62 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Endgame_Accessory_Pouch.name",
+    "Description": "server.items.Endgame_Accessory_Pouch.description"
+  },
+  "Categories": [
+    "Endgame.Accessories"
+  ],
+  "MaxStack": 1,
+  "Quality": "Legendary",
+  "Model": "Items/Back/Endgame_Accessory_Pouch.blockymodel",
+  "Texture": "Items/Back/Endgame_Accessory_Pouch_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Endgame_Accessory_Pouch_Icon.png",
+  "Scale": 0.5,
+  "PlayerAnimationsId": "Item",
+  "DropOnDeath": true,
+  "Interactions": {
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "EndgameAccessoryPouch"
+        }
+      ]
+    }
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Leather_Storm",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "Ingredient_Voidheart",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Bar_Mithril",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Endgame_Bench",
+        "Type": "Crafting",
+        "Categories": [
+          "Endgame_Misc"
+        ],
+        "RequiredTierLevel": 2
+      }
+    ],
+    "KnowledgeRequired": false,
+    "TimeSeconds": 3
+  },
+  "Tags": {
+    "Type": [
+      "Accessory"
+    ],
+    "Family": [
+      "Endgame"
+    ]
+  }
+}

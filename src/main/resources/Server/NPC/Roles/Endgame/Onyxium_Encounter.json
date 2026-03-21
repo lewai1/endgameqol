@@ -1,0 +1,25 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Intelligent",
+  "Modify": {
+    "Appearance": "Onyxium_Encounter",
+    "DefaultPlayerAttitude": "Neutral",
+    "WanderRadius": 8,
+    "ViewRange": 14,
+    "HearingRange": 10,
+    "DropList": "Drop_Onyxium_Encounter",
+    "MaxSpeed": 6,
+    "Attack": "Root_NPC_Onyxium_Encounter_Attack",
+    "MaxHealth": 700,
+    "Weapons": ["Weapon_Daggers_Onyxium"],
+    "OffHand": [],
+    "IsMemory": false,
+    "NameTranslationKey": { "Compute": "NameTranslationKey" }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Onyxium_Encounter.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

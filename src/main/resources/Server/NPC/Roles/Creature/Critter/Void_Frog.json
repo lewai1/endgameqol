@@ -1,0 +1,21 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Beasts_Passive_Critter",
+  "Modify": {
+    "Appearance": "Void_Frog",
+    "DropList": "Drop_Frog_Blue",
+    "MaxHealth": 15,
+    "IsMemory": true,
+    "MemoriesCategory": "Critter",
+    "MemoriesNameOverride": "Frog_Green",
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Frog_Green.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

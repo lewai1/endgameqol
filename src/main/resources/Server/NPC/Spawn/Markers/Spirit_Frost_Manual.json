@@ -1,0 +1,13 @@
+{
+  "Model": "NPC_Spawn_Marker",
+  "NPCs": [
+    {
+      "Name": "Spirit_Frost",
+      "Weight": 100,
+      "SpawnAfterGameTime": "PT1H"
+    }
+  ],
+  "ManualTrigger": true,
+  "ExclusionRadius": 0,
+  "MaxDropHeight": 10
+}

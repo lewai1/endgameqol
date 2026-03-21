@@ -1,0 +1,12 @@
+{
+  "Model": "NPC_Spawn_Marker",
+  "NPCs": [
+    {
+      "Name": "Endgame_Saurian_Warrior",
+      "Weight": 100,
+      "SpawnAfterGameTime": "PT1H"
+    }
+  ],
+  "ExclusionRadius": 0,
+  "MaxDropHeight": 6
+}

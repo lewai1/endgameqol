@@ -1,0 +1,36 @@
+{
+  "Type": "NoiseRange",
+  "Biomes": [
+    {
+      "Biome": "Endgame_Swamp_Dungeon",
+      "Min": 0,
+      "Max": 2
+    }
+  ],
+  "DefaultBiome": "Void",
+  "DefaultTransitionDistance": 1,
+  "MaxBiomeEdgeDistance": 1,
+  "Density": {
+    "Type": "Imported",
+    "Name": "Biome-Map-Portals"
+  },
+  "Framework": [
+    {
+      "Type": "DecimalConstants",
+      "Entries": [
+        {
+          "Name": "Base",
+          "Value": 0
+        },
+        {
+          "Name": "Water",
+          "Value": 0
+        },
+        {
+          "Name": "Bedrock",
+          "Value": 0
+        }
+      ]
+    }
+  ]
+}

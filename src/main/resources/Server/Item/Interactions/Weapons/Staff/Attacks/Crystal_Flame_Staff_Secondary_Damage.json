@@ -1,0 +1,16 @@
+{
+  "Parent": "DamageEntityParent",
+  "DamageCalculator": {
+    "BaseDamage": {
+      "Fire": 25
+    }
+  },
+  "DamageEffects": {
+    "WorldParticles": [
+      {
+        "SystemId": "Impact_Sword_Basic"
+      }
+    ],
+    "WorldSoundEventId": "SFX_Effect_Burn_World"
+  }
+}

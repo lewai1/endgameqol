@@ -1,0 +1,59 @@
+{
+  "Parent": "Template_Weapon_Shield",
+  "TranslationProperties": {
+    "Name": "server.items.Weapon_Shield_Onyxium.name",
+    "Description": "server.items.Weapon_Shield_Onyxium.description"
+  },
+  "Model": "Items/Weapons/Shield/Onyxium.blockymodel",
+  "Texture": "Items/Weapons/Shield/Onyxium_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Weapon_Shield_Onyxium.png",
+  "Quality": "Epic",
+  "ItemLevel": 55,
+  "Recipe": {
+    "TimeSeconds": 5,
+    "KnowledgeRequired": false,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Onyxium",
+        "Quantity": 10
+      },
+      {
+        "ItemId": "Ingredient_Leather_Storm",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Voidheart",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Categories": [
+          "Endgame_Armor_Onyxium"
+        ],
+        "RequiredTierLevel": 4,
+        "Id": "Endgame_Bench"
+      }
+    ]
+  },
+  "InteractionVars": {
+    "Guard_Wield": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Shield_Secondary_Guard_Wield",
+          "StaminaCost": {
+            "Value": 14,
+            "CostType": "Damage"
+          }
+        }
+      ]
+    }
+  },
+  "MaxDurability": 260,
+  "DurabilityLossOnHit": 0.45,
+  "Categories": [
+    "Items.Weapons",
+    "Endgame.Weapons"
+  ]
+}

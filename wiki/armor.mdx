@@ -1,0 +1,100 @@
+---
+title: Armor & Accessories
+description: 5 armor sets with passive bonuses and 6 trinket accessories.
+authors:
+    - name: "Lewai"
+---
+
+# Armor & Accessories
+
+5 armor sets with passive bonuses, plus 6 trinket accessories.
+
+## Armor Sets
+
+| Set           | Tier    | Mana Regen/Piece | HP Regen/Piece | Special                  |
+|---------------|:-------:|:-----------------:|:--------------:|--------------------------|
+| Diving Crude  | Starter |        —          |       —        | Underwater breathing     |
+| Adamantite    |    1    |        —          |       —        | Basic protection         |
+| Mithril       |    2    |      0.5/s        |       —        | —                        |
+| Onyxium       |    3    |     0.75/s        |     0.5/s      | —                        |
+| Prisma        |    4    |      1.0/s        |    0.75/s      | Fire + Fall resistance   |
+
+> [!NOTE]
+> **HP Regen** activates **15 seconds** after the last damage taken. This delay is configurable by server admins.
+>
+> **Mana Regen** stacks per piece worn. You can mix armor sets and receive the sum of each individual piece's mana regen. There is no set bonus for wearing all four pieces of the same tier.
+
+Each armor set consists of **4 pieces**: Head, Chest, Hands, and Legs.
+
+## Trinket Pouch
+
+The **Trinket Pouch** is a portable container with **3 accessory slots**. Place accessories inside to gain their passive bonuses.
+
+| Property      | Value                                                            |
+|---------------|------------------------------------------------------------------|
+| Slots         | 3 accessory slots                                                |
+| Requirement   | Must be in hotbar for accessories to work                        |
+| Config Toggle | `AccessoriesEnabled` (true)                                      |
+| Recipe        | 6 Storm Leather + 2 Voidheart + 4 Mithril Bars (Endgame Bench Tier 2) |
+
+## Accessories
+
+Six unique accessories, each obtained from different endgame content. Place them in the Trinket Pouch to activate.
+
+### Frostwalkers
+
+Walk on water by creating temporary ice beneath your feet. The ice forms in a 2-block radius as you walk and melts shortly after you leave.
+
+| Property | Value                                          |
+|----------|-------------------------------------------------|
+| Effect   | Temporary ice path on water surface (2-block radius) |
+| Source   | Frozen Dungeon chest                            |
+
+### Ocean Striders
+
+Double your swimming speed when fully submerged. Essential for underwater exploration and hidden dungeon areas.
+
+| Property | Value                            |
+|----------|----------------------------------|
+| Effect   | 2x swim speed (submerged only)   |
+| Source   | Humpback Whale drop **(15%)**    |
+
+### Void Amulet
+
+Survive a lethal hit at **1 HP** with 3 seconds of invulnerability. The amulet is **consumed on use**. Has a 5-minute cooldown before it can trigger again.
+
+| Property | Value                                               |
+|----------|-----------------------------------------------------|
+| Effect   | Cheat death (1 HP + 3s invuln). Consumed on trigger. |
+| Cooldown | 5 minutes                                           |
+| Source   | Golem Void drop **(15%)**                            |
+
+### Blazefist
+
+Your melee hits apply burn and trigger an AOE fire burst that hits enemies within 3 meters. Deals **50 damage x 3 ticks** (configurable). Excellent for crowd control.
+
+| Property | Value                                                   |
+|----------|---------------------------------------------------------|
+| Effect   | Burn on melee hit + AOE burn (3m radius, 50 dmg x 3 ticks) |
+| Source   | Dragon Fire drop **(15%)**                               |
+
+### Pocket Garden
+
+Grants HP regeneration **only when near farming crops**. Also auto-fertilizes soil in a 5-block radius. This is **not** unconditional regen — you must be near crops for the healing to activate.
+
+| Property | Value                                              |
+|----------|----------------------------------------------------|
+| Effect   | HP regen near crops + auto-fertilize (5-block radius) |
+| Source   | Swamp Dungeon chest                                |
+
+### Hedera Seed
+
+When you take damage, there is a **15% chance** to root the attacker in place for 2 seconds. Rooted enemies cannot move but can still attack.
+
+| Property | Value                                        |
+|----------|----------------------------------------------|
+| Effect   | 15% chance to root attacker for 2s when hit  |
+| Source   | Hedera drop **(15%)**                        |
+
+> [!TIP]
+> **Deactivation:** Removing an accessory from the Trinket Pouch immediately deactivates its effect. The Void Amulet is permanently destroyed when triggered and must be obtained again. All other accessories can be freely swapped without penalty.

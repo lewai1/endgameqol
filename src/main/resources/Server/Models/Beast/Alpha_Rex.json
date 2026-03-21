@@ -1,0 +1,428 @@
+{
+  "Model": "NPC/MiniBoss/Alpha_Rex/Models/Model.blockymodel",
+  "Texture": "NPC/MiniBoss/Alpha_Rex/Models/Texture.png",
+  "EyeHeight": 4.9,
+  "CrouchOffset": -0.1,
+  "HitBox": {
+    "Max": {
+      "X": 1.9,
+      "Y": 5.3,
+      "Z": 1.9
+    },
+    "Min": {
+      "X": -1.9,
+      "Y": 0,
+      "Z": -1.9
+    }
+  },
+  "Camera": {
+    "Pitch": {
+      "AngleRange": {
+        "Max": 45,
+        "Min": -15
+      },
+      "TargetNodes": [
+        "Head"
+      ]
+    },
+    "PositionOffset": {
+      "X": 1,
+      "Y": 0,
+      "Z": 8.2
+    },
+    "Yaw": {
+      "AngleRange": {
+        "Max": 30,
+        "Min": -30
+      },
+      "TargetNodes": [
+        "Head"
+      ]
+    }
+  },
+  "MinScale": 1.5,
+  "MaxScale": 1.5,
+  "AnimationSets": {
+    "Idle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Idle.blockyanim"
+        }
+      ]
+    },
+    "IdlePassive": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Flavor/Sniff_Right.blockyanim",
+          "Looping": false,
+          "Weight": 5
+        },
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Flavor/Sniff_Left.blockyanim",
+          "Looping": false,
+          "Weight": 5
+        },
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Flavor/Look_Left.blockyanim",
+          "Looping": false,
+          "Weight": 5
+        },
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Flavor/Look_Right.blockyanim",
+          "Looping": false,
+          "Weight": 5
+        },
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Flavor/Roar.blockyanim",
+          "Looping": false,
+          "Weight": 1
+        },
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Flavor/Look_Around.blockyanim",
+          "Looping": false,
+          "Weight": 5
+        }
+      ],
+      "NextAnimationDelay": {
+        "Min": 2,
+        "Max": 10
+      }
+    },
+    "Spawn": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Spawn.blockyanim",
+          "Looping": false,
+          "BlendingDuration": 0
+        }
+      ]
+    },
+    "Walk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Walk.blockyanim",
+          "SoundEventId": "SFX_Rex_Walk"
+        }
+      ]
+    },
+    "WalkPassive": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Flavor/Sniff_Right.blockyanim",
+          "Looping": false,
+          "Weight": 5
+        },
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Flavor/Sniff_Left.blockyanim",
+          "Looping": false,
+          "Weight": 5
+        },
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Flavor/Look_Left.blockyanim",
+          "Looping": false,
+          "Weight": 5
+        },
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Flavor/Look_Right.blockyanim",
+          "Looping": false,
+          "Weight": 5
+        },
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Flavor/Look_Around.blockyanim",
+          "Looping": false,
+          "Weight": 5
+        }
+      ],
+      "NextAnimationDelay": {
+        "Min": 2,
+        "Max": 10
+      }
+    },
+    "WalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Walk_Backward.blockyanim"
+        }
+      ]
+    },
+    "Run": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Run.blockyanim",
+          "SoundEventId": "SFX_Rex_Walk"
+        }
+      ]
+    },
+    "Crouch": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Crouch.blockyanim",
+          "BlendingDuration": 0.1
+        }
+      ]
+    },
+    "CrouchWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Crouch_Walk.blockyanim",
+          "BlendingDuration": 0.1
+        }
+      ]
+    },
+    "CrouchWalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Crouch_Walk_Backward.blockyanim",
+          "BlendingDuration": 0.1
+        }
+      ]
+    },
+    "Jump": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Jump.blockyanim",
+          "Looping": false,
+          "BlendingDuration": 0.1,
+          "Speed": 1
+        }
+      ]
+    },
+    "JumpWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Jump.blockyanim",
+          "Speed": 0.8,
+          "BlendingDuration": 0.1,
+          "Looping": false
+        }
+      ]
+    },
+    "JumpRun": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Jump_Far.blockyanim",
+          "Speed": 0.8,
+          "BlendingDuration": 0.1,
+          "Looping": false
+        },
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Jump_Far2.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false
+        }
+      ]
+    },
+    "Fall": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Fall.blockyanim",
+          "BlendingDuration": 0.4
+        }
+      ]
+    },
+    "FallFar": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Fall_Far.blockyanim",
+          "BlendingDuration": 0.4
+        }
+      ]
+    },
+    "Alerted": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Alerted.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Rex_Alerted"
+        }
+      ]
+    },
+    "Laydown": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Laydown.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Sleep": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Sleep.blockyanim"
+        }
+      ]
+    },
+    "Wake": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Wake.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Hurt": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Damage/Hurt.blockyanim",
+          "Looping": false,
+          "BlendingDuration": 0.1,
+          "SoundEventId": "SFX_Rex_Hurt"
+        },
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Damage/Hurt2.blockyanim",
+          "Looping": false,
+          "BlendingDuration": 0.1,
+          "SoundEventId": "SFX_Rex_Hurt"
+        },
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Damage/Hurt3.blockyanim",
+          "Looping": false,
+          "BlendingDuration": 0.1,
+          "SoundEventId": "SFX_Rex_Hurt"
+        }
+      ]
+    },
+    "Death": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Damage/Death.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Rex_Death"
+        }
+      ]
+    },
+    "SwimIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Swim/Swim_Idle.blockyanim"
+        }
+      ]
+    },
+    "Swim": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Swim/Swim.blockyanim",
+          "Speed": 1.2
+        }
+      ]
+    },
+    "SwimBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Swim/Swim_Backward.blockyanim"
+        }
+      ]
+    },
+    "SwimFast": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Swim/Swim_Fast.blockyanim"
+        }
+      ]
+    },
+    "SwimJump": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Swim/Swim_Jump.blockyanim",
+          "Looping": false,
+          "Speed": 0.8
+        }
+      ]
+    },
+    "SwimFloat": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Swim/Swim_Idle.blockyanim"
+        }
+      ]
+    },
+    "SwimSink": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Fall.blockyanim"
+        }
+      ]
+    },
+    "SwimDive": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Swim/Swim.blockyanim"
+        }
+      ]
+    },
+    "SwimDiveBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Swim/Swim_Backward.blockyanim"
+        }
+      ]
+    },
+    "SwimDiveFast": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Swim/Swim_Fast.blockyanim"
+        }
+      ]
+    },
+    "FluidIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Idle.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "FluidWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Walk.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "FluidWalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Walk_Backward.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "FluidRun": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Default/Run.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "FlyIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Fly/Fly_Idle.blockyanim"
+        }
+      ]
+    },
+    "Fly": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Fly/Fly.blockyanim"
+        }
+      ]
+    },
+    "FlyBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Fly/Fly_Backward.blockyanim"
+        }
+      ]
+    },
+    "FlyFast": {
+      "Animations": [
+        {
+          "Animation": "NPC/Beast/Rex_Cave/Animations/Fly/Fly_Fast.blockyanim"
+        }
+      ]
+    }
+  }
+}

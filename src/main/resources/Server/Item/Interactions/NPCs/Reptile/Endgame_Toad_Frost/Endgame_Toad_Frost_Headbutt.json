@@ -1,0 +1,73 @@
+{
+  "Type": "Parallel",
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  },
+  "Interactions": [
+    {
+      "Interactions": [
+        {
+          "Type": "Simple",
+          "Effects": {
+            "ItemPlayerAnimationsId": "Endgame_Toad_Frost_Default",
+            "ItemAnimationId": "Headbutt"
+          },
+          "RunTime": 0.417
+        },
+        {
+          "Type": "ApplyForce",
+          "VelocityConfig": {
+            "AirResistance": 0.2,
+            "AirResistanceMax": 0.1,
+            "GroundResistance": 0.2,
+            "GroundResistanceMax": 0.1,
+            "Threshold": 3.0,
+            "Style": "Linear"
+          },
+          "ChangeVelocityType": "Add",
+          "Force": 700,
+          "Direction": {
+            "X": 0,
+            "Y": 1,
+            "Z": -100
+          }
+        }
+      ]
+    },
+    {
+      "Interactions": [
+        {
+          "Type": "Simple",
+          "RunTime": 0.417
+        },
+        {
+          "Type": "Selector",
+          "$Comment": "Length of Combat",
+          "RunTime": 0.417,
+          "Selector": {
+            "Id": "Stab",
+            "TestLineOfSight": true,
+            "ExtendTop": 0.75,
+            "ExtendBottom": 0.75,
+            "ExtendLeft": 0.75,
+            "ExtendRight": 0.75,
+            "StartDistance": 1,
+            "EndDistance": 3
+          },
+          "HitEntity": {
+            "Interactions": [
+              "Endgame_Toad_Frost_Headbutt_Damage"
+            ]
+          },
+          "Next": {
+            "Type": "Simple",
+            "$Comment": "Pad the interaction length",
+            "RunTime": 0.417
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+---
+title: Bosses & Elites
+description: All boss encounters and elite mobs in EndgameQoL — phases, attacks, drops, difficulty presets, player scaling, and enrage mechanics.
+authors:
+    - name: "Lewai"
+---
+
+# Bosses & Elites
+
+3 dungeon bosses and 6 elite mobs with configurable difficulty.
+
+> [!NOTE]
+> **Shared Boss Kill Credit** — All players in the instance receive kill credit, bestiary progress, and XP when a boss dies. Toggle with `SharedBossKillCredit` in config.
+
+> [!TIP]
+> **Boss Target Switching** — Bosses dynamically switch aggro using weighted random targeting every 8--10 seconds. Proximity and damage dealt influence target selection.
+
+## Dungeon Bosses
+
+### Dragon Frost
+
+**Location:** Frozen Dungeon — 50% player scaling
+**Health:** 1,400
+
+**Phases:**
+
+| Phase | Name |
+| :--- | :--- |
+| Phase 1 | Frozen Calm |
+| Phase 2 | Ice Storm |
+| Phase 3 | Blizzard Fury |
+
+**Attacks:**
+
+| Attack | Type | Notes |
+| :--- | :--- | :--- |
+| **Ice Ball** | Ranged | Projectile, applies frost slow |
+| **Frost Breath** | AOE | Cone breath attack, heavy ice damage |
+| **Sky Bolt** | Ranged | Rain of bolts targeting player position |
+| **Tail Swipe** | Melee | Rear knockback sweep |
+| **Wing Buffet** | AOE | Pushes nearby players back |
+
+**Drops:** Dragon Heart, Mithril Bar, Storm Hide, Ice Essence, Frozen Sword
+
+---
+
+### Hedera
+
+**Location:** Swamp Dungeon — 50% player scaling
+**Health:** 1,800
+
+**Phases:**
+
+| Phase | Name |
+| :--- | :--- |
+| Phase 1 | Vine Growth |
+| Phase 2 | Toxic Bloom |
+| Phase 3 | Corrupted Fury |
+
+**Attacks:**
+
+| Attack | Type | Notes |
+| :--- | :--- | :--- |
+| **Poison Strike** | Melee | Applies poison DOT |
+| **Root AOE** | AOE | Root eruption, snares players |
+| **Scream** | AOE | Circular scream, heavy knockback |
+
+**Drops:** Hedera Gem, Onyxium Bar, Forest Essence, Voidheart
+
+---
+
+### Golem Void
+
+**Location:** Void Instance — 50% player scaling
+**Health:** 3,500
+
+**Phases:**
+
+| Phase | Name |
+| :--- | :--- |
+| Phase 1 | Void Awakening |
+| Phase 2 | Rift Surge |
+| Phase 3 | Void Collapse |
+
+**Attacks:**
+
+| Attack | Type | Notes |
+| :--- | :--- | :--- |
+| **Swing** | Melee | Standard melee attack |
+| **Ground Slam** | AOE | Devastating ground pound |
+| **Danger Zone** | AOE | 8m persistent DOT aura, Phase 3 |
+
+**Drops:** Onyxium Bar, Prisma Bar, Emerald, Portal Luminia
+
+## Elite Mobs
+
+Difficulty scaling applies to elite HP and damage. No player-count scaling. Compact elite health bar displayed overhead.
+
+| Elite | Health | Location | Notes |
+| :--- | :---: | :--- | :--- |
+| **Dragon Fire** | 1,000 | Summoned | Wild fire dragon, burn DOT attacks |
+| **Alpha Rex** | 700 | Zone 4 | Powerful cave predator, territorial |
+| **Swamp Crocodile** | 900 | Swamp Dungeon | Ambush predator, poison bite |
+| **Bramble Elite** | 550 | Swamp Dungeon | Thorny guardian, root + poison |
+| **Zombie Aberrant** | 400 | Zone 4 | Void-corrupted undead, high physical damage |
+| **Spectre Void** | 120 | Void Instance | Fast void spirit, evasive |
+
+## Difficulty Presets
+
+Server-wide difficulty affects all boss and elite HP/damage multipliers. Configurable via `/egconfig`.
+
+| Preset | HP Multiplier | Damage Multiplier |
+| :--- | :---: | :---: |
+| **Easy** | 60% | 50% |
+| **Medium** | 100% | 100% |
+| **Hard** | 150% | 150% |
+| **Extreme** | 250% | 200% |
+| **Custom** | 10--1000% | 10--1000% |
+
+## Player Scaling Formula
+
+```
+multiplier = 1.0 + (playerCount - 1) * (scalingPercent / 100)
+```
+
+**Example:**
+
+**Golem Void** — Hard (150%) — 4 Players — 50% Scaling
+
+3,500 x 1.5 x (1.0 + (4 - 1) x 0.50) = 3,500 x 1.5 x 2.5
+
+**= 13,125 HP**
+
+## Enrage Mechanic
+
+When a boss receives more than **200 damage in 5 seconds**, it enters an enraged state:
+
+| Property | Value |
+| :--- | :--- |
+| Damage Bonus | 1.5x damage for 8 seconds |
+| Cooldown | 15 seconds before enrage can trigger again |
+| Trigger | DPS exceeds 200 over 5-second window |

@@ -1,0 +1,44 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Hedera_Gem.name",
+    "Description": "server.items.Hedera_Gem.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Hedera_Gem.png",
+  "Categories": [
+    "Endgame.Materials"
+  ],
+  "PlayerAnimationsId": "Item",
+  "BlockType": {
+    "Material": "Empty",
+    "DrawType": "Model",
+    "CustomModel": "Resources/BossItems/Hedera_Gem.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Resources/BossItems/Hedera_Gem_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "CustomModelScale": 2.0
+  },
+  "IconProperties": {
+    "Scale": 0.5,
+    "Translation": [
+      -3.6,
+      -16.2
+    ],
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ]
+  },
+  "Tags": {
+    "Family": [
+      "BossItem"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "MaxStack": 100,
+  "DropOnDeath": true,
+  "Quality": "Legendary"
+}

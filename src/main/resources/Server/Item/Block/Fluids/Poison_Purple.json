@@ -1,0 +1,8 @@
+{
+  "Parent": "Poison_Purple_Source",
+  "MaxFluidLevel": 8,
+  "Ticker": {
+    "CanDemote": true,
+    "SupportedBy": "Poison_Purple_Source"
+  }
+}

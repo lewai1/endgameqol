@@ -1,0 +1,444 @@
+{
+  "Model": "NPC/Decorations/Raven_Nofly_Model.blockymodel",
+  "Texture": "NPC/Flying_Wildlife/Raven/Models/Texture.png",
+  "EyeHeight": 0.6,
+  "CrouchOffset": -0.2,
+  "HitBox": {
+    "Max": {
+      "X": 0.4,
+      "Y": 0.9,
+      "Z": 0.4
+    },
+    "Min": {
+      "X": -0.4,
+      "Y": 0,
+      "Z": -0.4
+    }
+  },
+  "MinScale": 0.8,
+  "MaxScale": 0.85,
+  "Camera": {
+    "Pitch": {
+      "AngleRange": {
+        "Max": 45,
+        "Min": -30
+      },
+      "TargetNodes": [
+        "Head"
+      ]
+    },
+    "Yaw": {
+      "TargetNodes": [
+        "Head"
+      ]
+    }
+  },
+  "AnimationSets": {
+    "Idle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Idle.blockyanim"
+        }
+      ]
+    },
+    "Walk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Walk.blockyanim"
+        }
+      ]
+    },
+    "WalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Walk_Backward.blockyanim"
+        }
+      ]
+    },
+    "Run": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Run.blockyanim",
+          "SoundEventId": "SFX_Raven_Flee"
+        }
+      ]
+    },
+    "RunBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Run_Backward.blockyanim"
+        }
+      ]
+    },
+    "Sprint": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Sprint.blockyanim"
+        }
+      ]
+    },
+    "Crouch": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Crouch.blockyanim",
+          "BlendingDuration": 0.1
+        }
+      ]
+    },
+    "CrouchWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Crouch_Walk.blockyanim",
+          "BlendingDuration": 0.1
+        }
+      ]
+    },
+    "CrouchWalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Crouch_Walk_Backward.blockyanim",
+          "BlendingDuration": 0.1
+        }
+      ]
+    },
+    "StepWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Step_Walk.blockyanim",
+          "BlendingDuration": 0.1,
+          "Speed": 0.8,
+          "Looping": false
+        }
+      ]
+    },
+    "StepRun": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Step_Run.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false
+        }
+      ]
+    },
+    "StepSprint": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Step_Sprint.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false
+        }
+      ]
+    },
+    "Jump": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Jump.blockyanim"
+        }
+      ]
+    },
+    "JumpWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Jump.blockyanim"
+        }
+      ]
+    },
+    "JumpRun": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Jump.blockyanim"
+        }
+      ]
+    },
+    "JumpSprint": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Jump.blockyanim"
+        }
+      ]
+    },
+    "Fall": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Jump.blockyanim"
+        }
+      ]
+    },
+    "Alerted": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Alerted.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Raven_Alerted"
+        }
+      ]
+    },
+    "FlyIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Fly/Fly_Idle.blockyanim"
+        }
+      ]
+    },
+    "Fly": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Fly/Fly.blockyanim",
+          "Weight": 3
+        },
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Fly/Fly_Glide.blockyanim",
+          "Weight": 1
+        }
+      ]
+    },
+    "FlyBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Fly/Fly_Backward.blockyanim"
+        }
+      ]
+    },
+    "FlyFast": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Fly/Fly.blockyanim",
+          "Weight": 1
+        },
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Fly/Fly_Glide.blockyanim",
+          "Weight": 3
+        }
+      ]
+    },
+    "SwimIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Hawk/Animations/Swim/Swim_Idle.blockyanim",
+          "Speed": 0.5
+        }
+      ]
+    },
+    "Swim": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Hawk/Animations/Swim/Swim.blockyanim"
+        }
+      ]
+    },
+    "SwimBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Hawk/Animations/Swim/Swim_Backward.blockyanim"
+        }
+      ]
+    },
+    "SwimFast": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Hawk/Animations/Swim/Swim_Fast.blockyanim"
+        }
+      ]
+    },
+    "SwimJump": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Hawk/Animations/Default/Jump.blockyanim"
+        }
+      ]
+    },
+    "SwimFloat": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Hawk/Animations/Swim/Swim_Float.blockyanim"
+        }
+      ]
+    },
+    "SwimSink": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Hawk/Animations/Swim/Swim_Sink.blockyanim"
+        }
+      ]
+    },
+    "SwimDive": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Hawk/Animations/Swim/Swim.blockyanim"
+        }
+      ]
+    },
+    "SwimDiveBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Hawk/Animations/Swim/Swim_Backward.blockyanim"
+        }
+      ]
+    },
+    "SwimDiveFast": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Hawk/Animations/Swim/Swim_Fast.blockyanim"
+        }
+      ]
+    },
+    "FluidIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Hawk/Animations/Default/Idle.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "FluidWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Hawk/Animations/Default/Walk.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "FluidWalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Hawk/Animations/Default/Walk_Backward.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "FluidRun": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Hawk/Animations/Default/Run.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "Hurt": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Damage/Hurt.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Raven_Hurt"
+        }
+      ]
+    },
+    "Death": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Damage/Death.blockyanim",
+          "BlendingDuration": 0.2,
+          "Looping": false,
+          "SoundEventId": "SFX_Raven_Death"
+        }
+      ]
+    },
+    "Laydown": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Laydown.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Sleep": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Sleep.blockyanim",
+          "Speed": 0.75
+        }
+      ]
+    },
+    "Wake": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Wake.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Spawn": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Default/Spawn.blockyanim",
+          "BlendingDuration": 0,
+          "Looping": false
+        }
+      ]
+    },
+    "IdlePassive": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Flavor/Eat.blockyanim",
+          "PassiveLoopCount": 3
+        }
+      ]
+    },
+    "HurtFly": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Damage/Hurt_Fly.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Raven_Hurt"
+        }
+      ]
+    },
+    "DeathFly": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Damage/Death_Fly.blockyanim",
+          "BlendingDuration": 0.6,
+          "SoundEventId": "SFX_Raven_Death"
+        }
+      ]
+    },
+    "DeathFlyImpact": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Damage/Death_Fly_Impact.blockyanim",
+          "BlendingDuration": 0.05,
+          "Looping": false
+        }
+      ]
+    },
+    "HurtSwim": {
+      "Animations": [
+        {
+          "Looping": false,
+          "BlendingDuration": 0.1,
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Damage/Hurt_Swim.blockyanim",
+          "SoundEventId": "SFX_Raven_Hurt"
+        }
+      ]
+    },
+    "DeathSwim": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Damage/Death_Swim.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Raven_Death"
+        }
+      ]
+    },
+    "HurtDrown": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Damage/Hurt_Drown.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Raven_Hurt"
+        }
+      ]
+    },
+    "DeathDrown": {
+      "Animations": [
+        {
+          "Animation": "NPC/Flying_Wildlife/Raven/Animations/Damage/Death_Drown.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Raven_Death"
+        }
+      ]
+    }
+  }
+}

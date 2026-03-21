@@ -1,0 +1,51 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Tiger_Sabertooth_Default",
+    "ItemAnimationId": "Bite"
+  },
+  "RunTime": 0.333,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.15,
+            "Selector": {
+              "Id": "Stab",
+              "TestLineOfSight": false,
+              "ExtendTop": 1.5,
+              "ExtendBottom": 1.5,
+              "ExtendLeft": 2,
+              "ExtendRight": 2,
+              "StartDistance": -1,
+              "EndDistance": 4
+            },
+            "HitEntity": {
+              "Interactions": [
+                "Endgame_Bramble_Elite_Bite_Damage"
+              ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "RunTime": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0.15,
+            "Effects": {
+              "WorldSoundEventId": "SFX_Unarmed_Swing"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

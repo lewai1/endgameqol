@@ -1,0 +1,19 @@
+{
+  "Interactions": [
+    {
+      "Type": "Chaining",
+      "ChainId": "BrambleEliteAttacks",
+      "ChainingAllowance": 15,
+      "Next": [
+        "Endgame_Bramble_Elite_Bite",
+        "Endgame_Bramble_Elite_Swipe_Left",
+        "Endgame_Bramble_Elite_Swipe_Right"
+      ]
+    }
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

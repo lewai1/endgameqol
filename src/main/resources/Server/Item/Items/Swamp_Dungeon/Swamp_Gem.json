@@ -1,0 +1,57 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Swamp_Gem.name",
+    "Description": "server.items.Swamp_Gem.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Swamp_Gem_Icon.png",
+  "Categories": [
+    "Blocks.Ores"
+  ],
+  "PlayerAnimationsId": "Block",
+  "Quality": "Epic",
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Resources/Ores/Gem.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Swamp_Dungeon/Swamp_Gem.png",
+        "Weight": 1
+      }
+    ],
+    "Group": "Stone",
+    "Flags": {},
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "VariantRotation": "DoublePipe",
+    "RandomRotation": "YawStep90",
+    "BlockParticleSetId": "Crystal",
+    "ParticleColor": "#1fcd3a",
+    "BlockSoundSetId": "Gem",
+    "AmbientSoundEventId": "SFX_Gem_Emit_Loop",
+    "Light": {
+      "Color": "#5b6",
+      "Radius": 0
+    },
+    "Particles": [
+      {
+        "Color": "#60d682",
+        "SystemId": "Block_Gem_Sparks"
+      }
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Rock"
+    ],
+    "Family": [
+      "Gem"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "MaxStack": 100
+}

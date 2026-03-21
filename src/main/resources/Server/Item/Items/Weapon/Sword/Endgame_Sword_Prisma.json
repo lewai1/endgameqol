@@ -1,0 +1,343 @@
+{
+  "Parent": "Template_Weapon_Sword",
+  "TranslationProperties": {
+    "Name": "server.items.Weapon_Sword_Prisma.name",
+    "Description": "server.items.Weapon_Sword_Prisma.description"
+  },
+  "Model": "Items/Weapons/Sword/Prisma.blockymodel",
+  "Texture": "Items/Weapons/Sword/Prisma_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Weapon_Sword_Prisma.png",
+  "Quality": "Legendary",
+  "ItemLevel": 65,
+  "Light": {
+    "Color": "#b060ff",
+    "Radius": 1
+  },
+  "Recipe": {
+    "TimeSeconds": 8,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Prisma",
+        "Quantity": 12
+      },
+      {
+        "ItemId": "Ingredient_Leather_Prismic",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Rock_Gem_Emerald",
+        "Quantity": 2
+      }
+    ],
+    "OutputQuantity": 1,
+    "KnowledgeRequired": false,
+    "BenchRequirement": [
+      {
+        "Id": "Endgame_Bench",
+        "Type": "Crafting",
+        "Categories": [
+          "Endgame_Armor_Prisma"
+        ],
+        "RequiredTierLevel": 5
+      }
+    ]
+  },
+  "Trails": [
+    {
+      "TrailId": "Void",
+      "TargetNodeName": "Handle",
+      "PositionOffset": {
+        "X": 0.8,
+        "Y": 0,
+        "Z": 0
+      }
+    }
+  ],
+  "InteractionVars": {
+    "Swing_Left_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Primary_Swing_Left_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 38
+            }
+          },
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Sword_T2_Impact",
+            "LocalSoundEventId": "SFX_Sword_T2_Impact",
+            "WorldParticles": [
+              {
+                "SystemId": "Impact_Critical",
+                "Scale": 1
+              }
+            ]
+          },
+          "Next": {
+            "Type": "ApplyEffect",
+            "EffectId": "Endgame_Prisma_Resonance",
+            "Entity": "Target"
+          }
+        }
+      ]
+    },
+    "Swing_Right_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Primary_Swing_Right_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 42
+            }
+          },
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Sword_T2_Impact",
+            "LocalSoundEventId": "SFX_Sword_T2_Impact",
+            "WorldParticles": [
+              {
+                "SystemId": "Impact_Critical",
+                "Scale": 1
+              }
+            ]
+          },
+          "Next": {
+            "Type": "ApplyEffect",
+            "EffectId": "Endgame_Prisma_Resonance",
+            "Entity": "Target"
+          }
+        }
+      ]
+    },
+    "Swing_Down_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Primary_Swing_Down_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 72
+            }
+          },
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Sword_T2_Impact",
+            "LocalSoundEventId": "SFX_Sword_T2_Impact",
+            "WorldParticles": [
+              {
+                "SystemId": "Impact_Critical",
+                "Scale": 1
+              }
+            ]
+          },
+          "Next": {
+            "Type": "ApplyEffect",
+            "EffectId": "Endgame_Prisma_Resonance",
+            "Entity": "Target"
+          }
+        }
+      ]
+    },
+    "Thrust_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Primary_Thrust_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 105
+            }
+          },
+          "EntityStatsOnHit": [
+            {
+              "EntityStatId": "SignatureEnergy",
+              "Amount": 5
+            }
+          ],
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Sword_T2_Impact",
+            "LocalSoundEventId": "SFX_Sword_T2_Impact",
+            "WorldParticles": [
+              {
+                "SystemId": "Impact_Critical",
+                "Scale": 1
+              }
+            ]
+          },
+          "Next": {
+            "Type": "ApplyEffect",
+            "EffectId": "Endgame_Prisma_Resonance",
+            "Entity": "Target"
+          }
+        }
+      ]
+    },
+    "Vortexstrike_Spin_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 80
+            }
+          },
+          "EntityStatsOnHit": [],
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Sword_T2_Impact",
+            "LocalSoundEventId": "SFX_Sword_T2_Impact",
+            "Knockback": {
+              "Direction": {
+                "X": 0,
+                "Y": 1,
+                "Z": -2
+              },
+              "Type": "Force",
+              "Force": 4,
+              "VelocityType": "Set",
+              "VelocityConfig": {
+                "AirResistance": 0.99,
+                "AirResistanceMax": 0.98,
+                "GroundResistance": 0.94,
+                "GroundResistanceMax": 0.3,
+                "Threshold": 3.0,
+                "Style": "Linear"
+              }
+            },
+            "WorldParticles": [
+              {
+                "SystemId": "Impact_Critical",
+                "Scale": 2
+              }
+            ]
+          },
+          "Next": {
+            "Type": "ApplyEffect",
+            "EffectId": "Endgame_Prisma_Resonance",
+            "Entity": "Target"
+          }
+        }
+      ]
+    },
+    "Vortexstrike_Stab_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 230
+            }
+          },
+          "EntityStatsOnHit": [],
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Sword_T2_Impact",
+            "LocalSoundEventId": "SFX_Sword_T2_Impact",
+            "Knockback": {
+              "Direction": {
+                "X": 0,
+                "Y": 1,
+                "Z": -3
+              },
+              "Type": "Force",
+              "Force": 8,
+              "VelocityType": "Set",
+              "VelocityConfig": {
+                "AirResistance": 0.99,
+                "AirResistanceMax": 0.98,
+                "GroundResistance": 0.94,
+                "GroundResistanceMax": 0.3,
+                "Threshold": 3.0,
+                "Style": "Linear"
+              }
+            },
+            "WorldParticles": [
+              {
+                "SystemId": "Impact_Critical",
+                "Scale": 3
+              }
+            ]
+          },
+          "Next": {
+            "Type": "ApplyEffect",
+            "EffectId": "Endgame_Prisma_Shatter",
+            "Entity": "Target"
+          }
+        }
+      ]
+    },
+    "Guard_Wield": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Sword_Secondary_Guard_Wield",
+          "StaminaCost": {
+            "Value": 18,
+            "CostType": "Damage"
+          }
+        }
+      ]
+    }
+  },
+  "Weapon": {
+    "EntityStatsToClear": [
+      "SignatureEnergy"
+    ],
+    "StatModifiers": {
+      "SignatureEnergy": [
+        {
+          "Amount": 30,
+          "CalculationType": "Additive"
+        }
+      ],
+      "Mana": [
+        {
+          "Amount": 200,
+          "CalculationType": "Additive"
+        }
+      ],
+      "Stamina": [
+        {
+          "Amount": 25,
+          "CalculationType": "Additive"
+        }
+      ]
+    }
+  },
+  "MaxDurability": 350,
+  "DurabilityLossOnHit": 0.14,
+  "Categories": [
+    "Items.Weapons",
+    "Endgame.Weapons"
+  ],
+  "ItemAppearanceConditions": {
+    "SignatureEnergy": [
+      {
+        "Condition": [25, 99],
+        "ConditionValueType": "Percent",
+        "Particles": [
+          {
+            "SystemId": "Sword_Signature_Status",
+            "TargetNodeName": "Handle",
+            "PositionOffset": {"X": 0.55},
+            "TargetEntityPart": "PrimaryItem",
+            "Scale": 0.8
+          }
+        ]
+      },
+      {
+        "Condition": [100, 100],
+        "ConditionValueType": "Percent",
+        "Particles": [
+          {
+            "SystemId": "Sword_Signature_Ready",
+            "TargetNodeName": "Handle",
+            "PositionOffset": {"X": 0.8},
+            "TargetEntityPart": "PrimaryItem"
+          },
+          {
+            "SystemId": "Sword_Signature_Status",
+            "TargetNodeName": "Handle",
+            "PositionOffset": {"X": 0.55},
+            "TargetEntityPart": "PrimaryItem",
+            "Scale": 1.3
+          }
+        ],
+        "ModelVFXId": "Sword_Signature_Status"
+      }
+    ]
+  }
+}

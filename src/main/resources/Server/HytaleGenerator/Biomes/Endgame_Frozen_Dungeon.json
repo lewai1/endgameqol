@@ -1,0 +1,90 @@
+{
+  "$NodeId": "Biome-fd2a1000-e53e-4d5b-b6a4-0cb6ec297000",
+  "Terrain": {
+    "$NodeId": "Terrain-fd2a1001-c1c4-44d3-a6b2-0fbd4bb68001",
+    "Type": "DAOTerrain",
+    "Density": {
+      "$NodeId": "ConstantDensityNode-fd2a1002-80c4-480a-8a43-f6f792000002",
+      "Type": "Constant",
+      "Skip": false,
+      "Value": 0
+    }
+  },
+  "MaterialProvider": {
+    "$NodeId": "ConstantMaterialProvider-fd2a1003-44d3-4d5b-b6a4-000000003",
+    "Type": "Constant",
+    "Material": {
+      "$NodeId": "Material-fd2a1004-c1c4-44d3-a6b2-000000000004",
+      "Solid": "Empty"
+    }
+  },
+  "Props": [
+    {
+      "$NodeId": "Runtime-fd2a1010-e53e-4d5b-b6a4-000000000010",
+      "Skip": false,
+      "Runtime": 0,
+      "Positions": {
+        "$NodeId": "ListPositions-fd2a1011-c1c4-44d3-a6b2-000000000011",
+        "Type": "List",
+        "Skip": false,
+        "Positions": [
+          {
+            "$NodeId": "Point3D-fd2a1012-80c4-480a-8a43-000000000012",
+            "X": 0,
+            "Y": 22,
+            "Z": 0
+          }
+        ]
+      },
+      "Assignments": {
+        "$NodeId": "Constant.Assignments-fd2a1013-44d3-4d5b-b6a4-000000000013",
+        "Type": "Constant",
+        "Prop": {
+          "$NodeId": "Prefab.Prop-fd2a1014-c1c4-44d3-a6b2-000000000014",
+          "Type": "Prefab",
+          "Skip": false,
+          "WeightedPrefabPaths": [
+            {
+              "$NodeId": "WeightedPath.Prefab.Prop-fd2a1015-80c4-480a-8a43-000000000015",
+              "Path": "Dungeon/Frozen_Dungeon",
+              "Weight": 1
+            }
+          ],
+          "LegacyPath": false,
+          "LoadEntities": true,
+          "Directionality": {
+            "$NodeId": "Static.Directionality-fd2a1019-44d3-4d5b-b6a4-000000000019",
+            "Type": "Static",
+            "Rotation": 0,
+            "Pattern": {
+              "$NodeId": "BlockType.Pattern-fd2a1016-44d3-4d5b-b6a4-000000000016",
+              "Type": "BlockType",
+              "Skip": false,
+              "Material": {
+                "$NodeId": "Material-fd2a1017-c1c4-44d3-a6b2-000000000017",
+                "Solid": "Empty"
+              }
+            }
+          },
+          "Scanner": {
+            "$NodeId": "Origin.Scanner-fd2a1018-80c4-480a-8a43-000000000018",
+            "Type": "Origin",
+            "Skip": false
+          },
+          "MoldingDirection": "None",
+          "MoldingChildren": false
+        }
+      }
+    }
+  ],
+  "EnvironmentProvider": {
+    "$NodeId": "Constant.EnvironmentProvider-fd2a1022-44d3-4d5b-b6a4-000000000022",
+    "Type": "Constant",
+    "Environment": "Env_Endgame_Frozen_Dungeon"
+  },
+  "TintProvider": {
+    "$NodeId": "Constant.TintProvider-fd2a1023-c1c4-44d3-a6b2-000000000023",
+    "Type": "Constant",
+    "Color": "#5b9e28"
+  }
+}

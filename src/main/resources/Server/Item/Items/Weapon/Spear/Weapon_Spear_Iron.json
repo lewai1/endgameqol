@@ -1,0 +1,111 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Weapon_Spear_Iron.name",
+    "Description": "server.items.Weapon_Spear_Iron.description"
+  },
+  "Categories": [
+    "Items.Weapons",
+    "Endgame.Weapons"
+  ],
+  "Quality": "Uncommon",
+  "ItemLevel": 20,
+  "Recipe": {
+    "TimeSeconds": 4.5,
+    "KnowledgeRequired": false,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 10
+      },
+      {
+        "ItemId": "Ingredient_Leather_Light",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Fabric_Scrap_Linen",
+        "Quantity": 3
+      }
+    ],
+    "OutputQuantity": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Weapon_Bench",
+        "Type": "Crafting",
+        "Categories": [
+          "Weapon_Spear"
+        ]
+      }
+    ]
+  },
+  "Model": "Items/Weapons/Spear/Iron.blockymodel",
+  "Texture": "Items/Weapons/Spear/Iron_Texture.png",
+  "IconProperties": {
+    "Scale": 0.24,
+    "Translation": [
+      -58,
+      -58
+    ],
+    "Rotation": [
+      45,
+      90,
+      0
+    ]
+  },
+  "Interactions": {
+    "Primary": "Spear_Attack",
+    "Secondary": "Spear_Block"
+  },
+  "InteractionVars": {
+    "Spear_Block_Damage": "Spear_Block_Damage",
+    "Spear_Stab_Effect": {
+      "Interactions": [
+        {
+          "Parent": "Spear_Stab_Effect",
+          "Effects": {
+            "WorldSoundEventId": "SFX_Axe_Special_Swing"
+          }
+        }
+      ]
+    },
+    "Spear_Stab_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Spear_Stab_Damage",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 22
+            },
+            "Type": "Absolute"
+          },
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Axe_Special_Impact"
+          }
+        }
+      ]
+    },
+    "Spear_Throw_Charged_Projectile": {
+      "Interactions": [
+        {
+          "Parent": "Spear_Throw_Charged_Projectile",
+          "ProjectileId": "Endgame_Spear_Iron"
+        }
+      ]
+    }
+  },
+  "Icon": "Icons/ItemsGenerated/Weapon_Spear_Iron.png",
+  "DroppedItemAnimation": "Items/Animations/Dropped/Dropped_Diagonal_Left.blockyanim",
+  "PlayerAnimationsId": "Spear",
+  "Tags": {
+    "Type": [
+      "Weapon"
+    ],
+    "Family": [
+      "Spear"
+    ]
+  },
+  "MaxDurability": 120,
+  "DurabilityLossOnHit": 0.21,
+  "BrokenItem": "Weapon_Spear_Iron",
+  "Weapon": {},
+  "ItemSoundSetId": "ISS_Weapons_Wood"
+}

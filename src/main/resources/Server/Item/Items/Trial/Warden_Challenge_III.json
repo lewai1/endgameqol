@@ -1,0 +1,58 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Warden_Challenge_III.name",
+    "Description": "server.items.Warden_Challenge_III.description"
+  },
+  "Quality": "Epic",
+  "Icon": "Icons/ItemsGenerated/Food_Egg_White.png",
+  "BlockType": {
+    "Material": "Empty",
+    "DrawType": "Model",
+    "CustomModel": "Items/Consumables/Food/Egg.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Consumables/Food/Egg_White_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "CustomModelScale": 0.5
+  },
+  "MaxStack": 1,
+  "Scale": 2,
+  "DropOnDeath": true,
+  "Interactions": {
+    "Primary": "Root_Endgame_Warden_Challenge_III"
+  },
+  "Categories": [
+    "Endgame.Misc"
+  ],
+  "Recipe": {
+    "TimeSeconds": 10,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Onyxium",
+        "Quantity": 5
+      },
+      {
+        "ItemId": "Ingredient_Hide_Storm",
+        "Quantity": 3
+      },
+      {
+        "ItemId": "Ingredient_Voidheart",
+        "Quantity": 3
+      }
+    ],
+    "OutputQuantity": 1,
+    "KnowledgeRequired": false,
+    "BenchRequirement": [
+      {
+        "Id": "Endgame_Bench",
+        "Type": "Crafting",
+        "Categories": [
+          "Endgame_Challenge"
+        ],
+        "RequiredTierLevel": 4
+      }
+    ]
+  }
+}

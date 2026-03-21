@@ -1,0 +1,334 @@
+{
+  "Animations": {
+    "Idle": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Idle_FPS.blockyanim",
+      "Speed": 0.5,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Idle.blockyanim",
+      "Looping": true
+    },
+    "Walk": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Walk_FPS.blockyanim",
+      "Speed": 1.0,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Walk.blockyanim",
+      "Looping": true
+    },
+    "WalkBackward": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Walk_Backward_FPS.blockyanim",
+      "Speed": 1.0,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Walk_Backward.blockyanim",
+      "Looping": true
+    },
+    "Run": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Run_FPS.blockyanim",
+      "Speed": 0.9,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Run.blockyanim",
+      "Looping": true
+    },
+    "RunBackward": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Run_Backward_FPS.blockyanim",
+      "Speed": 0.9,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Run_Backward.blockyanim",
+      "Looping": true
+    },
+    "Sprint": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Sprint_FPS.blockyanim",
+      "Speed": 1.1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Sprint.blockyanim",
+      "Looping": true
+    },
+    "Crouch": {
+      "BlendingDuration": 0.1,
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Crouch_FPS.blockyanim",
+      "Speed": 0.5,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Crouch.blockyanim",
+      "Looping": true
+    },
+    "CrouchWalk": {
+      "BlendingDuration": 0.1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Crouch_Walk.blockyanim",
+      "Speed": 0.8,
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Crouch_Walk_FPS.blockyanim",
+      "Looping": true
+    },
+    "CrouchWalkBackward": {
+      "BlendingDuration": 0.1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Crouch_Walk_Backward.blockyanim",
+      "Speed": 0.8,
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Crouch_Walk_Backward_FPS.blockyanim",
+      "Looping": true
+    },
+    "Jump": {
+      "Speed": 1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Jump.blockyanim",
+      "Looping": false,
+      "KeepPreviousFirstPersonAnimation": true
+    },
+    "JumpWalk": {
+      "Speed": 0.8,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Jump_Far.blockyanim",
+      "Looping": false,
+      "KeepPreviousFirstPersonAnimation": true
+    },
+    "JumpRun": {
+      "Speed": 0.8,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Jump_Far.blockyanim",
+      "Looping": false,
+      "KeepPreviousFirstPersonAnimation": true
+    },
+    "Fall": {
+      "BlendingDuration": 0.4,
+      "Speed": 1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Fall.blockyanim",
+      "Looping": true,
+      "KeepPreviousFirstPersonAnimation": true
+    },
+    "FallFar": {
+      "BlendingDuration": 0.4,
+      "Speed": 1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Fall_Far.blockyanim",
+      "Looping": true,
+      "KeepPreviousFirstPersonAnimation": true
+    },
+    "FlyIdle": {
+      "Speed": 0.5,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Fly/Fly_Idle.blockyanim",
+      "Looping": true,
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Fly/Fly_Idle_FPS.blockyanim"
+    },
+    "Fly": {
+      "Looping": true,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Fly/Fly.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Fly/Fly_FPS.blockyanim"
+    },
+    "FlyBackward": {
+      "Looping": true,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Fly/Fly_Backward.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Fly/Fly_Backward_FPS.blockyanim"
+    },
+    "FlyFast": {
+      "Looping": true,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Fly/Fly_Fast.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Fly/Fly_Fast_FPS.blockyanim"
+    },
+    "SwimIdle": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Idle_FPS.blockyanim",
+      "Speed": 1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Idle.blockyanim",
+      "Looping": true
+    },
+    "Swim": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_FPS.blockyanim",
+      "Speed": 0.6,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim.blockyanim",
+      "Looping": true
+    },
+    "SwimBackward": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Backward_FPS.blockyanim",
+      "Speed": 1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Backward.blockyanim",
+      "Looping": true
+    },
+    "SwimFast": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Fast_FPS.blockyanim",
+      "Speed": 0.6,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Fast.blockyanim",
+      "Looping": true
+    },
+    "SwimJump": {
+      "BlendingDuration": 0.1,
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Jump_FPS.blockyanim",
+      "Speed": 0.8,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Jump.blockyanim",
+      "Looping": false
+    },
+    "SwimFloat": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Float_FPS.blockyanim",
+      "Speed": 1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Float.blockyanim",
+      "Looping": true
+    },
+    "SwimSink": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Sink_FPS.blockyanim",
+      "Speed": 1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Sink.blockyanim",
+      "Looping": true
+    },
+    "SwimDive": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Dive_FPS.blockyanim",
+      "Speed": 0.6,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Dive.blockyanim",
+      "Looping": true
+    },
+    "SwimDiveBackward": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Dive_Backward_FPS.blockyanim",
+      "Speed": 1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Dive_Backward.blockyanim",
+      "Looping": true
+    },
+    "SwimDiveFast": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Dive_Fast_FPS.blockyanim",
+      "Speed": 0.6,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Swim/Swim_Dive_Fast.blockyanim",
+      "Looping": true
+    },
+    "FluidIdle": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Idle_FPS.blockyanim",
+      "Speed": 0.3,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Idle.blockyanim",
+      "Looping": true
+    },
+    "FluidWalk": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Walk_FPS.blockyanim",
+      "Speed": 0.6,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Walk.blockyanim",
+      "Looping": true
+    },
+    "FluidWalkBackward": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Walk_Backward_FPS.blockyanim",
+      "Speed": 0.6,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Walk_Backward.blockyanim",
+      "Looping": true
+    },
+    "FluidRun": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Run_FPS.blockyanim",
+      "Speed": 0.6,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Run.blockyanim",
+      "Looping": true
+    },
+    "ClimbIdle": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Climb/Climb_Idle_FPS.blockyanim",
+      "Speed": 0.5,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Climb/Climb_Idle.blockyanim",
+      "Looping": true
+    },
+    "ClimbUp": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Climb/Climb_Up_FPS.blockyanim",
+      "Speed": 1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Climb/Climb_Up.blockyanim",
+      "Looping": true
+    },
+    "ClimbDown": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Climb/Climb_Down_FPS.blockyanim",
+      "Speed": 1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Climb/Climb_Down.blockyanim",
+      "Looping": true
+    },
+    "ClimbLeft": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Climb/Climb_Left_FPS.blockyanim",
+      "Speed": 1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Climb/Climb_Left.blockyanim",
+      "Looping": true
+    },
+    "ClimbRight": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Climb/Climb_Right_FPS.blockyanim",
+      "Speed": 1,
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Climb/Climb_Right.blockyanim",
+      "Looping": true
+    },
+    "Interact": {
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Interact_FPS.blockyanim",
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Interact.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0.1
+    },
+    "SwingLeft": {
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Swing_Left/Swing_Left.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Swing_Left/Swing_Left_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Swing_Left/Swing_Left_FPS.blockyanim",
+      "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim",
+      "KeepPreviousFirstPersonAnimation": true,
+      "Speed": 0.75
+    },
+    "SwingRight": {
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Swing_Right/Swing_Right.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Swing_Right/Swing_Right_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Swing_Right/Swing_Right_FPS.blockyanim",
+      "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim",
+      "KeepPreviousFirstPersonAnimation": true,
+      "Speed": 0.75
+    },
+    "CastSummonCharging": {
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charging.blockyanim",
+      "Looping": true,
+      "ThirdPersonMoving": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charging_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charging_FPS.blockyanim",
+      "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim",
+      "Speed": 1
+    },
+    "CastSummonCharged": {
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon_Charged/Cast_Summon_Charged_FPS.blockyanim",
+      "ThirdPersonFace": "Characters/Animations/Expressions/Rage.blockyanim",
+      "Speed": 1,
+      "BlendingDuration": 0
+    },
+    "CastSummon": {
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon/Cast_Summon.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon/Cast_Summon_FPS.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/Dual_Handed/Staff/Attacks/Cast_Summon/Cast_Summon_Moving.blockyanim"
+    },
+    "Guard": {
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Guard/Guard.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Guard/Guard_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Guard/Guard_FPS.blockyanim",
+      "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim",
+      "KeepPreviousFirstPersonAnimation": true,
+      "BlendingDuration": 0.1
+    },
+    "GuardBash": {
+      "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Guard_Bash/Guard_Bash.blockyanim",
+      "ThirdPersonMoving": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Guard_Bash/Guard_Bash_Moving.blockyanim",
+      "FirstPerson": "Characters/Animations/Items/Dual_Handed/Spear/Attacks/Guard_Bash/Guard_Bash_FPS.blockyanim",
+      "KeepPreviousFirstPersonAnimation": true,
+      "ThirdPersonFace": "Characters/Animations/Expressions/Angry.blockyanim"
+    }
+  },
+  "Camera": {
+    "Pitch": {
+      "TargetNodes": [
+        "Head",
+        "RShoulder"
+      ]
+    },
+    "Yaw": {
+      "TargetNodes": [
+        "Belly"
+      ]
+    }
+  },
+  "WiggleWeights": {
+    "Pitch": 1.5,
+    "PitchDeceleration": 0.15,
+    "Roll": 0.1,
+    "RollDeceleration": 0.15,
+    "X": 2,
+    "XDeceleration": 0.15,
+    "Y": 0.1,
+    "YDeceleration": 0.15,
+    "Z": 0.1,
+    "ZDeceleration": 0.15
+  },
+  "PullbackConfig": {
+    "LeftOffsetOverride": [
+      0,
+      0,
+      -1.6
+    ],
+    "LeftRotationOverride": [
+      0,
+      0,
+      0
+    ],
+    "RightOffsetOverride": [
+      0,
+      0,
+      -1.6
+    ],
+    "RightRotationOverride": [
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Scarak_Broodmother",
+  "Modify": {
+    "MaxHealth": 145,
+    "Attack": "Root_NPC_Endgame_Scarak_Broodmother_Attack",
+    "DropList": "Drop_Endgame_Scarak_Broodmother",
+    "IsMemory": true,
+    "MemoriesCategory": "Scarak",
+    "MemoriesNameOverride": "Scarak_Broodmother",
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Scarak_Broodmother.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

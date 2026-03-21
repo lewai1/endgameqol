@@ -1,0 +1,19 @@
+{
+  "Duration": 3,
+  "Debuff": true,
+  "OverlapBehavior": "Overwrite",
+  "StatusEffectIcon": "UI/StatusEffects/Burn.png",
+  "DamageEffects": {
+    "WorldSoundEventId": "SFX_Effect_Burn_World",
+    "PlayerSoundEventId": "SFX_Effect_Burn_Local"
+  },
+  "ApplicationEffects": {
+    "EntityBottomTint": "#ff6600",
+    "EntityTopTint": "#ffaa44",
+    "Particles": [
+      {
+        "SystemId": "Effect_Fire"
+      }
+    ]
+  }
+}

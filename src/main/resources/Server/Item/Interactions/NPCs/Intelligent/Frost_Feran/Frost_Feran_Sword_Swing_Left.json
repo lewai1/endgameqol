@@ -1,0 +1,73 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Feran_Sword",
+    "ItemAnimationId": "SwingLeft"
+  },
+  "$Comment": "Prepare Delay",
+  "RunTime": 0.167,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "$Comment": "Length of Combat",
+            "RunTime": 0.083,
+            "Selector": {
+              "Id": "Horizontal",
+              "Direction": "ToLeft",
+              "TestLineOfSight": true,
+              "ExtendTop": 0.5,
+              "ExtendBottom": 0.5,
+              "StartDistance": 0.5,
+              "EndDistance": 2.5,
+              "Length": 60,
+              "RollOffset": 30,
+              "YawStartOffset": -30
+            },
+            "HitEntity": {
+              "Interactions": [
+                "Endgame_Frost_Feran_Melee_Damage"
+              ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "$Comment": "Pad the interaction length",
+              "RunTime": 0.167
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "$Comment": "Length of Effect",
+            "RunTime": 0.166,
+            "Effects": {
+              "Trails": [
+                {
+                  "PositionOffset": {
+                    "X": 0.8,
+                    "Y": 0,
+                    "Z": 0
+                  },
+                  "RotationOffset": {
+                    "Pitch": 0,
+                    "Roll": 90,
+                    "Yaw": 0
+                  },
+                  "TargetNodeName": "Handle",
+                  "TrailId": "Medium_Default"
+                }
+              ],
+              "WorldSoundEventId": "SFX_Light_Melee_T2_Swing"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

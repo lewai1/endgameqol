@@ -1,0 +1,53 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Outlander_Brute_Default",
+    "ItemAnimationId": "Grab"
+  },
+  "RunTime": 0.417,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.25,
+            "Selector": {
+              "Id": "Horizontal",
+              "Direction": "ToRight",
+              "TestLineOfSight": true,
+              "ExtendTop": 0.5,
+              "ExtendBottom": 1.5,
+              "StartDistance": 0.75,
+              "EndDistance": 3.5,
+              "Length": 120,
+              "RollOffset": 0,
+              "YawStartOffset": -90
+            },
+            "HitEntity": {
+              "Interactions": [
+                "Endgame_Outlander_Brute_Grab_Damage"
+              ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "RunTime": 0.333
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0.333,
+            "Effects": {
+              "WorldSoundEventId": "SFX_Light_Melee_T2_Swing"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Swamp_Ingot.name",
+    "Description": "server.items.Swamp_Ingot.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Swamp_Ingot_Icon.png",
+  "Categories": [
+    "Endgame.Materials"
+  ],
+  "PlayerAnimationsId": "Item",
+  "BlockType": {
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "DrawType": "Model",
+    "CustomModel": "Items/Swamp_Dungeon/Swamp_Ingot.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Swamp_Dungeon/Swamp_Ingot_texture.png",
+        "Weight": 1
+      }
+    ]
+  },
+  "IconProperties": {
+    "Scale": 1,
+    "Translation": [
+      0,
+      -3
+    ],
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Ingredient"
+    ],
+    "Family": [
+      "Endgame"
+    ]
+  },
+  "ResourceTypes": [
+    {
+      "Id": "Metal_Bars"
+    }
+  ],
+  "ItemSoundSetId": "ISS_Items_Ingots",
+  "Quality": "Epic",
+  "MaxStack": 100,
+  "DropOnDeath": true
+}

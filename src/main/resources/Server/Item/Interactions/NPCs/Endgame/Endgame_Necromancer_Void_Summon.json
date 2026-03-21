@@ -1,0 +1,58 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Endgame_Necromancer_Void_Spellbook",
+    "ItemAnimationId": "Summon",
+    "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Charge",
+    "Particles": [
+      {
+        "SystemId": "Praetorian_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "L-Hand",
+        "Scale": 1.5
+      },
+      {
+        "SystemId": "Praetorian_Summon_Energy",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "R-Hand",
+        "Scale": 1.0
+      }
+    ],
+    "MovementEffects": {
+      "DisableAll": true
+    }
+  },
+  "RunTime": 1.5,
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "Simple",
+        "RunTime": 0,
+        "Effects": {
+          "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Impact",
+          "WorldParticles": [
+            {
+              "SystemId": "Praetorian_Summon_Spawn",
+              "Scale": 2.5
+            }
+          ]
+        }
+      },
+      {
+        "Type": "EndgameSpawnNPC",
+        "EntityIds": [
+          "Skeleton_Soldier",
+          "Skeleton_Fighter",
+          "Skeleton_Archer",
+          "Skeleton_Mage",
+          "Skeleton_Scout",
+          "Skeleton_Knight"
+        ],
+        "SpawnCount": 6,
+        "SpawnRadius": 4,
+        "SpawnOffsetY": 0.5
+      }
+    ]
+  }
+}

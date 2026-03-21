@@ -1,0 +1,23 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Predator",
+  "Modify": {
+    "Appearance": "Endgame_Ghoul",
+    "WanderRadius": 6,
+    "ViewRange": 12,
+    "HearingRange": 8,
+    "DropList": "Drop_Endgame_Ghoul",
+    "MaxSpeed": 10,
+    "Attack": "Root_NPC_Endgame_Ghoul_Attack",
+    "AlwaysSleepAtNight": false,
+    "MaxHealth": 193,
+    "IsMemory": false,
+    "NameTranslationKey": { "Compute": "NameTranslationKey" }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Endgame_Ghoul.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

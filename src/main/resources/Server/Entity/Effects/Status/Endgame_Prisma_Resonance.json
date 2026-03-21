@@ -1,0 +1,10 @@
+{
+  "Duration": 3,
+  "Debuff": true,
+  "StatusEffectIcon": "UI/Icons/Effects/Icon_Slow.png",
+  "ApplicationEffects": {
+    "EntityBottomTint": "#9040ff",
+    "EntityTopTint": "#c080ff",
+    "HorizontalSpeedMultiplier": 0.7
+  }
+}

@@ -1,0 +1,130 @@
+{
+    "Type": "Variant",
+    "Reference": "Template_Dragon",
+    "Modify": {
+        "Appearance": "Endgame_Dragon_Frost",
+        "MaxHealth": 1400,
+        "IsMemory": true,
+        "MemoriesCategory": "Mythic",
+        "MemoriesNameOverride": "Dragon_Frost",
+        "DropList": "Drop_Endgame_Dragon_Frost",
+        "AttitudeGroup": "Dragon",
+        "MaxSpeed": 12,
+        "ClimbHeight": 3,
+        "MinJumpHeight": 2,
+        "ClimbSpeedConst": 8,
+        "AscentAnimationType": "Walk",
+        "WanderRadius": 10,
+        "ViewRange": 180,
+        "ViewSector": 360,
+        "HearingRange": 100,
+        "AbsoluteDetectionRange": 50,
+        "AlertedRange": 200,
+        "LeashDistance": 40,
+        "HardLeashDistance": 50,
+        "LeashMinPlayerDistance": 3,
+        "LeashTimer": [
+            3,
+            5
+        ],
+        "Attack": "Root_NPC_Endgame_Dragon_Frost_Attack",
+        "AttackDistance": 6,
+        "KnockbackScale": 0.05,
+        "RangedAttack": "Root_NPC_Endgame_Dragon_Frost_Frost_Bolt",
+        "RangedAttackDistance": 80,
+        "EnableRangedAttack": false,
+        "ChaseRelativeSpeed": 1.2,
+        "CombatBehaviorDistance": 80,
+        "CombatDirectWeight": 15,
+        "CombatStrafeWeight": 15,
+        "CombatAlwaysMovingWeight": 20,
+        "CombatMovingRelativeSpeed": 0.8,
+        "CombatRelativeTurnSpeed": 2.0,
+        "CombatStrafingDurationRange": [
+            0.5,
+            1.5
+        ],
+        "CombatStrafingFrequencyRange": [
+            1,
+            2
+        ],
+        "CombatBackOffAfterAttack": true,
+        "CombatBackOffDistanceRange": [
+            8,
+            12
+        ],
+        "CombatBackOffDurationRange": [
+            2,
+            4
+        ],
+        "CombatAttackPreDelay": [
+            0.1,
+            0.2
+        ],
+        "CombatAttackPostDelay": [
+            0.15,
+            0.25
+        ],
+        "AttackPauseRange": [
+            0.8,
+            1.2
+        ],
+        "_InteractionVars": {
+            "Melee_Selector": {
+                "Interactions": [
+                    {
+                        "Parent": "NPC_Attack_Selector_Left",
+                        "$Comment": "Forward-offset hit for Dragon",
+                        "RunTime": 0.2,
+                        "Selector": {
+                            "Id": "Stab",
+                            "TestLineOfSight": false,
+                            "ExtendTop": 4,
+                            "ExtendBottom": 3,
+                            "ExtendLeft": 5,
+                            "ExtendRight": 5,
+                            "StartDistance": -2,
+                            "EndDistance": 8
+                        },
+                        "Next": {
+                            "Type": "Simple",
+                            "RunTime": 0.35
+                        }
+                    }
+                ]
+            },
+            "Melee_Damage": {
+                "Interactions": [
+                    {
+                        "Parent": "NPC_Attack_Melee_Damage",
+                        "DamageCalculator": {
+                            "Type": "Absolute",
+                            "BaseDamage": {
+                                "Physical": 27,
+                                "Ice": 10
+                            },
+                            "RandomPercentageModifier": 0.15
+                        },
+                        "DamageEffects": {
+                            "Knockback": {
+                                "Force": 6
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "AlwaysSleepAtNight": false,
+        "DayTimeNapWeight": 0,
+        "EnableSpawn": false,
+        "NameTranslationKey": {
+            "Compute": "NameTranslationKey"
+        }
+    },
+    "Parameters": {
+        "NameTranslationKey": {
+            "Value": "server.npcRoles.Endgame_Dragon_Frost.name",
+            "Description": "Translation key for NPC name display"
+        }
+    }
+}

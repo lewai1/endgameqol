@@ -1,0 +1,26 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Endgame_Necromancer_Void_Spellbook",
+    "ItemAnimationId": "CastHurlCharging",
+    "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Charge",
+    "Particles": [
+      {
+        "SystemId": "GreenOrbTrail",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "L-Hand",
+        "Color": "#9043c8"
+      }
+    ]
+  },
+  "RunTime": 0.8,
+  "Next": {
+    "Type": "Projectile",
+    "RunTime": 0.2,
+    "Effects": {
+      "ItemAnimationId": "CastHurlCharged",
+      "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Impact"
+    },
+    "Config": "Endgame_Necromancer_Void_Orb"
+  }
+}

@@ -1,0 +1,29 @@
+{
+    "Parent": "DamageEntityParent",
+    "DamageCalculator": {
+        "BaseDamage": {
+            "Physical": 35
+        }
+    },
+    "DamageEffects": {
+        "StaminaDrainMultiplier": 1.5,
+        "Knockback": {
+            "Direction": {
+                "X": 0,
+                "Y": 2,
+                "Z": -4
+            },
+            "Type": "Force",
+            "Force": 8,
+            "VelocityType": "Add"
+        },
+        "WorldParticles": [
+            {
+                "SystemId": "Impact_Critical",
+                "Scale": 1.2
+            }
+        ],
+        "WorldSoundEventId": "SFX_Daggers_T2_Slash_Impact",
+        "LocalSoundEventId": "SFX_Daggers_T2_Slash_Impact"
+    }
+}

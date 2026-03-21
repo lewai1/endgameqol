@@ -1,0 +1,81 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Food_Meat_Cooked_Alpha_Trex.name",
+    "Description": "server.items.Food_Meat_Cooked_Alpha_Trex.description"
+  },
+  "Parent": "Template_Food",
+  "Quality": "Epic",
+  "Icon": "Icons/ItemsGenerated/Food_Meat_Cooked_Alpha_Trex.png",
+  "PlayerAnimationsId": {
+    "Parent": "Item",
+    "Animations": {
+      "Consume": {
+        "FirstPerson": "Characters/Animations/Items/Main_Handed/Item/Attacks/Eat_Side/Eat_Side_FPS.blockyanim",
+        "ThirdPerson": "Characters/Animations/Items/Main_Handed/Item/Attacks/Eat_Side/Eat_Side.blockyanim",
+        "Speed": 1,
+        "Looping": true
+      }
+    }
+  },
+  "BlockType": {
+    "Material": "Empty",
+    "DrawType": "Model",
+    "CustomModel": "Items/Consumables/Food/Wildmeat_Alpha_Trex.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Consumables/Food/Wildmeat_Cooked_Alpha_Trex.png",
+        "Weight": 1
+      }
+    ],
+    "ParticleColor": "#d5825d",
+    "CustomModelScale": 0.5
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ResourceTypeId": "Alpha_Meat",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Campfire",
+        "Type": "Processing"
+      }
+    ],
+    "TimeSeconds": 6
+  },
+  "InteractionVars": {
+    "Consume_Charge": {
+      "Interactions": [
+        {
+          "Parent": "Consume_Charge_Food_T1_Inner",
+          "Effects": {
+            "Particles": [
+              {
+                "SystemId": "Food_Eat",
+                "Color": "#EE988D",
+                "TargetNodeName": "Mouth",
+                "TargetEntityPart": "Entity"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Effect": {
+      "Interactions": [
+        {
+          "Type": "ApplyEffect",
+          "EffectId": "Endgame_Alpha_Trex_Food_Instant_Heal"
+        }
+      ]
+    }
+  },
+  "MaxStack": 25,
+  "Scale": 2,
+  "DropOnDeath": true,
+  "Categories": [
+    "Endgame.Consumables"
+  ]
+}

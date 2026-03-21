@@ -1,0 +1,33 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Intelligent",
+  "Modify": {
+    "Appearance": "Outlander_Brute",
+    "DropList": "Drop_Endgame_Outlander_Brute",
+    "Weapons": [
+      "Weapon_Battleaxe_Doomed"
+    ],
+    "ViewSector": 270,
+    "HearingRange": 6,
+    "Attack": "Root_NPC_Endgame_Outlander_Brute_Attack",
+    "AttackDistance": 3.5,
+    "DisableDamageGroups": [
+      "Self",
+      "Outlander"
+    ],
+    "AttitudeGroup": "Outlander",
+    "MaxSpeed": 5,
+    "MaxHealth": 124,
+    "IsMemory": true,
+    "MemoriesCategory": "Outlander",
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Outlander_Brute.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

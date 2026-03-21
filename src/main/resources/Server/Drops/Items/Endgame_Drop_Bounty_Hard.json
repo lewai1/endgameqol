@@ -1,0 +1,49 @@
+{
+  "Container": {
+    "Type": "Multiple",
+    "Containers": [
+      {
+        "Type": "Choice",
+        "Weight": 100,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Weight": 100,
+            "Item": {
+              "ItemId": "Ingredient_Bar_Onyxium",
+              "QuantityMin": 2,
+              "QuantityMax": 4
+            }
+          },
+          {
+            "Type": "Single",
+            "Weight": 40,
+            "Item": {
+              "ItemId": "Ingredient_Bar_Prisma",
+              "QuantityMin": 1,
+              "QuantityMax": 2
+            }
+          },
+          {
+            "Type": "Single",
+            "Weight": 100,
+            "Item": {
+              "ItemId": "Ingredient_Void_Essence",
+              "QuantityMin": 15,
+              "QuantityMax": 25
+            }
+          },
+          {
+            "Type": "Single",
+            "Weight": 60,
+            "Item": {
+              "ItemId": "Ingredient_Hide_Storm",
+              "QuantityMin": 2,
+              "QuantityMax": 4
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

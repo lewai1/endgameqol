@@ -1,0 +1,43 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Hedera_Bramble.name",
+    "Description": "server.items.Hedera_Bramble.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Hedera_Bramble_Icon.png",
+  "Categories": [
+    "Endgame.Portals"
+  ],
+  "BlockType": {
+    "DrawType": "Model",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "CustomModel": "Items/Swamp_Dungeon/Hedera_Bramble_Model.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Swamp_Dungeon/Hedera_Bramble_Texture.png",
+        "Weight": 1
+      }
+    ]
+  },
+  "PlayerAnimationsId": "Item",
+  "Tags": {
+    "Type": [
+      "Portal"
+    ]
+  },
+  "Quality": "Epic",
+  "MaxStack": 100,
+  "ItemLevel": 51,
+  "IconProperties": {
+    "Scale": 1.4,
+    "Rotation": [
+      22.5,
+      137.0,
+      22.5
+    ],
+    "Translation": [
+      0.0,
+      1.0
+    ]
+  }
+}

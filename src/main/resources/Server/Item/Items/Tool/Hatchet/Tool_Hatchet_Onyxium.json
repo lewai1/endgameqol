@@ -1,0 +1,115 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Tool_Hatchet_Onyxium.name",
+    "Description": "server.items.Tool_Hatchet_Onyxium.description"
+  },
+  "Parent": "Tool_Hatchet_Crude",
+  "Model": "Items/Tools/Hatchet/Onyxium.blockymodel",
+  "Texture": "Items/Tools/Hatchet/Onyxium_Texture.png",
+  "Recipe": {
+    "TimeSeconds": 5,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Onyxium",
+        "Quantity": 9
+      },
+      {
+        "ItemId": "Ingredient_Leather_Storm",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Voidheart",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Workbench",
+        "Type": "Crafting",
+        "Categories": [
+          "Workbench_Tools"
+        ],
+        "RequiredTierLevel": 3
+      }
+    ]
+  },
+  "Tool": {
+    "Specs": [
+      {
+        "Power": 1.25,
+        "GatherType": "SoftBlocks"
+      },
+      {
+        "Power": 0.07,
+        "GatherType": "Soils"
+      },
+      {
+        "Power": 0.65,
+        "GatherType": "Woods"
+      },
+      {
+        "Power": 0.07,
+        "GatherType": "Rocks"
+      },
+      {
+        "Power": 0.65,
+        "GatherType": "Benches"
+      },
+      {
+        "Power": 0.017,
+        "GatherType": "VolcanicRocks"
+      },
+      {
+        "Power": 0.048,
+        "GatherType": "OreCopper"
+      },
+      {
+        "Power": 0.048,
+        "GatherType": "OreIron"
+      },
+      {
+        "Power": 0.048,
+        "GatherType": "OreSilver"
+      },
+      {
+        "Power": 0.048,
+        "GatherType": "OreGold"
+      },
+      {
+        "Power": 0.046,
+        "GatherType": "OreThorium"
+      },
+      {
+        "Power": 0.046,
+        "GatherType": "OreCobalt"
+      },
+      {
+        "Power": 0.046,
+        "GatherType": "OreAdamantite"
+      },
+      {
+        "Power": 0.042,
+        "GatherType": "OreMithril"
+      }
+    ],
+    "DurabilityLossBlockTypes": [
+      {
+        "BlockSets": [
+          "Stone",
+          "Rock",
+          "Ores",
+          "Soil"
+        ],
+        "DurabilityLossOnHit": 0.25
+      }
+    ]
+  },
+  "Icon": "Icons/ItemsGenerated/Tool_Hatchet_Onyxium.png",
+  "MaxDurability": 800,
+  "Quality": "Epic",
+  "ItemLevel": 54,
+  "Categories": [
+    "Items.Tools",
+    "Endgame.Tools"
+  ]
+}

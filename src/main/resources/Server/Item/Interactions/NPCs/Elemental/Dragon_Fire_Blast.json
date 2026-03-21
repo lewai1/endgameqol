@@ -1,0 +1,33 @@
+{
+    "Type": "Simple",
+    "Effects": {
+        "ItemAnimationId": "Spell",
+        "Particles": [
+            {
+                "PositionOffset": {
+                    "X": 1,
+                    "Y": 0,
+                    "Z": 0
+                },
+                "RotationOffset": {
+                    "Pitch": 0,
+                    "Roll": 0,
+                    "Yaw": 0
+                },
+                "TargetNodeName": "Head",
+                "SystemId": "Impact_Fire"
+            }
+        ]
+    },
+    "RunTime": 0.25,
+    "Next": {
+        "Type": "LaunchProjectile",
+        "RunTime": 0.1,
+        "Effects": {},
+        "ProjectileId": "Dragon_Fire_Fireball",
+        "Next": {
+            "Type": "Simple",
+            "RunTime": 0.15
+        }
+    }
+}

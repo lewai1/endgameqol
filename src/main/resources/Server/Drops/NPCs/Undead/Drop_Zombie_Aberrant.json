@@ -1,0 +1,31 @@
+{
+    "Container": {
+        "Type": "Multiple",
+        "Containers": [
+            {
+                "Type": "Choice",
+                "Weight": 100,
+                "Containers": [
+                    {
+                        "Type": "Single",
+                        "Item": {
+                            "ItemId": "Ingredient_Voidheart",
+                            "QuantityMin": 1,
+                            "QuantityMax": 1
+                        },
+                        "Weight": 100
+                    },
+                    {
+                        "Type": "Single",
+                        "Item": {
+                            "ItemId": "Ingredient_Bar_Adamantite",
+                            "QuantityMin": 1,
+                            "QuantityMax": 2
+                        },
+                        "Weight": 100
+                    }
+                ]
+            }
+        ]
+    }
+}

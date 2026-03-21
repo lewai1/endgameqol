@@ -1,0 +1,79 @@
+{
+  "Model": "Skeleton_Mage_Corruption_Orb",
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 0,
+    "TerminalVelocityAir": 50,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 0.0,
+    "SticksVertically": true
+  },
+  "LaunchForce": 30,
+  "SpawnOffset": {
+    "X": 0,
+    "Y": 0.5,
+    "Z": 0.5
+  },
+  "Interactions": {
+    "ProjectileHit": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "DamageEntity",
+          "Entity": "Target",
+          "DamageCalculator": {
+            "Type": "Absolute",
+            "BaseDamage": {
+              "Physical": 35
+            },
+            "RandomPercentageModifier": 0.15
+          },
+          "DamageEffects": {
+            "Knockback": {
+              "Force": 1,
+              "RelativeZ": -1,
+              "VelocityY": 2,
+              "VelocityType": "Set"
+            },
+            "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Impact",
+            "WorldParticles": [
+              {
+                "SystemId": "GreenOrbImpact"
+              }
+            ]
+          }
+        },
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "Simple",
+          "RunTime": 0,
+          "Effects": {
+            "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Impact",
+            "WorldParticles": [
+              {
+                "SystemId": "GreenOrbImpact"
+              }
+            ]
+          }
+        },
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    }
+  }
+}

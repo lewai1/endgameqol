@@ -1,0 +1,121 @@
+{
+  "DisplayNameKey": "server.barter.Frozen_Trader.title",
+  "RefreshInterval": {
+    "Days": 1
+  },
+  "RestockHour": 6,
+  "TradeSlots": [
+    {
+      "Type": "Fixed",
+      "Trade": {
+        "Output": {
+          "ItemId": "Endgame_Frozen_Sword",
+          "Quantity": 1
+        },
+        "Input": [
+          {
+            "ItemId": "Endgame_Flocon_Currency",
+            "Quantity": 45
+          }
+        ],
+        "Stock": 3
+      }
+    },
+    {
+      "Type": "Fixed",
+      "Trade": {
+        "Output": {
+          "ItemId": "Armor_Mithril_Chest",
+          "Quantity": 1
+        },
+        "Input": [
+          {
+            "ItemId": "Endgame_Flocon_Currency",
+            "Quantity": 18
+          }
+        ],
+        "Stock": 3
+      }
+    },
+    {
+      "Type": "Fixed",
+      "Trade": {
+        "Output": {
+          "ItemId": "Armor_Mithril_Head",
+          "Quantity": 1
+        },
+        "Input": [
+          {
+            "ItemId": "Endgame_Flocon_Currency",
+            "Quantity": 12
+          }
+        ],
+        "Stock": 3
+      }
+    },
+    {
+      "Type": "Fixed",
+      "Trade": {
+        "Output": {
+          "ItemId": "Tool_Pickaxe_Mithril",
+          "Quantity": 1
+        },
+        "Input": [
+          {
+            "ItemId": "Endgame_Flocon_Currency",
+            "Quantity": 12
+          }
+        ],
+        "Stock": 3
+      }
+    },
+    {
+      "Type": "Fixed",
+      "Trade": {
+        "Output": {
+          "ItemId": "Endgame_Potion_Mana_Large",
+          "Quantity": 3
+        },
+        "Input": [
+          {
+            "ItemId": "Endgame_Flocon_Currency",
+            "Quantity": 2
+          }
+        ],
+        "Stock": 99
+      }
+    },
+    {
+      "Type": "Fixed",
+      "Trade": {
+        "Output": {
+          "ItemId": "Endgame_Potion_Regen_Mana_Large",
+          "Quantity": 2
+        },
+        "Input": [
+          {
+            "ItemId": "Endgame_Flocon_Currency",
+            "Quantity": 3
+          }
+        ],
+        "Stock": 99
+      }
+    },
+    {
+      "Type": "Fixed",
+      "Trade": {
+        "Output": {
+          "ItemId": "Potion_Health_Lesser",
+          "Quantity": 5
+        },
+        "Input": [
+          {
+            "ItemId": "Endgame_Flocon_Currency",
+            "Quantity": 2
+          }
+        ],
+        "Stock": 99
+      }
+    }
+  ]
+}

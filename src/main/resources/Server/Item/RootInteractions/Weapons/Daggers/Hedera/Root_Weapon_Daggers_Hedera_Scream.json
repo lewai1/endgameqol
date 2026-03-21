@@ -1,0 +1,20 @@
+{
+    "RequireNewClick": true,
+    "Interactions": [
+        {
+            "Type": "Replace",
+            "Var": "Signature_Scream",
+            "DefaultOk": true,
+            "DefaultValue": {
+                "Interactions": [
+                    "Weapon_Daggers_Hedera_Scream"
+                ]
+            }
+        }
+    ],
+    "Tags": {
+        "Attack": [
+            "Melee"
+        ]
+    }
+}

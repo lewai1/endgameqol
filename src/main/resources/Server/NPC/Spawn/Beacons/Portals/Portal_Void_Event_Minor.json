@@ -1,0 +1,30 @@
+{
+    "Environments": [],
+    "NPCs": [
+        {
+            "Weight": 70,
+            "Id": "Crawler_Void"
+        },
+        {
+            "Weight": 30,
+            "Id": "Spawn_Void"
+        },
+        {
+            "Weight": 10,
+            "Id": "Spectre_Void"
+        }
+    ],
+    "SpawnAfterRealTimeRange": [
+        "PT1S",
+        "PT1S"
+    ],
+    "MinDistanceFromPlayer": 3,
+    "MaxSpawnedNPCs": 5,
+    "ConcurrentSpawnsRange": [
+        1,
+        1
+    ],
+    "BeaconRadius": 50,
+    "TargetDistanceFromPlayer": 25,
+    "SpawnRadius": 6
+}

@@ -1,0 +1,9 @@
+{
+  "StatModifiers": {
+    "Health": 20
+  },
+  "ValueType": "Percent",
+  "OverlapBehavior": "Overwrite",
+  "Duration": 0.2,
+  "DamageCalculatorCooldown": 0
+}

@@ -1,0 +1,12 @@
+{
+  "Model": "NPC_Spawn_Marker",
+  "NPCs": [
+    {
+      "Name": "Endgame_Dragon_Frost",
+      "Weight": 100,
+      "SpawnAfterGameTime": "PT1H"
+    }
+  ],
+  "ExclusionRadius": 0,
+  "MaxDropHeight": 16
+}

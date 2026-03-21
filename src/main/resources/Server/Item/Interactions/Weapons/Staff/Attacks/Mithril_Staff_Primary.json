@@ -1,0 +1,23 @@
+{
+  "Type": "Charging",
+  "Effects": {
+    "ItemAnimationId": "CastSummonCharging"
+  },
+  "AllowIndefiniteHold": true,
+  "HorizontalSpeedMultiplier": 0.5,
+  "Delay": {
+    "MinHealth": 0.03,
+    "MaxHealth": 0.15,
+    "MinDelay": 0.15,
+    "MaxDelay": 0.5,
+    "MaxTotalDelay": 1.0
+  },
+  "Next": {
+    "0": {
+      "Type": "Chaining",
+      "ChainingAllowance": 1.25,
+      "Next": ["Spear_Swing_Left", "Spear_Swing_Right"]
+    },
+    "0.35": "Mithril_Staff_Cast_Summon_Charged"
+  }
+}

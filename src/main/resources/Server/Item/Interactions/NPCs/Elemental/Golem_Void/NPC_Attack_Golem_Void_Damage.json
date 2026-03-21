@@ -1,0 +1,41 @@
+{
+  "Type": "DamageEntity",
+  "Parent": "DamageEntityParent",
+  "DamageCalculator": {
+    "Type": "Absolute",
+    "BaseDamage": {
+      "Physical": 120
+    },
+    "RandomPercentageModifier": 0.15
+  },
+  "DamageEffects": {
+    "Knockback": {
+      "Type": "Force",
+      "VelocityConfig": {
+        "AirResistance": 0.99,
+        "AirResistanceMax": 0.98,
+        "GroundResistance": 0.94,
+        "GroundResistanceMax": 0.3,
+        "Threshold": 3,
+        "Style": "Linear"
+      },
+      "Direction": {
+        "X": 0,
+        "Y": 3,
+        "Z": -8
+      },
+      "Force": 15,
+      "VelocityType": "Set"
+    },
+    "WorldParticles": [
+      {
+        "SystemId": "Impact_Critical"
+      },
+      {
+        "SystemId": "Golem_Void_Attack"
+      }
+    ],
+    "WorldSoundEventId": "SFX_Golem_Earth_Swing_Impact",
+    "CameraEffect": "Impact_Light"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "Model": "NPC_Spawn_Marker",
+  "NPCs": [
+    {
+      "Name": "Endgame_Fen_Stalker",
+      "Weight": 100,
+      "SpawnAfterGameTime": "PT2H"
+    }
+  ],
+  "ExclusionRadius": 0,
+  "MaxDropHeight": 6
+}

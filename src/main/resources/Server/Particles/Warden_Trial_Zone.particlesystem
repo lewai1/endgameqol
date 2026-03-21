@@ -1,0 +1,11 @@
+{
+  "Spawners": [
+    {"SpawnerId": "Praetorian_Summon_Circle", "FixedRotation": true},
+    {"SpawnerId": "Praetorian_Summon_Circle", "FixedRotation": true, "PositionOffset": {"Y": 1.5}},
+    {"SpawnerId": "Praetorian_Summon_Circle", "FixedRotation": true, "PositionOffset": {"Y": 3.0}}
+  ],
+  "BoundingRadius": 15,
+  "CullDistance": 100.0,
+  "IsImportant": true,
+  "LifeSpan": 4.0
+}

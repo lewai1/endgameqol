@@ -1,0 +1,13 @@
+{
+  "Model": "NPC_Spawn_Marker",
+  "NPCs": [
+    {
+      "Name": "Endgame_Yeti",
+      "Weight": 100,
+      "SpawnAfterGameTime": "PT1H"
+    }
+  ],
+  "ExclusionRadius": 0,
+  "MaxDropHeight": 10,
+  "DeactivationDistance": 150
+}

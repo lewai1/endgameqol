@@ -1,0 +1,7 @@
+{
+    "Type": "Simple",
+    "RunTime": 0.6,
+    "Effects": {
+        "ItemAnimationId": "SignatureEnd"
+    }
+}

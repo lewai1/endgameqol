@@ -1,0 +1,35 @@
+{
+    "Appearance": "Eye_Void_Blast",
+    "PitchAdjustShot": true,
+    "SticksVertically": true,
+    "MuzzleVelocity": 80,
+    "TerminalVelocity": 55,
+    "Gravity": 0,
+    "Damage": 35,
+    "DeathEffectsOnHit": true,
+    "TimeToLive": 3.5,
+    "DeadTimeMiss": 0,
+    "ImpactSlowdown": 0,
+    "DepthShot": 1,
+    "DeathParticles": {
+        "SystemId": "Mithril_Orb_Effect",
+        "Scale": 1.5
+    },
+    "VerticalCenterShot": 0.1,
+    "HitParticles": {
+        "SystemId": "Mithril_Orb_Effect",
+        "Scale": 1.5
+    },
+    "HorizontalCenterShot": -0.25,
+    "HitSoundEventId": "SFX_Skeleton_Mage_Spellbook_Impact",
+    "MissSoundEventId": "SFX_Skeleton_Mage_Spellbook_Impact",
+    "ExplosionConfig": {
+        "DamageEntities": true,
+        "DamageBlocks": false,
+        "BlockDamageRadius": 6,
+        "EntityDamage": 15,
+        "BlockDamageFalloff": 1,
+        "EntityDamageFalloff": 0.0,
+        "EntityDamageRadius": 6
+    }
+}

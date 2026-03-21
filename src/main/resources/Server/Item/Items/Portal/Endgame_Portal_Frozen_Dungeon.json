@@ -1,0 +1,76 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Endgame_Portal_Frozen_Dungeon.name",
+    "Description": "server.items.Endgame_Portal_Frozen_Dungeon.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Endgame_Portal_Frozen_Dungeon.png",
+  "Categories": [
+    "Endgame.Portals"
+  ],
+  "PortalKey": {
+    "PortalType": "Endgame_Portal_Frozen_Dungeon",
+    "TimeLimitSeconds": 1200
+  },
+  "BlockType": {
+    "DrawType": "Model",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/Miscellaneous/Endgame_Portal_Frozen_Dungeon.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/Miscellaneous/Endgame_Portal_Frozen_Dungeon.png",
+        "Weight": 1
+      }
+    ]
+  },
+    "Recipe": {
+    "TimeSeconds": 1,
+    "KnowledgeRequired": false,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Adamantite",
+        "Quantity": 30
+      },
+      {
+        "ItemId": "Ingredient_Bar_Cobalt",
+        "Quantity": 10
+      },
+      {
+        "ItemId": "Ingredient_Fire_Essence",
+        "Quantity": 30
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Endgame_Bench",
+        "Type": "Crafting",
+        "Categories": [
+          "Endgame_Portals"
+        ],
+        "RequiredTierLevel": 2
+      }
+    ],
+    "RequiredMemoriesLevel": 5
+  },
+  "PlayerAnimationsId": "Item",
+  "Tags": {
+    "Type": [
+      "Portal",
+      "Temporary"
+    ]
+  },
+  "Quality": "Rare",
+  "ItemLevel": 1,
+  "IconProperties": {
+    "Scale": 1.4,
+    "Rotation": [
+      22.5,
+      137.0,
+      22.5
+    ],
+    "Translation": [
+      0.0,
+      1.0
+    ]
+  }
+}

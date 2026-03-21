@@ -1,0 +1,24 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Dead_Stump.name",
+    "Description": "server.items.Dead_Stump.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Dead_Stump.png",
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "ISS_Items_Foliage",
+  "Categories": ["Endgame.Misc"],
+  "BlockType": {
+    "DrawType": "Model",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/Swamp_Dungeon/Dead_Stump.blockymodel",
+    "CustomModelTexture": [{ "Texture": "Blocks/Swamp_Dungeon/Dead_Stump_Texture.png", "Weight": 1 }],
+    "HitboxType": "Plant_Tall_Full",
+    "BlockSoundSetId": "Branch",
+    "BlockParticleSetId": "Leaves_Branches",
+    "ParticleColor": "#63412c",
+    "RandomRotation": "YawStep1",
+    "Gathering": { "Soft": {} },
+    "Flags": { "IsStackable": false }
+  }
+}

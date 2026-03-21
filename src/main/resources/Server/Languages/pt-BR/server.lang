@@ -1,0 +1,177 @@
+ui.endgame = EndgameQoL
+ui.endgame.weapons = Armas
+ui.endgame.armor = Armadura
+ui.endgame.tools = Ferramentas
+ui.endgame.materials = Materiais
+ui.endgame.consumables = Consumíveis
+ui.endgame.portals = Portais
+ui.endgame.misc = Diversos
+items.Bench_Endgame.name = Bancada do Endgame
+endgameCategories.armor_onyxium = Armadura e Lingotes de Onyxium
+endgameCategories.armor_prisma = Armadura e Lingotes de Prisma
+endgameCategories.portals = Portais
+endgameCategories.misc = Diversos
+endgameCategories.challenge = Desafio
+benchCategories.staff = Cajado
+benchCategories.longsword = Espada Longa
+benchCategories.spear = Lanca
+items.Bench_Endgame.description = Usada para fabricar itens antes inacessiveis.\n\nMinerio de Onyxium/Armadura e Ferramentas de Onyxium/Desafios/Diversos
+items.Forgotten_Temple_Portal.description = Portal do Templo Esquecido com marcador de mapa personalizado
+items.Forgotten_Temple_Marker.name = Lar
+items.Advanced_Glider.name = Planador Avançado
+items.Advanced_Glider.description = Uma melhoria significativa sobre o design básico. Voo mais suave, melhor velocidade.
+items.Standard_Glider.name = Planador Padrão
+items.Standard_Glider.description = Você quase caiu...
+items.Endgame_Weapon_Staff_Crystal_Ice.description = Um cajado coroado com um cristal de safira que irradia frio congelante. Lança projéteis gelados que resfriam o ar ao impacto.\nConsome <color is="#05c09a">25 de Mana</color> por conjuração.
+items.Endgame_Weapon_Staff_Crystal_Flame.description = Um cajado envolto em chamas vivas, seu núcleo de rubi girando com magia de fogo. Lança bolas de fogo explosivas que queimam tudo em seu caminho.\nConsome <color is="#05c09a">25 de Mana</color> por conjuração.
+items.Endgame_Weapon_Staff_Adamantite.description = Um cajado forjado em adamantita densa, seu peso desmentindo a velocidade de seus projéteis arcanos. Uma arma confiável para o conjurador experiente.\nConsome <color is="#05c09a">25 de Mana</color> por conjuração.
+items.Endgame_Weapon_Staff_Cobalt.description = Um cajado reforçado com liga de cobalto, crepitando com energia inquieta. Seus projéteis voam rápido e atingem com força.\nConsome <color is="#05c09a">20 de Mana</color> por conjuração.
+items.Endgame_Weapon_Staff_Copper.description = Um cajado humilde com ponta de cobre. O primeiro passo no caminho da guerra arcana. Dispara projéteis fracos, mas constantes.\nConsome <color is="#05c09a">12 de Mana</color> por conjuração.
+items.Endgame_Weapon_Staff_Mithril.description = Um cajado infundido com raro mithril, vibrando com profunda ressonância mágica. Seus projéteis perfuram a escuridão com força devastadora.\nConsome <color is="#05c09a">30 de Mana</color> por conjuração.
+items.Endgame_Weapon_Staff_Iron.description = Um cajado robusto de ferro, um passo acima do cobre. Confiável e eficiente, serve bem para quem ainda aperfeiçoa sua arte.\nConsome <color is="#05c09a">15 de Mana</color> por conjuração.
+items.Endgame_Weapon_Staff_Onyxium.description = Um cajado esculpido em cristal de onyxium, pulsando com energia volátil do vazio. Seus projéteis rasgam a própria realidade.\nConsome <color is="#05c09a">35 de Mana</color> por conjuração.
+items.Endgame_Weapon_Staff_Thorium.description = Um cajado com núcleo de tório que brilha fracamente em verde. Seus disparos carregam um peso estranho, como se distorcessem o espaço por onde passam.\nConsome <color is="#05c09a">18 de Mana</color> por conjuração.
+items.Weapon_Daggers_Hedera.name = Adagas Entrelaçadas de Videiras
+items.Weapon_Daggers_Hedera.description = Forjadas dos próprios espinhos de <color is="#2E8B57">Hedera</color>, essas lâminas estão eternamente unidas por videiras vivas. Cada golpe sussurra a fúria da floresta.
+items.Hedera_Gem.name = Gema de Hedera
+items.Hedera_Gem.description = Outrora incrustada nas profundezas da couraça de <color is="#2E8B57">Hedera</color>, esta gema ainda pulsa com a fúria verdejante do guardião da floresta. Necessária para melhorar a Bigorna do Endgame para o <color is="#FFD700">Nível 5</color>.
+items.Ingredient_Forest_Essence.name = Essência da Floresta
+items.Ingredient_Forest_Essence.description = Uma essência concentrada da floresta, pulsando com energia vital. Usada para fabricar as <color is="#2E8B57">Adagas Entrelaçadas de Videiras</color> e melhorar a Bigorna do Endgame para o <color is="#FFD700">Nível 5</color>.
+items.Dragon_Heart.name = Coração de Dragão
+items.Dragon_Heart.description = O coração pulsante de um dragão abatido, ainda quente com poder ancestral. Necessário para melhorar a Bigorna do Endgame para o <color is="#FFD700">Nível 5</color>.
+items.Big_Rex_Cave_Leather.name = Couro do Soberano Supremo
+items.Big_Rex_Cave_Leather.description = Um couro grosso e resistente colhido do Alpha Rex das cavernas. Parece ancestral e incrivelmente durável. Usado para fabricar as <color is="#FFD700">Melhorias de Mochila Endgame I a III</color>.
+items.Endgame_Upgrade_Backpack_1.name = Melhoria de Mochila Endgame I
+items.Endgame_Upgrade_Backpack_1.description = Aumenta a capacidade da sua mochila em 9 espaços.
+items.Endgame_Upgrade_Backpack_2.name = Melhoria de Mochila Endgame II
+items.Endgame_Upgrade_Backpack_2.description = Aumenta a capacidade da sua mochila em 9 espaços.
+items.Endgame_Upgrade_Backpack_3.name = Melhoria de Mochila Endgame III
+items.Endgame_Upgrade_Backpack_3.description = Aumenta a capacidade da sua mochila em 9 espaços.
+items.Endgame_Glider.name = Planador Movido a Vazio
+items.Endgame_Glider.description = Te leva até a lua.\n<color is="#b8860b">Clique Direito</color> consome 5 <color is="#800080">Essência do Vazio</color> para fornecer um impulso de aceleração horizontal.
+items.Food_Meat_Raw_Alpha_Trex.name = Carne Crua de Alpha Rex
+items.Food_Meat_Raw_Alpha_Trex.description = Carne crua do Alpha Rex. Parece dura e nada apetitosa.
+items.Food_Meat_Cooked_Alpha_Trex.name = Carne Cozida de Alpha Rex
+items.Food_Meat_Cooked_Alpha_Trex.description = Carne cozida do Alpha Rex. Parece dura e nada apetitosa.\n<color is="#00FF00">Restaura 20% de vida em 0.2 segundos.</color>
+npcRoles.Endgame_Golem_Void.name = Golem do Vazio
+npcRoles.Golem_Eye_Void.name = Olho do Vazio
+items.Endgame_Portal_Mithril_Dragon.name = Fragmento do Cume Congelado
+items.Endgame_Portal_Mithril_Dragon.description = Um fragmento irregular de permafrost. <color is="#b8860b">Clique Direito</color> em um <color is="#a9a9a9">Portal Ancestral</color> para abrir o caminho para o <color is="#7de8ff">Cume Congelado</color>.\nSob os picos cobertos de neve desta taiga gelada, <color is="#7de8ff">Dragões de Gelo</color> guardam antigos veios de <color is="#7de8ff">Mithril</color>.
+portals.mithril.tip = <i><color is="#05c09a">Uma besta mítica dorme aqui,\npresa em um sono eterno...</color></i>\n\n<color is="#888888">Dizem que um</color> <color is="#7de8ff">minério prateado</color> <color is="#888888">brilha nas profundezas congeladas.</color>
+items.Endgame_Portal_Swamp_Dungeon.name = Chave da Masmorra do Pântano
+items.Endgame_Portal_Swamp_Dungeon.description = Uma chave tecida de raízes ancestrais, gotejando seiva escura. <color is="#b8860b">Clique Direito</color> em um <color is="#a9a9a9">Portal Ancestral</color> para abrir o caminho à <color is="#2E8B57">Masmorra do Pântano</color>.\nNas profundezas do pântano sufocante, <color is="#2E8B57">Hedera</color> aguarda no coração da Grande Árvore Oca.
+items.Endgame_Portal_Golem_Void.name = Fragmento do Vazio
+items.Endgame_Portal_Golem_Void.description = Um pedaço de energia do vazio cristalizada, gélido ao toque. <color is="#b8860b">Clique Direito</color> em um <color is="#a9a9a9">Portal Ancestral</color> para abrir o caminho para o <color is="#800080">Reino do Vazio</color>.\nNa escuridão eterna, o <color is="#800080">Golem do Vazio</color> guarda o conhecimento proibido.
+items.Endgame_Portal_Luminia.name = Fragmento da Luz Radiante (WIP)
+items.Endgame_Portal_Luminia.description = Um fragmento de luz pura, lutando contra sombras invasoras. <color is="#b8860b">Clique Direito</color> em um <color is="#a9a9a9">Portal Ancestral</color> para abrir o caminho para <color is="#FFD700">Lumínia</color>.\nUma dimensão de brilho ofuscante, onde <color is="#FFFACD">Biomas Luminosos</color> travam uma guerra eterna contra as <color is="#800080">Terras Corrompidas</color>.
+portals.void_golem = Portão do Vazio Glacial
+portals.void_golem.description = Um vórtice giratório de <color is="#2F4F4F">escuridão pura</color>, crepitando com <color is="#00BFFF">energia glacial instável</color>. Somente os mais corajosos ousam atravessar a <color is="#ADD8E6">névoa congelante</color>.
+portals.void_golem.tip1 = O ar aqui morde com um <color is="#B0C4DE">frio sobrenatural</color>,
+portals.void_golem.tip2 = quebrado apenas pelos sussurros distantes do <color is="#483D8B">Vazio</color>.
+portals.void_golem.tip3 = Cuidado com as <color is="#708090">sombras</color>,
+portals.void_golem.tip4 = pois elas têm olhos neste <color is="#F0F8FF">reino congelado</color>.
+items.Egg_Spawner_Golem_Void.name = Ovo Gerador - Golem do Vazio
+items.Egg_Spawner_Endgame_Dragon_Frost.name = Ovo Gerador - Dragão de Gelo
+npcRoles.Endgame_Dragon_Frost.name = Dragão de Gelo
+items.Egg_Spawner_Hedera.name = Ovo Gerador - Hedera
+barter.Vorthak.title = Loja de Trocas do Vorthak
+items.Tool_Pickaxe_Prisma.name = Picareta de Prisma
+items.Tool_Pickaxe_Prisma.description = Uma picareta forjada de cristal prismático. Seus golpes ressonantes destroem pedra com eficiência incomparável.
+items.Tool_Hatchet_Prisma.name = Machadinha de Prisma
+items.Tool_Hatchet_Prisma.description = Uma machadinha forjada de cristal prismático. Seu fio prismático corta madeira como se fosse ar.
+items.Weapon_Sword_Prisma.name = Espada de Prisma
+items.Weapon_Sword_Prisma.description = Uma lâmina de cristal prismático puro, seu fio brilha com cada matiz de luz refratada. Corta armaduras tão facilmente quanto o ar.
+items.Weapon_Daggers_Prisma.name = Adagas de Prisma
+items.Weapon_Daggers_Prisma.description = Lâminas gêmeas forjadas de cristal prismático, refratando luz a cada golpe. Seu fio vibra com energia ressonante que destrói defesas ao impacto.
+items.Hedera_Key.name = Chave de Hedera
+items.Hedera_Key.description = Uma chave dourada forjada das videiras ancestrais de <color is="#2E8B57">Hedera</color>. Abre os portões selados da <color is="#2E8B57">Masmorra do Pântano</color>.
+items.Endgame_Portal_Frozen_Dungeon.name = Chave da Masmorra Congelada
+items.Endgame_Portal_Frozen_Dungeon.description = Uma chave forjada de gelo eterno, sua superfície crepita com energia congelada. <color is="#b8860b">Clique Direito</color> em um <color is="#a9a9a9">Portal Ancestral</color> para abrir o caminho para <color is="#7de8ff">Frostfall</color>.\nUm bastião destroçado suspenso sobre o vazio, onde <color is="#7de8ff">Yetis de Gelo</color> vagam pelas ruínas abertas e um <color is="#7de8ff">Dragão de Gelo</color> circula os céus congelados.
+portals.frozen_dungeon = Portão de Frostfall
+portals.frozen_dungeon.description = Uma fenda uivante de <color is="#7de8ff">gelo e vazio</color>, suas bordas crepitando com relâmpagos congelados. Além dela jaz um bastião em ruínas aberto ao <color is="#B0C4DE">céu infinito</color>.
+portals.frozen_dungeon.tip1 = <i><color is="#7de8ff">O vento grita através de pedras destroçadas,</color></i>
+portals.frozen_dungeon.tip2 = <i><color is="#7de8ff">e acima, algo imenso circula na geada...</color></i>
+portals.swamp_dungeon = Portão da Masmorra do Pântano
+portals.swamp_dungeon.description = Um portal retorcido de <color is="#2E8B57">vinhas emaranhadas e energia sombria</color>, suas bordas pulsando com vida corrompida. Além dele jaz um pântano consumido pelo poder ancestral de <color is="#2E8B57">Hedera</color>.
+portals.swamp_dungeon.tip1 = <i><color is="#2E8B57">As raízes se torcem e alcançam através da névoa,</color></i>
+portals.swamp_dungeon.tip2 = <i><color is="#2E8B57">e em algum lugar nas profundezas, algo ancestral respira...</color></i>
+npcRoles.Endgame_Yeti.name = Yeti de Gelo
+npcRoles.Endgame_Rat_Frost.name = Rato de Gelo
+npcRoles.Endgame_Toad_Frost.name = Sapo de Gelo
+items.Flocon_Currency.name = Moeda Flocon
+items.Flocon_Currency.description = Um floco de neve cintilante que nunca derrete, pulsando com a magia gélida da Masmorra Congelada.
+items.Swamp_Currency.name = Moeda do Pântano
+items.Swamp_Currency.description = Uma ficha turva dragada das profundezas da Masmorra do Pântano, coberta de musgo antigo e encantamento sombrio.
+items.Swamp_Ingot.name = Lingote do Pântano
+items.Swamp_Ingot.description = Um lingote denso fundido de minérios encontrados nas profundezas da Masmorra do Pântano, com veios de resíduo bioluminescente. Usado para criar a <color is="#FFD700">Chave de Hedera</color>.
+npcRoles.Frozen_Trader.name = Korvyn
+barter.Frozen_Trader.title = Empório de Gelo do Korvyn
+npcRoles.Swamp_Trader.name = Morghul
+barter.Morghul.title = Bazar do Pântano do Morghul
+items.Endgame_Frozen_Sword.name = Lâmina Geada
+items.Endgame_Frozen_Sword.description = Uma lâmina forjada de gelo eterno, seu fio nunca perde o corte e seu frio nunca se dissipa.\nCada golpe aplica <color is="#80ecff">Calafrio Glacial</color> (50% lentidão, 5s).\nFinalizador <color is="#4080ff">Vortexstrike</color> <color is="#4080ff">congela</color> o alvo por 3s.
+npcRoles.Endgame_Swamp_Crocodile.name = Crocodilo do Pântano
+npcRoles.Endgame_Ghoul.name = Carniçal
+npcRoles.Endgame_Goblin_Duke.name = Duque Goblin
+npcRoles.Endgame_Necromancer_Void.name = Necromante do Vazio
+npcRoles.Endgame_Saurian_Warrior.name = Sauriano Guerreiro
+npcRoles.Endgame_Saurian_Hunter.name = Sauriano Caçador
+npcRoles.Endgame_Saurian_Rogue.name = Sauriano Ladino
+npcRoles.Endgame_Shadow_Knight.name = Cavaleiro das Sombras
+npcRoles.Endgame_Werewolf.name = Lobisomem
+npcRoles.Onyxium_Encounter.name = Cavaleiro de Onyxium
+items.Endgame_Swamp_Crocodile_Scale.name = Escama de Crocodilo do Pântano
+items.Endgame_Swamp_Crocodile_Scale.description = Uma escama resistente e iridescente arrancada de um Crocodilo do Pântano. Valorizada por armeiros por sua resistência natural. Usada para criar a <color is="#FFD700">Chave de Hedera</color>.
+items.Torch_Swamp_Dungeon.name = Tocha da Masmorra do Pântano
+items.Torch_Swamp_Dungeon.description = Uma tocha fraca com brilho esverdeado, encontrada nas profundezas de masmorras pantanosas.
+items.Rope_Vertical_Infused.name = Corda Vertical Infundida
+items.Rope_Vertical_Infused.description = Uma corda resistente infundida com fibras mágicas. Pode ser escalada.
+items.Rope_Infused.name = Corda Infundida
+items.Rope_Infused.description = Uma corda infundida com a magia ancestral do pântano, ainda vibrando com energia residual. Usada para criar a <color is="#FFD700">Chave de Hedera</color>.
+items.Dead_Tree_Small.name = Árvore Morta
+items.Dead_Tree_Small.description = Uma árvore pequena e murcha. Seus galhos nus não oferecem sombra.
+items.Dead_Stump.name = Tronco Morto
+items.Dead_Stump.description = Os restos apodrecidos de uma árvore outrora grandiosa.
+items.Hedera_Autel.name = Altar de Hedera
+items.Hedera_Autel.description = Um altar ancestral coberto de videiras, pulsando fracamente com a presença persistente de Hedera.
+items.Endgame_Mana_Totem.name = Totem de Mana
+items.Endgame_Mana_Totem.description = Um totem implantável que regenera mana para aliados próximos.\nArremesse para implantar. Dura <color is="#05c09a">12 segundos</color>, restaurando <color is="#4080ff">6 Mana/seg</color> em um raio de 5m.
+items.Hedera_Bramble.name = Espinheiro de Hedera
+items.Hedera_Bramble.description = Uma relíquia espinhosa arrancada do domínio de <color is="#2E8B57">Hedera</color>. Suas videiras retorcidas ainda se contorcem com vida tênue, ansiando recuperar o pântano. Usada para criar a <color is="#FFD700">Chave de Hedera</color>.
+items.Swamp_Gem.name = Gema do Pântano
+items.Swamp_Gem.description = Uma gema misteriosa pulsando com a energia ancestral do <color is="#2E8B57">pântano</color>. Seu brilho esmeralda pisca como um batimento cardíaco sob o musgo. Usada para criar a <color is="#FFD700">Chave de Hedera</color>.
+items.Warden_Challenge_I.name = Desafio do Guardiao I
+items.Warden_Challenge_I.description = Um selo carmesim pulsando com furia contida. Quebre-o para libertar as sentinelas mais fracas do Guardiao.\n<color is="#b8860b">Clique Esquerdo</color> segurando o item para ativar.\n<color is="#FFD700">Nivel I</color> — Recomendado: <color is="#44cc44">equipamento de Adamantita</color>
+items.Warden_Challenge_II.name = Desafio do Guardiao II
+items.Warden_Challenge_II.description = Um selo forjado em sombra e aco. As criaturas la dentro conhecem a batalha — e anseiam por mais.\n<color is="#b8860b">Clique Esquerdo</color> segurando o item para ativar.\n<color is="#FFD700">Nivel II</color> — Recomendado: <color is="#66aaff">equipamento de Mithril</color>
+items.Warden_Challenge_III.name = Desafio do Guardiao III
+items.Warden_Challenge_III.description = Um selo que vibra com pavor. Apenas veteranos ousam quebra-lo — pois o que espreita la dentro nao mostra piedade.\n<color is="#b8860b">Clique Esquerdo</color> segurando o item para ativar.\n<color is="#FFD700">Nivel III</color> — Recomendado: <color is="#cc55ff">equipamento de Onyxium</color>
+items.Warden_Challenge_IV.name = Desafio do Guardiao IV
+items.Warden_Challenge_IV.description = O selo final. A realidade fraturada sangra por suas rachaduras. Quem o quebrar enfrenta o teste supremo do Guardiao — poucos retornam.\n<color is="#b8860b">Clique Esquerdo</color> segurando o item para ativar.\n<color is="#FFD700">Nivel IV</color> — Recomendado: <color is="#ff5555">equipamento de Prisma</color>
+ui.endgame.accessories = Acessorios
+ui.endgame.blocks = Blocos
+items.Endgame_Corrupted_Block.name = Bloco Corrompido
+items.Endgame_Void_Ancient.name = Pedra Ancestral do Vazio
+items.Endgame_Void_Block.name = Bloco do Vazio
+items.Endgame_Void_Brick.name = Tijolo do Vazio
+items.Endgame_Void_Core.name = Nucleo do Vazio
+items.Endgame_Void_Fluid.name = Fluido do Vazio
+items.Endgame_Corrupted_Block_Light.name = Luz Corrompida
+items.Endgame_Void_Ancient_Light.name = Luz Ancestral do Vazio
+items.Endgame_Void_Block_Light.name = Luz do Vazio
+items.Endgame_Void_Brick_Light.name = Tijolo Luminoso do Vazio
+items.Endgame_Void_Core_Light.name = Nucleo Luminoso do Vazio
+items.Endgame_Accessory_Pouch.name = Bolsa de Amuletos
+items.Endgame_Accessory_Pouch.description = Uma bolsa reforcada feita com os melhores materiais do endgame. Comporta ate <color is="#FFD700">5 acessorios</color> que concedem bonus passivos de combate.\n<color is="#b8860b">Clique Direito</color> para abrir.
+items.Endgame_Accessory_Frostwalkers.name = Caminhantes de Gelo
+items.Endgame_Accessory_Frostwalkers.description = Botas imbuidas com magia de gelo, congelando a agua sob os pes do portador.\n<color is="#05c09a">Efeito:</color> <color is="#66ccff">Andar sobre a agua (gelo derrete apos 3s)</color>
+items.Endgame_Accessory_Ocean_Striders.name = Passos do Oceano
+items.Endgame_Accessory_Ocean_Striders.description = Nadadeiras encantadas abencoadas pelo mar, propulsionando o portador pela agua em velocidade incrivel.\n<color is="#05c09a">Efeito:</color> <color is="#00BFFF">2x velocidade de nado na agua</color>
+items.Endgame_Accessory_Void_Amulet.name = Amuleto do Vazio
+items.Endgame_Accessory_Void_Amulet.description = Um amuleto pulsando com energia do vazio. Quando um golpe fatal atingi-lo, sobreviva com 1 HP e 3 segundos de invulnerabilidade.\n<color is="#05c09a">Efeito:</color> <color is="#800080">Enganar a morte (5min CD)</color>
+items.Endgame_Accessory_Blazefist.name = Punho Flamejante
+items.Endgame_Accessory_Blazefist.description = Um punho forjado em fogo de dragao, incendiando todos que ousam ficar perto do seu alvo.\n<color is="#05c09a">Efeito:</color> <color is="#ff5555">Queimadura no alvo + fogo AOE 3m</color>
+items.Endgame_Accessory_Pocket_Garden.name = Jardim de Bolso
+items.Endgame_Accessory_Pocket_Garden.description = Um amuleto vivo contendo um jardim em miniatura que irradia energia curativa.\n<color is="#05c09a">Efeito:</color> <color is="#2E8B57">+1 HP/seg de regeneracao passiva</color>
+items.Endgame_Accessory_Hedera_Seed.name = Semente de Hedera
+items.Endgame_Accessory_Hedera_Seed.description = Uma semente adormecida de Hedera, retaliando contra aqueles que ousam ferir seu portador com raizes envolventes.\n<color is="#05c09a">Efeito:</color> <color is="#2E8B57">15% de chance de enraizar o atacante por 2s</color>

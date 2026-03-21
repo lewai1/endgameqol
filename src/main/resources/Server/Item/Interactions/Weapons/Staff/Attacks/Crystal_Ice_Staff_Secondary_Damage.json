@@ -1,0 +1,16 @@
+{
+  "Parent": "DamageEntityParent",
+  "DamageCalculator": {
+    "BaseDamage": {
+      "Ice": 15
+    }
+  },
+  "DamageEffects": {
+    "WorldParticles": [
+      {
+        "SystemId": "Impact_Sword_Basic"
+      }
+    ],
+    "WorldSoundEventId": "SFX_Ice_Break"
+  }
+}

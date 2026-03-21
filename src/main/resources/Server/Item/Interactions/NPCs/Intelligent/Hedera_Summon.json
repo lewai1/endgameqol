@@ -1,0 +1,10 @@
+{
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "TriggerSpawnMarkers",
+      "MarkerType": "Spirit_Root_Manual",
+      "Range": 30
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "Parent": "DamageEntityParent",
+  "DamageCalculator": {
+    "Type": "Absolute",
+    "BaseDamage": {
+      "Physical": 40,
+      "Ice": 15
+    },
+    "RandomPercentageModifier": 0.1
+  },
+  "DamageEffects": {
+    "Knockback": {
+      "Force": 5,
+      "RelativeX": 0,
+      "RelativeZ": -3,
+      "VelocityY": 2
+    },
+    "WorldSoundEventId": "SFX_Toad_Rhino_Magma_Tongue_Impact",
+    "WorldParticles": [
+      {
+        "SystemId": "Impact_Sword_Basic"
+      }
+    ]
+  }
+}

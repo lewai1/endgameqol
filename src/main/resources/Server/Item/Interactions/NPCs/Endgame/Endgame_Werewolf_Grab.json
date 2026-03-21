@@ -1,0 +1,53 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Outlander_Brute_Default",
+    "ItemAnimationId": "Grab"
+  },
+  "RunTime": 0.333,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.167,
+            "Selector": {
+              "Id": "Horizontal",
+              "Direction": "ToLeft",
+              "TestLineOfSight": true,
+              "ExtendTop": 1.5,
+              "ExtendBottom": 1.5,
+              "StartDistance": 0.5,
+              "EndDistance": 3,
+              "Length": 80,
+              "RollOffset": 45,
+              "YawStartOffset": -40
+            },
+            "HitEntity": {
+              "Interactions": [
+                "Endgame_Werewolf_Grab_Damage"
+              ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "RunTime": 0.417
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0.25,
+            "Effects": {
+              "WorldSoundEventId": "SFX_Unarmed_Swing"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

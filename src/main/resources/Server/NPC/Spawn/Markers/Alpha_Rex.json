@@ -1,0 +1,12 @@
+{
+    "Model": "NPC_Spawn_Marker",
+    "NPCs": [
+        {
+            "Name": "Alpha_Rex",
+            "Weight": 20,
+            "SpawnAfterGameTime": "P1D"
+        }
+    ],
+    "ExclusionRadius": 0,
+    "MaxDropHeight": 12
+}

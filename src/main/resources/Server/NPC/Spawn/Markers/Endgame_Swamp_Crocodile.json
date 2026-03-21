@@ -1,0 +1,12 @@
+{
+  "Model": "NPC_Spawn_Marker",
+  "NPCs": [
+    {
+      "Name": "Endgame_Swamp_Crocodile",
+      "Weight": 20,
+      "SpawnAfterGameTime": "PT2H"
+    }
+  ],
+  "ExclusionRadius": 0,
+  "MaxDropHeight": 6
+}

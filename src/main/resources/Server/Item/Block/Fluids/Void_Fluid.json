@@ -1,0 +1,8 @@
+{
+  "Parent": "Void_Fluid_Source",
+  "MaxFluidLevel": 8,
+  "Ticker": {
+    "CanDemote": true,
+    "SupportedBy": "Void_Fluid_Source"
+  }
+}

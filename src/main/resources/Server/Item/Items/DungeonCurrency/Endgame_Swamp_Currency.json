@@ -1,0 +1,44 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Swamp_Currency.name",
+    "Description": "server.items.Swamp_Currency.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Swamp_Currency_Icon.png",
+  "Categories": [
+    "Endgame.Misc"
+  ],
+  "PlayerAnimationsId": "Item",
+  "BlockType": {
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "DrawType": "Model",
+    "CustomModel": "Items/Swamp_Dungeon/Swamp_Currency.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Swamp_Dungeon/Swamp_Currency_Texture.png",
+        "Weight": 1
+      }
+    ]
+  },
+  "IconProperties": {
+    "Scale": 1,
+    "Translation": [
+      0,
+      -3
+    ],
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ]
+  },
+  "Tags": {
+    "Family": [
+      "BossItem"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "MaxStack": 20,
+  "DropOnDeath": true,
+  "Quality": "Epic"
+}

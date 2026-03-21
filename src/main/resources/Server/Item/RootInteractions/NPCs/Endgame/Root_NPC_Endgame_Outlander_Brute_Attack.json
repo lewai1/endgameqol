@@ -1,0 +1,24 @@
+{
+  "Interactions": [
+    {
+      "Type": "Chaining",
+      "ChainId": "BruteAttacks",
+      "ChainingAllowance": 15,
+      "Next": [
+        "Endgame_Outlander_Brute_Axe_Swing_Left",
+        "Endgame_Outlander_Brute_Grab",
+        "Endgame_Outlander_Brute_Backswing_Left",
+        "Endgame_Outlander_Brute_Axe_Swing_Down",
+        "Outlander_Brute_Block",
+        "Endgame_Outlander_Brute_Stomp",
+        "Endgame_Outlander_Brute_Axe_Swing_Right",
+        "Endgame_Outlander_Brute_Ground_Slam"
+      ]
+    }
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

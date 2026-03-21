@@ -1,0 +1,45 @@
+{
+    "Container": {
+        "Type": "Multiple",
+        "Containers": [
+            {
+                "Type": "Single",
+                "Item": {
+                    "ItemId": "Ingredient_Hide_Storm",
+                    "QuantityMin": 2,
+                    "QuantityMax": 4
+                }
+            },
+            {
+                "Type": "Single",
+                "Item": {
+                    "ItemId": "Ingredient_Bar_Adamantite",
+                    "QuantityMin": 3,
+                    "QuantityMax": 6
+                }
+            },
+            {
+                "Type": "Single",
+                "Item": {
+                    "ItemId": "Ingredient_Voidheart",
+                    "QuantityMin": 1,
+                    "QuantityMax": 1
+                }
+            },
+            {
+                "Type": "Choice",
+                "Weight": 15,
+                "Containers": [
+                    {
+                        "Type": "Single",
+                        "Item": {
+                            "ItemId": "Endgame_Accessory_Blazefist",
+                            "QuantityMin": 1,
+                            "QuantityMax": 1
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

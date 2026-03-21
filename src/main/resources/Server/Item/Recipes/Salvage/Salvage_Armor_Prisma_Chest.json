@@ -1,0 +1,29 @@
+{
+  "Input": [
+    {
+      "ItemId": "Armor_Prisma_Chest",
+      "Quantity": 1
+    }
+  ],
+  "PrimaryOutput": {
+    "ItemId": "Ingredient_Bar_Prisma",
+    "Quantity": 4
+  },
+  "Output": [
+    {
+      "ItemId": "Ingredient_Bar_Prisma",
+      "Quantity": 4
+    },
+    {
+      "ItemId": "Ingredient_Leather_Prismic",
+      "Quantity": 3
+    }
+  ],
+  "BenchRequirement": [
+    {
+      "Type": "Processing",
+      "Id": "Salvagebench"
+    }
+  ],
+  "TimeSeconds": 4
+}

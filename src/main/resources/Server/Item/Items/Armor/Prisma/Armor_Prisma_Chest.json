@@ -1,0 +1,121 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Armor_Prisma_Chest.name",
+    "Description": "server.items.Armor_Prisma_Chest.description"
+  },
+  "Parent": "Armor_Iron_Chest",
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Prisma",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "Ingredient_Leather_Prismic",
+        "Quantity": 5
+      },
+      {
+        "ItemId": "Rock_Gem_Emerald",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Endgame_Bench",
+        "Type": "Crafting",
+        "Categories": [
+          "Endgame_Armor_Prisma"
+        ],
+        "RequiredTierLevel": 5
+      }
+    ],
+    "KnowledgeRequired": false,
+    "TimeSeconds": 4
+  },
+  "Quality": "Legendary",
+  "ItemLevel": 55,
+  "Icon": "Icons/ItemsGenerated/Armor_Prisma_Chest.png",
+  "IconProperties": {
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Scale": 0.3,
+    "Translation": [
+      -2.4,
+      -6
+    ]
+  },
+  "Model": "Items/Armors/Prisma/Chest.blockymodel",
+  "Texture": "Items/Armors/Prisma/Chest_Texture.png",
+  "Armor": {
+    "ArmorSlot": "Chest",
+    "BaseDamageResistance": 0,
+    "CosmeticsToHide": [
+      "Overtop"
+    ],
+    "DamageResistance": {
+      "Physical": [
+        {
+          "Amount": 0.28,
+          "CalculationType": "Multiplicative"
+        }
+      ],
+      "Projectile": [
+        {
+          "Amount": 0.28,
+          "CalculationType": "Multiplicative"
+        }
+      ],
+      "Fire": [
+        {
+          "Amount": 0.15,
+          "CalculationType": "Multiplicative"
+        }
+      ],
+      "Fall": [
+        {
+          "Amount": 0.15,
+          "CalculationType": "Multiplicative"
+        }
+      ]
+    },
+    "StatModifiers": {
+      "Health": [
+        {
+          "Amount": 47,
+          "CalculationType": "Additive"
+        }
+      ],
+      "Mana": [
+        {
+          "Amount": 30,
+          "CalculationType": "Additive"
+        }
+      ]
+    },
+    "DamageClassEnhancement": {
+      "Signature": [
+        {
+          "Amount": 0.1,
+          "CalculationType": "Multiplicative"
+        }
+      ]
+    }
+  },
+  "Tags": {
+    "Type": [
+      "Armor"
+    ],
+    "Family": [
+      "Prisma"
+    ]
+  },
+  "MaxDurability": 400,
+  "ItemSoundSetId": "ISS_Armor_Heavy",
+  "Categories": [
+    "Items.Armors",
+    "Endgame.Armor"
+  ]
+}

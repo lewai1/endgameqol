@@ -1,0 +1,95 @@
+{
+    "Model": "Ice_Ball",
+    "Physics": {
+        "Type": "Standard",
+        "Gravity": 3,
+        "TerminalVelocityAir": 50,
+        "RotationMode": "VelocityDamped"
+    },
+    "LaunchForce": 40,
+    "SpawnOffset": {
+        "Y": 1.0
+    },
+    "Interactions": {
+        "ProjectileHit": {
+            "Cooldown": {
+                "Cooldown": 0
+            },
+            "Interactions": [
+                {
+                    "Type": "DamageEntity",
+                    "DamageCalculator": {
+                        "Type": "Absolute",
+                        "BaseDamage": {
+                            "Physical": 10,
+                            "Ice": 25
+                        }
+                    },
+                    "DamageEffects": {
+                        "Knockback": {
+                            "Type": "Point",
+                            "Force": 12,
+                            "VelocityType": "Add"
+                        },
+                        "WorldParticles": [
+                            {
+                                "SystemId": "IceBall_Explosion"
+                            },
+                            {
+                                "SystemId": "Rings_Rings_Ice"
+                            },
+                            {
+                                "SystemId": "Impact_Ice"
+                            },
+                            {
+                                "SystemId": "Ice_Blast",
+                                "Scale": 3
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "RemoveEntity",
+                    "Entity": "User"
+                }
+            ]
+        },
+        "ProjectileMiss": {
+            "Cooldown": {
+                "Cooldown": 0
+            },
+            "Interactions": [
+                {
+                    "Type": "Simple",
+                    "RunTime": 0,
+                    "Effects": {
+                        "WorldSoundEventId": "SFX_Ice_Break",
+                        "WorldParticles": [
+                            {
+                                "SystemId": "IceBall_Explosion"
+                            },
+                            {
+                                "SystemId": "Rings_Rings_Ice",
+                                "Scale": 3
+                            },
+                            {
+                                "SystemId": "Impact_Ice"
+                            },
+                            {
+                                "SystemId": "Ice_Blast",
+                                "Scale": 4
+                            },
+                            {
+                                "SystemId": "Hedera_Scream"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "RemoveEntity",
+                    "Entity": "User"
+                }
+            ]
+        }
+    }
+}

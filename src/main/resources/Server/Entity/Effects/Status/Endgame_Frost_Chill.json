@@ -1,0 +1,16 @@
+{
+  "Duration": 5,
+  "Debuff": true,
+  "StatusEffectIcon": "UI/Icons/Effects/Ice.png",
+  "ApplicationEffects": {
+    "EntityBottomTint": "#80ecff",
+    "EntityTopTint": "#c0f0ff",
+    "ScreenEffect": "ScreenEffects/Snow.png",
+    "Particles": [
+      {
+        "SystemId": "Effect_Snow"
+      }
+    ],
+    "HorizontalSpeedMultiplier": 0.5
+  }
+}

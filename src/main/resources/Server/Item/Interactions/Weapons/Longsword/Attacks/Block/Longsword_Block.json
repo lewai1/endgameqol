@@ -1,0 +1,31 @@
+{
+    "Type": "StatsCondition",
+    "Costs": {
+        "Stamina": 0.01
+    },
+    "Next": {
+        "Type": "EffectCondition",
+        "EntityEffectIds": [
+            "Stamina_Broken"
+        ],
+        "Match": "None",
+        "Next": {
+            "Type": "Simple",
+            "Effects": {
+                "ItemAnimationId": "Guard",
+                "ClearAnimationOnFinish": true
+            },
+            "$Comment": "Prepare Delay",
+            "RunTime": 0.1,
+            "Next": {
+                "Type": "Replace",
+                "DefaultValue": {
+                    "Interactions": [
+                        "Longsword_Block_Damage"
+                    ]
+                },
+                "Var": "Longsword_Block_Damage"
+            }
+        }
+    }
+}

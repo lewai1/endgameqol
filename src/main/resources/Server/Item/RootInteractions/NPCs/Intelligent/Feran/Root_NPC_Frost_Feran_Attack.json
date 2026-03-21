@@ -1,0 +1,19 @@
+{
+  "Interactions": [
+    {
+      "Type": "Chaining",
+      "ChainId": "Slashes",
+      "ChainingAllowance": 1.5,
+      "Next": [
+        "Frost_Feran_Sword_Swing_Left",
+        "Frost_Feran_Sword_Swing_Right",
+        "Frost_Feran_Sword_Swing_Down"
+      ]
+    }
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

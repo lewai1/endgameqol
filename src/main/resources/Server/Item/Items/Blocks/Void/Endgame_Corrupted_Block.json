@@ -1,0 +1,37 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Endgame_Corrupted_Block.name"
+  },
+  "Icon": "Icons/ItemsGenerated/Corrupted_Block.png",
+  "Categories": [
+    "Endgame.Misc"
+  ],
+  "PlayerAnimationsId": "Block",
+  "MaxStack": 100,
+  "ItemLevel": 10,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Cube",
+    "Group": "Stone",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "BlockParticleSetId": "Stone",
+    "Textures": [
+      {
+        "All": "BlockTextures/Corrupted_Block.png",
+        "Weight": 1
+      }
+    ],
+    "ParticleColor": "#6a00cc",
+    "BlockSoundSetId": "Stone"
+  },
+  "Tags": {
+    "Type": [
+      "Rock"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone"
+}

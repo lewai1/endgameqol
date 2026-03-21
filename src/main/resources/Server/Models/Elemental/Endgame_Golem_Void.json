@@ -1,0 +1,116 @@
+{
+  "Parent": "Player",
+  "Model": "NPC/Golem_Void/Models/Model.blockymodel",
+  "Texture": "NPC/Golem_Void/Models/Texture.png",
+  "GradientSet": null,
+  "GradientId": null,
+  "DefaultAttachments": [],
+  "EyeHeight": 3.5,
+  "HitBox": {
+    "Max": {
+      "X": 1.2,
+      "Y": 5,
+      "Z": 1.2
+    },
+    "Min": {
+      "X": -1.2,
+      "Y": 0,
+      "Z": -1.2
+    }
+  },
+  "MinScale": 1.4,
+  "MaxScale": 1.4,
+  "AnimationSets": {
+    "Idle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Golem_Void/Animations/Idle.blockyanim"
+        }
+      ]
+    },
+    "Walk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Golem_Void/Animations/Walk.blockyanim"
+        }
+      ]
+    },
+    "WalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Golem_Void/Animations/Walk_Backward.blockyanim"
+        }
+      ]
+    },
+    "Run": {
+      "Animations": [
+        {
+          "Animation": "NPC/Golem_Void/Animations/Run.blockyanim",
+          "Speed": 1
+        }
+      ]
+    },
+    "Jump": {
+      "Animations": [
+        {
+          "Animation": "NPC/Golem_Void/Animations/Jump.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false
+        }
+      ]
+    },
+    "JumpWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Golem_Void/Animations/Jump_Far.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "Speed": 0.8
+        }
+      ]
+    },
+    "JumpRun": {
+      "Animations": [
+        {
+          "Animation": "NPC/Golem_Void/Animations/Jump_Far.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "Speed": 0.8
+        }
+      ]
+    },
+    "Fall": {
+      "Animations": [
+        {
+          "Animation": "NPC/Golem_Void/Animations/Fall.blockyanim",
+          "BlendingDuration": 0.4,
+          "Looping": true
+        }
+      ]
+    },
+    "Alerted": {
+      "Animations": [
+        {
+          "Animation": "NPC/Golem_Void/Animations/Alerted.blockyanim"
+        }
+      ]
+    },
+    "Hurt": {
+      "Animations": [
+        {
+          "Animation": "NPC/Golem_Void/Animations/Hurt.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false
+        }
+      ]
+    },
+    "Death": {
+      "Animations": [
+        {
+          "Animation": "NPC/Golem_Void/Animations/Death.blockyanim",
+          "Looping": false
+        }
+      ]
+    }
+  }
+}

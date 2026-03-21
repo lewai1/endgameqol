@@ -1,0 +1,49 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Outlander_Brute_Default",
+    "ItemAnimationId": "Stomp"
+  },
+  "RunTime": 0.417,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.333,
+            "Selector": {
+              "Id": "AOECircle",
+              "Range": 4
+            },
+            "HitEntity": {
+              "Interactions": [
+                "Endgame_Outlander_Brute_Stomp_Damage",
+                {
+                  "Type": "ApplyEffect",
+                  "EffectId": "Endgame_Outlander_Brute_Slow"
+                }
+              ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "RunTime": 0.084
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0.417,
+            "Effects": {
+              "WorldSoundEventId": "SFX_Light_Melee_T2_Swing"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

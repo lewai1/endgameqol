@@ -1,0 +1,43 @@
+{
+    "Type": "Wielding",
+    "Effects": {
+        "ItemAnimationId": "Guard",
+        "ClearAnimationOnFinish": true
+    },
+    "Forks": {},
+    "AngledWielding": {
+        "Angle": 0,
+        "AngleDistance": 135,
+        "DamageModifiers": {
+            "Physical": 0,
+            "Projectile": 0
+        },
+        "KnockbackModifiers": {
+            "Physical": 0.25,
+            "Projectile": 0.25
+        }
+    },
+    "StaminaCost": {
+        "Value": 8,
+        "CostType": "Damage"
+    },
+    "CancelOnOtherClick": false,
+    "Failed": {
+        "Type": "Simple",
+        "Effects": {
+            "Particles": [
+                {
+                    "SystemId": "Shield_Shatter"
+                }
+            ]
+        }
+    },
+    "BlockedEffects": {
+        "WorldSoundEventId": "SFX_Shield_T2_Impact",
+        "WorldParticles": [
+            {
+                "SystemId": "Shield_Block"
+            }
+        ]
+    }
+}

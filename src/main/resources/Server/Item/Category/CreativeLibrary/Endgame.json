@@ -1,0 +1,48 @@
+{
+  "Icon": "Icons/ItemCategories/Items-Weapons.png",
+  "Order": 3,
+  "Children": [
+    {
+      "Id": "Weapons",
+      "Name": "server.ui.endgame.weapons",
+      "Icon": "Icons/ItemCategories/Items-Weapons.png"
+    },
+    {
+      "Id": "Armor",
+      "Name": "server.ui.endgame.armor",
+      "Icon": "Icons/ItemCategories/Items-Armor.png"
+    },
+    {
+      "Id": "Tools",
+      "Name": "server.ui.endgame.tools",
+      "Icon": "Icons/ItemCategories/Items-Tools.png"
+    },
+    {
+      "Id": "Materials",
+      "Name": "server.ui.endgame.materials",
+      "Icon": "Icons/ItemCategories/Natural-Ore.png"
+    },
+    {
+      "Id": "Consumables",
+      "Name": "server.ui.endgame.consumables",
+      "Icon": "Icons/ItemCategories/Items-Potion.png"
+    },
+    {
+      "Id": "Portals",
+      "Name": "server.ui.endgame.portals",
+      "Icon": "Icons/ItemCategories/Portal.png"
+    },
+    {
+      "Id": "Misc",
+      "Name": "server.ui.endgame.misc",
+      "Icon": "Icons/ItemCategories/Natural-Fire.png"
+    },
+    {
+      "Id": "Accessories",
+      "Name": "server.ui.endgame.accessories",
+      "Icon": "Icons/ItemCategories/Items-Armor.png"
+    }
+  ],
+  "Id": "Endgame",
+  "Name": "EndgameQoL"
+}

@@ -1,0 +1,32 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Intelligent",
+  "Modify": {
+    "Appearance": "Endgame_Goblin_Duke",
+    "Weapons": [
+      "Weapon_Club_Doomed"
+    ],
+    "WanderRadius": 8,
+    "ViewRange": 15,
+    "ViewSector": 270,
+    "HearingRange": 10,
+    "DropList": "Drop_Endgame_Goblin_Duke",
+    "MaxSpeed": 6,
+    "Attack": "Root_NPC_Endgame_Goblin_Duke_Attack",
+    "AttackDistance": 3,
+    "MaxHealth": 350,
+    "DisableDamageGroups": [
+      "Self",
+      "Goblin"
+    ],
+    "AttitudeGroup": "Goblin",
+    "IsMemory": false,
+    "NameTranslationKey": { "Compute": "NameTranslationKey" }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Endgame_Goblin_Duke.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

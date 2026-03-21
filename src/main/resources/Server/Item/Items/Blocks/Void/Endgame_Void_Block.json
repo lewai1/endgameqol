@@ -1,0 +1,37 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Endgame_Void_Block.name"
+  },
+  "Icon": "Icons/ItemsGenerated/Void_Block.png",
+  "Categories": [
+    "Endgame.Misc"
+  ],
+  "PlayerAnimationsId": "Block",
+  "MaxStack": 100,
+  "ItemLevel": 10,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Cube",
+    "Group": "Stone",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "BlockParticleSetId": "Stone",
+    "Textures": [
+      {
+        "All": "BlockTextures/Void_Block.png",
+        "Weight": 1
+      }
+    ],
+    "ParticleColor": "#1a0033",
+    "BlockSoundSetId": "Stone"
+  },
+  "Tags": {
+    "Type": [
+      "Rock"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone"
+}

@@ -1,0 +1,31 @@
+$Common = "Common.ui";
+
+Group {
+  LayoutMode: Center;
+  Group #MainPanel {
+    Background: $Common.@InputBoxBackground;
+    Anchor: (Width: 600, Height: 400);
+    LayoutMode: Top;
+    Padding: (Full: 20);
+    
+    Label #Title {
+      Style: (FontSize: 32, Alignment: Center);
+      Anchor: (Top: 20);
+      Text: "Server Configuration";
+      Padding: (Bottom: 20);
+    }
+    
+    Label #RulesLabel {
+      Style: (FontSize: 18);
+      Text: "Server Rules:";
+      Padding: (Bottom: 5);
+    }
+
+    TextField #RulesInput {
+      Style: $Common.@DefaultInputFieldStyle;
+      Background: $Common.@InputBoxBackground;
+      Anchor: (Height: 50, Width: 560);
+      Padding: (Full: 10);
+    }
+  }
+}

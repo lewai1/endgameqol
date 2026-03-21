@@ -1,0 +1,97 @@
+{
+  "Model": "Ice_Ball",
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 15,
+    "TerminalVelocityAir": 300,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "VelocityDamped",
+    "SticksVertically": true
+  },
+  "LaunchForce": 250,
+  "SpawnOffset": {
+    "X": 0,
+    "Y": 0,
+    "Z": 0
+  },
+  "Interactions": {
+    "ProjectileHit": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "DamageEntity",
+          "DamageCalculator": {
+            "Type": "Absolute",
+            "BaseDamage": {
+              "Physical": 15,
+              "Ice": 35
+            },
+            "RandomPercentageModifier": 0.15
+          },
+          "DamageEffects": {
+            "Knockback": {
+              "Type": "Point",
+              "Force": 8,
+              "VelocityType": "Add"
+            },
+            "WorldParticles": [
+              {
+                "SystemId": "IceBall_Explosion"
+              },
+              {
+                "SystemId": "Rings_Rings_Ice"
+              },
+              {
+                "SystemId": "Impact_Ice"
+              },
+              {
+                "SystemId": "Ice_Blast",
+                "Scale": 2
+              }
+            ]
+          }
+        },
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "Simple",
+          "RunTime": 0,
+          "Effects": {
+            "WorldSoundEventId": "SFX_Ice_Break",
+            "WorldParticles": [
+              {
+                "SystemId": "IceBall_Explosion"
+              },
+              {
+                "SystemId": "Rings_Rings_Ice",
+                "Scale": 2
+              },
+              {
+                "SystemId": "Impact_Ice"
+              },
+              {
+                "SystemId": "Ice_Blast",
+                "Scale": 3
+              }
+            ]
+          }
+        },
+        {
+          "Type": "RemoveEntity",
+          "Entity": "User"
+        }
+      ]
+    }
+  }
+}

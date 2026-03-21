@@ -1,0 +1,87 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Predator",
+  "Modify": {
+    "Appearance": "Endgame_Toad_Frost",
+    "WanderRadius": 6,
+    "ViewRange": 15,
+    "FleeRange": 15,
+    "HearingRange": 8,
+    "DropList": "Drop_Endgame_Toad_Frost",
+    "MaxSpeed": 8,
+    "Attack": "Root_NPC_Toad_Rhino_Attack",
+    "AttackDistance": 10,
+    "CombatBehaviorDistance": 12,
+    "LeashDistance": 40,
+    "HardLeashDistance": 80,
+    "LeashMinPlayerDistance": 8,
+    "LeashTimer": [
+      10,
+      15
+    ],
+    "ClimbHeight": 3,
+    "MinJumpHeight": 2,
+    "AscentAnimationType": "Walk",
+    "ClimbSpeedMult": 1,
+    "ClimbSpeedPow": 1,
+    "ClimbSpeedConst": 1,
+    "AlwaysSleepAtNight": false,
+    "MaxHealth": 124,
+    "IsMemory": true,
+    "MemoriesCategory": "Reptile",
+    "MemoriesNameOverride": "Toad_Rhino",
+    "_InteractionVars": {
+      "Tongue_Damage": {
+        "Interactions": [
+          {
+            "Parent": "Toad_Rhino_Magma_Tongue_Damage",
+            "DamageCalculator": {
+              "Type": "Absolute",
+              "BaseDamage": {
+                "Physical": 18
+              },
+              "RandomPercentageModifier": 0.1
+            },
+            "DamageEffects": {
+              "Knockback": {
+                "Force": 1,
+                "RelativeX": 0,
+                "RelativeZ": 0.5,
+                "VelocityY": 1,
+                "VelocityType": "Set"
+              }
+            }
+          }
+        ]
+      },
+      "Headbutt_Damage": {
+        "Interactions": [
+          {
+            "Parent": "Toad_Rhino_Magma_Headbutt_Damage",
+            "DamageCalculator": {
+              "Type": "Absolute",
+              "BaseDamage": {
+                "Physical": 35
+              },
+              "RandomPercentageModifier": 0.1
+            },
+            "DamageEffects": {
+              "Knockback": {
+                "Force": -10
+              }
+            }
+          }
+        ]
+      }
+    },
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Toad_Rhino_Magma.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

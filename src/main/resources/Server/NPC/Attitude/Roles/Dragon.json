@@ -1,0 +1,11 @@
+{
+    "Groups": {
+        "Hostile": [
+            "Player"
+        ],
+        "Ignore": [
+            "Prey",
+            "PreyBig"
+        ]
+    }
+}

@@ -1,0 +1,61 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Hedera_Key.name",
+    "Description": "server.items.Hedera_Key.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Hedera_Key_Icon.png",
+  "Categories": [
+    "Endgame.Portals"
+  ],
+  "BlockType": {
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "DrawType": "Model",
+    "CustomModelScale": 0.7,
+    "CustomModel": "Items/Swamp_Dungeon/Hedera_Key.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Swamp_Dungeon/Hedera_Key_Texture.png",
+        "Weight": 1
+      }
+    ]
+  },
+  "PlayerAnimationsId": "Item",
+  "Tags": {
+    "Type": [
+      "Portal"
+    ]
+  },
+  "Recipe": {
+    "TimeSeconds": 5,
+    "Input": [
+      { "ItemId": "Endgame_Swamp_Ingot", "Quantity": 1 },
+      { "ItemId": "Endgame_Swamp_Crocodile_Scale", "Quantity": 1 },
+      { "ItemId": "Swamp_Gem", "Quantity": 1 },
+      { "ItemId": "Rope_Infused", "Quantity": 1 },
+      { "ItemId": "Hedera_Bramble", "Quantity": 1 }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Categories": ["Hedera_Autel_Crafting"],
+        "Id": "Hedera_Autel"
+      }
+    ]
+  },
+  "Quality": "Legendary",
+  "MaxStack": 10,
+  "ItemLevel": 51,
+  "IconProperties": {
+    "Scale": 1.4,
+    "Rotation": [
+      22.5,
+      137.0,
+      22.5
+    ],
+    "Translation": [
+      0.0,
+      1.0
+    ]
+  }
+}

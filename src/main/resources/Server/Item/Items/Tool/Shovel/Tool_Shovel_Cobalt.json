@@ -1,0 +1,111 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Tool_Shovel_Cobalt.name",
+    "Description": "server.items.Tool_Shovel_Cobalt.description"
+  },
+  "Parent": "Tool_Shovel_Crude",
+  "Icon": "Icons/ItemsGenerated/Tool_Shovel_Cobalt.png",
+  "Model": "Items/Tools/Shovel/Cobalt.blockymodel",
+  "Texture": "Items/Tools/Shovel/Cobalt_Texture.png",
+  "Recipe": {
+    "TimeSeconds": 3.5,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Cobalt",
+        "Quantity": 7
+      },
+      {
+        "ItemId": "Ingredient_Leather_Heavy",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Fabric_Scrap_Shadoweave",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Workbench",
+        "Type": "Crafting",
+        "Categories": [
+          "Workbench_Tools"
+        ],
+        "RequiredTierLevel": 2
+      }
+    ]
+  },
+  "Tool": {
+    "Specs": [
+      {
+        "Power": 1.3,
+        "GatherType": "SoftBlocks"
+      },
+      {
+        "Power": 0.8,
+        "GatherType": "Soils"
+      },
+      {
+        "Power": 0.07,
+        "GatherType": "Woods"
+      },
+      {
+        "Power": 0.07,
+        "GatherType": "Rocks"
+      },
+      {
+        "Power": 0.7,
+        "GatherType": "Benches"
+      },
+      {
+        "Power": 0.046,
+        "GatherType": "OreCopper"
+      },
+      {
+        "Power": 0.046,
+        "GatherType": "OreIron"
+      },
+      {
+        "Power": 0.046,
+        "GatherType": "OreSilver"
+      },
+      {
+        "Power": 0.046,
+        "GatherType": "OreGold"
+      },
+      {
+        "Power": 0.042,
+        "GatherType": "OreThorium"
+      },
+      {
+        "Power": 0.042,
+        "GatherType": "OreCobalt"
+      },
+      {
+        "Power": 0.036,
+        "GatherType": "OreAdamantite"
+      },
+      {
+        "Power": 0.032,
+        "GatherType": "OreMithril"
+      }
+    ],
+    "DurabilityLossBlockTypes": [
+      {
+        "BlockSets": [
+          "Stone",
+          "Rock",
+          "Ores",
+          "Soil"
+        ],
+        "DurabilityLossOnHit": 0.05
+      }
+    ]
+  },
+  "MaxDurability": 350,
+  "Quality": "Rare",
+  "ItemLevel": 35,
+  "Categories": [
+    "Items.Tools",
+    "Endgame.Tools"
+  ]
+}

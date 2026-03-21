@@ -1,0 +1,35 @@
+{
+    "Container": {
+        "Type": "Multiple",
+        "Containers": [
+            {
+                "Type": "Choice",
+                "Weight": 100,
+                "Containers": [
+                    {
+                        "Type": "Single",
+                        "Item": {
+                            "ItemId": "Food_Fish_Raw",
+                            "QuantityMin": 1,
+                            "QuantityMax": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "Type": "Choice",
+                "Weight": 15,
+                "Containers": [
+                    {
+                        "Type": "Single",
+                        "Item": {
+                            "ItemId": "Endgame_Accessory_Ocean_Striders",
+                            "QuantityMin": 1,
+                            "QuantityMax": 1
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

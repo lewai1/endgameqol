@@ -1,0 +1,201 @@
+{
+  "Parent": "Trork",
+  "Model": "NPC/Intelligent/Hedera/Models/Model.blockymodel",
+  "Texture": "NPC/Intelligent/Hedera/Models/Texture.png",
+  "EyeHeight": 1.8,
+  "CrouchOffset": -0.4,
+  "HitBox": {
+    "Max": {
+      "X": 0.5,
+      "Y": 2.8,
+      "Z": 0.5
+    },
+    "Min": {
+      "X": -0.5,
+      "Y": 0,
+      "Z": -0.5
+    }
+  },
+  "MinScale": 2.1,
+  "MaxScale": 2.1,
+  "DefaultAttachments": [
+    {
+      "Model": "NPC/Intelligent/Hedera/Models/Attachments/Hair.blockymodel",
+      "Texture": "NPC/Intelligent/Hedera/Models/Attachments/Hair_Texture.png"
+    },
+    {
+      "Model": "NPC/Boss2/Hedera/Models/Attachments/Chest.blockymodel",
+      "Texture": "NPC/Boss2/Hedera/Models/Attachments/Chest_Texture.png"
+    },
+    {
+      "Model": "NPC/Intelligent/Hedera/Models/Attachments/Crown.blockymodel",
+      "Texture": "NPC/Intelligent/Hedera/Models/Attachments/Crown_Texture.png"
+    }
+  ],
+  "AnimationSets": {
+    "Idle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Intelligent/Hedera/Animations/Default/Idle.blockyanim"
+        }
+      ]
+    },
+    "IdlePassive": {
+      "Animations": [
+        {
+          "Animation": "NPC/Intelligent/Hedera/Animations/Default/Idle_Passive.blockyanim",
+          "Weight": 1,
+          "Looping": true
+        },
+        {
+          "Animation": "NPC/Intelligent/Hedera/Animations/Default/Idle_Passive2.blockyanim",
+          "Weight": 1,
+          "Looping": true
+        }
+      ],
+      "NextAnimationDelay": {
+        "Min": 0,
+        "Max": 2
+      }
+    },
+    "FlyIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Intelligent/Hedera/Animations/Fly/Fly_Idle.blockyanim"
+        }
+      ]
+    },
+    "FlyPassive": {
+      "Animations": [
+        {
+          "Animation": "NPC/Intelligent/Hedera/Animations/Default/Idle_Passive.blockyanim",
+          "Weight": 1,
+          "Looping": true
+        },
+        {
+          "Animation": "NPC/Intelligent/Hedera/Animations/Default/Idle_Passive2.blockyanim",
+          "Weight": 1,
+          "Looping": true
+        }
+      ],
+      "NextAnimationDelay": {
+        "Min": 0,
+        "Max": 2
+      }
+    },
+    "Walk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Intelligent/Hedera/Animations/Default/Walk.blockyanim"
+        }
+      ]
+    },
+    "WalkPassive": {
+      "Animations": [
+        {
+          "Animation": "NPC/Intelligent/Hedera/Animations/Default/Idle_Passive.blockyanim",
+          "Weight": 1,
+          "Looping": true
+        },
+        {
+          "Animation": "NPC/Intelligent/Hedera/Animations/Default/Idle_Passive2.blockyanim",
+          "Weight": 1,
+          "Looping": true
+        }
+      ],
+      "NextAnimationDelay": {
+        "Min": 0,
+        "Max": 2
+      }
+    },
+    "Run": {
+      "Animations": [
+        {
+          "Animation": "NPC/Intelligent/Hedera/Animations/Default/Run.blockyanim",
+          "SoundEventId": "SFX_Spider_Run"
+        }
+      ]
+    },
+    "RunPassive": {
+      "Animations": [
+        {
+          "Animation": "NPC/Intelligent/Hedera/Animations/Default/Idle_Passive.blockyanim",
+          "Weight": 1,
+          "Looping": true
+        },
+        {
+          "Animation": "NPC/Intelligent/Hedera/Animations/Default/Idle_Passive2.blockyanim",
+          "Weight": 1,
+          "Looping": true
+        }
+      ],
+      "NextAnimationDelay": {
+        "Min": 0,
+        "Max": 2
+      }
+    },
+    "Alerted": {
+      "Animations": [
+        {
+          "Animation": "NPC/Intelligent/Hedera/Animations/Default/Idle.blockyanim",
+          "SoundEventId": "SFX_Spirit_Root_Alerted"
+        }
+      ]
+    },
+    "Hurt": {
+      "Animations": [
+        {
+          "Animation": "NPC/Intelligent/Trork/Animations/Damage/Hurt.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false
+        },
+        {
+          "Animation": "NPC/Intelligent/Trork/Animations/Damage/Hurt2.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false
+        }
+      ]
+    },
+    "Death": {
+      "Animations": [
+        {
+          "Animation": "NPC/Intelligent/Trork/Animations/Damage/Death.blockyanim",
+          "Looping": false
+        },
+        {
+          "Animation": "NPC/Intelligent/Trork/Animations/Damage/Death2.blockyanim",
+          "Looping": false
+        }
+      ]
+    }
+  },
+  "Particles": [
+    {
+      "RotationOffset": {
+        "Pitch": -135
+      },
+      "SystemId": "Eye_Void_Smoke_Teal",
+      "TargetNodeName": "Head"
+    }
+  ],
+  "Light": {
+    "Color": "#623e70",
+    "Radius": 2
+  },
+  "Camera": {
+    "PositionOffset": {
+      "X": 0.55,
+      "Y": 0.2,
+      "Z": 4
+    },
+    "Yaw": {
+      "TargetNodes": [
+        "Head"
+      ],
+      "AngleRange": {
+        "Min": -180,
+        "Max": 180
+      }
+    }
+  }
+}

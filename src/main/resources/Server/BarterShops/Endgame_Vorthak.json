@@ -1,0 +1,127 @@
+{
+  "DisplayNameKey": "server.barter.Vorthak.title",
+  "RefreshInterval": {
+    "Days": 1
+  },
+  "RestockHour": 6,
+  "TradeSlots": [
+    {
+      "Type": "Fixed",
+      "Trade": {
+        "Output": {
+          "ItemId": "Endgame_Potion_Mana_Large",
+          "Quantity": 3
+        },
+        "Input": [
+          {
+            "ItemId": "Ingredient_Bar_Mithril",
+            "Quantity": 1
+          }
+        ],
+        "Stock": 10
+      }
+    },
+    {
+      "Type": "Fixed",
+      "Trade": {
+        "Output": {
+          "ItemId": "Endgame_Potion_Regen_Mana_Large",
+          "Quantity": 3
+        },
+        "Input": [
+          {
+            "ItemId": "Ingredient_Bar_Mithril",
+            "Quantity": 1
+          }
+        ],
+        "Stock": 10
+      }
+    },
+    {
+      "Type": "Fixed",
+      "Trade": {
+        "Output": {
+          "ItemId": "Big_Rex_Cave_Leather",
+          "Quantity": 1
+        },
+        "Input": [
+          {
+            "ItemId": "Ingredient_Leather_Storm",
+            "Quantity": 4
+          }
+        ],
+        "Stock": 6
+      }
+    },
+    {
+      "Type": "Fixed",
+      "Trade": {
+        "Output": {
+          "ItemId": "Ingredient_Bar_Mithril",
+          "Quantity": 1
+        },
+        "Input": [
+          {
+            "ItemId": "Ingredient_Bar_Adamantite",
+            "Quantity": 30
+          }
+        ],
+        "Stock": 2
+      }
+    },
+    {
+      "Type": "Pool",
+      "SlotCount": 3,
+      "Trades": [
+        {
+          "Weight": 30,
+          "Output": { "ItemId": "Potion_Health_Greater", "Quantity": 3 },
+          "Input": [{ "ItemId": "Ingredient_Bar_Adamantite", "Quantity": 2 }],
+          "Stock": [3, 5]
+        },
+        {
+          "Weight": 30,
+          "Output": { "ItemId": "Potion_Stamina_Greater", "Quantity": 3 },
+          "Input": [{ "ItemId": "Ingredient_Bar_Adamantite", "Quantity": 2 }],
+          "Stock": [3, 5]
+        },
+        {
+          "Weight": 25,
+          "Output": { "ItemId": "Potion_Antidote", "Quantity": 5 },
+          "Input": [{ "ItemId": "Ingredient_Bar_Adamantite", "Quantity": 1 }],
+          "Stock": [5, 8]
+        },
+        {
+          "Weight": 25,
+          "Output": { "ItemId": "Potion_Regen_Health_Large", "Quantity": 3 },
+          "Input": [{ "ItemId": "Ingredient_Bar_Adamantite", "Quantity": 2 }],
+          "Stock": [3, 5]
+        },
+        {
+          "Weight": 20,
+          "Output": { "ItemId": "Potion_Signature_Greater", "Quantity": 2 },
+          "Input": [{ "ItemId": "Ingredient_Bar_Adamantite", "Quantity": 3 }],
+          "Stock": [2, 3]
+        },
+        {
+          "Weight": 20,
+          "Output": { "ItemId": "Potion_Regen_Stamina_Large", "Quantity": 3 },
+          "Input": [{ "ItemId": "Ingredient_Bar_Adamantite", "Quantity": 2 }],
+          "Stock": [3, 5]
+        },
+        {
+          "Weight": 20,
+          "Output": { "ItemId": "Potion_Purify", "Quantity": 3 },
+          "Input": [{ "ItemId": "Ingredient_Bar_Adamantite", "Quantity": 1 }],
+          "Stock": [5, 8]
+        },
+        {
+          "Weight": 15,
+          "Output": { "ItemId": "Ingredient_Life_Essence_Concentrated", "Quantity": 1 },
+          "Input": [{ "ItemId": "Ingredient_Bar_Adamantite", "Quantity": 5 }],
+          "Stock": [1, 2]
+        }
+      ]
+    }
+  ]
+}

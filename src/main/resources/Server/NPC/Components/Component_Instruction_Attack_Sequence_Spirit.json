@@ -1,0 +1,13 @@
+{
+    "Actions": [
+        {
+            "Type": "Sequential",
+            "Actions": [
+                {
+                    "Type": "ExecuteInteraction",
+                    "Interaction": "Spirit_Root_Spore_Gas"
+                }
+            ]
+        }
+    ]
+}

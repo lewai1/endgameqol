@@ -1,0 +1,24 @@
+{
+  "Appearance": "Fireball",
+  "PitchAdjustShot": true,
+  "SticksVertically": true,
+  "MuzzleVelocity": 60,
+  "TerminalVelocity": 50,
+  "Gravity": 0,
+  "Damage": 10,
+  "DeathEffectsOnHit": true,
+  "TimeToLive": 3.1,
+  "DeadTimeMiss": 0,
+  "ImpactSlowdown": 0,
+  "DepthShot": 1,
+  "DeathParticles": {
+    "SystemId": "Explosion_Small"
+  },
+  "VerticalCenterShot": 0.1,
+  "HitParticles": {
+    "SystemId": "Dust_Sparkles_Fine"
+  },
+  "HorizontalCenterShot": -0.25,
+  "HitSoundEventId": "SFX_Skeleton_Mage_Spellbook_Impact",
+  "MissSoundEventId": "SFX_Skeleton_Mage_Spellbook_Impact"
+}

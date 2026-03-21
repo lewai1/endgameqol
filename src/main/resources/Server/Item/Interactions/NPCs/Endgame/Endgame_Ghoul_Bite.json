@@ -1,0 +1,36 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Hound_Bleached_Default",
+    "ItemAnimationId": "Bite"
+  },
+  "RunTime": 0.333,
+  "Next": {
+    "Type": "Selector",
+    "Effects": {
+      "WorldSoundEventId": "SFX_Unarmed_Swing"
+    },
+    "RunTime": 0.167,
+    "Selector": {
+      "Id": "Horizontal",
+      "Direction": "ToLeft",
+      "TestLineOfSight": true,
+      "ExtendTop": 1,
+      "ExtendBottom": 1,
+      "StartDistance": 0.5,
+      "EndDistance": 2.5,
+      "Length": 60,
+      "RollOffset": 90,
+      "YawStartOffset": -30
+    },
+    "HitEntity": {
+      "Interactions": [
+        "Endgame_Ghoul_Bite_Damage"
+      ]
+    },
+    "Next": {
+      "Type": "Simple",
+      "RunTime": 0.25
+    }
+  }
+}

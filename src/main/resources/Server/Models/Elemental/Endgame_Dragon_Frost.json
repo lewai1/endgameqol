@@ -1,0 +1,215 @@
+{
+  "Model": "NPC/Elemental/Dragon_Frost/Models/Model.blockymodel",
+  "Texture": "NPC/Elemental/Dragon_Frost/Models/Texture.png",
+  "EyeHeight": 4.0,
+  "HitBox": {
+    "Max": {
+      "X": 1.5,
+      "Y": 4.0,
+      "Z": 2.0
+    },
+    "Min": {
+      "X": -1.5,
+      "Y": 0,
+      "Z": -2.0
+    }
+  },
+  "MinScale": 1.25,
+  "MaxScale": 1.25,
+  "Camera": {
+    "Pitch": {
+      "AngleRange": {
+        "Max": 60,
+        "Min": -45
+      },
+      "TargetNodes": [
+        "Head"
+      ]
+    },
+    "Yaw": {
+      "TargetNodes": [
+        "Head"
+      ]
+    }
+  },
+  "AnimationSets": {
+    "Idle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Idle.blockyanim",
+          "Speed": 1
+        }
+      ]
+    },
+    "Walk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Walk.blockyanim"
+        }
+      ]
+    },
+    "Run": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Run.blockyanim"
+        }
+      ]
+    },
+    "Jump": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Jump.blockyanim",
+          "BlendingDuration": 0.2,
+          "Looping": false,
+          "Speed": 0.75
+        }
+      ]
+    },
+    "JumpWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Jump.blockyanim",
+          "BlendingDuration": 0.2,
+          "Looping": false,
+          "Speed": 0.75
+        }
+      ]
+    },
+    "JumpRun": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Jump.blockyanim",
+          "BlendingDuration": 0.2,
+          "Looping": false,
+          "Speed": 0.75
+        }
+      ]
+    },
+    "Fall": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Fall.blockyanim",
+          "BlendingDuration": 0.4
+        }
+      ]
+    },
+    "FlyIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Fly_Idle.blockyanim",
+          "BlendingDuration": 0.2,
+          "Speed": 1.5
+        }
+      ]
+    },
+    "Fly": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Fly.blockyanim",
+          "BlendingDuration": 0.2
+        },
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Glide.blockyanim",
+          "BlendingDuration": 0.2
+        }
+      ]
+    },
+    "FlyFast": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Glide.blockyanim",
+          "BlendingDuration": 0.2
+        },
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Fly.blockyanim",
+          "BlendingDuration": 0.2
+        }
+      ]
+    },
+    "Hurt": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Hurt.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false
+        }
+      ]
+    },
+    "Death": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Death.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Sleep": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Sleep.blockyanim",
+          "SoundEventId": "SFX_Dragon_Sleep"
+        }
+      ]
+    },
+    "Attack": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Attacks/Swing_Left.blockyanim",
+          "BlendingDuration": 0.15
+        }
+      ]
+    },
+    "SwingLeft": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Attacks/Swing_Left.blockyanim",
+          "BlendingDuration": 0.15
+        },
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Attacks/Swing_Left_Moving.blockyanim",
+          "BlendingDuration": 0.15
+        }
+      ]
+    },
+    "Bite": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Attacks/Bite.blockyanim",
+          "BlendingDuration": 0.15
+        },
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Attacks/Bite_Moving.blockyanim",
+          "BlendingDuration": 0.15
+        }
+      ]
+    },
+    "Spell": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Attacks/Frost_Bolt.blockyanim",
+          "BlendingDuration": 0.2
+        },
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Attacks/Frost_Bolt_Moving.blockyanim",
+          "BlendingDuration": 0.2
+        }
+      ]
+    },
+    "IcyWind": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Attacks/Icy_Wind.blockyanim",
+          "BlendingDuration": 0.2,
+          "Looping": false
+        }
+      ]
+    },
+    "WalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Elemental/Dragon_Frost/Animations/Walk_Backward.blockyanim"
+        }
+      ]
+    }
+  }
+}

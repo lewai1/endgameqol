@@ -1,0 +1,59 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Golem_Void_Default",
+    "ItemAnimationId": "Rumble",
+    "Particles": [
+      {
+        "SystemId": "Golem_Void_Slam",
+        "TargetEntityPart": "Entity"
+      },
+      {
+        "SystemId": "Golem_Void_Telegraph",
+        "DetachedFromModel": true,
+        "TargetEntityPart": "Entity",
+        "PositionOffset": { "Y": -2.0 },
+        "Scale": 4
+      }
+    ]
+  },
+  "RunTime": 0.5,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 1.8,
+            "Selector": {
+              "Id": "AOECircle",
+              "Range": 6,
+              "TestLineOfSight": true
+            },
+            "HitEntity": {
+              "Interactions": [
+                "NPC_Attack_Golem_Void_Rumble_Damage"
+              ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "RunTime": 0.7
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0.3,
+            "Effects": {
+              "WorldSoundEventId": "SFX_Golem_Earth_Slam_Impact"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

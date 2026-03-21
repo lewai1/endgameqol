@@ -1,0 +1,833 @@
+{
+    "Type": "Abstract",
+    "KnockbackScale": 0.5,
+    "StartState": "Idle",
+    "Parameters": {
+        "Appearance": {
+            "Value": "Spirit_Root",
+            "Description": "Model to be used"
+        },
+        "ViewRange": {
+            "Value": 20,
+            "Description": "View range"
+        },
+        "ViewSector": {
+            "Value": 180,
+            "Description": "View sector"
+        },
+        "AlertedRange": {
+            "Value": 30,
+            "Description": "A range within which the player can be seen/sensed when the NPC is alerted to their presence"
+        },
+        "DropList": {
+            "Value": "Empty",
+            "Description": "Drop Items"
+        },
+        "MaxSpeed": {
+            "Value": 5,
+            "Description": "Maximum walking speed"
+        },
+        "LeashDistance": {
+            "Value": 20,
+            "Description": "How far to move before leashing"
+        },
+        "AttackSequence": {
+            "Value": "Component_Instruction_Attack_Sequence_Spirit",
+            "Description": "The attack sequence to use in combat"
+        },
+        "AttackDistance": {
+            "Value": 8,
+            "Description": "The distance at which an NPC will execute attacks"
+        },
+        "DesiredAttackDistanceRange": {
+            "Value": [
+                5,
+                8
+            ],
+            "Description": "Desired attack distance range"
+        },
+        "TargetSwitchTimer": {
+            "Value": [
+                5,
+                5
+            ],
+            "Description": "Minimum time the NPC will be locked onto a single target before switching"
+        },
+        "TargetRange": {
+            "Value": 10,
+            "Description": "The distance the target needs to be within to maintain priority over other targets while in combat"
+        },
+        "RelativeChaseSpeed": {
+            "Value": 0.8,
+            "Description": "The relative chase speed when pursuing a target"
+        },
+        "AttitudeGroup": {
+            "Value": "Empty",
+            "Description": "This NPCs attitude group"
+        },
+        "CombatRelativeTurnSpeed": {
+            "Value": 1.5,
+            "Description": "Modifier that decides turn speed difference in combat"
+        },
+        "MaxHealth": {
+            "Value": 100,
+            "Description": "Max health for the NPC"
+        },
+        "IsMemory": {
+            "Value": false,
+            "Description": "Defines if the NPC is a memory"
+        },
+        "MemoriesCategory": {
+            "Value": "Other",
+            "Description": "Defines the category of the memory"
+        },
+        "MemoriesNameOverride": {
+            "Value": "",
+            "Description": "Overrides the memory name if set"
+        },
+        "NameTranslationKey": {
+            "Value": "server.npcRoles.Template.name",
+            "Description": "Translation key for NPC name display"
+        }
+    },
+    "IsMemory": {
+        "Compute": "IsMemory"
+    },
+    "MemoriesCategory": {
+        "Compute": "MemoriesCategory"
+    },
+    "MemoriesNameOverride": {
+        "Compute": "MemoriesNameOverride"
+    },
+    "Appearance": {
+        "Compute": "Appearance"
+    },
+    "DropList": {
+        "Compute": "DropList"
+    },
+    "DisableDamageGroups": [
+        "Self"
+    ],
+    "DefaultNPCAttitude": "Ignore",
+    "DefaultPlayerAttitude": "Hostile",
+    "AttitudeGroup": {
+        "Compute": "AttitudeGroup"
+    },
+    "MotionControllerList": [
+        {
+            "Type": "Walk",
+            "MaxWalkSpeed": {
+                "Compute": "MaxSpeed"
+            },
+            "Gravity": 10,
+            "RunThreshold": 0.3,
+            "MaxFallSpeed": 15,
+            "MaxRotationSpeed": 360,
+            "Acceleration": 10,
+            "MinHover": 0.5,
+            "MinHoverDrop": 0,
+            "FloatsDown": true,
+            "MaxHover": 2,
+            "HoverFreq": 0.1
+        }
+    ],
+    "MaxHealth": {
+        "Compute": "MaxHealth"
+    },
+    "Instructions": [
+        {
+            "Instructions": [
+                {
+                    "Sensor": {
+                        "Type": "State",
+                        "State": "Idle"
+                    },
+                    "Instructions": [
+                        {
+                            "Reference": "Component_Instruction_Intelligent_Idle",
+                            "Modify": {
+                                "_ExportStates": [
+                                    "Alerted",
+                                    "Search",
+                                    "Chase"
+                                ],
+                                "ViewRange": {
+                                    "Compute": "ViewRange"
+                                },
+                                "ViewSector": {
+                                    "Compute": "ViewSector"
+                                },
+                                "HearingRange": 2,
+                                "AlertedRange": {
+                                    "Compute": "AlertedRange"
+                                },
+                                "MotionComponent": "Component_Instruction_Intelligent_Idle_Motion_Leashed_Wander"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Sensor": {
+                        "Type": "State",
+                        "State": "Alerted"
+                    },
+                    "Instructions": [
+                        {
+                            "$Comment": "Animations",
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any",
+                                "Once": true
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "PlayAnimation",
+                                    "Slot": "Status",
+                                    "Animation": "Alerted"
+                                },
+                                {
+                                    "Type": "SpawnParticles",
+                                    "Offset": [
+                                        0,
+                                        2.1,
+                                        0
+                                    ],
+                                    "ParticleSystem": "Alerted"
+                                }
+                            ]
+                        },
+                        {
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any"
+                            },
+                            "Instructions": [
+                                {
+                                    "Sensor": {
+                                        "Type": "Target",
+                                        "Range": {
+                                            "Compute": "AlertedRange"
+                                        },
+                                        "Filters": [
+                                            {
+                                                "Type": "LineOfSight"
+                                            }
+                                        ]
+                                    },
+                                    "HeadMotion": {
+                                        "Type": "Watch"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Reference": "Component_Sensor_Sight_By_Attitude",
+                                "Modify": {
+                                    "ViewRange": {
+                                        "Compute": "AlertedRange"
+                                    },
+                                    "ViewSector": {
+                                        "Compute": "ViewSector"
+                                    },
+                                    "Attitudes": [
+                                        "Hostile"
+                                    ]
+                                }
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "Timeout",
+                                    "Delay": [
+                                        3,
+                                        3
+                                    ],
+                                    "Action": {
+                                        "Type": "State",
+                                        "State": "Chase"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "Actions": [
+                                {
+                                    "Type": "State",
+                                    "State": "Idle"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Sensor": {
+                        "Type": "State",
+                        "State": "Chase"
+                    },
+                    "Instructions": [
+                        {
+                            "Reference": "Component_Instruction_Clear_Status_Animation",
+                            "Modify": {}
+                        },
+                        {
+                            "Reference": "Component_Instruction_Target_Adjusted_Attack",
+                            "Modify": {
+                                "TargetSwitchTimer": {
+                                    "Compute": "TargetSwitchTimer"
+                                },
+                                "AttackSequence": {
+                                    "Compute": "AttackSequence"
+                                },
+                                "AttackDistance": {
+                                    "Compute": "AttackDistance"
+                                },
+                                "TargetRange": {
+                                    "Compute": "TargetRange"
+                                },
+                                "CombatRelativeTurnSpeed": {
+                                    "Compute": "CombatRelativeTurnSpeed"
+                                },
+                                "DesiredDistanceRange": {
+                                    "Compute": "DesiredAttackDistanceRange"
+                                }
+                            }
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Leash",
+                                "Range": 10
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "ReleaseTarget"
+                                },
+                                {
+                                    "Type": "State",
+                                    "State": "Leash"
+                                }
+                            ]
+                        },
+                        {
+                            "Reference": "Component_Instruction_Intelligent_Chase",
+                            "Modify": {
+                                "_ExportStates": [
+                                    "Search",
+                                    "Idle",
+                                    "Search"
+                                ],
+                                "ViewRange": {
+                                    "Compute": "AlertedRange"
+                                },
+                                "HearingRange": 2,
+                                "RelativeSpeed": {
+                                    "Compute": "RelativeChaseSpeed"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Sensor": {
+                        "Type": "State",
+                        "State": "Leash"
+                    },
+                    "Instructions": [
+                        {
+                            "Sensor": {
+                                "Type": "Leash",
+                                "Range": 2
+                            },
+                            "BodyMotion": {
+                                "Type": "Seek",
+                                "SlowDownDistance": 2,
+                                "StopDistance": 1
+                            }
+                        },
+                        {
+                            "Actions": [
+                                {
+                                    "Type": "State",
+                                    "State": "Idle"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Sensor": {
+                        "Type": "State",
+                        "State": "Search"
+                    },
+                    "Instructions": [
+                        {
+                            "$Comment": "Animations",
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any",
+                                "Once": true
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "PlayAnimation",
+                                    "Slot": "Status"
+                                },
+                                {
+                                    "Type": "SpawnParticles",
+                                    "Offset": [
+                                        0,
+                                        2.1,
+                                        0
+                                    ],
+                                    "ParticleSystem": "Question"
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Or",
+                                "Sensors": [
+                                    {
+                                        "Type": "Damage",
+                                        "Combat": true,
+                                        "TargetSlot": "LockedTarget"
+                                    },
+                                    {
+                                        "Type": "Damage",
+                                        "Combat": false,
+                                        "Other": true
+                                    }
+                                ]
+                            },
+                            "Instructions": [
+                                {
+                                    "Sensor": {
+                                        "Type": "Mob",
+                                        "GetPlayers": true,
+                                        "GetNPCs": true,
+                                        "ExcludeOwnType": true,
+                                        "Range": {
+                                            "Compute": "AlertedRange"
+                                        },
+                                        "LockOnTarget": true,
+                                        "Filters": [
+                                            {
+                                                "Type": "LineOfSight"
+                                            },
+                                            {
+                                                "Type": "ViewSector",
+                                                "ViewSector": {
+                                                    "Compute": "ViewSector"
+                                                }
+                                            }
+                                        ],
+                                        "Prioritiser": {
+                                            "Type": "Attitude",
+                                            "AttitudesByPriority": [
+                                                "Hostile"
+                                            ]
+                                        }
+                                    },
+                                    "Actions": [
+                                        {
+                                            "Type": "State",
+                                            "State": "Chase"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Actions": [
+                                        {
+                                            "Type": "State",
+                                            "State": "FleeTimed"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any"
+                            },
+                            "Instructions": [
+                                {
+                                    "Sensor": {
+                                        "Type": "Eval",
+                                        "Expression": "blocked"
+                                    },
+                                    "BodyMotion": {
+                                        "Type": "Timer",
+                                        "Time": [
+                                            2,
+                                            3
+                                        ],
+                                        "Motion": {
+                                            "Type": "Wander",
+                                            "MaxHeadingChange": 45,
+                                            "RelativeSpeed": 0.6
+                                        }
+                                    }
+                                },
+                                {
+                                    "Sensor": {
+                                        "Type": "Mob",
+                                        "Range": 1,
+                                        "ExcludeOwnType": false,
+                                        "LockOnTarget": false,
+                                        "Filters": [
+                                            {
+                                                "Type": "NPCGroup",
+                                                "IncludeGroups": [
+                                                    "Self"
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "BodyMotion": {
+                                        "Type": "Wander",
+                                        "MaxHeadingChange": 45,
+                                        "RelativeSpeed": 1
+                                    }
+                                },
+                                {
+                                    "Sensor": {
+                                        "Type": "Any"
+                                    },
+                                    "BodyMotion": {
+                                        "Type": "Sequence",
+                                        "Motions": [
+                                            {
+                                                "Type": "Timer",
+                                                "Time": [
+                                                    2,
+                                                    3
+                                                ],
+                                                "Motion": {
+                                                    "Type": "Wander",
+                                                    "MaxHeadingChange": 1,
+                                                    "RelativeSpeed": 0.6
+                                                }
+                                            },
+                                            {
+                                                "Type": "Sequence",
+                                                "Looped": true,
+                                                "Motions": [
+                                                    {
+                                                        "Type": "Timer",
+                                                        "Time": [
+                                                            1,
+                                                            2
+                                                        ],
+                                                        "Motion": {
+                                                            "Type": "WanderInCircle",
+                                                            "Radius": 5,
+                                                            "MaxHeadingChange": 60,
+                                                            "RelativeSpeed": 0.6
+                                                        }
+                                                    },
+                                                    {
+                                                        "Type": "Timer",
+                                                        "Time": [
+                                                            1,
+                                                            2
+                                                        ],
+                                                        "Motion": {
+                                                            "Type": "Nothing"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Reference": "Component_Sensor_Sight_By_Attitude",
+                                "Modify": {
+                                    "ViewRange": {
+                                        "Compute": "ViewRange"
+                                    },
+                                    "ViewSector": {
+                                        "Compute": "ViewSector"
+                                    },
+                                    "Attitudes": [
+                                        "Hostile"
+                                    ]
+                                }
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "State",
+                                    "State": "Alerted"
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Any"
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "Timeout",
+                                    "Delay": [
+                                        8,
+                                        10
+                                    ],
+                                    "Action": {
+                                        "Type": "State",
+                                        "State": "Idle"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Sensor": {
+                        "Type": "State",
+                        "State": "FleeTimed"
+                    },
+                    "Instructions": [
+                        {
+                            "$Comment": "Animations",
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any",
+                                "Once": true
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "PlayAnimation",
+                                    "Slot": "Status"
+                                },
+                                {
+                                    "Type": "SpawnParticles",
+                                    "Offset": [
+                                        0,
+                                        2.1,
+                                        0
+                                    ],
+                                    "ParticleSystem": "Alerted"
+                                }
+                            ]
+                        },
+                        {
+                            "Continue": true,
+                            "Sensor": {
+                                "Type": "Any"
+                            },
+                            "Instructions": [
+                                {
+                                    "Sensor": {
+                                        "Type": "Eval",
+                                        "Expression": "blocked"
+                                    },
+                                    "BodyMotion": {
+                                        "Type": "Timer",
+                                        "Time": [
+                                            2,
+                                            3
+                                        ],
+                                        "Motion": {
+                                            "Type": "Wander",
+                                            "MaxHeadingChange": 45,
+                                            "RelativeSpeed": 1
+                                        }
+                                    }
+                                },
+                                {
+                                    "Sensor": {
+                                        "Type": "Mob",
+                                        "Range": 1,
+                                        "ExcludeOwnType": false,
+                                        "LockOnTarget": false,
+                                        "Filters": [
+                                            {
+                                                "Type": "NPCGroup",
+                                                "IncludeGroups": [
+                                                    "Self"
+                                                ]
+                                            },
+                                            {
+                                                "Type": "ViewSector",
+                                                "ViewSector": {
+                                                    "Compute": "ViewSector"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "BodyMotion": {
+                                        "Type": "Wander",
+                                        "MaxHeadingChange": 45,
+                                        "RelativeSpeed": 1
+                                    }
+                                },
+                                {
+                                    "Sensor": {
+                                        "Type": "Any"
+                                    },
+                                    "BodyMotion": {
+                                        "Type": "Timer",
+                                        "Time": [
+                                            2,
+                                            3
+                                        ],
+                                        "Motion": {
+                                            "Type": "Wander",
+                                            "MaxHeadingChange": 45,
+                                            "RelativeSpeed": 1
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Damage",
+                                "Combat": true,
+                                "TargetSlot": "LockedTarget"
+                            },
+                            "Instructions": [
+                                {
+                                    "Sensor": {
+                                        "Type": "Target",
+                                        "Range": {
+                                            "Compute": "AlertedRange"
+                                        },
+                                        "Filters": [
+                                            {
+                                                "Type": "LineOfSight"
+                                            }
+                                        ]
+                                    },
+                                    "Actions": [
+                                        {
+                                            "Type": "State",
+                                            "State": "Alerted"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Sensor": {
+                                        "Reference": "Component_Sensor_Target_Hidden_Nearby",
+                                        "Modify": {
+                                            "IntuitionRange": {
+                                                "Compute": "AlertedRange"
+                                            },
+                                            "HearingRange": 2,
+                                            "ViewRange": {
+                                                "Compute": "ViewRange"
+                                            },
+                                            "ViewSector": {
+                                                "Compute": "ViewSector"
+                                            }
+                                        }
+                                    },
+                                    "Actions": [
+                                        {
+                                            "Type": "State",
+                                            "State": "Search"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Damage",
+                                "Combat": false,
+                                "Other": true
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "State",
+                                    "State": "Search"
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Mob",
+                                "GetPlayers": true,
+                                "GetNPCs": true,
+                                "ExcludeOwnType": true,
+                                "Range": {
+                                    "Compute": "AlertedRange"
+                                },
+                                "LockOnTarget": true,
+                                "Filters": [
+                                    {
+                                        "Type": "LineOfSight"
+                                    },
+                                    {
+                                        "Type": "ViewSector",
+                                        "ViewSector": {
+                                            "Compute": "ViewSector"
+                                        }
+                                    }
+                                ],
+                                "Prioritiser": {
+                                    "Type": "Attitude",
+                                    "AttitudesByPriority": [
+                                        "Hostile"
+                                    ]
+                                }
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "State",
+                                    "State": "Alerted"
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Reference": "Component_Sensor_Sight_By_Attitude",
+                                "Modify": {
+                                    "ViewRange": {
+                                        "Compute": "ViewRange"
+                                    },
+                                    "ViewSector": {
+                                        "Compute": "ViewSector"
+                                    },
+                                    "Attitudes": [
+                                        "Hostile"
+                                    ]
+                                }
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "State",
+                                    "State": "Alerted"
+                                }
+                            ]
+                        },
+                        {
+                            "Sensor": {
+                                "Type": "Any"
+                            },
+                            "Actions": [
+                                {
+                                    "Type": "Timeout",
+                                    "Delay": [
+                                        2,
+                                        3
+                                    ],
+                                    "Action": {
+                                        "Type": "State",
+                                        "State": "Idle"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "NameTranslationKey": {
+        "Compute": "NameTranslationKey"
+    }
+}

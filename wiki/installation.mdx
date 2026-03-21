@@ -1,0 +1,80 @@
+---
+title: Installation Guide
+description: How to install, configure, and update EndgameQoL on your Hytale server — requirements, steps, dependencies, and troubleshooting.
+authors:
+    - name: "Lewai"
+---
+
+# Installation Guide
+
+How to install, configure, and update EndgameQoL on your Hytale server.
+
+## Requirements
+
+| Requirement | Version | Notes |
+| :--- | :--- | :--- |
+| **Java** | 25 | Bundled with Hytale Server |
+| **Hytale Server** | 2026.02.19+ | Required minimum version |
+| **Maven** | 3.9+ | Development only — not needed for server operators |
+
+## Installation Steps
+
+1. **Download from CurseForge** — Visit the [EndgameQoL CurseForge page](https://www.curseforge.com/hytale/mods/endgame-qol) and download the latest JAR file.
+2. **Place JAR in Mods folder** — Copy the downloaded `EndgameQoL-x.x.x.jar` into your server's `Mods/` directory.
+3. **Restart the server** — Stop and start your Hytale server. EndgameQoL will initialize, register all content, and generate its default configuration.
+
+## First-Time Setup
+
+On first launch, EndgameQoL automatically generates its configuration file at:
+
+```
+Config_Endgame&QoL/EndgameConfig.json
+```
+
+This file controls all plugin behavior — boss health, damage multipliers, feature toggles, and more. You can also edit it in-game using `/egconfig`.
+
+**Player data** is stored via Hytale's built-in ECS system and auto-persisted to `universe/players/{UUID}.bson`. No manual JSON files are needed.
+
+## Optional Dependencies
+
+| Dependency | Required | Source |
+| :--- | :--- | :--- |
+| **Hytale:NPC** | Yes | Built-in (ships with Hytale Server) |
+| **RPG Leveling** | Optional | CurseForge (auto-detected at runtime) |
+| **Endless Leveling** | Optional | CurseForge (auto-detected at runtime) |
+| **OrbisGuard** | Optional | CurseForge (auto-detected at runtime) |
+
+Optional dependencies are detected automatically. If present, EndgameQoL integrates with them (e.g., boss kill XP for RPG Leveling). No configuration needed.
+
+## Verify Installation
+
+Once the server is running, join and run:
+
+```
+/eg status
+```
+
+This displays the plugin version, loaded content counts, active integrations, and configuration status. If the command is not recognized, the plugin did not load — check the server console for errors.
+
+## Updating
+
+1. Stop the server.
+2. Replace the old JAR in `Mods/` with the new version.
+3. Start the server. Your existing configuration is preserved — new config keys are added with their defaults automatically.
+
+## Uninstalling
+
+1. Stop the server.
+2. Remove the EndgameQoL JAR from the `Mods/` folder.
+3. Delete the `Config_Endgame&QoL/` folder to remove all configuration data.
+
+## Troubleshooting
+
+| Problem | Cause | Solution |
+| :--- | :--- | :--- |
+| **Plugin not loading** | Wrong folder or outdated server | Confirm JAR is in `Mods/` (not a subfolder). Verify server version is 2026.02.19 or later. |
+| **Config not generating** | File permission issue | Ensure the server process has write permissions to its own directory. Check console for errors during startup. |
+| **Commands not found** | Plugin failed to initialize | Check server console for stack traces during startup. The most common cause is a version mismatch — update to the latest server build. |
+| **NPCs not spawning** | Spawns disabled in config | Run `/egconfig` and check that the relevant spawn toggles are enabled. |
+| **CodecValidationException on startup** | Instance loads before plugin assets | This is a known non-blocking warning. The instance still loads correctly — safe to ignore. |
+| **Boss bar not showing** | Player too far from boss | Boss bars appear within 75m and hide beyond 80m. Move closer to the boss encounter. |

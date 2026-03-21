@@ -1,0 +1,22 @@
+{
+  "Interactions": [
+    {
+      "Type": "Chaining",
+      "ChainId": "Slashes",
+      "ChainingAllowance": 15,
+      "Next": [
+        "Endgame_Golem_Crystal_Frost_Swing_Left",
+        "Endgame_Golem_Crystal_Frost_Swing_Right",
+        "Endgame_Golem_Crystal_Frost_Ground_Slam",
+        "Endgame_Golem_Crystal_Frost_Spin",
+        "Endgame_Golem_Crystal_Frost_Stomp",
+        "Endgame_Golem_Crystal_Frost_Spin_Heavy"
+      ]
+    }
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

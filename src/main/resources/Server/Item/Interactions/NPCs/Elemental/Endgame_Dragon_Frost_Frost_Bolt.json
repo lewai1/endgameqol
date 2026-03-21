@@ -1,0 +1,62 @@
+{
+    "Type": "Parallel",
+    "Interactions": [
+        {
+            "Interactions": [
+                {
+                    "Type": "Simple",
+                    "RunTime": 1.2,
+                    "Effects": {
+                        "Particles": [
+                            {
+                                "SystemId": "Ice_Staff_Charging",
+                                "TargetNodeName": "Head",
+                                "PositionOffset": {
+                                    "Z": 3.0
+                                }
+                            },
+                            {
+                                "SystemId": "Ice_Blast",
+                                "TargetNodeName": "Head",
+                                "PositionOffset": {
+                                    "Z": 3.0
+                                }
+                            }
+                        ]
+                    },
+                    "Next": {
+                        "Type": "LaunchProjectile",
+                        "RunTime": 0.1,
+                        "ProjectileId": "Endgame_Dragon_Frost_Ice",
+                        "Next": {
+                            "Type": "Simple",
+                            "RunTime": 0.7
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Interactions": [
+                {
+                    "Type": "Simple",
+                    "Effects": {
+                        "ItemPlayerAnimationsId": "Endgame_Dragon_Frost",
+                        "ItemAnimationId": "FrostBolt",
+                        "WorldSoundEventId": "SFX_Skeleton_Mage_Spellbook_Charge"
+                    },
+                    "RunTime": 1.2,
+                    "Next": {
+                        "Type": "Simple",
+                        "Effects": {
+                            "ItemPlayerAnimationsId": "Endgame_Dragon_Frost",
+                            "ItemAnimationId": "IcyWind",
+                            "WorldSoundEventId": "SFX_Wand_Ice_Shoot"
+                        },
+                        "RunTime": 0.8
+                    }
+                }
+            ]
+        }
+    ]
+}

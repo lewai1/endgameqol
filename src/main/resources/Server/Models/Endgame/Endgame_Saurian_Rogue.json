@@ -1,0 +1,21 @@
+{
+  "Parent": "Saurian_Rogue",
+  "DefaultAttachments": [
+    {
+      "Model": "NPC/Intelligent/Saurian/Models/Attachments/Rogue/Chest_Armor.blockymodel",
+      "Texture": "NPC/Intelligent/Saurian/Models/Attachments/Rogue/Chest_Armor_Texture.png"
+    },
+    {
+      "Model": "NPC/Intelligent/Saurian/Models/Attachments/Rogue/Hood.blockymodel",
+      "Texture": "NPC/Intelligent/Saurian/Models/Attachments/Rogue/Hood_Texture.png"
+    },
+    {
+      "Model": "NPC/Intelligent/Saurian/Models/Attachments/Hunter/Feathers_Ornament.blockymodel",
+      "Texture": "NPC/Intelligent/Saurian/Models/Attachments/Hunter/Feathers_Ornament_Texture/Blue.png"
+    },
+    {
+      "Model": "NPC/Intelligent/Saurian/Models/Weapons/Dagger/Adamantite_Saurian.blockymodel",
+      "Texture": "NPC/Intelligent/Saurian/Models/Weapons/Dagger/Adamantite_Saurian_Texture.png"
+    }
+  ]
+}

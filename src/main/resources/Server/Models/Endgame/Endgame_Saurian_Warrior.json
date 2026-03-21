@@ -1,0 +1,21 @@
+{
+  "Parent": "Saurian_Warrior",
+  "DefaultAttachments": [
+    {
+      "Model": "NPC/Intelligent/Saurian/Models/Attachments/Warrior/Chest_Armor.blockymodel",
+      "Texture": "NPC/Intelligent/Saurian/Models/Attachments/Warrior/Chest_Armor_Brown_Texture.png"
+    },
+    {
+      "Model": "NPC/Intelligent/Saurian/Models/Attachments/Warrior/Bracers.blockymodel",
+      "Texture": "NPC/Intelligent/Saurian/Models/Attachments/Warrior/Chest_Armor_Brown_Texture.png"
+    },
+    {
+      "Model": "NPC/Intelligent/Saurian/Models/Attachments/Hunter/Feathers_Ornament.blockymodel",
+      "Texture": "NPC/Intelligent/Saurian/Models/Attachments/Hunter/Feathers_Ornament_Texture/Red.png"
+    },
+    {
+      "Model": "NPC/Intelligent/Saurian/Models/Weapons/Longsword/Adamantite_Saurian.blockymodel",
+      "Texture": "NPC/Intelligent/Saurian/Models/Weapons/Longsword/Adamantite_Saurian_Texture.png"
+    }
+  ]
+}

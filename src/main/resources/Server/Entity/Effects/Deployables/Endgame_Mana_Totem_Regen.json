@@ -1,0 +1,14 @@
+{
+  "ApplicationEffects": {
+    "EntityTopTint": "#2080ff",
+    "ScreenEffect": "ScreenEffects/Immune.png",
+    "LocalSoundEventId": "SFX_Deployable_Totem_Heal_Effect_Local"
+  },
+  "Duration": 1.0,
+  "OverlapBehavior": "Overwrite",
+  "StatModifiers": {
+    "Mana": 3
+  },
+  "Debuff": false,
+  "StatusEffectIcon": "UI/StatusEffects/AddHealth/Tiny.png"
+}

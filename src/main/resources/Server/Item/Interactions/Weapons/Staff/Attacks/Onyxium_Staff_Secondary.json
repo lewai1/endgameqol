@@ -1,0 +1,74 @@
+{
+  "Type": "Charging",
+  "Effects": {
+    "ItemAnimationId": "CastSummonCharging"
+  },
+  "AllowIndefiniteHold": false,
+  "HorizontalSpeedMultiplier": 0.3,
+  "Delay": {
+    "MinHealth": 0.02,
+    "MaxHealth": 0.10,
+    "MinDelay": 0.2,
+    "MaxDelay": 0.6,
+    "MaxTotalDelay": 1.2
+  },
+  "Next": {
+    "0.3": {
+      "Type": "StatsCondition",
+      "Costs": {
+        "Mana": 30
+      },
+      "RunTime": 0.2,
+      "Next": {
+        "Type": "Parallel",
+        "Interactions": [
+          {
+            "Interactions": [
+              {
+                "Type": "Selector",
+                "Selector": {
+                  "Id": "AOECircle",
+                  "Range": 7
+                },
+                "HitEntity": {
+                  "Interactions": [
+                    {
+                      "Type": "ApplyEffect",
+                      "EffectId": "Endgame_Void_Corruption",
+                      "Entity": "Target"
+                    },
+                    "Onyxium_Staff_Secondary_Damage"
+                  ]
+                },
+                "Next": {
+                  "Type": "Simple",
+                  "RunTime": 0.5
+                }
+              }
+            ]
+          },
+          {
+            "Interactions": [
+              {
+                "Type": "Simple",
+                "RunTime": 0.5,
+                "Effects": {
+                  "ItemAnimationId": "CastSummon",
+                  "Particles": [
+                    {
+                      "SystemId": "Mithril_Orb_Effect",
+                      "TargetEntityPart": "Entity",
+                      "Scale": 3
+                    }
+                  ],
+                  "WorldSoundEventId": "SFX_Mace_T2_Signature_Impact"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "Failed": "Staff_Cast_Fail"
+    }
+  }
+}

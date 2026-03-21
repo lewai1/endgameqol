@@ -1,0 +1,29 @@
+{
+  "Input": [
+    {
+      "ItemId": "Endgame_Sword_Prisma",
+      "Quantity": 1
+    }
+  ],
+  "PrimaryOutput": {
+    "ItemId": "Ingredient_Bar_Prisma",
+    "Quantity": 6
+  },
+  "Output": [
+    {
+      "ItemId": "Ingredient_Bar_Prisma",
+      "Quantity": 6
+    },
+    {
+      "ItemId": "Ingredient_Leather_Prismic",
+      "Quantity": 2
+    }
+  ],
+  "BenchRequirement": [
+    {
+      "Type": "Processing",
+      "Id": "Salvagebench"
+    }
+  ],
+  "TimeSeconds": 4
+}

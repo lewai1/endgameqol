@@ -1,0 +1,45 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "IceBall_Trail_Mist",
+      "PositionOffset": {
+        "Z": -1.0
+      }
+    },
+    {
+      "SpawnerId": "IceBall_Trail_Snowflake",
+      "PositionOffset": {
+        "Z": -1.5
+      }
+    },
+    {
+      "SpawnerId": "Impact_Ice_Cloud",
+      "PositionOffset": {
+        "Z": -2.5
+      }
+    },
+    {
+      "SpawnerId": "Impact_Ice_Fragments",
+      "PositionOffset": {
+        "Z": -3.0
+      }
+    },
+    {
+      "SpawnerId": "Weapon_Frost_Specks"
+    },
+    {
+      "SpawnerId": "Weapon_Frost_Sparks",
+      "PositionOffset": {
+        "Z": -0.5
+      }
+    },
+    {
+      "SpawnerId": "Block_Break_Snow_Flakes_Up",
+      "PositionOffset": {
+        "Z": -2.0
+      }
+    }
+  ],
+  "CullDistance": 120.0,
+  "IsImportant": true
+}

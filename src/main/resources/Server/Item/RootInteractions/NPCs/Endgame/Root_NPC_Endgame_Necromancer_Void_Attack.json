@@ -1,0 +1,19 @@
+{
+  "Interactions": [
+    {
+      "Type": "Chaining",
+      "ChainId": "NecromancerAttacks",
+      "ChainingAllowance": 15,
+      "Next": [
+        "Endgame_Necromancer_Void_Cast",
+        "Endgame_Necromancer_Void_Summon",
+        "Endgame_Necromancer_Void_Cast"
+      ]
+    }
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

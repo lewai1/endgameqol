@@ -1,0 +1,41 @@
+{
+  "Environments": [
+    "Env_Zone4_Wastes"
+  ],
+  "NPCs": [
+    {
+      "Weight": 10,
+      "SpawnBlockSet": "Soil",
+      "Id": "Skeleton_Burnt_Lancer"
+    },
+    {
+      "Weight": 10,
+      "SpawnBlockSet": "Soil",
+      "Id": "Wraith"
+    },
+    {
+      "Weight": 10,
+      "SpawnBlockSet": "Soil",
+      "Id": "Toad_Rhino"
+    },
+    {
+      "Weight": 2,
+      "SpawnBlockSet": "Soil",
+      "Id": "Zombie_Aberrant"
+    },
+    {
+      "Weight": 4,
+      "SpawnBlockSet": "Soil",
+      "Id": "Endgame_Ghoul"
+    },
+    {
+      "Weight": 1,
+      "SpawnBlockSet": "Soil",
+      "Id": "Onyxium_Encounter"
+    }
+  ],
+  "DayTimeRange": [
+    0,
+    24
+  ]
+}

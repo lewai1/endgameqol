@@ -1,0 +1,88 @@
+{
+  "Parent": "Zone3_Northern_Lights",
+  "Stars": "Sky/Stars.png",
+  "Moons": [
+    { "Day": 0, "Texture": "Sky/MoonCycle/Moon_Full.png" }
+  ],
+  "Clouds": [
+    {
+      "Texture": "Sky/Clouds/Light_Base.png",
+      "Colors": [
+        { "Hour": 0, "Color": "#1a3318a0" },
+        { "Hour": 7, "Color": "#2e5a28c0" },
+        { "Hour": 17, "Color": "#3a6a30c0" },
+        { "Hour": 19, "Color": "#2e5a28b0" },
+        { "Hour": 21, "Color": "#1a331890" }
+      ],
+      "Speeds": [
+        { "Hour": 0, "Value": 0.3 }
+      ]
+    },
+    {
+      "Texture": "Sky/Clouds/Scars.png",
+      "Colors": [
+        { "Hour": 0, "Color": "#3b2a1a80" },
+        { "Hour": 7, "Color": "#5a3d20a0" },
+        { "Hour": 17, "Color": "#5a3d20a0" },
+        { "Hour": 19, "Color": "#4a3218a0" },
+        { "Hour": 21, "Color": "#3b2a1a70" }
+      ],
+      "Speeds": [
+        { "Hour": 0, "Value": 0.2 }
+      ]
+    }
+  ],
+  "SkyTopColors": [
+    { "Hour": 0, "Color": "#0a1a0aff" },
+    { "Hour": 7, "Color": "#1a3a1eff" },
+    { "Hour": 17, "Color": "#1e4022ff" },
+    { "Hour": 19, "Color": "#152e18ff" },
+    { "Hour": 21, "Color": "#0a1a0aff" }
+  ],
+  "SkyBottomColors": [
+    { "Hour": 0, "Color": "#1a0e08ff" },
+    { "Hour": 7, "Color": "#3b2a1aff" },
+    { "Hour": 17, "Color": "#3b2a1aff" },
+    { "Hour": 19, "Color": "#2e1c10ff" },
+    { "Hour": 21, "Color": "#1a0e08ff" }
+  ],
+  "FogDistance": [
+    -128,
+    384
+  ],
+  "FogColors": [
+    { "Hour": 0, "Color": "#1e3a18" },
+    { "Hour": 7, "Color": "#2e5a28" },
+    { "Hour": 12, "Color": "#3a7a32" },
+    { "Hour": 17, "Color": "#3a7a32" },
+    { "Hour": 19, "Color": "#2a4a22" },
+    { "Hour": 21, "Color": "#1e3a18" }
+  ],
+  "FogDensities": [
+    { "Hour": 0, "Value": 0.12 },
+    { "Hour": 7, "Value": 0.08 },
+    { "Hour": 12, "Value": 0.06 },
+    { "Hour": 17, "Value": 0.08 },
+    { "Hour": 19, "Value": 0.10 },
+    { "Hour": 21, "Value": 0.12 }
+  ],
+  "FogHeightFalloffs": [
+    { "Hour": 0, "Value": 1.5 },
+    { "Hour": 12, "Value": 1.2 },
+    { "Hour": 19, "Value": 1.5 },
+    { "Hour": 23, "Value": 1.5 }
+  ],
+  "ScreenEffect": "ScreenEffects/Poison.png",
+  "ScreenEffectColors": [
+    { "Hour": 0, "Color": "#1a3a1830" },
+    { "Hour": 7, "Color": "#2e5a2820" },
+    { "Hour": 17, "Color": "#2e5a2820" },
+    { "Hour": 19, "Color": "#1e3a1830" },
+    { "Hour": 21, "Color": "#1a3a1838" }
+  ],
+  "Particle": {
+    "SystemId": "Dust_Sparkles_Fine",
+    "OvergroundOnly": false,
+    "Color": "#2e5a28"
+  }
+}

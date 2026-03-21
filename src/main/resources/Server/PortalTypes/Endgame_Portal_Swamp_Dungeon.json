@@ -1,0 +1,26 @@
+{
+  "InstanceId": "Endgame_Swamp_Dungeon",
+  "Description": {
+    "DisplayName": "server.portals.swamp_dungeon",
+    "FlavorText": "server.portals.swamp_dungeon.description",
+    "ThemeColor": "#23970cec",
+    "SplashImage": "DefaultArtwork.png",
+    "Tips": [
+      "server.portals.swamp_dungeon.tip1",
+      "server.portals.swamp_dungeon.tip2"
+    ]
+  },
+  "Spawn": {
+    "SpawnProviderOverride": {
+      "Id": "Global",
+      "SpawnPoint": {
+        "X": 4,
+        "Y": 115.0,
+        "Z": 145,
+        "Pitch": 0,
+        "Yaw": 0,
+        "Roll": 0.0
+      }
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Tool_Pickaxe_Onyxium.name",
+    "Description": "server.items.Tool_Pickaxe_Onyxium.description"
+  },
+  "Parent": "Tool_Pickaxe_Crude",
+  "Icon": "Icons/ItemsGenerated/Tool_Pickaxe_Onyxium.png",
+  "Model": "Items/Tools/Pickaxe/Onyxium.blockymodel",
+  "Texture": "Items/Tools/Pickaxe/Onyxium_Texture.png",
+  "Recipe": {
+    "TimeSeconds": 5,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Onyxium",
+        "Quantity": 9
+      },
+      {
+        "ItemId": "Ingredient_Leather_Storm",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Voidheart",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Workbench",
+        "Type": "Crafting",
+        "Categories": [
+          "Workbench_Tools"
+        ],
+        "RequiredTierLevel": 3
+      }
+    ]
+  },
+  "Tool": {
+    "Specs": [
+      {
+        "Power": 1.25,
+        "GatherType": "SoftBlocks"
+      },
+      {
+        "Power": 1.25,
+        "GatherType": "Soils"
+      },
+      {
+        "Power": 0.07,
+        "GatherType": "Woods"
+      },
+      {
+        "Power": 1.25,
+        "GatherType": "Rocks",
+        "Quality": 6
+      },
+      {
+        "Power": 0.65,
+        "GatherType": "Benches"
+      },
+      {
+        "Power": 0.6,
+        "GatherType": "VolcanicRocks"
+      },
+      {
+        "Power": 1.0,
+        "GatherType": "OreCopper"
+      },
+      {
+        "Power": 1.0,
+        "GatherType": "OreIron"
+      },
+      {
+        "Power": 1.0,
+        "GatherType": "OreSilver"
+      },
+      {
+        "Power": 1.0,
+        "GatherType": "OreGold"
+      },
+      {
+        "Power": 0.85,
+        "GatherType": "OreThorium"
+      },
+      {
+        "Power": 0.85,
+        "GatherType": "OreCobalt"
+      },
+      {
+        "Power": 0.85,
+        "GatherType": "OreAdamantite",
+        "Quality": 4
+      },
+      {
+        "Power": 0.55,
+        "GatherType": "OreMithril"
+      }
+    ],
+    "DurabilityLossBlockTypes": [
+      {
+        "BlockSets": [
+          "Stone",
+          "Rock",
+          "Ores",
+          "Soil"
+        ],
+        "DurabilityLossOnHit": 0.18
+      }
+    ]
+  },
+  "MaxDurability": 900,
+  "Quality": "Epic",
+  "ItemLevel": 55,
+  "Categories": [
+    "Items.Tools",
+    "Endgame.Tools"
+  ]
+}

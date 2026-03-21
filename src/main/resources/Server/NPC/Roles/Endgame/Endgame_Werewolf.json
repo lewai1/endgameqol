@@ -1,0 +1,23 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Predator",
+  "Modify": {
+    "Appearance": "Endgame_Werewolf",
+    "WanderRadius": 6,
+    "ViewRange": 12,
+    "HearingRange": 8,
+    "DropList": "Drop_Endgame_Werewolf",
+    "MaxSpeed": 10,
+    "Attack": "Root_NPC_Endgame_Werewolf_Attack",
+    "AlwaysSleepAtNight": false,
+    "MaxHealth": 283,
+    "IsMemory": false,
+    "NameTranslationKey": { "Compute": "NameTranslationKey" }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Endgame_Werewolf.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

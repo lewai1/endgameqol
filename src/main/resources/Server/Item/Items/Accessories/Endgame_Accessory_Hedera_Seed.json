@@ -1,0 +1,46 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Endgame_Accessory_Hedera_Seed.name",
+    "Description": "server.items.Endgame_Accessory_Hedera_Seed.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Hedera_Seed_Icon.png",
+  "Categories": [
+    "Endgame.Accessories"
+  ],
+  "PlayerAnimationsId": "Item",
+  "BlockType": {
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "DrawType": "Model",
+    "CustomModel": "Items/Accessories/Hedera_Seed.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Accessories/Hedera_Seed_Texture.png",
+        "Weight": 1
+      }
+    ]
+  },
+  "IconProperties": {
+    "Scale": 1.4,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0.0,
+      -3.0
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Accessory"
+    ],
+    "Family": [
+      "Endgame"
+    ]
+  },
+  "Quality": "Legendary",
+  "MaxStack": 1,
+  "DropOnDeath": true
+}

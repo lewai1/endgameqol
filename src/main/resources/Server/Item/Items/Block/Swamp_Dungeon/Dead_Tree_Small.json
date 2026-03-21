@@ -1,0 +1,35 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Dead_Tree_Small.name",
+    "Description": "server.items.Dead_Tree_Small.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Dead_Tree_Small.png",
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "ISS_Items_Foliage",
+  "Categories": [
+    "Endgame.EndgameMisc"
+  ],
+  "BlockType": {
+    "DrawType": "Model",
+    "Material": "Solid",
+    "Opacity": "Semitransparent",
+    "CustomModel": "Blocks/Swamp_Dungeon/Dead_Tree_Small.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/Swamp_Dungeon/Dead_Tree_Small_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "HitboxType": "Plant_Tall_Full",
+    "BlockSoundSetId": "Bush",
+    "BlockParticleSetId": "Leaves_Branches",
+    "ParticleColor": "#54514b",
+    "RandomRotation": "YawStep1",
+    "Gathering": {
+      "Soft": {}
+    },
+    "Flags": {
+      "IsStackable": false
+    }
+  }
+}

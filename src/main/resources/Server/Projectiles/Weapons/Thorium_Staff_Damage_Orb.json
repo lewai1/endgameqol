@@ -1,0 +1,25 @@
+{
+  "Appearance": "Skeleton_Mage_Corruption_Orb",
+  "PitchAdjustShot": true,
+  "SticksVertically": true,
+  "MuzzleVelocity": 60,
+  "TerminalVelocity": 50,
+  "Gravity": 0,
+  "Damage": 15,
+  "DeathEffectsOnHit": true,
+  "TimeToLive": 3.1,
+  "DeadTimeMiss": 0,
+  "ImpactSlowdown": 0,
+  "DepthShot": 1,
+  "DeathParticles": {
+    "SystemId": "GreenOrbImpact",
+    "Scale": 1.5
+  },
+  "VerticalCenterShot": 0.1,
+  "HitParticles": {
+    "SystemId": "GreenOrbImpact"
+  },
+  "HorizontalCenterShot": -0.25,
+  "HitSoundEventId": "SFX_Skeleton_Mage_Spellbook_Impact",
+  "MissSoundEventId": "SFX_Skeleton_Mage_Spellbook_Impact"
+}

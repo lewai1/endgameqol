@@ -1,0 +1,46 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Golem_Void_Default",
+    "ItemAnimationId": "PoundDouble",
+    "Particles": [
+      {
+        "SystemId": "Golem_Void_Slam",
+        "TargetEntityPart": "Entity"
+      },
+      {
+        "SystemId": "Golem_Void_Telegraph",
+        "DetachedFromModel": true,
+        "TargetEntityPart": "Entity",
+        "PositionOffset": { "Y": -2.0 },
+        "Scale": 3
+      }
+    ]
+  },
+  "RunTime": 0.6,
+  "Next": {
+    "Type": "Selector",
+    "RunTime": 0.217,
+    "Selector": {
+      "Id": "Horizontal",
+      "Direction": "ToLeft",
+      "TestLineOfSight": true,
+      "ExtendTop": 2,
+      "ExtendBottom": 10,
+      "StartDistance": 0.5,
+      "EndDistance": 6,
+      "Length": 180,
+      "RollOffset": 90,
+      "YawStartOffset": -90
+    },
+    "HitEntity": {
+      "Interactions": [
+        "NPC_Attack_Golem_Void_Slam_Damage"
+      ]
+    },
+    "Next": {
+      "Type": "Simple",
+      "RunTime": 0.55
+    }
+  }
+}

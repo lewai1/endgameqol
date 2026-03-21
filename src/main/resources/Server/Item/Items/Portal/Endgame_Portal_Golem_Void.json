@@ -1,0 +1,72 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Endgame_Portal_Golem_Void.name",
+    "Description": "server.items.Endgame_Portal_Golem_Void.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Endgame_Portal_Golem_Void.png",
+  "Categories": [
+    "Endgame.Portals"
+  ],
+  "PortalKey": {
+    "PortalType": "Endgame_Portal_Void_Golem",
+    "TimeLimitSeconds": 1800
+  },
+  "BlockType": {
+    "DrawType": "Model",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/Miscellaneous/Endgame_Portal_Golem_Void.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/Miscellaneous/Endgame_Portal_Golem_Void_Texture.png",
+        "Weight": 1
+      }
+    ]
+  },
+  "Recipe": {
+    "TimeSeconds": 1,
+    "KnowledgeRequired": false,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Onyxium",
+        "Quantity": 5
+      },
+      {
+        "ItemId": "Ingredient_Void_Essence",
+        "Quantity": 50
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Endgame_Bench",
+        "Type": "Crafting",
+        "Categories": [
+          "Endgame_Portals"
+        ],
+        "RequiredTierLevel": 4
+      }
+    ],
+    "RequiredMemoriesLevel": 5
+  },
+  "PlayerAnimationsId": "Item",
+  "Tags": {
+    "Type": [
+      "Portal",
+      "Temporary"
+    ]
+  },
+  "ItemLevel": 3,
+  "Quality": "Legendary",
+  "IconProperties": {
+    "Scale": 1.4,
+    "Rotation": [
+      22.5,
+      137.0,
+      22.5
+    ],
+    "Translation": [
+      0.0,
+      1.0
+    ]
+  }
+}

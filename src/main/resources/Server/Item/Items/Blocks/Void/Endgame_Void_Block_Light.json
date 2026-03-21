@@ -1,0 +1,42 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Endgame_Void_Block_Light.name"
+  },
+  "Icon": "Icons/ItemsGenerated/Void_Block.png",
+  "Categories": [
+    "Endgame.Misc"
+  ],
+  "PlayerAnimationsId": "Block",
+  "MaxStack": 100,
+  "ItemLevel": 10,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Cube",
+    "Group": "Stone",
+    "Light": {
+      "Color": "#5010a0",
+      "Radius": 4
+    },
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "BlockParticleSetId": "Stone",
+    "Textures": [
+      {
+        "All": "BlockTextures/Void_Block.png",
+        "Weight": 1
+      }
+    ],
+    "ParticleColor": "#1a0033",
+    "BlockSoundSetId": "Stone",
+    "CubeShadingMode": "Fullbright"
+  },
+  "Tags": {
+    "Type": [
+      "Rock"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone"
+}

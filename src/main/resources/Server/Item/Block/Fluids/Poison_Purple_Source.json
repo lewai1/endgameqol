@@ -1,0 +1,25 @@
+{
+  "MaxFluidLevel": 1,
+  "Effect": [
+    "Lava"
+  ],
+  "Opacity": "Transparent",
+  "Textures": [
+    {
+      "Weight": 1,
+      "All": "BlockTextures/Fluid_Poison_Purple.png"
+    }
+  ],
+  "FluidFXId": "Lava",
+  "Light": {
+    "Color": "#cb3",
+    "Radius": 0
+  },
+  "ParticleColor": "#ccbb33",
+  "BlockParticleSetId": "Water",
+  "BlockSoundSetId": "Mud",
+  "Ticker": {
+    "CanDemote": false,
+    "SpreadFluid": "Poison_Purple"
+  }
+}

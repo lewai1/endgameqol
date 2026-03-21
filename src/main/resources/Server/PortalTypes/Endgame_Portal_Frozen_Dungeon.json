@@ -1,0 +1,26 @@
+{
+  "InstanceId": "Endgame_Frozen_Dungeon",
+  "Description": {
+    "DisplayName": "server.portals.frozen_dungeon",
+    "FlavorText": "server.portals.frozen_dungeon.description",
+    "ThemeColor": "#5bceffff",
+    "SplashImage": "DefaultArtwork.png",
+    "Tips": [
+      "server.portals.frozen_dungeon.tip1",
+      "server.portals.frozen_dungeon.tip2"
+    ]
+  },
+  "Spawn": {
+    "SpawnProviderOverride": {
+      "Id": "Global",
+      "SpawnPoint": {
+        "X": -17,
+        "Y": 104.0,
+        "Z": 65,
+        "Pitch": 0,
+        "Yaw": 0,
+        "Roll": 0.0
+      }
+    }
+  }
+}

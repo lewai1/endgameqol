@@ -1,0 +1,10 @@
+{
+  "Parent": "Necromancer_Void_Spellbook",
+  "Animations": {
+    "Summon": {
+      "ThirdPerson": "NPC/Void/Necromancer_Void/Animations/Attacks/Summon.blockyanim",
+      "ThirdPersonMoving": "NPC/Void/Necromancer_Void/Animations/Attacks/Summon_Moving.blockyanim",
+      "Speed": 1
+    }
+  }
+}

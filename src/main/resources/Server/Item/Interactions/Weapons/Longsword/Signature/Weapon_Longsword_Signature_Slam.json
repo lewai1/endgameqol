@@ -1,0 +1,43 @@
+{
+  "Type": "Simple",
+  "RunTime": 0.25,
+  "Effects": {
+    "ItemAnimationId": "SwingDown",
+    "WorldSoundEventId": "SFX_Sword_T2_Signature_Part_2",
+    "LocalSoundEventId": "SFX_Sword_T2_Signature_Part_2_Local",
+    "CameraEffect": "Sword_Stab"
+  },
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Replace",
+            "Var": "Longsword_Signature_Slam_Selector",
+            "DefaultOk": true,
+            "DefaultValue": {
+              "Interactions": [
+                "Weapon_Longsword_Signature_Slam_Selector"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Replace",
+            "Var": "Longsword_Signature_Slam_Force",
+            "DefaultOk": true,
+            "DefaultValue": {
+              "Interactions": [
+                "Weapon_Longsword_Signature_Slam_Force"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "Input": [
+    {
+      "ItemId": "Weapon_Longsword_Onyxium",
+      "Quantity": 1
+    }
+  ],
+  "PrimaryOutput": {
+    "ItemId": "Ingredient_Bar_Onyxium",
+    "Quantity": 7
+  },
+  "Output": [
+    {
+      "ItemId": "Ingredient_Bar_Onyxium",
+      "Quantity": 7
+    },
+    {
+      "ItemId": "Ingredient_Leather_Storm",
+      "Quantity": 2
+    }
+  ],
+  "BenchRequirement": [
+    {
+      "Type": "Processing",
+      "Id": "Salvagebench"
+    }
+  ],
+  "TimeSeconds": 4
+}

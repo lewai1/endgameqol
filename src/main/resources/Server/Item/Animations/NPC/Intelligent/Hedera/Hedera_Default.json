@@ -1,0 +1,52 @@
+{
+  "Animations": {
+    "ScratchLeft": {
+      "ThirdPerson": "NPC/Intelligent/Hedera/Animations/Attacks/Scratch_Left.blockyanim",
+      "ThirdPersonMoving": "NPC/Intelligent/Hedera/Animations/Attacks/Scratch_Left_Moving.blockyanim",
+      "Speed": 1,
+      "Looping": false
+    },
+    "Scream": {
+      "ThirdPerson": "NPC/Intelligent/Hedera/Animations/Attacks/Scream.blockyanim",
+      "Speed": 1,
+      "Looping": false
+    },
+    "Summon": {
+      "ThirdPerson": "NPC/Intelligent/Hedera/Animations/Attacks/Summon.blockyanim",
+      "Speed": 1,
+      "Looping": false
+    }
+  },
+  "Camera": {
+    "Pitch": {
+      "AngleRange": {
+        "Max": 45,
+        "Min": -45
+      },
+      "TargetNodes": [
+        "Head"
+      ]
+    },
+    "Yaw": {
+      "AngleRange": {
+        "Max": 180,
+        "Min": -180
+      },
+      "TargetNodes": [
+        "Head"
+      ]
+    }
+  },
+  "WiggleWeights": {
+    "Pitch": 2,
+    "PitchDeceleration": 0.1,
+    "Roll": 0.1,
+    "RollDeceleration": 0.1,
+    "X": 3,
+    "XDeceleration": 0.1,
+    "Y": 0.1,
+    "YDeceleration": 0.1,
+    "Z": 0.1,
+    "ZDeceleration": 0.1
+  }
+}

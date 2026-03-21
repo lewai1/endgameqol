@@ -1,0 +1,69 @@
+{
+    "Container": {
+        "Type": "Multiple",
+        "Containers": [
+            {
+                "Type": "Single",
+                "Item": {
+                    "ItemId": "Ingredient_Forest_Essence",
+                    "QuantityMin": 10,
+                    "QuantityMax": 15
+                }
+            },
+            {
+                "Type": "Single",
+                "Item": {
+                    "ItemId": "Ingredient_Bar_Onyxium",
+                    "QuantityMin": 3,
+                    "QuantityMax": 7
+                }
+            },
+            {
+                "Type": "Single",
+                "Item": {
+                    "ItemId": "Hedera_Gem",
+                    "QuantityMin": 1,
+                    "QuantityMax": 1
+                }
+            },
+            {
+                "Type": "Single",
+                "Item": {
+                    "ItemId": "Ingredient_Void_Essence",
+                    "QuantityMin": 10,
+                    "QuantityMax": 20
+                }
+            },
+            {
+                "Type": "Single",
+                "Item": {
+                    "ItemId": "Ingredient_Voidheart",
+                    "QuantityMin": 1,
+                    "QuantityMax": 1
+                }
+            },
+            {
+                "Type": "Single",
+                "Item": {
+                    "ItemId": "Endgame_Swamp_Currency",
+                    "QuantityMin": 8,
+                    "QuantityMax": 15
+                }
+            },
+            {
+                "Type": "Choice",
+                "Weight": 15,
+                "Containers": [
+                    {
+                        "Type": "Single",
+                        "Item": {
+                            "ItemId": "Endgame_Accessory_Hedera_Seed",
+                            "QuantityMin": 1,
+                            "QuantityMax": 1
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

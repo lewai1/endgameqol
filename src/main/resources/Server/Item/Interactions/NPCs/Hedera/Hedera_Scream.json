@@ -1,0 +1,66 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Hedera_Default",
+    "ItemAnimationId": "Scream",
+    "MovementEffects": {
+      "DisableAll": true
+    },
+    "WorldSoundEventId": "SFX_Hedera_Scream"
+  },
+  "RunTime": 0.583,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "Selector": {
+              "Id": "AOECircle",
+              "Range": 10
+            },
+            "Effects": {
+               "Particles": [
+                  {
+                    "SystemId": "Hedera_Scream",
+                    "TargetEntityPart": "Entity",
+                    "TargetNodeName": "Head"
+                  }
+                ]
+            },
+            "HitEntity": {
+              "Interactions": [
+                {
+                  "Type": "Replace",
+                  "DefaultOk": true,
+                  "DefaultValue": {
+                    "Interactions": [
+                      "Hedera_Scream_Damage"
+                    ]
+                  },
+                  "Var": "Scream_Damage"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 2.0,
+            "Effects": {
+              "ItemPlayerAnimationsId": "Default",
+              "ItemAnimationId": "FlyIdle",
+              "MovementEffects": {
+                "DisableAll": true
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

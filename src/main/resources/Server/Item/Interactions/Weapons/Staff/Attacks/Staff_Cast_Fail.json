@@ -1,0 +1,9 @@
+{
+  "Type": "ModifyInventory",
+  "RunTime": 0.2,
+  "AdjustHeldItemDurability": -0.25,
+  "Effects": {
+    "ItemAnimationId": "Interact",
+    "WorldSoundEventId": "SFX_Bow_No_Ammo"
+  }
+}

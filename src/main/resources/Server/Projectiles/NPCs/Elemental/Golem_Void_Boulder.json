@@ -1,0 +1,28 @@
+{
+  "Appearance": "Rubble_Stone",
+  "Radius": 4.0,
+  "Height": 1.5,
+  "HorizontalCenterShot": 0.1,
+  "DepthShot": 0.5,
+  "PitchAdjustShot": false,
+  "SticksVertically": false,
+  "MuzzleVelocity": 35,
+  "TerminalVelocity": 50,
+  "Gravity": 15,
+  "Bounciness": 0,
+  "Damage": 0,
+  "DeathEffectsOnHit": true,
+  "TimeToLive": 8,
+  "DeadTimeMiss": 0,
+  "ImpactSlowdown": 0,
+  "VerticalCenterShot": 0,
+  "DeathParticles": {
+    "SystemId": "Golem_Void_Slam"
+  },
+  "HitParticles": {
+    "SystemId": "Impact_Critical"
+  },
+  "ExplosionConfig": {
+    "EntityDamageRadius": 4
+  }
+}

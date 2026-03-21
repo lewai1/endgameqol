@@ -1,0 +1,177 @@
+ui.endgame = EndgameQoL
+ui.endgame.weapons = Оружие
+ui.endgame.armor = Броня
+ui.endgame.tools = Инструменты
+ui.endgame.materials = Материалы
+ui.endgame.consumables = Расходники
+ui.endgame.portals = Порталы
+ui.endgame.misc = Разное
+items.Bench_Endgame.name = Верстак Endgame
+endgameCategories.armor_onyxium = Броня и Слитки Ониксия
+endgameCategories.armor_prisma = Броня и Слитки Призмы
+endgameCategories.portals = Порталы
+endgameCategories.misc = Разное
+endgameCategories.challenge = Испытание
+benchCategories.staff = Посох
+benchCategories.longsword = Длинный Меч
+benchCategories.spear = Копьё
+items.Bench_Endgame.description = Используется для создания ранее недоступных предметов.\n\nРуда Ониксия/Броня и Инструменты Ониксия/Испытания/Разное
+items.Forgotten_Temple_Portal.description = Размещаемый портал Забытого Храма с маркером на карте
+items.Forgotten_Temple_Marker.name = Дом
+items.Advanced_Glider.name = Улучшенный Планер
+items.Advanced_Glider.description = Значительное улучшение базовой конструкции. Более плавный полёт, лучшая скорость.
+items.Standard_Glider.name = Стандартный Планер
+items.Standard_Glider.description = Ты чуть не упал...
+items.Endgame_Weapon_Staff_Crystal_Ice.description = Посох с сапфировым кристаллом, излучающим леденящий холод. Запускает ледяные снаряды, охлаждающие воздух при ударе.\nРасходует <color is="#05c09a">25 Маны</color> за применение.
+items.Endgame_Weapon_Staff_Crystal_Flame.description = Посох, окутанный живым пламенем, его рубиновое ядро вращается с огненной магией. Мечет взрывные огнешары, сжигающие всё на своём пути.\nРасходует <color is="#05c09a">25 Маны</color> за применение.
+items.Endgame_Weapon_Staff_Adamantite.description = Посох, выкованный из плотного адамантита. Надёжное оружие для опытного заклинателя.\nРасходует <color is="#05c09a">25 Маны</color> за применение.
+items.Endgame_Weapon_Staff_Cobalt.description = Посох, усиленный кобальтовым сплавом, потрескивающий от беспокойной энергии. Его снаряды летят быстро и бьют сильно.\nРасходует <color is="#05c09a">20 Маны</color> за применение.
+items.Endgame_Weapon_Staff_Copper.description = Скромный посох с медным наконечником. Первый шаг на пути арканной войны. Стреляет слабыми, но устойчивыми снарядами.\nРасходует <color is="#05c09a">12 Маны</color> за применение.
+items.Endgame_Weapon_Staff_Mithril.description = Посох, напитанный редким мифрилом, гудящий с глубоким магическим резонансом. Его снаряды пронзают тьму с разрушительной силой.\nРасходует <color is="#05c09a">30 Маны</color> за применение.
+items.Endgame_Weapon_Staff_Iron.description = Прочный железный посох, шаг вперёд от меди. Надёжный и эффективный, хорошо служит тем, кто ещё оттачивает своё мастерство.\nРасходует <color is="#05c09a">15 Маны</color> за применение.
+items.Endgame_Weapon_Staff_Onyxium.description = Посох, вырезанный из кристалла ониксия, пульсирующий нестабильной энергией пустоты. Его снаряды разрывают саму реальность.\nРасходует <color is="#05c09a">35 Маны</color> за применение.
+items.Endgame_Weapon_Staff_Thorium.description = Посох с ториевым ядром, слабо светящийся зелёным. Его выстрелы несут странный вес, как будто искривляют пространство вокруг себя.\nРасходует <color is="#05c09a">18 Маны</color> за применение.
+items.Weapon_Daggers_Hedera.name = Кинжалы, Оплетённые Лозой
+items.Weapon_Daggers_Hedera.description = Выкованные из шипов самой <color is="#2E8B57">Хедеры</color>, эти лезвия навсегда связаны живыми лозами. Каждый удар шепчет о ярости леса.
+items.Hedera_Gem.name = Камень Хедеры
+items.Hedera_Gem.description = Когда-то вкраплённый глубоко в нагрудник <color is="#2E8B57">Хедеры</color>, этот камень всё ещё пульсирует зелёной яростью лесного стража. Необходим для улучшения Наковальни Endgame до <color is="#FFD700">5 уровня</color>.
+items.Ingredient_Forest_Essence.name = Эссенция Леса
+items.Ingredient_Forest_Essence.description = Концентрат лесной силы, пульсирующий жизненной энергией. Используется для создания <color is="#2E8B57">Кинжалов, Оплетённых Лозой</color> и улучшения Наковальни Endgame до <color is="#FFD700">5 уровня</color>.
+items.Dragon_Heart.name = Сердце Дракона
+items.Dragon_Heart.description = Пульсирующее сердце убиенного дракона, всё ещё тёплое от древней силы. Необходимо для улучшения Наковальни Endgame до <color is="#FFD700">5 уровня</color>.
+items.Big_Rex_Cave_Leather.name = Кожа Верховного Владыки
+items.Big_Rex_Cave_Leather.description = Толстая, прочная кожа, снятая с Альфа Рекса пещер. На ощупь древняя и невероятно прочная. Используется для создания <color is="#FFD700">Улучшений Рюкзака Endgame I-III</color>.
+items.Endgame_Upgrade_Backpack_1.name = Улучшение Рюкзака Endgame I
+items.Endgame_Upgrade_Backpack_1.description = Увеличивает вместимость рюкзака на 9 ячеек.
+items.Endgame_Upgrade_Backpack_2.name = Улучшение Рюкзака Endgame II
+items.Endgame_Upgrade_Backpack_2.description = Увеличивает вместимость рюкзака на 9 ячеек.
+items.Endgame_Upgrade_Backpack_3.name = Улучшение Рюкзака Endgame III
+items.Endgame_Upgrade_Backpack_3.description = Увеличивает вместимость рюкзака на 9 ячеек.
+items.Endgame_Glider.name = Планер на Энергии Пустоты
+items.Endgame_Glider.description = Отправляет тебя на луну.\n<color is="#b8860b">Правый Клик</color> расходует 5 <color is="#800080">Эссенции Пустоты</color> для рывка горизонтального ускорения.
+items.Food_Meat_Raw_Alpha_Trex.name = Сырое Мясо Альфа Рекса
+items.Food_Meat_Raw_Alpha_Trex.description = Сырое мясо Альфа Рекса. Выглядит жёстким и неаппетитным.
+items.Food_Meat_Cooked_Alpha_Trex.name = Жареное Мясо Альфа Рекса
+items.Food_Meat_Cooked_Alpha_Trex.description = Жареное мясо Альфа Рекса. Выглядит жёстким и неаппетитным.\n<color is="#00FF00">Восстанавливает 20% здоровья за 0.2 секунды.</color>
+npcRoles.Endgame_Golem_Void.name = Голем Пустоты
+npcRoles.Golem_Eye_Void.name = Око Пустоты
+items.Endgame_Portal_Mithril_Dragon.name = Осколок Ледяной Вершины
+items.Endgame_Portal_Mithril_Dragon.description = Неровный осколок вечной мерзлоты. <color is="#b8860b">Правый Клик</color> по <color is="#a9a9a9">Древнему Порталу</color>, чтобы открыть путь к <color is="#7de8ff">Ледяной Вершине</color>.\nПод заснеженными пиками этой студёной тайги <color is="#7de8ff">Ледяные Драконы</color> охраняют древние жилы <color is="#7de8ff">Мифрила</color>.
+portals.mithril.tip = <i><color is="#05c09a">Мифическое чудовище спит здесь,\nскованное вечным сном...</color></i>\n\n<color is="#888888">Говорят, что</color> <color is="#7de8ff">серебристая руда</color> <color is="#888888">мерцает в ледяных глубинах.</color>
+items.Endgame_Portal_Swamp_Dungeon.name = Ключ Болотного Подземелья
+items.Endgame_Portal_Swamp_Dungeon.description = Ключ, сплетённый из древних корней, с которого капает тёмный сок. <color is="#b8860b">ПКМ</color> по <color is="#a9a9a9">Древнему Порталу</color>, чтобы открыть путь в <color is="#2E8B57">Болотное Подземелье</color>.\nВ глубине удушающего болота <color is="#2E8B57">Хедера</color> ждёт в сердце Великого Полого Дерева.
+items.Endgame_Portal_Golem_Void.name = Осколок Пустоты
+items.Endgame_Portal_Golem_Void.description = Кусок кристаллизованной энергии пустоты, холодный на ощупь. <color is="#b8860b">Правый Клик</color> по <color is="#a9a9a9">Древнему Порталу</color>, чтобы открыть путь в <color is="#800080">Царство Пустоты</color>.\nВо вечной тьме <color is="#800080">Голем Пустоты</color> сторожит запретные знания.
+items.Endgame_Portal_Luminia.name = Осколок Сияющего Света (WIP)
+items.Endgame_Portal_Luminia.description = Осколок чистого света, борющийся с надвигающимися тенями. <color is="#b8860b">Правый Клик</color> по <color is="#a9a9a9">Древнему Порталу</color>, чтобы открыть путь в <color is="#FFD700">Люминию</color>.\nИзмерение ослепительного сияния, где <color is="#FFFACD">Светящиеся Биомы</color> ведут вечную войну с <color is="#800080">Испорченными Землями</color>.
+portals.void_golem = Врата Ледяной Пустоты
+portals.void_golem.description = Крутящийся вихрь <color is="#2F4F4F">чистой тьмы</color>, потрескивающий <color is="#00BFFF">нестабильной ледяной энергией</color>. Только самые храбрые осмелятся шагнуть через <color is="#ADD8E6">ледяную мглу</color>.
+portals.void_golem.tip1 = Воздух здесь кусает <color is="#B0C4DE">неестественным холодом</color>,
+portals.void_golem.tip2 = нарушаемым лишь далёкими шёпотами <color is="#483D8B">Пустоты</color>.
+portals.void_golem.tip3 = Остерегайся <color is="#708090">теней</color>,
+portals.void_golem.tip4 = ибо у них есть глаза в этом <color is="#F0F8FF">ледяном царстве</color>.
+items.Egg_Spawner_Golem_Void.name = Яйцо Призывателя - Голем Пустоты
+items.Egg_Spawner_Endgame_Dragon_Frost.name = Яйцо Призывателя - Ледяной Дракон
+npcRoles.Endgame_Dragon_Frost.name = Ледяной Дракон
+items.Egg_Spawner_Hedera.name = Яйцо Призывателя - Хедера
+barter.Vorthak.title = Лавка Обмена Вортака
+items.Tool_Pickaxe_Prisma.name = Призматическая кирка
+items.Tool_Pickaxe_Prisma.description = Кирка, выкованная из призматического кристалла. Её резонансные удары раскалывают камень с непревзойдённой эффективностью.
+items.Tool_Hatchet_Prisma.name = Призматический топорик
+items.Tool_Hatchet_Prisma.description = Топорик, выкованный из призматического кристалла. Его призматическое лезвие рубит дерево, словно воздух.
+items.Weapon_Sword_Prisma.name = Призматический меч
+items.Weapon_Sword_Prisma.description = Клинок из чистого призматического кристалла, его грань переливается всеми оттенками преломлённого света. Режет броню так же легко, как воздух.
+items.Weapon_Daggers_Prisma.name = Призматические кинжалы
+items.Weapon_Daggers_Prisma.description = Парные клинки из призматического кристалла, преломляющие свет с каждым взмахом. Их лезвия гудят от резонансной энергии, разрушающей защиту при ударе.
+items.Hedera_Key.name = Ключ Хедеры
+items.Hedera_Key.description = Золотой ключ, выкованный из древних лоз <color is="#2E8B57">Хедеры</color>. Открывает запечатанные врата <color is="#2E8B57">Болотного Подземелья</color>.
+items.Endgame_Portal_Frozen_Dungeon.name = Ключ от Ледяного Подземелья
+items.Endgame_Portal_Frozen_Dungeon.description = Ключ, выкованный из вечного льда, его поверхность потрескивает от ледяной энергии. <color is="#b8860b">Правый Клик</color> по <color is="#a9a9a9">Древнему Порталу</color>, чтобы открыть путь в <color is="#7de8ff">Фростфолл</color>.\nРазрушенный бастион, висящий над пустотой, где <color is="#7de8ff">Ледяные Йети</color> бродят по открытым руинам, а <color is="#7de8ff">Ледяной Дракон</color> кружит в морозном небе.
+portals.frozen_dungeon = Врата Фростфолла
+portals.frozen_dungeon.description = Воющий разлом <color is="#7de8ff">льда и пустоты</color>, его края потрескивают от ледяных молний. За ним лежит разрушенный бастион под <color is="#B0C4DE">бесконечным небом</color>.
+portals.frozen_dungeon.tip1 = <i><color is="#7de8ff">Ветер кричит сквозь разбитые камни,</color></i>
+portals.frozen_dungeon.tip2 = <i><color is="#7de8ff">а наверху что-то огромное кружит в морозе...</color></i>
+portals.swamp_dungeon = Врата Болотного Подземелья
+portals.swamp_dungeon.description = Извивающийся портал из <color is="#2E8B57">спутанных лоз и тёмной энергии</color>, его края пульсируют испорченной жизнью. За ним лежит болото, поглощённое древней силой <color is="#2E8B57">Хедеры</color>.
+portals.swamp_dungeon.tip1 = <i><color is="#2E8B57">Корни извиваются и тянутся сквозь туман,</color></i>
+portals.swamp_dungeon.tip2 = <i><color is="#2E8B57">а где-то в глубине что-то древнее дышит...</color></i>
+npcRoles.Endgame_Yeti.name = Ледяной Йети
+npcRoles.Endgame_Rat_Frost.name = Ледяная Крыса
+npcRoles.Endgame_Toad_Frost.name = Морозная Жаба
+items.Flocon_Currency.name = Валюта Флокон
+items.Flocon_Currency.description = Мерцающая снежинка, которая никогда не тает, пульсирующая холодной магией Ледяного Подземелья.
+items.Swamp_Currency.name = Валюта Болота
+items.Swamp_Currency.description = Мутный жетон, извлечённый из глубин Болотного Подземелья, покрытый древним мхом и тёмными чарами.
+items.Swamp_Ingot.name = Болотный Слиток
+items.Swamp_Ingot.description = Плотный слиток, выплавленный из руд, найденных в глубинах Болотного Подземелья, с прожилками биолюминесцентного остатка. Используется для создания <color is="#FFD700">Ключа Хедеры</color>.
+npcRoles.Frozen_Trader.name = Корвин
+barter.Frozen_Trader.title = Морозный Эмпорий Корвина
+npcRoles.Swamp_Trader.name = Моргул
+barter.Morghul.title = Болотный Базар Моргула
+items.Endgame_Frozen_Sword.name = Лезвие Мороза
+items.Endgame_Frozen_Sword.description = Клинок, выкованный из вечного льда, его лезвие никогда не тупится, а холод никогда не угасает.\nКаждый удар накладывает <color is="#80ecff">Ледяной Озноб</color> (50% замедление, 5с).\nФинишер <color is="#4080ff">Vortexstrike</color> <color is="#4080ff">замораживает</color> цель на 3с.
+npcRoles.Endgame_Swamp_Crocodile.name = Болотный Крокодил
+npcRoles.Endgame_Ghoul.name = Упырь
+npcRoles.Endgame_Goblin_Duke.name = Герцог Гоблинов
+npcRoles.Endgame_Necromancer_Void.name = Некромант Пустоты
+npcRoles.Endgame_Saurian_Warrior.name = Заврид-Воин
+npcRoles.Endgame_Saurian_Hunter.name = Заврид-Охотник
+npcRoles.Endgame_Saurian_Rogue.name = Заврид-Разбойник
+npcRoles.Endgame_Shadow_Knight.name = Теневой Рыцарь
+npcRoles.Endgame_Werewolf.name = Оборотень
+npcRoles.Onyxium_Encounter.name = Ониксиумный Рыцарь
+items.Endgame_Swamp_Crocodile_Scale.name = Чешуя Болотного Крокодила
+items.Endgame_Swamp_Crocodile_Scale.description = Прочная, переливающаяся чешуя, сорванная с Болотного Крокодила. Ценится бронниками за естественную стойкость. Используется для создания <color is="#FFD700">Ключа Хедеры</color>.
+items.Torch_Swamp_Dungeon.name = Факел Болотного Подземелья
+items.Torch_Swamp_Dungeon.description = Тусклый факел с зеленоватым свечением, найденный в глубинах болотных подземелий.
+items.Rope_Vertical_Infused.name = Насыщенная Вертикальная Верёвка
+items.Rope_Vertical_Infused.description = Прочная верёвка, напитанная магическими волокнами. Можно карабкаться.
+items.Rope_Infused.name = Насыщенная Верёвка
+items.Rope_Infused.description = Верёвка, напитанная древней магией болота, всё ещё гудящая от остаточной энергии. Используется для создания <color is="#FFD700">Ключа Хедеры</color>.
+items.Dead_Tree_Small.name = Мёртвое Дерево
+items.Dead_Tree_Small.description = Маленькое, увядшее дерево. Его голые ветви не дают тени.
+items.Dead_Stump.name = Мёртвый Пень
+items.Dead_Stump.description = Гниющие останки некогда великого дерева.
+items.Hedera_Autel.name = Алтарь Хедеры
+items.Hedera_Autel.description = Древний алтарь, заросший лозами, слабо пульсирующий от затянувшегося присутствия Хедеры.
+items.Endgame_Mana_Totem.name = Тотем Маны
+items.Endgame_Mana_Totem.description = Размещаемый тотем, восстанавливающий ману ближайшим союзникам.\nБросьте, чтобы установить. Действует <color is="#05c09a">12 секунд</color>, восстанавливая <color is="#4080ff">6 маны/сек</color> в радиусе 5м.
+items.Hedera_Bramble.name = Шип Хедеры
+items.Hedera_Bramble.description = Колючая реликвия, вырванная из владений <color is="#2E8B57">Хедеры</color>. Её скрученные лозы всё ещё извиваются со слабой жизнью, стремясь вернуть себе болото. Используется для создания <color is="#FFD700">Ключа Хедеры</color>.
+items.Swamp_Gem.name = Болотный Самоцвет
+items.Swamp_Gem.description = Таинственный самоцвет, пульсирующий древней энергией <color is="#2E8B57">болота</color>. Его изумрудное сияние мерцает, словно сердцебиение под мхом. Используется для создания <color is="#FFD700">Ключа Хедеры</color>.
+items.Warden_Challenge_I.name = Испытание Стража I
+items.Warden_Challenge_I.description = Алая печать, пульсирующая сдержанной яростью. Разбейте её, чтобы призвать слабейших часовых Стража.\n<color is="#b8860b">ЛКМ</color> с предметом в руке для активации.\n<color is="#FFD700">Уровень I</color> — Рекомендуется: <color is="#44cc44">снаряжение из адамантита</color>
+items.Warden_Challenge_II.name = Испытание Стража II
+items.Warden_Challenge_II.description = Печать, выкованная из тени и стали. Создания внутри познали битву — и жаждут ещё.\n<color is="#b8860b">ЛКМ</color> с предметом в руке для активации.\n<color is="#FFD700">Уровень II</color> — Рекомендуется: <color is="#66aaff">снаряжение из мифрила</color>
+items.Warden_Challenge_III.name = Испытание Стража III
+items.Warden_Challenge_III.description = Печать, гудящая от ужаса. Лишь ветераны осмеливаются сломать её — то, что таится внутри, не знает пощады.\n<color is="#b8860b">ЛКМ</color> с предметом в руке для активации.\n<color is="#FFD700">Уровень III</color> — Рекомендуется: <color is="#cc55ff">снаряжение из ониксия</color>
+items.Warden_Challenge_IV.name = Испытание Стража IV
+items.Warden_Challenge_IV.description = Последняя печать. Сквозь её трещины сочится расколотая реальность. Те, кто разобьёт её, встретят последнее испытание Стража — немногие вернутся.\n<color is="#b8860b">ЛКМ</color> с предметом в руке для активации.\n<color is="#FFD700">Уровень IV</color> — Рекомендуется: <color is="#ff5555">снаряжение из призмы</color>
+ui.endgame.accessories = Аксессуары
+ui.endgame.blocks = Блоки
+items.Endgame_Corrupted_Block.name = Испорченный Блок
+items.Endgame_Void_Ancient.name = Древний Камень Пустоты
+items.Endgame_Void_Block.name = Блок Пустоты
+items.Endgame_Void_Brick.name = Кирпич Пустоты
+items.Endgame_Void_Core.name = Ядро Пустоты
+items.Endgame_Void_Fluid.name = Жидкость Пустоты
+items.Endgame_Corrupted_Block_Light.name = Испорченный Светильник
+items.Endgame_Void_Ancient_Light.name = Древний Светильник Пустоты
+items.Endgame_Void_Block_Light.name = Светильник Пустоты
+items.Endgame_Void_Brick_Light.name = Кирпичный Светильник Пустоты
+items.Endgame_Void_Core_Light.name = Ядро Света Пустоты
+items.Endgame_Accessory_Pouch.name = Сумка Талисманов
+items.Endgame_Accessory_Pouch.description = Усиленная сумка из лучших материалов эндгейма. Вмещает до <color is="#FFD700">5 аксессуаров</color>, дающих пассивные боевые бонусы.\n<color is="#b8860b">ПКМ</color> для открытия.
+items.Endgame_Accessory_Frostwalkers.name = Ледоступы
+items.Endgame_Accessory_Frostwalkers.description = Сапоги, пропитанные магией льда, замораживающие воду под ногами носителя.\n<color is="#05c09a">Эффект:</color> <color is="#66ccff">Хождение по воде (лёд тает через 3с)</color>
+items.Endgame_Accessory_Ocean_Striders.name = Океанские Шагатели
+items.Endgame_Accessory_Ocean_Striders.description = Зачарованные ласты, благословлённые морем, толкающие носителя сквозь воду с невероятной скоростью.\n<color is="#05c09a">Эффект:</color> <color is="#00BFFF">2x скорость плавания в воде</color>
+items.Endgame_Accessory_Void_Amulet.name = Амулет Пустоты
+items.Endgame_Accessory_Void_Amulet.description = Амулет, пульсирующий энергией пустоты. Когда смертельный удар должен сразить вас, выживите с 1 HP и 3 секундами неуязвимости.\n<color is="#05c09a">Эффект:</color> <color is="#800080">Обман смерти (5мин КД)</color>
+items.Endgame_Accessory_Blazefist.name = Пылающий Кулак
+items.Endgame_Accessory_Blazefist.description = Кулак, выкованный в драконьем пламени, поджигающий всех, кто посмеет встать рядом с вашей целью.\n<color is="#05c09a">Эффект:</color> <color is="#ff5555">Поджог цели + огонь AOE 3м</color>
+items.Endgame_Accessory_Pocket_Garden.name = Карманный Сад
+items.Endgame_Accessory_Pocket_Garden.description = Живой амулет с миниатюрным садом, излучающим целительную энергию.\n<color is="#05c09a">Эффект:</color> <color is="#2E8B57">+1 HP/сек пассивной регенерации</color>
+items.Endgame_Accessory_Hedera_Seed.name = Семя Хедеры
+items.Endgame_Accessory_Hedera_Seed.description = Спящее семя Хедеры, мстящее тем, кто осмелится навредить его носителю, опутывающими корнями.\n<color is="#05c09a">Эффект:</color> <color is="#2E8B57">15% шанс обездвижить атакующего на 2с</color>

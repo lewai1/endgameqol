@@ -1,0 +1,65 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Predator",
+  "Modify": {
+    "Appearance": "Fen_Stalker",
+    "AttitudeGroup": "Predators",
+    "DropList": "Drop_Endgame_Fen_Stalker",
+    "MaxHealth": 200,
+    "MaxSpeed": 10,
+    "WanderRadius": 12,
+    "ViewRange": 15,
+    "ViewSector": 250,
+    "HearingRange": 8,
+    "AbsoluteDetectionRange": 3,
+    "AlertedRange": 18,
+    "IsMemory": true,
+    "MemoriesCategory": "Reptile",
+    "MemoriesNameOverride": "Fen Stalker",
+    "AlertedTime": [
+      2,
+      3
+    ],
+    "MaintainDistanceWhileAlerted": false,
+    "FleeIfNotThreatened": false,
+    "FleeRange": 10,
+    "HardLeashDistance": 50,
+    "LeashDistance": 25,
+    "LeashMinPlayerDistance": 7,
+    "LeashTimer": [
+      3,
+      5
+    ],
+    "CombatBehaviorDistance": 5,
+    "CombatStrafeWeight": 8,
+    "CombatDirectWeight": 2,
+    "CombatBackOffAfterAttack": true,
+    "CombatStrafingFrequencyRange": [
+      1,
+      2
+    ],
+    "CombatStrafingDurationRange": [
+      1,
+      2
+    ],
+    "CombatMovingRelativeSpeed": 0.65,
+    "Attack": "Root_NPC_Attack_Melee",
+    "AttackPauseRange": [
+      1.5,
+      2.5
+    ],
+    "AttackDistance": 2.5,
+    "ChaseRelativeSpeed": 0.85,
+    "TimidDuringDay": false,
+    "AlwaysSleepAtNight": false,
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Endgame_Fen_Stalker.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

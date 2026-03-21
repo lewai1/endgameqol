@@ -1,0 +1,14 @@
+{
+  "RequireNewClick": true,
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  },
+  "Cooldown": {
+    "Cooldown": 1
+  },
+  "Interactions": [
+    "Endgame_Hatchet_Prisma_To_Normal"
+  ]
+}

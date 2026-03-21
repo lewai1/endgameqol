@@ -1,0 +1,67 @@
+{
+  "Container": {
+    "Type": "Multiple",
+    "Containers": [
+      {
+        "Type": "Single",
+        "Weight": 100,
+        "Item": {
+          "ItemId": "Dragon_Heart",
+          "QuantityMin": 1,
+          "QuantityMax": 1
+        }
+      },
+      {
+        "Type": "Single",
+        "Weight": 100,
+        "Item": {
+          "ItemId": "Ingredient_Bar_Mithril",
+          "QuantityMin": 4,
+          "QuantityMax": 5
+        }
+      },
+      {
+        "Type": "Choice",
+        "Weight": 100,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Weight": 40,
+            "Item": {
+              "ItemId": "Ingredient_Hide_Storm",
+              "QuantityMin": 3,
+              "QuantityMax": 6
+            }
+          },
+          {
+            "Type": "Single",
+            "Weight": 35,
+            "Item": {
+              "ItemId": "Ingredient_Ice_Essence",
+              "QuantityMin": 5,
+              "QuantityMax": 10
+            }
+          },
+          {
+            "Type": "Single",
+            "Weight": 25,
+            "Item": {
+              "ItemId": "Rock_Gem_Sapphire",
+              "QuantityMin": 3,
+              "QuantityMax": 6
+            }
+          }
+        ]
+      },
+      {
+        "Type": "Single",
+        "Weight": 2,
+        "Item": {
+          "ItemId": "Endgame_Frozen_Sword",
+          "QuantityMin": 1,
+          "QuantityMax": 1
+        }
+      }
+    ]
+  }
+}

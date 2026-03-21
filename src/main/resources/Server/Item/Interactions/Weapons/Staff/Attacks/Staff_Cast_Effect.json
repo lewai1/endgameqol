@@ -1,0 +1,7 @@
+{
+  "Type": "Simple",
+  "$Comment": "Length of Effect",
+  "Effects": {
+    "WorldSoundEventId": "SFX_Staff_Ice_Shoot"
+  }
+}

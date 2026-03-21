@@ -1,0 +1,37 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Ingredient_Forest_Essence.name",
+    "Description": "server.items.Ingredient_Forest_Essence.description"
+  },
+  "Parent": "Ingredient_Life_Essence",
+  "Icon": "Icons/ItemsGenerated/Ingredient_Forest_Essence.png",
+  "Quality": "Epic",
+  "Model": "Resources/Ingredients/Essence_Concentrated.blockymodel",
+  "IconProperties": {
+    "Scale": 0.6,
+    "Rotation": [
+      0,
+      0,
+      0
+    ],
+    "Translation": [
+      0,
+      -13
+    ]
+  },
+  "Scale": 0.55,
+  "Light": {
+    "Color": "#130",
+    "Radius": 1
+  },
+  "MaxStack": 100,
+  "DropOnDeath": false,
+  "Particles": [
+    {
+      "SystemId": "Seeds_Eternal"
+    }
+  ],
+  "Categories": [
+    "Endgame.Materials"
+  ]
+}

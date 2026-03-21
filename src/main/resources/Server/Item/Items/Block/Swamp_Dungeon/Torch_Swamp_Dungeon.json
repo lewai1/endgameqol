@@ -1,0 +1,72 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Torch_Swamp_Dungeon.name",
+    "Description": "server.items.Torch_Swamp_Dungeon.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Torch_Swamp_Dungeon.png",
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "ISS_Blocks_Wood",
+  "Categories": [
+    "Endgame.EndgameMisc"
+  ],
+  "BlockType": {
+    "DrawType": "Model",
+    "Material": "Empty",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/Swamp_Dungeon/Torch_Swamp_Dungeon.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/Swamp_Dungeon/Torch_Swamp_Dungeon_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "CustomModelAnimation": "Blocks/Swamp_Dungeon/Torch_Swamp_Dungeon.blockyanim",
+    "Light": {
+      "Radius": 0,
+      "Color": "#6a8"
+    },
+    "HitboxType": "Torch",
+    "BlockSoundSetId": "Torch",
+    "BlockParticleSetId": "Wood",
+    "Gathering": {
+      "Soft": {}
+    },
+    "PlacementSettings": {
+      "AllowRotationKey": false,
+      "PlaceInEmptyBlocks": true
+    },
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        },
+        {
+          "FaceType": "Branch"
+        },
+        {
+          "FaceType": "Rock_Beam"
+        },
+        {
+          "FaceType": "Wood_Beam"
+        },
+        {
+          "FaceType": "Wall"
+        },
+        {
+          "FaceType": "Wall_Corner"
+        },
+        {
+          "FaceType": "Fence"
+        },
+        {
+          "FaceType": "Fence_Corner"
+        }
+      ]
+    },
+    "MovementSettings": {},
+    "Flags": {},
+    "RandomRotation": "YawStep1",
+    "AmbientSoundEventId": "SFX_Torch_Default_Loop",
+    "Looping": true
+  }
+}

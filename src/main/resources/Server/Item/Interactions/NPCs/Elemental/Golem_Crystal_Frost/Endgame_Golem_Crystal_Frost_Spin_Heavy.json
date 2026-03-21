@@ -1,0 +1,253 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Golem_Crystal_Frost_Default",
+    "ItemAnimationId": "SpinHeavy"
+  },
+  "$Comment": "Prepare Delay",
+  "RunTime": 1,
+  "Next": {
+    "Type": "Parallel",
+    "$Comment": "Make sure this parallel interaction is needed and can't be optimized away",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "$Comment": "Length of Combat",
+            "RunTime": 0.25,
+            "Selector": {
+              "Id": "Horizontal",
+              "Direction": "ToLeft",
+              "TestLineOfSight": true,
+              "ExtendTop": 0,
+              "ExtendBottom": 2,
+              "StartDistance": 0.5,
+              "EndDistance": 3.25,
+              "Length": 360,
+              "RollOffset": 0,
+              "YawStartOffset": -90
+            },
+            "Next": {
+              "Type": "Selector",
+              "$Comment": "Length of Combat",
+              "RunTime": 0.25,
+              "Selector": {
+                "Id": "Horizontal",
+                "Direction": "ToLeft",
+                "TestLineOfSight": true,
+                "ExtendTop": 0,
+                "ExtendBottom": 2,
+                "StartDistance": 0.5,
+                "EndDistance": 3.25,
+                "Length": 360,
+                "RollOffset": 0,
+                "YawStartOffset": -90
+              },
+              "Next": {
+                "Type": "Selector",
+                "$Comment": "Length of Combat",
+                "RunTime": 0.25,
+                "Selector": {
+                  "Id": "Horizontal",
+                  "Direction": "ToLeft",
+                  "TestLineOfSight": true,
+                  "ExtendTop": 0,
+                  "ExtendBottom": 2,
+                  "StartDistance": 0.5,
+                  "EndDistance": 3.25,
+                  "Length": 360,
+                  "RollOffset": 0,
+                  "YawStartOffset": -90
+                },
+                "Next": {
+                  "Type": "Selector",
+                  "$Comment": "Length of Combat",
+                  "RunTime": 0.25,
+                  "Selector": {
+                    "Id": "Horizontal",
+                    "Direction": "ToLeft",
+                    "TestLineOfSight": true,
+                    "ExtendTop": 0,
+                    "ExtendBottom": 2,
+                    "StartDistance": 0.5,
+                    "EndDistance": 3.25,
+                    "Length": 360,
+                    "RollOffset": 0,
+                    "YawStartOffset": -90
+                  },
+                  "Next": {
+                    "Type": "Selector",
+                    "$Comment": "Length of Combat",
+                    "RunTime": 0.25,
+                    "Selector": {
+                      "Id": "Horizontal",
+                      "Direction": "ToLeft",
+                      "TestLineOfSight": true,
+                      "ExtendTop": 0,
+                      "ExtendBottom": 2,
+                      "StartDistance": 0.5,
+                      "EndDistance": 3.25,
+                      "Length": 360,
+                      "RollOffset": 0,
+                      "YawStartOffset": -90
+                    },
+                    "Next": {
+                      "Type": "Parallel",
+                      "$Comment": "Make sure this parallel interaction is needed and can't be optimized away",
+                      "Interactions": [
+                        {
+                          "Interactions": [
+                            {
+                              "Type": "Selector",
+                              "$Comment": "Length of Combat",
+                              "RunTime": 0.25,
+                              "Selector": {
+                                "Id": "Horizontal",
+                                "Direction": "ToLeft",
+                                "TestLineOfSight": true,
+                                "ExtendTop": 0,
+                                "ExtendBottom": 2,
+                                "StartDistance": 0.5,
+                                "EndDistance": 3.25,
+                                "Length": 360,
+                                "RollOffset": 0,
+                                "YawStartOffset": -90
+                              },
+                              "Next": {
+                                "Type": "Selector",
+                                "$Comment": "Length of Combat",
+                                "RunTime": 0.25,
+                                "Selector": {
+                                  "Id": "Horizontal",
+                                  "Direction": "ToLeft",
+                                  "TestLineOfSight": true,
+                                  "ExtendTop": 0,
+                                  "ExtendBottom": 2,
+                                  "StartDistance": 0.5,
+                                  "EndDistance": 3.25,
+                                  "Length": 360,
+                                  "RollOffset": 0,
+                                  "YawStartOffset": -90
+                                },
+                                "Next": {
+                                  "Type": "Selector",
+                                  "$Comment": "Length of Combat",
+                                  "RunTime": 0.25,
+                                  "Selector": {
+                                    "Id": "Horizontal",
+                                    "Direction": "ToLeft",
+                                    "TestLineOfSight": true,
+                                    "ExtendTop": 0,
+                                    "ExtendBottom": 2,
+                                    "StartDistance": 0.5,
+                                    "EndDistance": 3.25,
+                                    "Length": 360,
+                                    "RollOffset": 0,
+                                    "YawStartOffset": -90
+                                  },
+                                  "Next": {
+                                    "Type": "Selector",
+                                    "$Comment": "Length of Combat",
+                                    "RunTime": 0.25,
+                                    "Selector": {
+                                      "Id": "Horizontal",
+                                      "Direction": "ToLeft",
+                                      "TestLineOfSight": true,
+                                      "ExtendTop": 0,
+                                      "ExtendBottom": 2,
+                                      "StartDistance": 0.5,
+                                      "EndDistance": 3.25,
+                                      "Length": 360,
+                                      "RollOffset": 0,
+                                      "YawStartOffset": -90
+                                    },
+                                    "Next": {
+                                      "Type": "Selector",
+                                      "$Comment": "Length of Combat",
+                                      "RunTime": 0.25,
+                                      "Selector": {
+                                        "Id": "Horizontal",
+                                        "Direction": "ToLeft",
+                                        "TestLineOfSight": true,
+                                        "ExtendTop": 0,
+                                        "ExtendBottom": 2,
+                                        "StartDistance": 0.5,
+                                        "EndDistance": 3.25,
+                                        "Length": 360,
+                                        "RollOffset": 0,
+                                        "YawStartOffset": -90
+                                      },
+                                      "HitEntity": {
+                                        "Interactions": ["Endgame_Golem_Crystal_Frost_Melee_Damage"]
+                                      }
+                                    },
+                                    "HitEntity": {
+                                      "Interactions": ["Endgame_Golem_Crystal_Frost_Melee_Damage"]
+                                    }
+                                  },
+                                  "HitEntity": {
+                                    "Interactions": ["Endgame_Golem_Crystal_Frost_Melee_Damage"]
+                                  }
+                                },
+                                "HitEntity": {
+                                  "Interactions": ["Endgame_Golem_Crystal_Frost_Melee_Damage"]
+                                }
+                              },
+                              "HitEntity": {
+                                "Interactions": ["Endgame_Golem_Crystal_Frost_Melee_Damage"]
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "Interactions": [
+                            {
+                              "Type": "Simple",
+                              "$Comment": "Length of Effect",
+                              "RunTime": 2.75,
+                              "Effects": {
+                                "WorldSoundEventId": "SFX_Golem_Earth_Swing"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "HitEntity": {
+                      "Interactions": ["Endgame_Golem_Crystal_Frost_Melee_Damage"]
+                    }
+                  },
+                  "HitEntity": {
+                    "Interactions": ["Endgame_Golem_Crystal_Frost_Melee_Damage"]
+                  }
+                },
+                "HitEntity": {
+                  "Interactions": ["Endgame_Golem_Crystal_Frost_Melee_Damage"]
+                }
+              },
+              "HitEntity": {
+                "Interactions": ["Endgame_Golem_Crystal_Frost_Melee_Damage"]
+              }
+            },
+            "HitEntity": {
+              "Interactions": ["Endgame_Golem_Crystal_Frost_Melee_Damage"]
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "$Comment": "Length of Effect",
+            "RunTime": 2.75,
+            "Effects": {
+              "WorldSoundEventId": "SFX_Golem_Earth_Swing"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

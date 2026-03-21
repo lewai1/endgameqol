@@ -1,0 +1,446 @@
+{
+  "Model": "NPC/Critter/Void_Frog/Models/Void_Frog_Model.blockymodel",
+  "Texture": "NPC/Critter/Void_Frog/Models/Void_Frog_Texture.png",
+  "EyeHeight": 0.4,
+  "CrouchOffset": -0.1,
+  "HitBox": {
+    "Max": {
+      "X": 0.3,
+      "Y": 0.8,
+      "Z": 0.3
+    },
+    "Min": {
+      "X": -0.3,
+      "Y": 0,
+      "Z": -0.3
+    }
+  },
+  "Camera": {
+    "Pitch": {
+      "AngleRange": {
+        "Max": 45,
+        "Min": -45
+      },
+      "TargetNodes": [
+        "Head"
+      ]
+    },
+    "Yaw": {
+      "AngleRange": {
+        "Max": 45,
+        "Min": -45
+      },
+      "TargetNodes": [
+        "Head"
+      ]
+    }
+  },
+  "MinScale": 2,
+  "MaxScale": 2,
+  "AnimationSets": {
+    "Idle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Idle.blockyanim",
+          "SoundEventId": "SFX_Frog_Idle"
+        }
+      ]
+    },
+    "Walk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Walk.blockyanim",
+          "SoundEventId": "SFX_Frog_Run"
+        }
+      ]
+    },
+    "WalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Walk_Backward.blockyanim"
+        }
+      ]
+    },
+    "Run": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Run.blockyanim",
+          "SoundEventId": "SFX_Frog_Run"
+        }
+      ]
+    },
+    "Crouch": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Crouch.blockyanim",
+          "BlendingDuration": 0.1
+        }
+      ]
+    },
+    "CrouchWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Crouch_Walk.blockyanim"
+        }
+      ]
+    },
+    "CrouchWalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Crouch_Walk_Backward.blockyanim"
+        }
+      ]
+    },
+    "Jump": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Jump.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Frog_Run"
+        }
+      ]
+    },
+    "JumpWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Jump.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false
+        }
+      ]
+    },
+    "JumpRun": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Jump_Far.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Frog_Run"
+        }
+      ]
+    },
+    "Fall": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Fall.blockyanim",
+          "BlendingDuration": 0.4
+        }
+      ]
+    },
+    "Alerted": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Alerted.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Frog_Alerted"
+        }
+      ]
+    },
+    "Hurt": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Damage/Hurt.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Frog_Hurt"
+        }
+      ]
+    },
+    "Death": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Damage/Death.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Frog_Death"
+        }
+      ]
+    },
+    "Laydown": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Laydown.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Sleep": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Sleep.blockyanim"
+        }
+      ]
+    },
+    "Wake": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Wake.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Spawn": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Spawn.blockyanim",
+          "BlendingDuration": 0,
+          "Looping": false
+        }
+      ]
+    },
+    "Tongue": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Flavor/Tongue.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Greet": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Flavor/Greet.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Frog_Alerted"
+        }
+      ]
+    },
+    "Croak": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Flavor/Croak.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Frog_Croak"
+        }
+      ]
+    },
+    "FlyIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Swim/Swim_Idle.blockyanim"
+        }
+      ]
+    },
+    "Fly": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Swim/Swim.blockyanim",
+          "Speed": 1.2
+        }
+      ]
+    },
+    "FlyBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Swim/Swim_Backward.blockyanim"
+        }
+      ]
+    },
+    "FlyFast": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Swim/Swim_Fast.blockyanim",
+          "Speed": 1.2
+        }
+      ]
+    },
+    "SwimIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Swim/Swim_Idle.blockyanim"
+        }
+      ]
+    },
+    "Swim": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Swim/Swim.blockyanim",
+          "Speed": 1.2
+        }
+      ]
+    },
+    "SwimBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Swim/Swim_Backward.blockyanim"
+        }
+      ]
+    },
+    "SwimFast": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Swim/Swim_Fast.blockyanim",
+          "Speed": 1.2
+        }
+      ]
+    },
+    "SwimJump": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Jump_Far.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Frog_Run"
+        }
+      ]
+    },
+    "SwimFloat": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Swim/Swim_Float.blockyanim"
+        }
+      ]
+    },
+    "SwimSink": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Fall.blockyanim"
+        }
+      ]
+    },
+    "SwimDive": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Swim/Swim.blockyanim",
+          "Speed": 1.2
+        }
+      ]
+    },
+    "SwimDiveBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Swim/Swim_Backward.blockyanim"
+        }
+      ]
+    },
+    "SwimDiveFast": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Swim/Swim_Fast.blockyanim",
+          "Speed": 1.2
+        }
+      ]
+    },
+    "FluidIdle": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Idle.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "FluidWalk": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Walk.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "FluidWalkBackward": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Walk_Backward.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "FluidRun": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Run.blockyanim",
+          "Speed": 0.6
+        }
+      ]
+    },
+    "HurtFly": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Damage/Hurt_Swim.blockyanim",
+          "BlendingDuration": 0.1,
+          "Looping": false,
+          "SoundEventId": "SFX_Frog_Hurt"
+        }
+      ]
+    },
+    "DeathFly": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Damage/Death_Fly.blockyanim",
+          "BlendingDuration": 0.6,
+          "SoundEventId": "SFX_Frog_Death"
+        }
+      ]
+    },
+    "DeathFlyImpact": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Damage/Death_Fly_Impact.blockyanim",
+          "BlendingDuration": 0.05,
+          "Looping": false
+        }
+      ]
+    },
+    "HurtSwim": {
+      "Animations": [
+        {
+          "Looping": false,
+          "BlendingDuration": 0.1,
+          "Animation": "NPC/Critter/Frog/Animations/Damage/Hurt_Swim.blockyanim",
+          "SoundEventId": "SFX_Frog_Hurt"
+        }
+      ]
+    },
+    "DeathSwim": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Damage/Death_Swim.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Frog_Death"
+        }
+      ]
+    },
+    "HurtDrown": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Damage/Hurt_Drown.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Frog_Hurt"
+        }
+      ]
+    },
+    "DeathDrown": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Damage/Death_Drown.blockyanim",
+          "Looping": false,
+          "SoundEventId": "SFX_Frog_Death"
+        }
+      ]
+    },
+    "Eat": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Flavor/Tongue.blockyanim",
+          "Looping": false
+        }
+      ]
+    },
+    "Curious": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Default/Idle.blockyanim",
+          "Speed": 0.8
+        }
+      ]
+    },
+    "GreetAnimation": {
+      "Animations": [
+        {
+          "Animation": "NPC/Critter/Frog/Animations/Flavor/Greet.blockyanim",
+          "Looping": false
+        }
+      ]
+    }
+  }
+}

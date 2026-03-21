@@ -1,0 +1,48 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Predator",
+  "Modify": {
+    "Appearance": "Endgame_Bramble_Elite",
+    "AttitudeGroup": "PredatorsBig",
+    "WanderRadius": 6,
+    "ViewRange": 15,
+    "AlertedRange": 15,
+    "FleeRange": 15,
+    "HearingRange": 10,
+    "LeashDistance": 35,
+    "HardLeashDistance": 70,
+    "LeashMinPlayerDistance": 10,
+    "LeashTimer": [
+      10,
+      14
+    ],
+    "Chase": true,
+    "DropList": "Drop_Endgame_Bramble_Elite",
+    "MaxSpeed": 8,
+    "Attack": "Root_NPC_Endgame_Bramble_Elite_Attack",
+    "AttackDistance": 4,
+    "CombatBehaviorDistance": 8,
+    "CombatAlwaysMovingWeight": 600,
+    "RunThreshold": 0.1,
+    "KnockbackScale": 0.2,
+    "ClimbHeight": 2,
+    "MinJumpHeight": 1.5,
+    "TimidDuringDay": false,
+    "AlwaysSleepAtNight": false,
+    "MaxHealth": 550,
+    "DeathAnimationTime": 2.0,
+    "DropDeathItemsInstantly": false,
+    "DeathParticles": "Explosion_Big",
+    "IsMemory": true,
+    "MemoriesCategory": "Reptile",
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Endgame_Bramble_Elite.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

@@ -1,0 +1,177 @@
+ui.endgame = EndgameQoL
+ui.endgame.weapons = Weapons
+ui.endgame.armor = Armor
+ui.endgame.tools = Tools
+ui.endgame.materials = Materials
+ui.endgame.consumables = Consumables
+ui.endgame.portals = Portals
+ui.endgame.misc = Misc
+items.Bench_Endgame.name = Endgame's Workbench
+endgameCategories.armor_onyxium = Onyxium Armor & Ingots
+endgameCategories.armor_prisma = Prisma Armor & Ingots
+endgameCategories.portals = Portals
+endgameCategories.misc = Misc
+endgameCategories.challenge = Challenge
+benchCategories.staff = Staff
+benchCategories.longsword = Longsword
+benchCategories.spear = Spear
+items.Bench_Endgame.description = Used to craft previously inaccessible items.\n\nOnyxium Ore/Onyxium Armor set & Tools/Challenges/Misc
+items.Forgotten_Temple_Portal.description = Placeable Forgotten Temple Portal with custom map marker
+items.Forgotten_Temple_Marker.name = Home
+items.Advanced_Glider.name = Advanced Glider
+items.Advanced_Glider.description = A significant improvement over the basic design. Smoother flight, better speed.
+items.Standard_Glider.name = Standard Glider
+items.Standard_Glider.description = You almost fell..
+items.Endgame_Weapon_Staff_Crystal_Ice.description = A staff crowned with a sapphire crystal that radiates freezing cold. Launches icy projectiles that chill the air on impact.\nConsumes <color is="#05c09a">25 Mana</color> per cast.
+items.Endgame_Weapon_Staff_Crystal_Flame.description = A staff wreathed in living flame, its ruby core spinning with fire magic. Hurls explosive fireballs that scorch everything in their path.\nConsumes <color is="#05c09a">25 Mana</color> per cast.
+items.Endgame_Weapon_Staff_Adamantite.description = A staff forged from dense adamantite, its weight belying the speed of its arcane bolts. A reliable weapon for the seasoned caster.\nConsumes <color is="#05c09a">25 Mana</color> per cast.
+items.Endgame_Weapon_Staff_Cobalt.description = A staff reinforced with cobalt alloy, crackling with restless energy. Its projectiles fly fast and strike hard.\nConsumes <color is="#05c09a">20 Mana</color> per cast.
+items.Endgame_Weapon_Staff_Copper.description = A humble staff tipped with copper. The first step on the path of arcane warfare. Fires weak but steady projectiles.\nConsumes <color is="#05c09a">12 Mana</color> per cast.
+items.Endgame_Weapon_Staff_Mithril.description = A staff infused with rare mithril, humming with deep magical resonance. Its bolts pierce through the darkness with devastating force.\nConsumes <color is="#05c09a">30 Mana</color> per cast.
+items.Endgame_Weapon_Staff_Iron.description = A sturdy iron staff, a step above copper. Reliable and efficient, it serves well for those still honing their craft.\nConsumes <color is="#05c09a">15 Mana</color> per cast.
+items.Endgame_Weapon_Staff_Onyxium.description = A staff carved from onyxium crystal, pulsing with volatile void energy. Its projectiles tear through reality itself.\nConsumes <color is="#05c09a">35 Mana</color> per cast.
+items.Endgame_Weapon_Staff_Thorium.description = A thorium-core staff that glows faintly green. Its shots carry a strange weight, as if warping the space they pass through.\nConsumes <color is="#05c09a">18 Mana</color> per cast.
+items.Weapon_Daggers_Hedera.name = Vine-Twined Daggers
+items.Weapon_Daggers_Hedera.description = Forged from <color is="#2E8B57">Hedera's</color> own thorns, these blades are forever bound by living vines. Each strike whispers of the forest's wrath.
+items.Hedera_Gem.name = Hedera's Gem
+items.Hedera_Gem.description = Once encrusted deep within <color is="#2E8B57">Hedera's</color> breastplate, this gem still pulses with the verdant fury of the forest guardian. Required to upgrade the Endgame's Anvil to <color is="#FFD700">Tier 5</color>.
+items.Ingredient_Forest_Essence.name = Essence of the Forest
+items.Ingredient_Forest_Essence.description = A concentrated essence of the forest, pulsing with life energy. Used to craft the <color is="#2E8B57">Vine-Twined Daggers</color> and upgrade the Endgame's Anvil to <color is="#FFD700">Tier 5</color>.
+items.Dragon_Heart.name = Dragon's Heart
+items.Dragon_Heart.description = The pulsating heart of a slain dragon, still warm with ancient power. Required to upgrade the Endgame's Anvil to <color is="#FFD700">Tier 5</color>.
+items.Big_Rex_Cave_Leather.name = Apex Sovereign Leather
+items.Big_Rex_Cave_Leather.description = A thick, tough leather harvested from the Alpha Rex of the caves. It feels ancient and incredibly durable. Used to craft the <color is="#FFD700">Endgame Backpack Upgrades I to III</color>.
+items.Endgame_Upgrade_Backpack_1.name = Endgame Backpack Upgrade I
+items.Endgame_Upgrade_Backpack_1.description = Upgrade your backpack capacity by 9 slots.
+items.Endgame_Upgrade_Backpack_2.name = Endgame Backpack Upgrade II
+items.Endgame_Upgrade_Backpack_2.description = Upgrade your backpack capacity by 9 slots.
+items.Endgame_Upgrade_Backpack_3.name = Endgame Backpack Upgrade III
+items.Endgame_Upgrade_Backpack_3.description = Upgrade your backpack capacity by 9 slots.
+items.Endgame_Glider.name = Void-Powered Glider
+items.Endgame_Glider.description = Make you go to the moon.\n<color is="#b8860b">Right Click</color> consumes 5 <color is="#800080">Void Essence</color> to provide a burst of horizontal acceleration.
+items.Food_Meat_Raw_Alpha_Trex.name = Raw Alpha Rex Meat
+items.Food_Meat_Raw_Alpha_Trex.description = Raw meat from the Alpha Rex. It looks tough and unappetizing.
+items.Food_Meat_Cooked_Alpha_Trex.name = Cooked Alpha Rex Meat
+items.Food_Meat_Cooked_Alpha_Trex.description = Cooked meat from the Alpha Rex. It looks tough and unappetizing. \n<color is="#00FF00">Restores 20% health over 0.2 seconds.</color>
+npcRoles.Endgame_Golem_Void.name = Void Golem
+npcRoles.Golem_Eye_Void.name = Void Eye
+items.Endgame_Portal_Mithril_Dragon.name = Shard of the Frozen Summit
+items.Endgame_Portal_Mithril_Dragon.description = A jagged fragment of permafrost. <color is="#b8860b">Right Click</color> on an <color is="#a9a9a9">Ancient Portal</color> to open the way to the <color is="#7de8ff">Frozen Summit</color>.\nBeneath the snow-capped peaks of this biting taiga, <color is="#7de8ff">Ice Dragons</color> guard ancient <color is="#7de8ff">Mithril</color> veins.
+portals.mithril.tip = <i><color is="#05c09a">A mythical beast sleeps here,\nbound in an eternal slumber...</color></i>\n\n<color is="#888888">They say a</color> <color is="#7de8ff">silvery ore</color> <color is="#888888">glimmers in the frozen depths.</color>
+items.Endgame_Portal_Swamp_Dungeon.name = Swamp Dungeon Key
+items.Endgame_Portal_Swamp_Dungeon.description = A key woven from ancient roots, dripping with dark sap. <color is="#b8860b">Right Click</color> on an <color is="#a9a9a9">Ancient Portal</color> to open the way to the <color is="#2E8B57">Swamp Dungeon</color>.\nDeep within the suffocating swamp, <color is="#2E8B57">Hedera</color> waits at the heart of the Great Hollow Tree.
+items.Endgame_Portal_Golem_Void.name = Shard of the Void
+items.Endgame_Portal_Golem_Void.description = A chunk of crystallized void energy, cold to the touch. <color is="#b8860b">Right Click</color> on an <color is="#a9a9a9">Ancient Portal</color> to open the way to the <color is="#800080">Void Realm</color>.\nIn the eternal darkness, the <color is="#800080">Void Golem</color> stands guard over forbidden knowledge.
+items.Endgame_Portal_Luminia.name = Shard of the Radiant Light (WIP)
+items.Endgame_Portal_Luminia.description = A fragment of pure light, struggling against encroaching shadows. <color is="#b8860b">Right Click</color> on an <color is="#a9a9a9">Ancient Portal</color> to open the way to <color is="#FFD700">Luminia</color>.\nA dimension of blinding brilliance, where <color is="#FFFACD">Luminous Biomes</color> fight an eternal war against the <color is="#800080">Corrupted Lands</color>.
+portals.void_golem = Gate of the Glacial Void
+portals.void_golem.description = A swirling vortex of <color is="#2F4F4F">pure darkness</color>, crackling with <color is="#00BFFF">unstable glacial energy</color>. Only the bravest dare to step through into the <color is="#ADD8E6">freezing mist</color>.
+portals.void_golem.tip1 = The air here bites with an <color is="#B0C4DE">unnatural chill</color>,
+portals.void_golem.tip2 = broken only by the distant whispers of the <color is="#483D8B">Void</color>.
+portals.void_golem.tip3 = Beware the <color is="#708090">shadows</color>,
+portals.void_golem.tip4 = for they have eyes in this <color is="#F0F8FF">frozen realm</color>.
+items.Egg_Spawner_Golem_Void.name = Egg Spawner - Void Golem
+items.Egg_Spawner_Endgame_Dragon_Frost.name = Egg Spawner - Frost Dragon
+npcRoles.Endgame_Dragon_Frost.name = Frost Dragon
+items.Egg_Spawner_Hedera.name = Egg Spawner - Hedera
+barter.Vorthak.title = Vorthak's Barter Shop
+items.Tool_Pickaxe_Prisma.name = Prisma Pickaxe
+items.Tool_Pickaxe_Prisma.description = A pickaxe forged from prismatic crystal. Its resonant strikes shatter stone with unmatched efficiency.
+items.Tool_Hatchet_Prisma.name = Prisma Hatchet
+items.Tool_Hatchet_Prisma.description = A hatchet forged from prismatic crystal. Its prismatic edge cleaves wood as if it were air.
+items.Weapon_Sword_Prisma.name = Prisma Sword
+items.Weapon_Sword_Prisma.description = A blade of pure prismatic crystal, its edge shimmers with every hue of refracted light. Cuts through armor as easily as air.
+items.Weapon_Daggers_Prisma.name = Prisma Daggers
+items.Weapon_Daggers_Prisma.description = Twin blades forged from prismatic crystal, refracting light with every slash. Their edge hums with resonant energy that shatters defenses on impact.
+items.Hedera_Key.name = Hedera Key
+items.Hedera_Key.description = A golden key forged from <color is="#2E8B57">Hedera's</color> ancient vines. Opens the sealed gates of the <color is="#2E8B57">Swamp Dungeon</color>.
+items.Endgame_Portal_Frozen_Dungeon.name = Frozen Dungeon Key
+items.Endgame_Portal_Frozen_Dungeon.description = A key forged from eternal ice, its surface crackles with frozen energy. <color is="#b8860b">Right Click</color> on an <color is="#a9a9a9">Ancient Portal</color> to open the way to <color is="#7de8ff">Frostfall</color>.\nA shattered bastion suspended over the void, where <color is="#7de8ff">Frost Yetis</color> roam the open ruins and a <color is="#7de8ff">Frost Dragon</color> circles the frozen skies.
+portals.frozen_dungeon = Gate of Frostfall
+portals.frozen_dungeon.description = A howling rift of <color is="#7de8ff">ice and void</color>, its edges crackling with frozen lightning. Beyond it lies a ruined bastion open to the <color is="#B0C4DE">endless sky</color>.
+portals.frozen_dungeon.tip1 = <i><color is="#7de8ff">The wind screams through shattered stone,</color></i>
+portals.frozen_dungeon.tip2 = <i><color is="#7de8ff">and above, something vast circles in the frost...</color></i>
+portals.swamp_dungeon = Gate of the Swamp Dungeon
+portals.swamp_dungeon.description = A writhing portal of <color is="#2E8B57">tangled vines and dark energy</color>, its edges pulsing with corrupted life. Beyond it lies a swamp consumed by <color is="#2E8B57">Hedera's</color> ancient power.
+portals.swamp_dungeon.tip1 = <i><color is="#2E8B57">The roots twist and reach through the fog,</color></i>
+portals.swamp_dungeon.tip2 = <i><color is="#2E8B57">and somewhere deep within, something ancient breathes...</color></i>
+npcRoles.Endgame_Yeti.name = Frost Yeti
+npcRoles.Endgame_Rat_Frost.name = Ice Rat
+npcRoles.Endgame_Toad_Frost.name = Frost Toad
+items.Flocon_Currency.name = Flocon Currency
+items.Flocon_Currency.description = A shimmering snowflake that never melts, pulsing with the cold magic of the Frozen Dungeon.
+items.Swamp_Currency.name = Swamp Currency
+items.Swamp_Currency.description = A murky token dredged from the depths of the Swamp Dungeon, slick with ancient moss and dark enchantment.
+items.Swamp_Ingot.name = Swamp Ingot
+items.Swamp_Ingot.description = A dense ingot smelted from ores found deep within the Swamp Dungeon, veined with bioluminescent residue. Used to craft the <color is="#FFD700">Hedera Key</color>.
+npcRoles.Frozen_Trader.name = Korvyn
+barter.Frozen_Trader.title = Korvyn's Frost Emporium
+npcRoles.Swamp_Trader.name = Morghul
+barter.Morghul.title = Morghul's Swamp Bazaar
+items.Endgame_Frozen_Sword.name = Frostbite Blade
+items.Endgame_Frozen_Sword.description = A blade forged from eternal ice, its edge never dulls and its chill never fades.\nEvery strike applies <color is="#80ecff">Frost Chill</color> (50% slow, 5s).\n<color is="#4080ff">Vortexstrike</color> finisher <color is="#4080ff">freezes</color> the target solid for 3s.
+npcRoles.Endgame_Swamp_Crocodile.name = Swamp Crocodile
+npcRoles.Endgame_Ghoul.name = Ghoul
+npcRoles.Endgame_Goblin_Duke.name = Goblin Duke
+npcRoles.Endgame_Necromancer_Void.name = Void Necromancer
+npcRoles.Endgame_Saurian_Warrior.name = Saurian Warrior
+npcRoles.Endgame_Saurian_Hunter.name = Saurian Hunter
+npcRoles.Endgame_Saurian_Rogue.name = Saurian Rogue
+npcRoles.Endgame_Shadow_Knight.name = Shadow Knight
+npcRoles.Endgame_Werewolf.name = Werewolf
+npcRoles.Onyxium_Encounter.name = Onyxium Knight
+items.Endgame_Swamp_Crocodile_Scale.name = Swamp Crocodile Scale
+items.Endgame_Swamp_Crocodile_Scale.description = A tough, iridescent scale ripped from a Swamp Crocodile. Prized by armorers for its natural resistance. Used to craft the <color is="#FFD700">Hedera Key</color>.
+items.Torch_Swamp_Dungeon.name = Swamp Dungeon Torch
+items.Torch_Swamp_Dungeon.description = A dim torch burning with a greenish hue, found deep within swamp dungeons.
+items.Rope_Vertical_Infused.name = Infused Vertical Rope
+items.Rope_Vertical_Infused.description = A sturdy rope infused with magical fibers. Can be climbed.
+items.Rope_Infused.name = Infused Rope
+items.Rope_Infused.description = A rope infused with the swamp's ancient magic, still humming with residual energy. Used to craft the <color is="#FFD700">Hedera Key</color>.
+items.Dead_Tree_Small.name = Dead Tree
+items.Dead_Tree_Small.description = A small, withered tree. Its bare branches offer no shade.
+items.Dead_Stump.name = Dead Stump
+items.Dead_Stump.description = The rotting remains of a once-great tree.
+items.Hedera_Autel.name = Hedera Altar
+items.Hedera_Autel.description = An ancient altar overgrown with vines, pulsing faintly with Hedera's lingering presence.
+items.Endgame_Mana_Totem.name = Mana Totem
+items.Endgame_Mana_Totem.description = A deployable totem that regenerates mana for nearby allies.\nThrow to deploy. Lasts <color is="#05c09a">12 seconds</color>, restoring <color is="#4080ff">6 Mana/sec</color> in a 5m radius.
+items.Hedera_Bramble.name = Hedera's Bramble
+items.Hedera_Bramble.description = A thorny relic torn from <color is="#2E8B57">Hedera's</color> domain. Its twisted vines still writhe with faint life, yearning to reclaim the swamp. Used to craft the <color is="#FFD700">Hedera Key</color>.
+items.Swamp_Gem.name = Swamp Gem
+items.Swamp_Gem.description = A mysterious gem pulsing with the <color is="#2E8B57">swamp's</color> ancient energy. Its emerald glow flickers like a heartbeat beneath the moss. Used to craft the <color is="#FFD700">Hedera Key</color>.
+items.Warden_Challenge_I.name = Warden Challenge I
+items.Warden_Challenge_I.description = A crimson seal pulsing with restrained fury. Break it to unleash the Warden's weakest sentinels.\n<color is="#b8860b">Left Click</color> while holding to activate.\n<color is="#FFD700">Tier I</color> — Recommended: <color is="#44cc44">Adamantite gear</color>
+items.Warden_Challenge_II.name = Warden Challenge II
+items.Warden_Challenge_II.description = A seal forged in shadow and steel. The creatures within have known battle — and hunger for more.\n<color is="#b8860b">Left Click</color> while holding to activate.\n<color is="#FFD700">Tier II</color> — Recommended: <color is="#66aaff">Mithril gear</color>
+items.Warden_Challenge_III.name = Warden Challenge III
+items.Warden_Challenge_III.description = A seal that hums with dread. Only veterans dare break it — for what lurks within shows no mercy.\n<color is="#b8860b">Left Click</color> while holding to activate.\n<color is="#FFD700">Tier III</color> — Recommended: <color is="#cc55ff">Onyxium gear</color>
+items.Warden_Challenge_IV.name = Warden Challenge IV
+items.Warden_Challenge_IV.description = The final seal. Fractured reality bleeds through its cracks. Those who break it face the Warden's ultimate test — few return.\n<color is="#b8860b">Left Click</color> while holding to activate.\n<color is="#FFD700">Tier IV</color> — Recommended: <color is="#ff5555">Prisma gear</color>
+ui.endgame.accessories = Accessories
+ui.endgame.blocks = Blocks
+items.Endgame_Corrupted_Block.name = Corrupted Block
+items.Endgame_Void_Ancient.name = Void Ancient Stone
+items.Endgame_Void_Block.name = Void Block
+items.Endgame_Void_Brick.name = Void Brick
+items.Endgame_Void_Core.name = Void Core
+items.Endgame_Void_Fluid.name = Void Fluid
+items.Endgame_Corrupted_Block_Light.name = Corrupted Light
+items.Endgame_Void_Ancient_Light.name = Void Ancient Light
+items.Endgame_Void_Block_Light.name = Void Light
+items.Endgame_Void_Brick_Light.name = Void Brick Light
+items.Endgame_Void_Core_Light.name = Void Core Light
+items.Endgame_Accessory_Pouch.name = Trinket Pouch
+items.Endgame_Accessory_Pouch.description = A reinforced pouch crafted from the finest endgame materials. Holds up to <color is="#FFD700">5 accessories</color> that grant passive combat bonuses.\n<color is="#b8860b">Right Click</color> to open.
+items.Endgame_Accessory_Frostwalkers.name = Frostwalkers
+items.Endgame_Accessory_Frostwalkers.description = Boots imbued with frost magic, freezing water beneath the wearer's feet.\n<color is="#05c09a">Effect:</color> <color is="#66ccff">Walk on water (ice melts after 3s)</color>
+items.Endgame_Accessory_Ocean_Striders.name = Ocean Striders
+items.Endgame_Accessory_Ocean_Striders.description = Enchanted fins blessed by the sea, propelling the wearer through water at incredible speed.\n<color is="#05c09a">Effect:</color> <color is="#00BFFF">2x swim speed in water</color>
+items.Endgame_Accessory_Void_Amulet.name = Void Amulet
+items.Endgame_Accessory_Void_Amulet.description = An amulet pulsing with void energy. When a killing blow would fell you, survive at 1 HP with 3 seconds of invulnerability.\n<color is="#05c09a">Effect:</color> <color is="#800080">Cheat death (5min CD)</color>
+items.Endgame_Accessory_Blazefist.name = Blazefist
+items.Endgame_Accessory_Blazefist.description = A fist forged in dragonfire, igniting all those who dare stand near your target.\n<color is="#05c09a">Effect:</color> <color is="#ff5555">Burn hit target + 3m AOE fire</color>
+items.Endgame_Accessory_Pocket_Garden.name = Pocket Garden
+items.Endgame_Accessory_Pocket_Garden.description = A living charm containing a miniature garden that radiates healing energy.\n<color is="#05c09a">Effect:</color> <color is="#2E8B57">+1 HP/sec passive regeneration</color>
+items.Endgame_Accessory_Hedera_Seed.name = Hedera Seed
+items.Endgame_Accessory_Hedera_Seed.description = A dormant seed of Hedera, retaliating against those who would harm its bearer with entangling roots.\n<color is="#05c09a">Effect:</color> <color is="#2E8B57">15% chance to root attacker for 2s</color>

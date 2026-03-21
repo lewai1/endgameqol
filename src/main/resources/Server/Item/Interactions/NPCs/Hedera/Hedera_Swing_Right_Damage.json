@@ -1,0 +1,25 @@
+{
+  "Parent": "DamageEntityParent",
+  "DamageCalculator": {
+    "BaseDamage": {
+      "Physical": 10
+    }
+  },
+  "Effects": {
+    "CameraEffect": "Impact_Light"
+  },
+  "DamageEffects": {
+    "Knockback": {
+      "Force": 0.1,
+      "RelativeX": -5,
+      "RelativeZ": -5,
+      "VelocityY": 5
+    },
+    "WorldSoundEventId": "SFX_Unarmed_Impact",
+    "WorldParticles": [
+      {
+        "SystemId": "Impact_Blade_01"
+      }
+    ]
+  }
+}

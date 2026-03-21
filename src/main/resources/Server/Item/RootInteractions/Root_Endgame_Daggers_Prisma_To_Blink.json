@@ -1,0 +1,14 @@
+{
+  "RequireNewClick": true,
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  },
+  "Cooldown": {
+    "Cooldown": 2
+  },
+  "Interactions": [
+    "Endgame_Daggers_Prisma_To_Blink"
+  ]
+}

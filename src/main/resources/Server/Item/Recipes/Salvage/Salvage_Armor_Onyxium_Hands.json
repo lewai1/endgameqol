@@ -1,0 +1,29 @@
+{
+  "Input": [
+    {
+      "ItemId": "Armor_Onyxium_Hands",
+      "Quantity": 1
+    }
+  ],
+  "PrimaryOutput": {
+    "ItemId": "Ingredient_Bar_Onyxium",
+    "Quantity": 3
+  },
+  "Output": [
+    {
+      "ItemId": "Ingredient_Bar_Onyxium",
+      "Quantity": 3
+    },
+    {
+      "ItemId": "Ingredient_Leather_Storm",
+      "Quantity": 1
+    }
+  ],
+  "BenchRequirement": [
+    {
+      "Type": "Processing",
+      "Id": "Salvagebench"
+    }
+  ],
+  "TimeSeconds": 4
+}

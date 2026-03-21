@@ -1,0 +1,51 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Rope_Vertical_Infused.name",
+    "Description": "server.items.Rope_Vertical_Infused.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Rope_Vertical_Infused.png",
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "ISS_Blocks_Wood",
+  "Categories": [
+    "Endgame.EndgameMisc"
+  ],
+  "BlockType": {
+    "DrawType": "Model",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/Swamp_Dungeon/Rope_Vertical_Infused.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/Swamp_Dungeon/Rope_Vertical_Infused_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "HitboxType": "Rope",
+    "BlockSoundSetId": "Rope",
+    "BlockParticleSetId": "Dust",
+    "MovementSettings": {
+      "IsClimbable": true
+    },
+    "MaxSupportDistance": 4,
+    "VariantRotation": "Pipe",
+    "Gathering": {
+      "Soft": {}
+    },
+    "Support": {
+      "Up": [
+        {
+          "FaceType": "Full"
+        }
+      ],
+      "Down": [
+        {
+          "FaceType": "Full"
+        },
+        {
+          "FaceType": "Rope"
+        }
+      ]
+    },
+    "Flags": {}
+  }
+}

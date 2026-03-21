@@ -1,0 +1,13 @@
+{
+    "Model": "NPC_Spawn_Marker",
+    "NPCs": [
+        {
+            "Name": "Korvyn",
+            "Weight": 100,
+            "SpawnAfterGameTime": "PT1H"
+        }
+    ],
+    "ExclusionRadius": 0,
+    "MaxDropHeight": 2,
+    "DeactivationDistance": 150
+}

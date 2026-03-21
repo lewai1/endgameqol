@@ -1,0 +1,69 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Tiger_Sabertooth_Default",
+    "ItemAnimationId": "SwipeRight"
+  },
+  "RunTime": 0.25,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.167,
+            "Selector": {
+              "Id": "Horizontal",
+              "Direction": "ToRight",
+              "TestLineOfSight": true,
+              "ExtendTop": 1,
+              "ExtendBottom": 1,
+              "StartDistance": 0.5,
+              "EndDistance": 3.5,
+              "Length": 90,
+              "RollOffset": -30,
+              "YawStartOffset": -45
+            },
+            "HitEntity": {
+              "Interactions": [
+                "Endgame_Bramble_Elite_Swipe_Damage"
+              ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "RunTime": 0.333
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0.167,
+            "Effects": {
+              "WorldSoundEventId": "SFX_Unarmed_Swing",
+              "Particles": [
+                {
+                  "SystemId": "Placeholder_Poison_Melee_Slash",
+                  "TargetEntityPart": "Entity",
+                  "PositionOffset": {
+                    "X": 0,
+                    "Y": 0.75,
+                    "Z": 1.5
+                  },
+                  "RotationOffset": {
+                    "Pitch": -30,
+                    "Roll": 0,
+                    "Yaw": -90
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

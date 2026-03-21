@@ -1,0 +1,1432 @@
+{
+  "Type": "Abstract",
+  "StartState": "Idle",
+  "Parameters": {
+    "Appearance": {
+      "Value": "Frost_Feran",
+      "Description": "Model to be used"
+    },
+    "WanderRadius": {
+      "Value": 15,
+      "Description": "General wander radius"
+    },
+    "SmellRange": {
+      "Value": 20,
+      "Description": "Smell range"
+    },
+    "AlertedRange": {
+      "Value": 30,
+      "Description": "A range within which the player can be seen/sensed when the NPC is alerted to their presence"
+    },
+    "DropList": {
+      "Value": "Drop_Feran_Sharptooth",
+      "Description": "Drop Items"
+    },
+    "MaxSpeed": {
+      "Value": 10,
+      "Description": "Maximum walking speed"
+    },
+    "AttitudeGroup": {
+      "Value": "Feran",
+      "Description": "This NPCs attitude group"
+    },
+    "Weapons": {
+      "Value": [
+        "Weapon_Sword_Bone_Frost"
+      ],
+      "TypeHint": "String",
+      "Description": "NPC Weapons"
+    },
+    "RangedAttackDistance": {
+      "Value": 12,
+      "Description": "Ranged attack distance"
+    },
+    "DesiredAttackDistanceRange": {
+      "Value": [
+        6,
+        12
+      ],
+      "Description": "Desired attack distance range"
+    },
+    "RangedAttackSequence": {
+      "Value": "Component_Instruction_Attack_Sequence_Feran_Sharptooth_Ranged",
+      "Description": "Ranged attack sequence"
+    },
+    "AttackSequence": {
+      "Value": "Component_Instruction_Attack_Sequence_Feran_Sharptooth",
+      "Description": "The attack sequence to use in combat"
+    },
+    "AttackDistance": {
+      "Value": 2,
+      "Description": "The distance at which an NPC will execute attacks"
+    },
+    "BedBlockSet": {
+      "Value": "Feran_Bed",
+      "Description": "The block set designating bedrolls for this NPC"
+    },
+    "CombatRelativeTurnSpeed": {
+      "Value": 1.5,
+      "Description": "Modifier that decides turn speed difference in combat"
+    },
+    "MaxHealth": {
+      "Value": 100,
+      "Description": "Max health for the NPC"
+    },
+    "IsMemory": {
+      "Value": false,
+      "Description": "Defines if the NPC is a memory"
+    },
+    "MemoriesCategory": {
+      "Value": "Other",
+      "Description": "Defines the category of the memory"
+    },
+    "MemoriesNameOverride": {
+      "Value": "",
+      "Description": "Overrides the memory name if set"
+    },
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Template.name",
+      "Description": "Translation key for NPC name display"
+    }
+  },
+  "IsMemory": {
+    "Compute": "IsMemory"
+  },
+  "MemoriesCategory": {
+    "Compute": "MemoriesCategory"
+  },
+  "MemoriesNameOverride": {
+    "Compute": "MemoriesNameOverride"
+  },
+  "Appearance": {
+    "Compute": "Appearance"
+  },
+  "DropList": {
+    "Compute": "DropList"
+  },
+  "DisableDamageGroups": [
+    "Self",
+    "Feran"
+  ],
+  "HotbarItems": {
+    "Compute": "Weapons"
+  },
+  "DefaultNPCAttitude": "Ignore",
+  "DefaultPlayerAttitude": "Hostile",
+  "AttitudeGroup": {
+    "Compute": "AttitudeGroup"
+  },
+  "KnockbackScale": 0.5,
+  "MotionControllerList": [
+    {
+      "Type": "Walk",
+      "MaxWalkSpeed": {
+        "Compute": "MaxSpeed"
+      },
+      "Gravity": 10,
+      "RunThreshold": 0.3,
+      "MaxFallSpeed": 15,
+      "MaxRotationSpeed": 360,
+      "Acceleration": 10
+    }
+  ],
+  "StateTransitions": [
+    {
+      "States": [
+        {
+          "From": [
+            "SleepMove"
+          ],
+          "To": [
+            "Sleep"
+          ]
+        }
+      ],
+      "Actions": {
+        "Reference": "Component_ActionList_Sleep"
+      }
+    },
+    {
+      "States": [
+        {
+          "From": [
+            "Sleep"
+          ],
+          "To": [
+            "Alerted",
+            "Idle"
+          ]
+        }
+      ],
+      "Actions": {
+        "Reference": "Component_ActionList_Wake"
+      }
+    },
+    {
+      "States": [
+        {
+          "From": [
+            "Sleep"
+          ],
+          "To": [
+            "Idle"
+          ]
+        }
+      ],
+      "Actions": [
+        {
+          "Type": "ResetInstructions",
+          "Instructions": [
+            "Feran_Idle_Random_Day"
+          ]
+        }
+      ]
+    }
+  ],
+  "MaxHealth": {
+    "Compute": "MaxHealth"
+  },
+  "Instructions": [
+    {
+      "Instructions": [
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Idle"
+          },
+          "Instructions": [
+            {
+              "Reference": "Component_Instruction_Clear_Status_Animation"
+            },
+            {
+              "Sensor": {
+                "Type": "Or",
+                "Sensors": [
+                  {
+                    "Type": "Beacon",
+                    "Message": "Feran_All_Attack",
+                    "TargetSlot": "LockedTarget"
+                  },
+                  {
+                    "Type": "Beacon",
+                    "Message": "Feran_Warriors_Attack",
+                    "TargetSlot": "LockedTarget"
+                  }
+                ]
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Attack"
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "Beacon",
+                "Message": "Feran_Warriors_Converge",
+                "TargetSlot": "LockedTarget"
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Threaten.Converge"
+                }
+              ]
+            },
+            {
+              "Reference": "Component_Instruction_Damage_Check",
+              "Modify": {
+                "_ExportStates": [
+                  "Attack",
+                  "Search"
+                ],
+                "AlertedRange": {
+                  "Compute": "AlertedRange"
+                }
+              }
+            },
+            {
+              "Sensor": {
+                "Reference": "Component_Sensor_Scent_By_Attitude",
+                "Modify": {
+                  "SmellRange": {
+                    "Compute": "SmellRange"
+                  },
+                  "Attitudes": [
+                    "Hostile",
+                    "Neutral"
+                  ]
+                }
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Alerted"
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "State",
+                "State": ".LeaveCamp"
+              },
+              "Instructions": [
+                {
+                  "Continue": true,
+                  "ActionsAtomic": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        30,
+                        30
+                      ]
+                    },
+                    {
+                      "Type": "ResetInstructions",
+                      "Instructions": [
+                        "Feran_Idle_Random_Day"
+                      ]
+                    },
+                    {
+                      "Type": "State",
+                      "State": ".ReturnHome"
+                    }
+                  ]
+                },
+                {
+                  "Sensor": {
+                    "Type": "Leash",
+                    "Range": 49
+                  },
+                  "Actions": [
+                    {
+                      "Type": "State",
+                      "State": ".ExploreOutside"
+                    }
+                  ]
+                },
+                {
+                  "Sensor": {
+                    "Type": "Leash",
+                    "Range": 0.01
+                  },
+                  "BodyMotion": {
+                    "Type": "Flee",
+                    "RelativeSpeed": 0.45,
+                    "StopDistance": 50,
+                    "SlowDownDistance": 45,
+                    "UseSteering": false,
+                    "RelaxedMoveConstraints": false
+                  }
+                },
+                {
+                  "BodyMotion": {
+                    "Type": "Wander"
+                  }
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "State",
+                "State": ".ExploreOutside"
+              },
+              "Instructions": [
+                {
+                  "Continue": true,
+                  "ActionsAtomic": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        20,
+                        30
+                      ]
+                    },
+                    {
+                      "Type": "ResetInstructions",
+                      "Instructions": [
+                        "Feran_Idle_Random_Day"
+                      ]
+                    },
+                    {
+                      "Type": "State",
+                      "State": ".ReturnHome"
+                    }
+                  ]
+                },
+                {
+                  "Reference": "Component_Instruction_Intelligent_Idle_Motion_Wander"
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "State",
+                "State": ".ReturnHome"
+              },
+              "Instructions": [
+                {
+                  "Continue": true,
+                  "ActionsAtomic": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        30,
+                        30
+                      ]
+                    },
+                    {
+                      "Type": "ResetInstructions",
+                      "Instructions": [
+                        "Feran_Idle_Random_Day"
+                      ]
+                    },
+                    {
+                      "Type": "State",
+                      "State": ".Default"
+                    }
+                  ]
+                },
+                {
+                  "Sensor": {
+                    "Type": "Leash",
+                    "Range": 4
+                  },
+                  "BodyMotion": {
+                    "Type": "Seek",
+                    "RelativeSpeed": 0.45,
+                    "StopDistance": 2,
+                    "SlowDownDistance": 3,
+                    "RelaxedMoveConstraints": false
+                  }
+                },
+                {
+                  "Actions": [
+                    {
+                      "Type": "ResetInstructions",
+                      "Instructions": [
+                        "Feran_Idle_Random_Day"
+                      ]
+                    },
+                    {
+                      "Type": "State",
+                      "State": ".Default"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Type": "Random",
+              "Name": "Feran_Idle_Random_Day",
+              "ResetOnStateChange": false,
+              "Instructions": [
+                {
+                  "Weight": 50,
+                  "Instructions": [
+                    {
+                      "Sensor": {
+                        "Type": "Leash",
+                        "Range": 20
+                      },
+                      "BodyMotion": {
+                        "Type": "Seek",
+                        "RelativeSpeed": 0.45,
+                        "StopDistance": 2,
+                        "SlowDownDistance": 3,
+                        "RelaxedMoveConstraints": false
+                      }
+                    },
+                    {
+                      "Continue": true,
+                      "ActionsAtomic": true,
+                      "Actions": [
+                        {
+                          "Type": "Timeout",
+                          "Delay": [
+                            15,
+                            20
+                          ]
+                        },
+                        {
+                          "Type": "ResetInstructions",
+                          "Instructions": [
+                            "Feran_Idle_Random_Day"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Reference": "Component_Instruction_Intelligent_Idle_Motion_Follow_Path"
+                    }
+                  ]
+                },
+                {
+                  "Weight": 15,
+                  "Actions": [
+                    {
+                      "Type": "State",
+                      "State": ".LeaveCamp"
+                    }
+                  ]
+                },
+                {
+                  "Weight": 10,
+                  "Actions": [
+                    {
+                      "Type": "State",
+                      "State": "SleepMove"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "SleepMove"
+          },
+          "Instructions": [
+            {
+              "Continue": true,
+              "Sensor": {
+                "Type": "Any"
+              },
+              "Actions": [
+                {
+                  "Type": "Timeout",
+                  "Delay": [
+                    10,
+                    10
+                  ],
+                  "Action": {
+                    "Type": "State",
+                    "State": "Sleep"
+                  }
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "And",
+                "Sensors": [
+                  {
+                    "Type": "Block",
+                    "Range": 15,
+                    "Blocks": {
+                      "Compute": "BedBlockSet"
+                    },
+                    "Reserve": true
+                  },
+                  {
+                    "Type": "Not",
+                    "Sensor": {
+                      "Type": "Block",
+                      "Range": 1,
+                      "Blocks": {
+                        "Compute": "BedBlockSet"
+                      },
+                      "Reserve": true
+                    }
+                  }
+                ]
+              },
+              "BodyMotion": {
+                "Type": "Seek",
+                "SlowDownDistance": 2,
+                "StopDistance": 0.1,
+                "RelativeSpeed": 0.35
+              }
+            },
+            {
+              "Sensor": {
+                "Type": "Any"
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Sleep"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Sleep"
+          },
+          "Instructions": [
+            {
+              "Continue": true,
+              "Sensor": {
+                "Type": "Any",
+                "Once": true
+              },
+              "Actions": [
+                {
+                  "Type": "TimerStart",
+                  "Name": "FeranSharptoothSleep",
+                  "StartValueRange": [
+                    10,
+                    10
+                  ],
+                  "RestartValueRange": [
+                    10,
+                    10
+                  ]
+                },
+                {
+                  "Type": "TimerRestart",
+                  "Name": "FeranSharptoothSleep"
+                }
+              ]
+            },
+            {
+              "Instructions": [
+                {
+                  "Reference": "Component_Instruction_Wild_Sleep_State",
+                  "Modify": {
+                    "_ExportStates": [
+                      "Attack",
+                      "Search",
+                      "Alerted",
+                      "Idle.ReturnHome"
+                    ],
+                    "HearingRange": {
+                      "Compute": "SmellRange"
+                    },
+                    "Attitudes": [
+                      "Hostile",
+                      "Neutral"
+                    ],
+                    "WakeupSensor": "Component_Sensor_Feran_Sharptooth_Wakeup"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Alerted"
+          },
+          "Instructions": [
+            {
+              "$Comment": "Animations",
+              "Continue": true,
+              "Sensor": {
+                "Type": "Any",
+                "Once": true
+              },
+              "Actions": [
+                {
+                  "Type": "PlayAnimation",
+                  "Slot": "Status",
+                  "Animation": "Alerted"
+                },
+                {
+                  "Type": "SpawnParticles",
+                  "Offset": [
+                    0,
+                    2.1,
+                    0
+                  ],
+                  "ParticleSystem": "Alerted"
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "Or",
+                "Sensors": [
+                  {
+                    "Type": "Beacon",
+                    "Message": "Feran_All_Attack",
+                    "TargetSlot": "LockedTarget"
+                  },
+                  {
+                    "Type": "Beacon",
+                    "Message": "Feran_Warriors_Attack",
+                    "TargetSlot": "LockedTarget"
+                  }
+                ]
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Attack"
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "Beacon",
+                "Message": "Feran_Warriors_Converge",
+                "TargetSlot": "LockedTarget"
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Threaten.Converge"
+                }
+              ]
+            },
+            {
+              "Reference": "Component_Instruction_Damage_Check",
+              "Modify": {
+                "_ExportStates": [
+                  "Attack",
+                  "Search"
+                ],
+                "AlertedRange": {
+                  "Compute": "AlertedRange"
+                }
+              }
+            },
+            {
+              "Sensor": {
+                "Type": "And",
+                "Sensors": [
+                  {
+                    "Type": "Target",
+                    "Range": {
+                      "Compute": "AlertedRange"
+                    }
+                  },
+                  {
+                    "Type": "Target",
+                    "Filters": [
+                      {
+                        "Type": "NPCGroup",
+                        "IncludeGroups": [
+                          "Scarak"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "ActionsBlocking": true,
+              "Actions": [
+                {
+                  "Type": "Timeout",
+                  "Delay": [
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "Type": "Beacon",
+                  "Message": "Feran_Warriors_Attack",
+                  "Range": 30,
+                  "TargetGroups": [
+                    "Feran"
+                  ],
+                  "SendTargetSlot": "LockedTarget"
+                },
+                {
+                  "Type": "State",
+                  "State": "Attack"
+                }
+              ],
+              "HeadMotion": {
+                "Type": "Watch"
+              }
+            },
+            {
+              "Sensor": {
+                "Type": "And",
+                "Sensors": [
+                  {
+                    "Type": "Target",
+                    "Range": {
+                      "Compute": "AlertedRange"
+                    }
+                  },
+                  {
+                    "Type": "Target",
+                    "Filters": [
+                      {
+                        "Type": "Attitude",
+                        "Attitudes": [
+                          "Hostile"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "ActionsAtomic": true,
+              "Actions": [
+                {
+                  "Type": "Timeout",
+                  "Delay": [
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "Type": "State",
+                  "State": "Attack"
+                }
+              ],
+              "HeadMotion": {
+                "Type": "Watch"
+              }
+            },
+            {
+              "Sensor": {
+                "Reference": "Component_Sensor_Scent_By_Attitude",
+                "Modify": {
+                  "SmellRange": 8,
+                  "Attitudes": [
+                    "Hostile",
+                    "Neutral"
+                  ]
+                }
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Threaten"
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "Target",
+                "Range": {
+                  "Compute": "AlertedRange"
+                }
+              },
+              "HeadMotion": {
+                "Type": "Watch"
+              }
+            },
+            {
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Idle"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Threaten"
+          },
+          "Instructions": [
+            {
+              "Reference": "Component_Instruction_Clear_Status_Animation"
+            },
+            {
+              "Sensor": {
+                "Type": "Or",
+                "Sensors": [
+                  {
+                    "Type": "Beacon",
+                    "Message": "Feran_All_Attack",
+                    "TargetSlot": "LockedTarget"
+                  },
+                  {
+                    "Type": "Beacon",
+                    "Message": "Feran_Warriors_Attack",
+                    "TargetSlot": "LockedTarget"
+                  }
+                ]
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Attack"
+                }
+              ]
+            },
+            {
+              "Reference": "Component_Instruction_Damage_Check",
+              "Modify": {
+                "_ExportStates": [
+                  "Attack",
+                  "Attack"
+                ],
+                "AlertedRange": {
+                  "Compute": "AlertedRange"
+                }
+              }
+            },
+            {
+              "Sensor": {
+                "Reference": "Component_Sensor_Scent_By_Attitude",
+                "Modify": {
+                  "SmellRange": {
+                    "Compute": "SmellRange"
+                  },
+                  "Attitudes": [
+                    "Hostile"
+                  ]
+                }
+              },
+              "Actions": [
+                {
+                  "Type": "State",
+                  "State": "Alerted"
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "Not",
+                "Sensor": {
+                  "Type": "Target",
+                  "Range": {
+                    "Compute": "AlertedRange"
+                  }
+                }
+              },
+              "ActionsAtomic": true,
+              "Actions": [
+                {
+                  "Type": "Timeout",
+                  "Delay": [
+                    5,
+                    10
+                  ]
+                },
+                {
+                  "Type": "State",
+                  "State": "Idle"
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "State",
+                "State": ".Default"
+              },
+              "Instructions": [
+                {
+                  "Sensor": {
+                    "Type": "Target",
+                    "Range": 8
+                  },
+                  "BodyMotion": {
+                    "Type": "Flee",
+                    "SlowDownDistance": 7,
+                    "StopDistance": 10,
+                    "RelaxedMoveConstraints": false
+                  }
+                },
+                {
+                  "Actions": [
+                    {
+                      "Type": "State",
+                      "State": ".Initial"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "State",
+                "State": ".Initial"
+              },
+              "Instructions": [
+                {
+                  "Sensor": {
+                    "Type": "Target",
+                    "Range": 8
+                  },
+                  "Actions": [
+                    {
+                      "Type": "Beacon",
+                      "Message": "Feran_Warriors_Converge",
+                      "Range": 30,
+                      "TargetGroups": [
+                        "Feran"
+                      ],
+                      "SendTargetSlot": "LockedTarget"
+                    },
+                    {
+                      "Type": "State",
+                      "State": ".MoveAgain"
+                    }
+                  ]
+                },
+                {
+                  "Sensor": {
+                    "Type": "Target",
+                    "Range": {
+                      "Compute": "SmellRange"
+                    },
+                    "Filters": [
+                      {
+                        "Type": "LineOfSight"
+                      }
+                    ]
+                  },
+                  "HeadMotion": {
+                    "Type": "Watch"
+                  }
+                },
+                {
+                  "ActionsBlocking": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        5,
+                        10
+                      ]
+                    },
+                    {
+                      "Type": "State",
+                      "State": "Idle"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "State",
+                "State": ".MoveAgain"
+              },
+              "Instructions": [
+                {
+                  "Sensor": {
+                    "Type": "Target",
+                    "Range": 10
+                  },
+                  "BodyMotion": {
+                    "Type": "Flee",
+                    "SlowDownDistance": 9,
+                    "StopDistance": 11,
+                    "RelaxedMoveConstraints": false
+                  }
+                },
+                {
+                  "Actions": [
+                    {
+                      "Type": "State",
+                      "State": ".Angry"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "State",
+                "State": ".Converge"
+              },
+              "Instructions": [
+                {
+                  "Sensor": {
+                    "Type": "Target",
+                    "Range": 11
+                  },
+                  "Actions": [
+                    {
+                      "Type": "State",
+                      "State": ".Angry"
+                    }
+                  ]
+                },
+                {
+                  "Sensor": {
+                    "Type": "Target",
+                    "Range": {
+                      "Compute": "AlertedRange"
+                    }
+                  },
+                  "BodyMotion": {
+                    "Type": "Seek",
+                    "SlowDownDistance": 12,
+                    "StopDistance": 10,
+                    "RelaxedMoveConstraints": false
+                  }
+                },
+                {
+                  "Actions": [
+                    {
+                      "Type": "ReleaseTarget"
+                    },
+                    {
+                      "Type": "State",
+                      "State": "Idle"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "State",
+                "State": ".Angry"
+              },
+              "Instructions": [
+                {
+                  "Continue": true,
+                  "Sensor": {
+                    "Type": "Any",
+                    "Once": true
+                  },
+                  "Actions": [
+                    {
+                      "Type": "Inventory",
+                      "Operation": "EquipHotbar",
+                      "UseTarget": false,
+                      "Slot": 0
+                    }
+                  ]
+                },
+                {
+                  "Sensor": {
+                    "Type": "Target",
+                    "Range": 2
+                  },
+                  "ActionsBlocking": true,
+                  "Actions": [
+                    {
+                      "Type": "Attack",
+                      "$TODO": "Flexibility for other variants",
+                      "Attack": "Feran_Sharptooth_Sword_Swing_Down",
+                      "AttackPauseRange": [
+                        1,
+                        2
+                      ]
+                    },
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        0.3,
+                        0.3
+                      ]
+                    },
+                    {
+                      "Type": "State",
+                      "State": ".MoveAgain"
+                    }
+                  ],
+                  "HeadMotion": {
+                    "Type": "Aim",
+                    "RelativeTurnSpeed": {
+                      "Compute": "CombatRelativeTurnSpeed"
+                    }
+                  }
+                },
+                {
+                  "Sensor": {
+                    "Type": "Target",
+                    "Range": 5
+                  },
+                  "BodyMotion": {
+                    "Type": "Seek",
+                    "SlowDownDistance": 2,
+                    "StopDistance": 1.5,
+                    "RelaxedMoveConstraints": false
+                  }
+                },
+                {
+                  "Continue": true,
+                  "Sensor": {
+                    "Type": "Target",
+                    "Range": {
+                      "Compute": "SmellRange"
+                    },
+                    "Filters": [
+                      {
+                        "Type": "LineOfSight"
+                      }
+                    ]
+                  },
+                  "HeadMotion": {
+                    "Type": "Watch"
+                  }
+                },
+                {
+                  "Sensor": {
+                    "Type": "Not",
+                    "Sensor": {
+                      "Type": "Target",
+                      "Range": 12
+                    }
+                  },
+                  "ActionsAtomic": true,
+                  "Actions": [
+                    {
+                      "Type": "Timeout",
+                      "Delay": [
+                        10,
+                        15
+                      ]
+                    },
+                    {
+                      "Type": "State",
+                      "State": "Idle"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Search"
+          },
+          "Instructions": [
+            {
+              "Reference": "Component_Feran_Instruction_Search",
+              "Modify": {
+                "_ExportStates": [
+                  "Alerted",
+                  "Attack",
+                  "Search",
+                  "Idle"
+                ],
+                "SmellRange": {
+                  "Compute": "SmellRange"
+                },
+                "AlertedRange": {
+                  "Compute": "AlertedRange"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Sensor": {
+            "Type": "State",
+            "State": "Attack"
+          },
+          "Instructions": [
+            {
+              "Reference": "Component_Instruction_Clear_Status_Animation"
+            },
+            {
+              "Continue": true,
+              "Sensor": {
+                "Type": "Any",
+                "Once": true
+              },
+              "Actions": [
+                {
+                  "Type": "Beacon",
+                  "Message": "Feran_Warriors_Attack",
+                  "Range": 30,
+                  "TargetGroups": [
+                    "Feran"
+                  ],
+                  "SendTargetSlot": "LockedTarget"
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "State",
+                "State": ".Default"
+              },
+              "Instructions": [
+                {
+                  "Continue": true,
+                  "Sensor": {
+                    "Type": "Any",
+                    "Once": true
+                  },
+                  "Actions": [
+                    {
+                      "Type": "Inventory",
+                      "Operation": "EquipHotbar",
+                      "UseTarget": false,
+                      "Slot": 0
+                    }
+                  ]
+                },
+                {
+                  "Sensor": {
+                    "Once": true,
+                    "Type": "Not",
+                    "Sensor": {
+                      "Type": "Target",
+                      "Range": 10
+                    }
+                  },
+                  "Actions": [
+                    {
+                      "Type": "State",
+                      "State": ".Ranged"
+                    }
+                  ]
+                },
+                {
+                  "Reference": "Component_Instruction_Intelligent_Switch_To_Ranged_Attack",
+                  "Modify": {
+                    "_ExportStates": [
+                      "Attack.Ranged"
+                    ],
+                    "RangedDistance": {
+                      "Compute": "AttackDistance"
+                    }
+                  }
+                },
+                {
+                  "Reference": "Component_Instruction_Target_Adjusted_Attack_Melee",
+                  "Modify": {
+                    "TargetSwitchTimer": [
+                      5,
+                      5
+                    ],
+                    "AttackSequence": {
+                      "Compute": "AttackSequence"
+                    },
+                    "AttackDistance": {
+                      "Compute": "AttackDistance"
+                    },
+                    "CombatRelativeTurnSpeed": {
+                      "Compute": "CombatRelativeTurnSpeed"
+                    },
+                    "TargetRange": 5
+                  }
+                },
+                {
+                  "$TODO": "Actually send the NPC home",
+                  "Reference": "Component_Instruction_Simple_Soft_Leash",
+                  "Modify": {
+                    "_ExportStates": [
+                      "Idle"
+                    ]
+                  }
+                },
+                {
+                  "$TODO": "Convert this to use smell",
+                  "Reference": "Component_Instruction_Intelligent_Chase",
+                  "Modify": {
+                    "_ExportStates": [
+                      "Search",
+                      "Idle",
+                      "Search"
+                    ],
+                    "ViewRange": {
+                      "Compute": "AlertedRange"
+                    },
+                    "HearingRange": {
+                      "Compute": "SmellRange"
+                    },
+                    "RelativeSpeed": 0.8
+                  }
+                }
+              ]
+            },
+            {
+              "Sensor": {
+                "Type": "State",
+                "State": ".Ranged"
+              },
+              "Instructions": [
+                {
+                  "Continue": true,
+                  "Sensor": {
+                    "Type": "Any",
+                    "Once": true
+                  },
+                  "Actions": [
+                    {
+                      "Type": "Inventory",
+                      "Operation": "EquipHotbar",
+                      "UseTarget": false,
+                      "Slot": 1
+                    }
+                  ]
+                },
+                {
+                  "Sensor": {
+                    "Type": "Target",
+                    "Range": {
+                      "Compute": "AttackDistance"
+                    },
+                    "Filters": [
+                      {
+                        "Type": "LineOfSight"
+                      }
+                    ]
+                  },
+                  "Actions": [
+                    {
+                      "Type": "State",
+                      "State": ".Default"
+                    }
+                  ]
+                },
+                {
+                  "Reference": "Component_Instruction_Target_Adjusted_Attack",
+                  "Modify": {
+                    "TargetSwitchTimer": [
+                      5,
+                      5
+                    ],
+                    "AttackSequence": {
+                      "Compute": "RangedAttackSequence"
+                    },
+                    "AttackDistance": {
+                      "Compute": "RangedAttackDistance"
+                    },
+                    "TargetRange": 5,
+                    "CombatRelativeTurnSpeed": {
+                      "Compute": "CombatRelativeTurnSpeed"
+                    },
+                    "DesiredDistanceRange": {
+                      "Compute": "DesiredAttackDistanceRange"
+                    }
+                  }
+                },
+                {
+                  "Reference": "Component_Instruction_Simple_Soft_Leash",
+                  "Modify": {
+                    "_ExportStates": [
+                      "Idle"
+                    ]
+                  }
+                },
+                {
+                  "$TODO": "Convert this to use smell",
+                  "Reference": "Component_Instruction_Intelligent_Chase",
+                  "Modify": {
+                    "_ExportStates": [
+                      "Search",
+                      "Idle",
+                      "Search"
+                    ],
+                    "ViewRange": {
+                      "Compute": "AlertedRange"
+                    },
+                    "HearingRange": {
+                      "Compute": "SmellRange"
+                    },
+                    "RelativeSpeed": 0.8
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "NameTranslationKey": {
+    "Compute": "NameTranslationKey"
+  }
+}

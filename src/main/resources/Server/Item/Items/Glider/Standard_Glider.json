@@ -1,0 +1,44 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Standard_Glider.name",
+    "Description": "server.items.Standard_Glider.description"
+  },
+  "Parent": "Template_Glider",
+  "ItemLevel": 10,
+  "Quality": "Rare",
+  "Recipe": {
+    "TimeSeconds": 3,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 2
+      },
+      {
+        "ResourceTypeId": "Wood_Trunk",
+        "Quantity": 10
+      },
+      {
+        "ResourceTypeId": "Rock",
+        "Quantity": 5
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Categories": [
+          "Workbench_Tinkering"
+        ],
+        "Id": "Workbench"
+      }
+    ]
+  },
+  "Glider": {
+    "FallSpeedMultiplier": 50,
+    "HorizontalSpeedMultiplier": 0.6,
+    "TerminalVelocity": -4,
+    "Speed": 10
+  },
+  "Categories": [
+    "Endgame.Misc"
+  ]
+}

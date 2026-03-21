@@ -1,0 +1,81 @@
+{
+  "RenderMode": "BlendAdd",
+  "EmitOffset": {
+    "X": { "Min": 0, "Max": 0 },
+    "Y": { "Min": 0, "Max": 0 },
+    "Z": { "Min": 0, "Max": 0 }
+  },
+  "LinearFiltering": true,
+  "LightInfluence": 0,
+  "ParticleRotateWithSpawner": true,
+  "MaxConcurrentParticles": 7,
+  "ParticleLifeSpan": { "Min": 1.5, "Max": 1.5 },
+  "SpawnRate": { "Min": 120, "Max": 180 },
+  "TotalParticles": { "Min": 2, "Max": 2 },
+  "InitialVelocity": {
+    "Speed": { "Min": 0, "Max": 0 },
+    "Yaw": { "Min": 0, "Max": 0 },
+    "Pitch": { "Min": 0, "Max": 0 }
+  },
+  "Attractors": [
+    {
+      "Position": { "X": 0, "Y": 0, "Z": 0 },
+      "RadialAxis": { "X": 0, "Y": 0, "Z": 0 },
+      "Radius": 0,
+      "RadialAcceleration": 0,
+      "RadialTangentAcceleration": 0,
+      "LinearAcceleration": { "X": 0, "Y": 0, "Z": 0 }
+    }
+  ],
+  "Particle": {
+    "Texture": "Particles/Textures/Circles/Portal_Blue.png",
+    "FrameSize": { "Width": 128, "Height": 128 },
+    "ScaleRatioConstraint": "OneToOne",
+    "UVOption": "None",
+    "InitialAnimationFrame": {
+      "Rotation": {
+        "X": { "Min": 90, "Max": 90 },
+        "Z": { "Min": 0 }
+      },
+      "Scale": {
+        "X": { "Min": 0.4, "Max": 0.6 },
+        "Y": { "Min": 0.4, "Max": 0.6 }
+      },
+      "Opacity": 1,
+      "FrameIndex": { "Min": 0, "Max": 0 }
+    },
+    "Animation": {
+      "0": {
+        "FrameIndex": { "Min": 0, "Max": 0 },
+        "Opacity": 1,
+        "Scale": {
+          "X": { "Min": 1, "Max": 1 },
+          "Y": { "Min": 1, "Max": 1 }
+        },
+        "Rotation": {
+          "X": { "Min": 0, "Max": 0 },
+          "Y": { "Min": 0, "Max": 0 },
+          "Z": { "Min": 0, "Max": 0 }
+        },
+        "Color": "#894cff"
+      },
+      "13": {
+        "Opacity": 1
+      },
+      "80": {
+        "Opacity": 0.7
+      },
+      "100": {
+        "Opacity": 0,
+        "Scale": {
+          "X": { "Min": 3.75, "Max": 2.67 },
+          "Y": { "Min": 3.75, "Max": 2.67 }
+        },
+        "Color": "#3d1a6e"
+      }
+    }
+  },
+  "TrailSpawnerRotationMultiplier": 1,
+  "TrailSpawnerPositionMultiplier": 1,
+  "SpawnBurst": true
+}

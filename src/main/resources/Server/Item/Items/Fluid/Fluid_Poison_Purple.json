@@ -1,0 +1,55 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Fluid_Poison.name",
+    "Description": "server.items.Fluid_Poison.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Fluid_Poison_Purple.png",
+  "Categories": [
+    "Blocks.Fluids"
+  ],
+  "Interactions": {
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "PlaceFluid",
+          "FluidToPlace": "Poison_Purple_Source"
+        }
+      ]
+    }
+  },
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Cube",
+    "Effect": [
+      "Lava"
+    ],
+    "Opacity": "Transparent",
+    "Group": "Slime",
+    "BiomeTint": 0,
+    "HitboxType": "Block_Three_Quarter",
+    "Light": {
+      "Color": "#cb3",
+      "Radius": 0
+    },
+    "Flags": {},
+    "Gathering": {
+      "Breaking": {}
+    },
+    "BlockParticleSetId": "Water",
+    "Textures": [
+      {
+        "Weight": 1,
+        "All": "BlockTextures/Fluid_Poison_Purple.png"
+      }
+    ],
+    "BlockSoundSetId": "Mud",
+    "CubeShadingMode": "Fullbright"
+  },
+  "PlayerAnimationsId": "Block",
+  "Tags": {
+    "Material": [
+      "Fluid"
+    ]
+  },
+  "MaxStack": 1
+}

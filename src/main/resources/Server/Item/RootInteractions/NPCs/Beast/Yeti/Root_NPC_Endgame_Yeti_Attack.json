@@ -1,0 +1,20 @@
+{
+  "Interactions": [
+    {
+      "Type": "Chaining",
+      "ChainId": "Slashes",
+      "ChainingAllowance": 15,
+      "Next": [
+        "Endgame_Yeti_Swing_Left",
+        "Endgame_Yeti_Backswing_Right",
+        "Endgame_Yeti_Swing_Right",
+        "Endgame_Yeti_Backswing_Left"
+      ]
+    }
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

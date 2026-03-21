@@ -1,0 +1,60 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Predator",
+  "Modify": {
+    "Appearance": "Zombie_Aberrant",
+    "WanderRadius": 6,
+    "ViewRange": 12,
+    "HearingRange": 8,
+    "DropList": "Drop_Zombie_Aberrant",
+    "MaxSpeed": 10,
+    "Attack": "Root_NPC_Attack_Melee",
+    "AlwaysSleepAtNight": false,
+    "MaxHealth": 400,
+    "DeathAnimationTime": 1.5,
+    "DropDeathItemsInstantly": false,
+    "DeathParticles": "Explosion_Big",
+    "IsMemory": true,
+    "MemoriesCategory": "Undead",
+    "MemoriesNameOverride": "Zombie_Aberrant",
+    "_InteractionVars": {
+      "Melee_Start": {
+        "Interactions": [
+          {
+            "Parent": "NPC_Attack_Melee_Simple",
+            "$Comment": "Sets animations and delay before hit",
+            "Effects": {
+              "ItemPlayerAnimationsId": "Hound_Bleached_Default",
+              "ItemAnimationId": "Bite"
+            },
+            "RunTime": 0.333
+          }
+        ]
+      },
+      "Melee_Damage": {
+        "Interactions": [
+          {
+            "Parent": "NPC_Attack_Melee_Damage",
+            "$Comment": "Sets damage and onhit effects",
+            "DamageCalculator": {
+              "Type": "Absolute",
+              "BaseDamage": {
+                "Physical": 119
+              },
+              "RandomPercentageModifier": 0.1
+            }
+          }
+        ]
+      }
+    },
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Zombie_Aberrant.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

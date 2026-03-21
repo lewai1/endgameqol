@@ -1,0 +1,7 @@
+{
+    "Type": "Chaining",
+    "ChainingAllowance": 0.5,
+    "Next": [
+        "Mithril_Staff_Cast_Summon_Charged_Heavy"
+    ]
+}

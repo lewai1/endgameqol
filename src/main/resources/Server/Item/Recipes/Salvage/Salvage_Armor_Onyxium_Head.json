@@ -1,0 +1,33 @@
+{
+  "Input": [
+    {
+      "ItemId": "Armor_Onyxium_Head",
+      "Quantity": 1
+    }
+  ],
+  "PrimaryOutput": {
+    "ItemId": "Ingredient_Bar_Onyxium",
+    "Quantity": 4
+  },
+  "Output": [
+    {
+      "ItemId": "Ingredient_Bar_Onyxium",
+      "Quantity": 4
+    },
+    {
+      "ItemId": "Ingredient_Leather_Storm",
+      "Quantity": 2
+    },
+    {
+      "ItemId": "Ingredient_Voidheart",
+      "Quantity": 1
+    }
+  ],
+  "BenchRequirement": [
+    {
+      "Type": "Processing",
+      "Id": "Salvagebench"
+    }
+  ],
+  "TimeSeconds": 4
+}

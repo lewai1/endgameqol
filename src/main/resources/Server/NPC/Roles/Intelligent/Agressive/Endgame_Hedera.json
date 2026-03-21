@@ -1,0 +1,43 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Intelligent",
+  "Modify": {
+    "Appearance": "Endgame_Hedera",
+    "DropList": "Drop_Endgame_Hedera",
+    "ViewRange": 80,
+    "HearingRange": 60,
+    "AbsoluteDetectionRange": 20,
+    "AttackDistance": 5,
+    "CombatStrafeWeight": 60,
+    "CombatBackOffDistanceRange": [
+      3,
+      4
+    ],
+    "MaxSpeed": 12,
+    "MaxHealth": 1800,
+    "Weapons": [],
+    "OffHand": [],
+    "UseCombatActionEvaluator": true,
+    "WakingIdleBehaviorComponent": "Component_Instruction_Stationary_Idle",
+    "LeashDistance": 99999,
+    "HardLeashDistance": 99999,
+    "_CombatConfig": "CAE_Hedera",
+    "TargetSwitchTimer": [8, 12],
+    "TargetRange": 6,
+    "DeathAnimationTime": 2.5,
+    "DropDeathItemsInstantly": false,
+    "DeathParticles": "Explosion_Big",
+    "IsMemory": true,
+    "MemoriesCategory": "Voidtaken",
+    "MemoriesNameOverride": "Hedera",
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Hedera.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

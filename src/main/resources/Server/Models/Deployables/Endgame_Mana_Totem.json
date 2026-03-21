@@ -1,0 +1,25 @@
+{
+  "Model": "Items/Deployables/Healing_Totem/Healing_Totem.blockymodel",
+  "Texture": "Items/Deployables/Mana_Totem/Mana_Totem_Texture.png",
+  "EyeHeight": 0.9,
+  "CrouchOffset": 0.0,
+  "MinScale": 1.5,
+  "MaxScale": 1.5,
+  "HitBox": {
+    "Max": { "X": 0.05, "Y": 1.5, "Z": 0.05 },
+    "Min": { "X": -0.05, "Y": 0, "Z": -0.05 }
+  },
+  "Trails": [
+    { "TargetNodeName": "GA1", "TrailId": "Wind" },
+    { "TargetNodeName": "GA2", "TrailId": "Wind" },
+    { "TargetNodeName": "GB1", "TrailId": "Wind" },
+    { "TargetNodeName": "GB2", "TrailId": "Wind" }
+  ],
+  "Particles": [
+    {
+      "SystemId": "Azure_Spiral",
+      "TargetEntityPart": "Entity",
+      "Scale": 1.0
+    }
+  ]
+}

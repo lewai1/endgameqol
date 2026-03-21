@@ -1,0 +1,157 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Endgame_Glider.name",
+    "Description": "server.items.Endgame_Glider.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Endgame_Glider.png",
+  "Model": "Items/Glider/Endgame_Glider_Inhand.blockymodel",
+  "Texture": "Items/Glider/Endgame_Glider.png",
+  "DroppedItemAnimation": "Items/Animations/Dropped/Dropped_Diagonal_Left.blockyanim",
+  "Quality": "Legendary",
+  "ItemLevel": 4,
+  "MaxStack": 1,
+  "Categories": [
+    "Endgame.Misc"
+  ],
+  "Glider": {
+    "FallSpeedMultiplier": 20,
+    "HorizontalSpeedMultiplier": 1.1,
+    "TerminalVelocity": -3,
+    "Speed": 20
+  },
+  "Recipe": {
+    "TimeSeconds": 5,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Onyxium",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Leather_Prismic",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Fabric_Scrap_Linen",
+        "Quantity": 10
+      },
+      {
+        "ItemId": "Ingredient_Stick",
+        "Quantity": 6
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Endgame_Bench",
+        "Type": "Crafting",
+        "Categories": [
+          "Endgame_Misc"
+        ],
+        "RequiredTierLevel": 4
+      }
+    ]
+  },
+  "Interactions": {
+    "Primary": {
+      "RequireNewClick": true,
+      "Interactions": [
+        {
+          "Type": "EffectCondition",
+          "EntityEffectIds": [
+            "Stamina_Broken"
+          ],
+          "Match": "None",
+          "Next": {
+            "Type": "ToggleGlider"
+          }
+        }
+      ]
+    },
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "ModifyInventory",
+          "ItemToRemove": {
+            "Id": "Ingredient_Void_Essence",
+            "Quantity": 5
+          },
+          "Next": {
+            "Type": "StatsCondition",
+            "Costs": {
+              "GlidingActive": 1
+            },
+            "Next": {
+              "Type": "ApplyForce",
+              "Direction": {
+                "X": 0,
+                "Y": 1,
+                "Z": 0
+              },
+              "AdjustVertical": true,
+              "WaitForGround": false,
+              "Force": 45,
+              "Next": {
+                "Type": "Simple",
+                "RunTime": 0.5
+              }
+            }
+          }
+        }
+      ]
+    },
+    "SwapFrom": {
+      "Interactions": [
+        {
+          "Type": "StatsCondition",
+          "Costs": {
+            "GlidingActive": 1
+          },
+          "Next": {
+            "Type": "ToggleGlider"
+          }
+        },
+        {
+          "Type": "ChangeActiveSlot"
+        }
+      ]
+    }
+  },
+  "ItemAppearanceConditions": {
+    "GlidingActive": [
+      {
+        "Condition": [
+          1,
+          1
+        ],
+        "Model": "Items/Glider/Endgame_Glider.blockymodel",
+        "Texture": "Items/Glider/Endgame_Glider.png"
+      }
+    ]
+  },
+  "IconProperties": {
+    "Scale": 0.25,
+    "Rotation": [
+      212.0,
+      326.0,
+      229.0
+    ],
+    "Translation": [
+      -11.0,
+      -39.0
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Glider"
+    ]
+  },
+  "Weapon": {
+    "StatModifiers": {
+      "Reduce_Stamina_Consumption": [
+        {
+          "CalculationType": "Additive",
+          "Amount": 1
+        }
+      ]
+    }
+  }
+}

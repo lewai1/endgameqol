@@ -1,0 +1,74 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Rock_Ice.name"
+  },
+  "Icon": "Icons/ItemsGenerated/Rock_Ice_Blue.png",
+  "Categories": [
+    "Blocks.Rocks"
+  ],
+  "PlayerAnimationsId": "Block",
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Cube",
+    "Group": "Ice",
+    "Flags": {},
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks",
+        "Quantity": 0
+      }
+    },
+    "BlockParticleSetId": "Ice",
+    "Textures": [
+      {
+        "All": "BlockTextures/Rock_Ice_Blue.png",
+        "Weight": 1
+      }
+    ],
+    "BlockSoundSetId": "Ice",
+    "TransitionToGroups": [
+      "Stone",
+      "Grass",
+      "Sand",
+      "Dirt",
+      "Ice",
+      "Gravel"
+    ],
+    "ParticleColor": "#d8fffe",
+    "TransitionToTag": "Fluid=Water",
+    "CubeShadingMode": "Standard",
+    "Opacity": "Solid",
+    "BlockEntity": {
+      "Components": {
+        "FrostwalkerIce": {}
+      }
+    },
+    "Interactions": {
+      "Primary": {
+        "Interactions": [
+          {
+            "Type": "DestroyBlock"
+          }
+        ]
+      }
+    }
+  },
+  "Tags": {
+    "Type": [
+      "Rock"
+    ]
+  },
+  "IconProperties": {
+    "Scale": 0.58823,
+    "Rotation": [
+      22.5,
+      45.0,
+      22.5
+    ],
+    "Translation": [
+      0.0,
+      -13.5
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone"
+}
