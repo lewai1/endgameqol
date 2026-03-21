@@ -60,6 +60,7 @@ src/main/resources/
     BarterShops/            # Vorthak/Korvyn/Morghul shop data
     Drops/                  # Drop tables
     Entity/                 # Entity effects (slow, burn, etc.)
+    Environments/           # Environment configs
     GameplayConfigs/        # Custom gameplay settings
     HytaleGenerator/        # Biome and world gen configs
     Instances/              # Dungeon instance configs
@@ -72,11 +73,15 @@ src/main/resources/
     Prefabs/                # Dungeon prefabs
     ProjectileConfigs/      # Projectile physics
     Projectiles/            # Projectile definitions
+    Weathers/               # Weather configs
   Common/                   # Client-side shared assets
+    Blocks/                 # Custom block models
+    BlockTextures/          # Block textures
+    Docs/                   # In-game documentation (Voile wiki)
     Icons/                  # Item icons
     Items/                  # Item models and textures
     NPC/                    # NPC animations
-    Particles/              # Particle textures
+    Resources/              # Shared resources
     UI/                     # Custom UI pages
 ```
 
