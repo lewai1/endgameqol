@@ -38,19 +38,19 @@ Bosses, weapons, dungeons, NPCs, crafting, and quality-of-life systems for Hytal
 
 ### Gear & Crafting
 
-- [**Items & Weapons**](items) — 40+ weapons, tools, consumables & materials
-- [**Armor & Accessories**](armor) — 5 armor sets, Trinket Pouch & 6 accessories
+- [**Items & Weapons**](items-weapons) — 40+ weapons, tools, consumables & materials
+- [**Armor & Accessories**](armor-accessories) — 5 armor sets, Trinket Pouch & 6 accessories
 
 ### Dungeons & Bosses
 
 - [**Frozen Dungeon**](frozen-dungeon) — Ice cavern — Dragon Frost boss
 - [**Swamp Dungeon**](swamp-dungeon) — Poison swamp — Hedera boss
-- [**Bosses & Elites**](bosses) — 3 bosses, 6 elites, scaling & enrage
+- [**Bosses & Elites**](bosses-elites) — 3 bosses, 6 elites, scaling & enrage
 
 ### Systems
 
-- [**Combo Meter**](combo) — Kill streaks, damage tiers & tier effects
-- [**Bounty Board**](bounty) — Daily & weekly quests, reputation ranks
+- [**Combo Meter**](combo-meter) — Kill streaks, damage tiers & tier effects
+- [**Bounty Board**](bounty-board) — Daily & weekly quests, reputation ranks
 - [**Achievements**](achievements) — 24 achievements across 5 categories
 - [**Bestiary**](bestiary) — 32 NPC entries, kill milestones & discovery
 - [**Warden Trials**](warden-trials) — 4-tier wave survival with configurable timers

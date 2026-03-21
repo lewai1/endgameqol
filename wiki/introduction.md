@@ -45,8 +45,8 @@ Follow these four steps to begin your endgame journey.
 ## Quick Links
 
 - [**Installation Guide**](installation) — Setup, requirements, and configuration
-- [**Weapons & Items**](items) — All 40 weapons, tools, and accessories
-- [**Bosses & Elites**](bosses) — Boss mechanics, phases, and loot
-- [**Bounty Board**](bounty) — Daily and weekly quests
+- [**Weapons & Items**](items-weapons) — All 40 weapons, tools, and accessories
+- [**Bosses & Elites**](bosses-elites) — Boss mechanics, phases, and loot
+- [**Bounty Board**](bounty-board) — Daily and weekly quests
 - [**Achievements**](achievements) — 24 achievements across 5 categories
 - [**Commands**](commands) — All slash commands and permissions

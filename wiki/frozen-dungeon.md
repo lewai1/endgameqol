@@ -65,7 +65,7 @@ Collect them efficiently by clearing rooms systematically before visiting the tr
 
 Instance-locked encounter. The boss arena is sealed once combat begins.
 
-[View full boss guide](bosses)
+[View full boss guide](bosses-elites)
 
 ## Chest Loot Zones
 

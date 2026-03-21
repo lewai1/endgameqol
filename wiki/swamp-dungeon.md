@@ -82,7 +82,7 @@ The **Hedera Key** is crafted exclusively at the **Hedera Autel**, a special ben
 
 Bring antidotes for the poison phases. The root phase locks you in place — dodge the visual telegraph before roots spawn.
 
-[View full boss guide](bosses)
+[View full boss guide](bosses-elites)
 
 ## Chest Loot Tiers
 
