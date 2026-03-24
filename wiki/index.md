@@ -1,5 +1,5 @@
 ---
-title: EndgameQoL Wiki
+title: Index
 description: Main hub page for the EndgameQoL plugin wiki — bosses, weapons, dungeons, NPCs, crafting, and QoL systems.
 order: 0
 published: true

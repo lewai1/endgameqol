@@ -1,5 +1,5 @@
 ---
-title: NPCs & Mobs
+title: Npcs
 description: All endgame NPCs with stats, attacks, and locations
 order: 10
 published: true

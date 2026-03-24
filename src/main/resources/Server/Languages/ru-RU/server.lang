@@ -161,6 +161,7 @@ items.Endgame_Void_Ancient_Light.name = Древний Светильник Пу
 items.Endgame_Void_Block_Light.name = Светильник Пустоты
 items.Endgame_Void_Brick_Light.name = Кирпичный Светильник Пустоты
 items.Endgame_Void_Core_Light.name = Ядро Света Пустоты
+items.Build_Lightsource_Plum.name = Сливовый Светильник
 items.Endgame_Accessory_Pouch.name = Сумка Талисманов
 items.Endgame_Accessory_Pouch.description = Усиленная сумка из лучших материалов эндгейма. Вмещает до <color is="#FFD700">5 аксессуаров</color>, дающих пассивные боевые бонусы.\n<color is="#b8860b">ПКМ</color> для открытия.
 items.Endgame_Accessory_Frostwalkers.name = Ледоступы

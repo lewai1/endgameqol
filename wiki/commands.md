@@ -1,5 +1,5 @@
 ---
-title: Commands & Permissions
+title: Commands
 description: All commands, permission nodes, and the config UI reference.
 order: 15
 published: true

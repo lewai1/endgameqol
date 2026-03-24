@@ -1,5 +1,5 @@
 ---
-title: Database Setup
+title: Database
 description: Optional SQL database for cross-server player data sync
 order: 17
 published: true

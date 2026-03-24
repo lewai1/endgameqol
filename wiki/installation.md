@@ -1,5 +1,5 @@
 ---
-title: Installation Guide
+title: Installation
 description: How to install, configure, and update EndgameQoL on your Hytale server — requirements, steps, dependencies, and troubleshooting.
 order: 2
 published: true

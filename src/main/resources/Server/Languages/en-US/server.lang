@@ -161,6 +161,7 @@ items.Endgame_Void_Ancient_Light.name = Void Ancient Light
 items.Endgame_Void_Block_Light.name = Void Light
 items.Endgame_Void_Brick_Light.name = Void Brick Light
 items.Endgame_Void_Core_Light.name = Void Core Light
+items.Build_Lightsource_Plum.name = Plum Lightsource
 items.Endgame_Accessory_Pouch.name = Trinket Pouch
 items.Endgame_Accessory_Pouch.description = A reinforced pouch crafted from the finest endgame materials. Holds up to <color is="#FFD700">5 accessories</color> that grant passive combat bonuses.\n<color is="#b8860b">Right Click</color> to open.
 items.Endgame_Accessory_Frostwalkers.name = Frostwalkers

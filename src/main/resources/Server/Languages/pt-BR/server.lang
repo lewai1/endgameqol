@@ -161,6 +161,7 @@ items.Endgame_Void_Ancient_Light.name = Luz Ancestral do Vazio
 items.Endgame_Void_Block_Light.name = Luz do Vazio
 items.Endgame_Void_Brick_Light.name = Tijolo Luminoso do Vazio
 items.Endgame_Void_Core_Light.name = Nucleo Luminoso do Vazio
+items.Build_Lightsource_Plum.name = Luz Ameixa
 items.Endgame_Accessory_Pouch.name = Bolsa de Amuletos
 items.Endgame_Accessory_Pouch.description = Uma bolsa reforcada feita com os melhores materiais do endgame. Comporta ate <color is="#FFD700">5 acessorios</color> que concedem bonus passivos de combate.\n<color is="#b8860b">Clique Direito</color> para abrir.
 items.Endgame_Accessory_Frostwalkers.name = Caminhantes de Gelo
