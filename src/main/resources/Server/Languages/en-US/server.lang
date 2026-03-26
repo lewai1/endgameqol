@@ -176,5 +176,5 @@ items.Endgame_Accessory_Pocket_Garden.name = Pocket Garden
 items.Endgame_Accessory_Pocket_Garden.description = A living charm containing a miniature garden that radiates healing energy.\n<color is="#05c09a">Effect:</color> <color is="#2E8B57">+1 HP/sec passive regeneration</color>
 items.Endgame_Accessory_Hedera_Seed.name = Hedera Seed
 items.Endgame_Accessory_Hedera_Seed.description = A dormant seed of Hedera, retaliating against those who would harm its bearer with entangling roots.\n<color is="#05c09a">Effect:</color> <color is="#2E8B57">15% chance to root attacker for 2s</color>
-items.Rift_Compass.name = Rift Compass (WIP)
+items.Rift_Compass.name = Rift Compass
 items.Rift_Compass.description = A mysterious compass that resonates with dimensional rifts. Hold it to sense nearby portals.

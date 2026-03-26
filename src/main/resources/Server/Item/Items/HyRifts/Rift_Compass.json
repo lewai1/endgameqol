@@ -12,5 +12,23 @@
   },
   "Quality": "Rare",
   "ItemLevel": 1,
-  "MaxStack": 1
+  "MaxStack": 1,
+  "Recipe": {
+    "TimeSeconds": 3,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Gold",
+        "Quantity": 25
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Endgame_Bench",
+        "Type": "Crafting",
+        "Categories": ["Endgame_Misc"],
+        "RequiredTierLevel": 1
+      }
+    ],
+    "KnowledgeRequired": false
+  }
 }

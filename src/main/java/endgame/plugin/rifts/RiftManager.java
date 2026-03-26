@@ -549,9 +549,7 @@ public class RiftManager {
             this.broadcastMessage("A rift in reality has opened", "#b388ff");
         }
 
-        if (this.config.portalLifetimeSeconds > 0) {
-            HytaleServer.SCHEDULED_EXECUTOR.schedule(() -> this.closePortal(portalId), (long) this.config.portalLifetimeSeconds, TimeUnit.SECONDS);
-        }
+        schedulePortalExpiry(portalId, this.config.portalLifetimeSeconds);
     }
 
     /**
@@ -1303,9 +1301,7 @@ public class RiftManager {
             this.broadcastMessage("A rift in reality has opened", "#b388ff");
         }
 
-        if (this.config.portalLifetimeSeconds > 0) {
-            HytaleServer.SCHEDULED_EXECUTOR.schedule(() -> this.closePortal(portalId), (long)this.config.portalLifetimeSeconds, TimeUnit.SECONDS);
-        }
+        schedulePortalExpiry(portalId, this.config.portalLifetimeSeconds);
     }
 
     public void forceSpawnAt(World world, Vector3d position, @Nullable String dungeonTypeId) {
@@ -1334,9 +1330,7 @@ public class RiftManager {
             this.broadcastMessage("A rift in reality has opened", "#b388ff");
         }
 
-        if (this.config.portalLifetimeSeconds > 0) {
-            HytaleServer.SCHEDULED_EXECUTOR.schedule(() -> this.closePortal(portalId), (long)this.config.portalLifetimeSeconds, TimeUnit.SECONDS);
-        }
+        schedulePortalExpiry(portalId, this.config.portalLifetimeSeconds);
     }
 
     @Nullable
@@ -1391,17 +1385,25 @@ public class RiftManager {
                 }
             } catch (Exception ignored) {}
 
+            // Evacuate any players still inside the instance before tearing it down
+            evacuateInstancePlayers(portal);
+
             // Stop the return portal keep-alive task before removing the instance
             ScheduledFuture<?> keepAlive = returnPortalKeepAlive.remove(portalId);
             if (keepAlive != null) keepAlive.cancel(false);
 
+            // Delay instance removal slightly to let evacuation teleports complete
             World instanceWorld = portal.instanceWorld();
             if (instanceWorld != null && instanceWorld.isAlive()) {
-                try {
-                    instanceWorld.execute(() -> InstancesPlugin.safeRemoveInstance(instanceWorld));
-                } catch (Exception e) {
-                    ((HytaleLogger.Api)LOGGER.atWarning()).log("[HyRifts] Failed to remove instance for portal %s: %s", portalId, e.getMessage());
-                }
+                HytaleServer.SCHEDULED_EXECUTOR.schedule(() -> {
+                    try {
+                        if (instanceWorld.isAlive()) {
+                            instanceWorld.execute(() -> InstancesPlugin.safeRemoveInstance(instanceWorld));
+                        }
+                    } catch (Exception e) {
+                        ((HytaleLogger.Api) LOGGER.atWarning()).log("[HyRifts] Failed to remove instance for portal %s: %s", portalId, e.getMessage());
+                    }
+                }, 3, TimeUnit.SECONDS);
             }
 
             endgame.plugin.EndgameQoL elPlugin = endgame.plugin.EndgameQoL.getInstance();
@@ -1443,6 +1445,93 @@ public class RiftManager {
             if (entry.getValue().isExpired()) {
                 this.closePortal(entry.getKey());
             }
+        }
+    }
+
+    /**
+     * Schedule the portal expiry: a 1-minute warning to players inside the instance,
+     * followed by the actual close (which evacuates players first).
+     */
+    private void schedulePortalExpiry(String portalId, int lifetimeSeconds) {
+        if (lifetimeSeconds <= 0) return;
+
+        // 1-minute warning (only if lifetime > 60s, otherwise warn immediately isn't useful)
+        if (lifetimeSeconds > 60) {
+            HytaleServer.SCHEDULED_EXECUTOR.schedule(
+                    () -> warnInstancePlayers(portalId, 60),
+                    (long) lifetimeSeconds - 60, TimeUnit.SECONDS);
+        }
+
+        // Actual close
+        HytaleServer.SCHEDULED_EXECUTOR.schedule(
+                () -> this.closePortal(portalId),
+                (long) lifetimeSeconds, TimeUnit.SECONDS);
+    }
+
+    /** Send a warning message to all players currently inside this portal's instance. */
+    private void warnInstancePlayers(String portalId, int secondsRemaining) {
+        ActiveRift portal = this.activePortals.get(portalId);
+        if (portal == null) return;
+        World instanceWorld = portal.instanceWorld();
+        if (instanceWorld == null || !instanceWorld.isAlive()) return;
+
+        try {
+            Message warning = Message.raw(
+                    String.format("The rift is destabilizing! %d seconds remaining...", secondsRemaining))
+                    .color("#ff5555");
+
+            for (PlayerRef player : Universe.get().getPlayers()) {
+                try {
+                    UUID worldUuid = player.getWorldUuid();
+                    if (worldUuid == null) continue;
+                    World playerWorld = Universe.get().getWorld(worldUuid);
+                    if (playerWorld != null && playerWorld.getName().equals(instanceWorld.getName())) {
+                        player.sendMessage(warning);
+                    }
+                } catch (Exception ignored) {}
+            }
+        } catch (Exception e) {
+            ((HytaleLogger.Api) LOGGER.atWarning()).log(
+                    "[HyRifts] Failed to warn instance players for %s: %s", portalId, e.getMessage());
+        }
+    }
+
+    /**
+     * Evacuate all players from the portal's instance world back to the overworld
+     * using the normal exit path. Called before the instance is removed.
+     */
+    private void evacuateInstancePlayers(ActiveRift portal) {
+        World instanceWorld = portal.instanceWorld();
+        if (instanceWorld == null || !instanceWorld.isAlive()) return;
+
+        try {
+            Message kickMsg = Message.raw("The rift has collapsed! You have been returned to safety.")
+                    .color("#ff8800");
+
+            for (PlayerRef player : Universe.get().getPlayers()) {
+                try {
+                    UUID worldUuid = player.getWorldUuid();
+                    if (worldUuid == null) continue;
+                    World playerWorld = Universe.get().getWorld(worldUuid);
+                    if (playerWorld != null && playerWorld.getName().equals(instanceWorld.getName())) {
+                        player.sendMessage(kickMsg);
+                        instanceWorld.execute(() -> {
+                            try {
+                                InstancesPlugin.exitInstance(
+                                        player.getReference(),
+                                        player.getReference().getStore()
+                                );
+                            } catch (Exception e) {
+                                ((HytaleLogger.Api) LOGGER.atWarning()).log(
+                                        "[HyRifts] Failed to evacuate player: %s", e.getMessage());
+                            }
+                        });
+                    }
+                } catch (Exception ignored) {}
+            }
+        } catch (Exception e) {
+            ((HytaleLogger.Api) LOGGER.atWarning()).log(
+                    "[HyRifts] Failed to evacuate players from %s: %s", portal.portalId(), e.getMessage());
         }
     }
 
