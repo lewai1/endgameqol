@@ -35,6 +35,10 @@ import endgame.plugin.systems.trial.WardenTrialManager;
 import endgame.plugin.systems.trial.StartWardenTrialInteraction;
 import endgame.plugin.systems.trial.StartGauntletInteraction;
 import endgame.plugin.utils.I18n;
+import endgame.plugin.rifts.RiftConfig;
+import endgame.plugin.rifts.RiftCompassTracker;
+import endgame.plugin.rifts.RiftManager;
+import endgame.plugin.rifts.RiftCommand;
 import endgame.plugin.watchers.ForgottenTempleWatcher;
 
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Interaction;
@@ -69,6 +73,10 @@ public class EndgameQoL extends JavaPlugin {
     private EventRegistry eventRegistry;
     private DatabaseInitializer databaseInitializer;
     private LegacyDataMigration legacyMigration;
+
+    // HyRifts — dynamic dungeon portal system
+    private RiftManager riftManager;
+    private RiftCompassTracker riftCompassTracker;
 
     private endgame.plugin.events.RecipeOverrideSystem recipeOverrideSystem;
     private ForgottenTempleWatcher forgottenTempleWatcher;
@@ -178,6 +186,14 @@ public class EndgameQoL extends JavaPlugin {
         initEndlessLevelingIntegration();
         initOrbisGuardIntegration();
         endgame.plugin.integration.ClaimProtectionBridge.get().init();
+
+        // HyRifts — dynamic dungeon portal system (by Zbeve)
+        RiftConfig riftConfig = new RiftConfig();
+        riftConfig.load();
+        this.riftManager = new RiftManager(riftConfig);
+        this.riftCompassTracker = new RiftCompassTracker(riftConfig, this.riftManager);
+        this.getCommandRegistry().registerCommand(new RiftCommand());
+        this.getLogger().atInfo().log("[EndgameQoL] HyRifts initialized");
 
         // HStats analytics (hstats.dev)
         new HStats("00a9cb44-fac7-4aae-bdd7-8fb5e8291280", "4.1.3");
@@ -400,6 +416,13 @@ public class EndgameQoL extends JavaPlugin {
             this.recipeOverrideSystem.apply(this.recipeOverrideConfig);
         }
 
+        // Start HyRifts portal system
+        if (this.riftManager != null) {
+            this.riftManager.start();
+            this.riftCompassTracker.start();
+            this.getLogger().atInfo().log("[EndgameQoL] HyRifts started");
+        }
+
         // Start the Forgotten Temple watcher for Vorthak merchant
         this.getLogger().atInfo().log("[EndgameQoL] Starting ForgottenTempleWatcher...");
         this.forgottenTempleWatcher = new ForgottenTempleWatcher(this);
@@ -449,6 +472,15 @@ public class EndgameQoL extends JavaPlugin {
 
         if (this.eventRegistry != null) {
             this.eventRegistry.shutdown();
+        }
+
+        // Shut down HyRifts
+        if (this.riftManager != null) {
+            this.riftCompassTracker.stop();
+            this.riftManager.stop();
+            this.riftManager = null;
+            this.riftCompassTracker = null;
+            this.getLogger().atInfo().log("[EndgameQoL] HyRifts stopped");
         }
 
         // Reset static state so reload picks up config changes
@@ -583,6 +615,26 @@ public class EndgameQoL extends JavaPlugin {
 
     public AchievementManager getAchievementManager() {
         return achievementManager;
+    }
+
+    @Nullable
+    public RiftManager getRiftManager() {
+        return riftManager;
+    }
+
+    /** Reload HyRifts config at runtime (used by /rift reload). */
+    public void reloadRifts() {
+        if (riftManager != null) {
+            riftCompassTracker.stop();
+            riftManager.stop();
+        }
+        RiftConfig riftConfig = new RiftConfig();
+        riftConfig.load();
+        this.riftManager = new RiftManager(riftConfig);
+        this.riftCompassTracker = new RiftCompassTracker(riftConfig, this.riftManager);
+        this.riftManager.start();
+        this.riftCompassTracker.start();
+        this.getLogger().atInfo().log("[EndgameQoL] HyRifts reloaded");
     }
 
     // --- Delegating getter to DatabaseInitializer ---

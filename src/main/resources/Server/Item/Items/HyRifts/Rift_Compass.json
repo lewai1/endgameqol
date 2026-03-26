@@ -1,0 +1,16 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Rift_Compass.name",
+    "Description": "server.items.Rift_Compass.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Rift_Compass.png",
+  "PlayerAnimationsId": "Item",
+  "Tags": {
+    "Type": [
+      "Tool"
+    ]
+  },
+  "Quality": "Rare",
+  "ItemLevel": 1,
+  "MaxStack": 1
+}

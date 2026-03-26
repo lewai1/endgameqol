@@ -30,9 +30,6 @@
     "TimidDuringDay": false,
     "AlwaysSleepAtNight": false,
     "MaxHealth": 550,
-    "DeathAnimationTime": 2.0,
-    "DropDeathItemsInstantly": false,
-    "DeathParticles": "Explosion_Big",
     "IsMemory": true,
     "MemoriesCategory": "Reptile",
     "NameTranslationKey": {

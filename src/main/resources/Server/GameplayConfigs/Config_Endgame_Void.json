@@ -3,7 +3,7 @@
     "Death": {
         "ItemsLossMode": "None",
         "RespawnController": {
-            "Type": "WorldSpawnPoint"
+            "Type": "ExitInstance"
         }
     },
     "World": {
