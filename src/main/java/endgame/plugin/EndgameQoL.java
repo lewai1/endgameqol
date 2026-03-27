@@ -180,7 +180,7 @@ public class EndgameQoL extends JavaPlugin {
         endgame.plugin.integration.ClaimProtectionBridge.get().init();
 
         // HStats analytics (hstats.dev)
-        new HStats("00a9cb44-fac7-4aae-bdd7-8fb5e8291280", "4.1.4");
+        new HStats("00a9cb44-fac7-4aae-bdd7-8fb5e8291280", "4.1.5");
 
         this.getLogger().atInfo().log("[EndgameQoL] Setup finished!");
     }

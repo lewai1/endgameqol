@@ -22,12 +22,12 @@ repositories {
 dependencies {
     compileOnly("com.hypixel.hytale:Server:2026.03.26-89796e57b")
 
-    implementation("me.elliesaur:HyUI:0.9.4")
+    implementation("me.elliesaur:HyUI:0.9.5")
     implementation("com.zaxxer:HikariCP:5.1.0")
 
-    compileOnly("org.zuxaw:RPGLeveling:0.3.0")
-    compileOnly("com.airijko:EndlessLeveling:6.9")
-    compileOnly("com.orbisguard:OrbisGuard:0.8.7")
+    compileOnly("org.zuxaw:RPGLeveling:0.3.2")
+    compileOnly("com.airijko:EndlessLeveling:6.9.2")
+    compileOnly("com.orbisguard:OrbisGuard:0.8.8")
 
     compileOnly("org.xerial:sqlite-jdbc:3.45.1.0")
     compileOnly("com.mysql:mysql-connector-j:8.0.33")
@@ -48,6 +48,7 @@ tasks.shadowJar {
     archiveClassifier.set("")
     mergeServiceFiles()
     relocate("com.zaxxer.hikari", "endgame.shaded.hikari")
+    relocate("org.slf4j", "endgame.shaded.slf4j")
 }
 
 // Auto-deploy to Hytale Mods folder after build
