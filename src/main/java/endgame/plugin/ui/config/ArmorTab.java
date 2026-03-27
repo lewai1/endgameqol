@@ -50,7 +50,7 @@ public class ArmorTab extends ConfigTabBuilder {
         sb.append("</div>");
 
         sb.append("<div class=\"card\">");
-        sb.append("<p class=\"group-header\" style=\"color: #66ccff;\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.armor.mana_regen"))).append("</p>");
+        sb.append("<p class=\"group-header\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.armor.mana_regen"))).append("</p>");
         sb.append("<p class=\"section-hint\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.armor.mana_regen_hint"))).append("</p>");
 
         sb.append(String.format("""
@@ -97,7 +97,7 @@ public class ArmorTab extends ConfigTabBuilder {
         sb.append("</div>");
 
         sb.append("<div class=\"card\">");
-        sb.append("<p class=\"group-header\" style=\"color: #ff8888;\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.armor.hp_regen"))).append("</p>");
+        sb.append("<p class=\"group-header\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.armor.hp_regen"))).append("</p>");
 
         sb.append(String.format("""
                 <div class="combat-row">

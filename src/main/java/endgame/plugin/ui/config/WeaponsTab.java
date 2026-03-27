@@ -48,9 +48,9 @@ public class WeaponsTab extends ConfigTabBuilder {
                     </div>
                     <p class="weapon-desc">%s</p>
 
-                    <p class="group-header" style="color: #88ff88;">%s</p>
+                    <p class="group-header">%s</p>
                     <p class="section-hint">%s</p>
-                    <div class="craft-row" style="background-color: #1a2a1a;">
+                    <div class="craft-row">
                         <input type="checkbox" id="HederaPoisonToggle" %s/>
                         <label class="craft-label">%s</label>
                     </div>
@@ -67,9 +67,9 @@ public class WeaponsTab extends ConfigTabBuilder {
 
                     <div class="divider"></div>
 
-                    <p class="group-header" style="color: #ff8888;">%s</p>
+                    <p class="group-header">%s</p>
                     <p class="section-hint">%s</p>
-                    <div class="craft-row" style="background-color: #2a1a1a;">
+                    <div class="craft-row">
                         <input type="checkbox" id="HederaLifestealToggle" %s/>
                         <label class="craft-label">%s</label>
                     </div>
@@ -126,7 +126,7 @@ public class WeaponsTab extends ConfigTabBuilder {
                     </div>
                     <p class="weapon-desc">%s</p>
 
-                    <div class="craft-row" style="background-color: #2a1a0a;">
+                    <div class="craft-row">
                         <input type="checkbox" id="BlazefistBurnToggle" %s/>
                         <label class="craft-label">%s</label>
                     </div>
@@ -173,7 +173,7 @@ public class WeaponsTab extends ConfigTabBuilder {
                     <p class="weapon-header">%s</p>
                     <p class="weapon-desc">%s</p>
 
-                    <div class="craft-row" style="background-color: #1a1a2a;">
+                    <div class="craft-row">
                         <input type="checkbox" id="PrismaMirageToggle" %s/>
                         <label class="craft-label">%s</label>
                     </div>
@@ -206,7 +206,7 @@ public class WeaponsTab extends ConfigTabBuilder {
                     <p class="weapon-header">%s</p>
                     <p class="weapon-desc">%s</p>
 
-                    <div class="craft-row" style="background-color: #1a1a2a;">
+                    <div class="craft-row">
                         <input type="checkbox" id="VoidMarkToggle" %s/>
                         <label class="craft-label">%s</label>
                     </div>
@@ -215,7 +215,7 @@ public class WeaponsTab extends ConfigTabBuilder {
                         <input type="number" id="VoidMarkDuration" class="combat-input" step="1000" value="%d"/>
                         <p class="combat-hint">(1000 - 60000) ms</p>
                     </div>
-                    <div class="craft-row" style="background-color: #2a1a2a;">
+                    <div class="craft-row">
                         <input type="checkbox" id="VoidMarkExecToggle" %s/>
                         <label class="craft-label">%s</label>
                     </div>
@@ -252,7 +252,7 @@ public class WeaponsTab extends ConfigTabBuilder {
                     <p class="weapon-header">%s</p>
                     <p class="weapon-desc">%s</p>
 
-                    <div class="craft-row" style="background-color: #1a1a2a;">
+                    <div class="craft-row">
                         <input type="checkbox" id="DaggerBlinkToggle" %s/>
                         <label class="craft-label">%s</label>
                     </div>
@@ -276,7 +276,7 @@ public class WeaponsTab extends ConfigTabBuilder {
                     <p class="weapon-header">%s</p>
                     <p class="weapon-desc">%s</p>
 
-                    <div class="craft-row" style="background-color: #1a1a2a;">
+                    <div class="craft-row">
                         <input type="checkbox" id="DaggerTrailToggle" %s/>
                         <label class="craft-label">%s</label>
                     </div>

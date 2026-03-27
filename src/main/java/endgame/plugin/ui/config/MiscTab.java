@@ -221,14 +221,24 @@ public class MiscTab extends ConfigTabBuilder {
 
         sb.append("<div class=\"divider\"></div>");
 
-        // ── Section: Misc Settings ──
+        // ── Section: NPC & Spawning ──
         sb.append("<p class=\"section-header\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.misc.settings"))).append("</p>");
+
         sb.append("<div class=\"card\">");
         sb.append(String.format("""
+                <p class="group-header">Vorthak Merchant</p>
                 <div class="toggle-row">
                     <input type="checkbox" id="VorthakEnabled" %s/>
                     <label class="toggle-label" data-hyui-tooltiptext="Enable Vorthak merchant spawning in the Forgotten Temple.">%s</label>
                 </div>
+                """,
+                config.isVorthakEnabled() ? "checked" : "",
+                HtmlUtil.escape(I18n.getFor(locale, "ui.misc.vorthak"))));
+        sb.append("</div>");
+
+        sb.append("<div class=\"card\">");
+        sb.append(String.format("""
+                <p class="group-header">Golem Void Minions</p>
                 <div class="combat-row">
                     <label class="combat-label" data-hyui-tooltiptext="Radius around the boss where minions spawn. Range: 1-50 blocks.">%s</label>
                     <input type="number" id="MinionSpawnRadius" class="combat-input" step="1" value="%.0f"/>
@@ -240,8 +250,6 @@ public class MiscTab extends ConfigTabBuilder {
                     <p class="combat-hint">(0.1 - 10.0) x multiplier</p>
                 </div>
                 """,
-                config.isVorthakEnabled() ? "checked" : "",
-                HtmlUtil.escape(I18n.getFor(locale, "ui.misc.vorthak")),
                 HtmlUtil.escape(I18n.getFor(locale, "ui.misc.minion_radius")),
                 config.getMinionSpawnRadius(),
                 HtmlUtil.escape(I18n.getFor(locale, "ui.misc.eye_void_hp")),

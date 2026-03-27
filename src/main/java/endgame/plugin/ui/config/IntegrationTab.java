@@ -42,7 +42,7 @@ public class IntegrationTab extends ConfigTabBuilder {
                         <input type="checkbox" id="RPGLevelingToggle" %s/>
                         <label class="toggle-label" data-hyui-tooltiptext="%s">%s</label>
                     </div>
-                    <p class="section-hint" style="color: #f5c542;">%s</p>
+                    <p class="section-hint">%s</p>
                 </div>
                 """,
                 getStatusBackgroundColor(rpgEnabled, rpgPresent),
@@ -68,7 +68,7 @@ public class IntegrationTab extends ConfigTabBuilder {
                         <input type="checkbox" id="EndlessLevelingToggle" %s/>
                         <label class="toggle-label" data-hyui-tooltiptext="%s">%s</label>
                     </div>
-                    <p class="section-hint" style="color: #f5c542;">%s</p>
+                    <p class="section-hint">%s</p>
                 </div>
                 """,
                 getStatusBackgroundColor(elEnabled, elPresent),
@@ -82,7 +82,7 @@ public class IntegrationTab extends ConfigTabBuilder {
         // ── EL-specific settings (only shown when EL is enabled) ──
         if (elEnabled) {
             sb.append("<div class=\"card\">");
-            sb.append(String.format("<p class=\"group-header\" style=\"color: #a78bfa;\">%s</p>",
+            sb.append(String.format("<p class=\"group-header\">%s</p>",
                     HtmlUtil.escape(I18n.getFor(locale, "ui.el.settings"))));
 
             // Party XP share range
@@ -155,7 +155,7 @@ public class IntegrationTab extends ConfigTabBuilder {
                         <input type="checkbox" id="OrbisGuardToggle" %s/>
                         <label class="toggle-label" data-hyui-tooltiptext="%s">%s</label>
                     </div>
-                    <p class="section-hint" style="color: #f5c542;">%s</p>
+                    <p class="section-hint">%s</p>
                 </div>
                 """,
                 getStatusBackgroundColor(ogEnabled, ogPresent),
@@ -169,7 +169,7 @@ public class IntegrationTab extends ConfigTabBuilder {
         // ── OG-specific settings (only shown when OG is enabled) ──
         if (ogEnabled) {
             sb.append("<div class=\"card\">");
-            sb.append(String.format("<p class=\"group-header\" style=\"color: #60a5fa;\">%s</p>",
+            sb.append(String.format("<p class=\"group-header\">%s</p>",
                     HtmlUtil.escape(I18n.getFor(locale, "ui.og.settings"))));
 
             // Block building
@@ -218,7 +218,7 @@ public class IntegrationTab extends ConfigTabBuilder {
 
         // Bosses
         sb.append("<div class=\"card\">");
-        sb.append("<p class=\"group-header\" style=\"color: #c084fc;\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.rpg.bosses"))).append("</p>");
+        sb.append("<p class=\"group-header\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.rpg.bosses"))).append("</p>");
         for (BossType boss : new BossType[] { BossType.DRAGON_FROST, BossType.HEDERA, BossType.GOLEM_VOID }) {
             BossConfig bc = config.getBossConfig(boss);
             sb.append(String.format("""
@@ -234,7 +234,7 @@ public class IntegrationTab extends ConfigTabBuilder {
 
         // Elites
         sb.append("<div class=\"card\">");
-        sb.append("<p class=\"group-header\" style=\"color: #88aaff;\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.rpg.elites"))).append("</p>");
+        sb.append("<p class=\"group-header\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.rpg.elites"))).append("</p>");
         for (BossType boss : new BossType[] { BossType.ALPHA_REX, BossType.SPECTRE_VOID, BossType.DRAGON_FIRE, BossType.ZOMBIE_ABERRANT, BossType.SWAMP_CROCODILE, BossType.BRAMBLE_ELITE }) {
             BossConfig bc = config.getBossConfig(boss);
             sb.append(String.format("""
@@ -386,9 +386,9 @@ public class IntegrationTab extends ConfigTabBuilder {
     // === Status helper methods ===
 
     private static String getStatusBackgroundColor(boolean enabled, boolean modPresent) {
-        if (enabled && modPresent) return "#1a2a1a";
-        if (enabled && !modPresent) return "#2a2a1a";
-        return "#1e1e2e";
+        if (enabled && modPresent) return "#1a2230";
+        if (enabled && !modPresent) return "#221e1a";
+        return "#181c28";
     }
 
     private static String getStatusColor(boolean enabled, boolean modPresent) {

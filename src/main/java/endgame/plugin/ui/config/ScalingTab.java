@@ -88,7 +88,7 @@ public class ScalingTab extends ConfigTabBuilder {
                     <div class="combat-row">
                         <label class="combat-label" data-hyui-tooltiptext="%s — Base HP: %d. Set 0 to use difficulty preset.">%s HP:</label>
                         <input type="number" id="%s_Health" class="combat-input" value="%d"/>
-                        <p class="combat-hint">\u2192</p>
+                        <p class="combat-hint">=</p>
                         <p class="combat-value">%d HP final</p>
                     </div>
                     """, boss.getDisplayName(), boss.getDefaultHealth(),
@@ -122,7 +122,7 @@ public class ScalingTab extends ConfigTabBuilder {
         }
         if (hasScaling) {
             sb.append("<div class=\"divider\"></div>");
-            sb.append("<p class=\"group-header\" style=\"color: #66cccc;\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.scaling.player_scaling"))).append("</p>");
+            sb.append("<p class=\"group-header\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.scaling.player_scaling"))).append("</p>");
             sb.append("<p class=\"section-hint\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.scaling.player_scaling_hint"))).append("</p>");
             for (BossType boss : bossTypes) {
                 if (boss.getDefaultPlayerScaling() > 0 || config.getBossConfig(boss).getPlayerScaling() > 0) {
@@ -155,7 +155,7 @@ public class ScalingTab extends ConfigTabBuilder {
 
             // Prisma balance toggles
             sb.append("<div class=\"divider\"></div>");
-            sb.append("<p class=\"group-header\" style=\"color: #d16eff;\">Prisma Balance</p>");
+            sb.append("<p class=\"group-header\">Prisma Balance</p>");
             sb.append(String.format("""
                     <div class="combat-section">
                         <div class="combat-row">
@@ -172,7 +172,7 @@ public class ScalingTab extends ConfigTabBuilder {
 
             // Enrage system
             sb.append("<div class=\"divider\"></div>");
-            sb.append("<p class=\"group-header\" style=\"color: #ff6666;\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.scaling.enrage"))).append("</p>");
+            sb.append("<p class=\"group-header\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.scaling.enrage"))).append("</p>");
             sb.append("<p class=\"section-hint\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.scaling.enrage_hint"))).append("</p>");
 
             for (BossType boss : bossTypes) {

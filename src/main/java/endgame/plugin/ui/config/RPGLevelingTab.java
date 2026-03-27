@@ -46,7 +46,7 @@ public class RPGLevelingTab extends ConfigTabBuilder {
                         <input type="checkbox" id="RPGLevelingToggle" %s/>
                         <label class="toggle-label" data-hyui-tooltiptext="%s">%s</label>
                     </div>
-                    <p class="section-hint" style="color: #f5c542;">%s</p>
+                    <p class="section-hint">%s</p>
                 </div>
                 """, statusBg, statusColor, statusText,
                 enabled ? "checked" : "",
@@ -62,7 +62,7 @@ public class RPGLevelingTab extends ConfigTabBuilder {
 
         // Bosses section
         sb.append("<div class=\"card\">");
-        sb.append("<p class=\"group-header\" style=\"color: #c084fc;\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.rpg.bosses"))).append("</p>");
+        sb.append("<p class=\"group-header\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.rpg.bosses"))).append("</p>");
         for (BossType boss : new BossType[] { BossType.DRAGON_FROST, BossType.HEDERA, BossType.GOLEM_VOID }) {
             BossConfig bc = config.getBossConfig(boss);
             sb.append(String.format("""
@@ -78,7 +78,7 @@ public class RPGLevelingTab extends ConfigTabBuilder {
 
         // Elite Mobs section
         sb.append("<div class=\"card\">");
-        sb.append("<p class=\"group-header\" style=\"color: #88aaff;\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.rpg.elites"))).append("</p>");
+        sb.append("<p class=\"group-header\">").append(HtmlUtil.escape(I18n.getFor(locale, "ui.rpg.elites"))).append("</p>");
         for (BossType boss : new BossType[] { BossType.ALPHA_REX, BossType.SPECTRE_VOID, BossType.DRAGON_FIRE, BossType.ZOMBIE_ABERRANT, BossType.SWAMP_CROCODILE, BossType.BRAMBLE_ELITE }) {
             BossConfig bc = config.getBossConfig(boss);
             sb.append(String.format("""
