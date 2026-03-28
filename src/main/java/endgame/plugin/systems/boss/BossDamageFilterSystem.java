@@ -36,8 +36,13 @@ public class BossDamageFilterSystem extends AbstractBossDamageSystem {
     private static final Query<EntityStore> QUERY = Query.and(
             Player.getComponentType());
 
+    private static final long PLAYER_COUNT_CACHE_TTL_MS = 2000;
+
     private final EndgameQoL plugin;
     private final EnrageTracker enrageTracker;
+    private volatile int cachedPlayerCount = 1;
+    private volatile long playerCountCacheTime = 0;
+    private volatile World cachedWorld = null;
 
     public BossDamageFilterSystem(EndgameQoL plugin, EnrageTracker enrageTracker) {
         this.plugin = plugin;
@@ -121,9 +126,13 @@ public class BossDamageFilterSystem extends AbstractBossDamageSystem {
     }
 
     /**
-     * Count players in a specific world.
+     * Count players in a specific world. Cached for 2s to avoid O(n) per damage event.
      */
     private int countPlayersInWorld(@Nonnull World world) {
+        long now = System.currentTimeMillis();
+        if (now - playerCountCacheTime < PLAYER_COUNT_CACHE_TTL_MS && world.equals(cachedWorld)) {
+            return cachedPlayerCount;
+        }
         int count = 0;
         for (PlayerRef player : Universe.get().getPlayers()) {
             try {
@@ -138,6 +147,9 @@ public class BossDamageFilterSystem extends AbstractBossDamageSystem {
                 plugin.getLogger().atFine().log("[BossDamageFilter] Error counting player: %s", e.getMessage());
             }
         }
-        return Math.max(1, count);
+        cachedPlayerCount = Math.max(1, count);
+        cachedWorld = world;
+        playerCountCacheTime = now;
+        return cachedPlayerCount;
     }
 }

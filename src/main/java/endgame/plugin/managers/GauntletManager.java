@@ -294,7 +294,6 @@ public class GauntletManager {
     public void tick(Store<EntityStore> store) {
         if (activeGauntlets.isEmpty()) return;
 
-        // Process deferred HUD removals
         for (GauntletState state : activeGauntlets.values()) {
             if (state.pendingHudRemoval) {
                 state.pendingHudRemoval = false;
@@ -453,7 +452,6 @@ public class GauntletManager {
         int swStacks = state.getBuffStacks(GauntletBuff.LAST_STAND);
         if (swStacks <= 0 || state.secondWindUsed) return;
 
-        // Check if this damage would kill the player
         try {
             PlayerRef pRef = state.playerRef;
             Ref<EntityStore> ref = pRef.getReference();
@@ -1028,7 +1026,6 @@ public class GauntletManager {
         World world = findWorldForPlayer(state.playerRef);
         if (world == null) return;
 
-        // G4: Expanded reward tiers
         String dropTable;
         if (state.currentWave.get() >= 30) {
             dropTable = "Endgame_Drop_Reward_30";

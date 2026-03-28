@@ -42,7 +42,6 @@ public class AchievementTemplate {
     public int getXpReward() { return xpReward; }
     public String getRewardDropTable() { return rewardDropTable; }
 
-    // === Achievement Pool ===
 
     private static final List<AchievementTemplate> ALL_ACHIEVEMENTS = List.of(
         // --- COMBAT ---

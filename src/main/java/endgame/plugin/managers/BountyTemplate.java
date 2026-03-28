@@ -17,15 +17,12 @@ public class BountyTemplate {
         COMPLETE_TRIAL,
         COMBO_TIER,
         SPEED_KILL_BOSS,
-        // B1: Weekly bounty types
         KILL_UNIQUE_BOSSES,
         REACH_FRENZY_COUNT,
         KILL_ENDGAME_NPCS,
-        // Phase 2: New bounty types
         CRAFT_ITEM,
         DUNGEON_CLEAR,
         DAMAGE_DEALT,
-        // Phase 3: Mining and exploration
         MINE_ORE,
         EXPLORE_DUNGEON
     }
@@ -35,7 +32,7 @@ public class BountyTemplate {
     }
 
     /**
-     * B3: Cross-system bonus objective types.
+     * Cross-system bonus objective types.
      * Each bounty can have a hidden bonus tied to another system.
      */
     public enum BonusType {
@@ -104,7 +101,6 @@ public class BountyTemplate {
     public int getXpReward() { return xpReward; }
     public int getReputationReward() { return reputationReward; }
 
-    // === Template Pool ===
 
     private static final List<BountyTemplate> EASY_POOL = List.of(
         new BountyTemplate("easy_saurian_10", BountyType.KILL_NPC, "Saurian_Warrior", 10,
@@ -131,12 +127,10 @@ public class BountyTemplate {
                 BountyDifficulty.EASY, "Slay 8 Saurian Hunters (Zone 4)", "Endgame_Drop_Reward_5"),
         new BountyTemplate("easy_saurian_rogue_6", BountyType.KILL_NPC, "Endgame_Saurian_Rogue", 6,
                 BountyDifficulty.EASY, "Slay 6 Saurian Rogues (Zone 4)", "Endgame_Drop_Reward_5", 50, 1),
-        // Phase 2: New bounty types in easy pool
         new BountyTemplate("easy_craft_mithril_ore_3", BountyType.CRAFT_ITEM, "Ore_Mithril", 3,
                 BountyDifficulty.EASY, "Craft 3 Mithril Ore", "Endgame_Drop_Reward_5", 40, 1),
         new BountyTemplate("easy_damage_500", BountyType.DAMAGE_DEALT, null, 500,
                 BountyDifficulty.EASY, "Deal 500 damage to bosses", "Endgame_Drop_Reward_5", 60, 1),
-        // Phase 3: Mining and exploration bounties
         new BountyTemplate("easy_mine_mithril_5", BountyType.MINE_ORE, "OreMithril", 5,
                 BountyDifficulty.EASY, "Mine 5 Mithril Ore", "Endgame_Drop_Reward_5", 40, 1),
         new BountyTemplate("easy_mine_adamantite_3", BountyType.MINE_ORE, "OreAdamantite", 3,
@@ -174,14 +168,12 @@ public class BountyTemplate {
                 BountyDifficulty.MEDIUM, "Slay 5 Frost Spirits (Frozen Dungeon)", "Endgame_Drop_Reward_10"),
         new BountyTemplate("med_golem_frost_2", BountyType.KILL_NPC, "Endgame_Golem_Crystal_Frost", 2,
                 BountyDifficulty.MEDIUM, "Slay 2 Frost Golems (Frozen Dungeon)", "Endgame_Drop_Reward_10"),
-        // Phase 2: New bounty types in medium pool
         new BountyTemplate("med_craft_mithril_sword", BountyType.CRAFT_ITEM, "Weapon_Sword_Mithril", 1,
                 BountyDifficulty.MEDIUM, "Craft a Mithril Sword", "Endgame_Drop_Reward_10", 120, 2),
         new BountyTemplate("med_dungeon_clear_1", BountyType.DUNGEON_CLEAR, null, 1,
                 BountyDifficulty.MEDIUM, "Clear a dungeon instance", "Endgame_Drop_Reward_10", 150, 2),
         new BountyTemplate("med_damage_2000", BountyType.DAMAGE_DEALT, null, 2000,
                 BountyDifficulty.MEDIUM, "Deal 2000 damage to bosses", "Endgame_Drop_Reward_10", 120, 2),
-        // Phase 3: Mining and exploration bounties
         new BountyTemplate("med_mine_adamantite_10", BountyType.MINE_ORE, "OreAdamantite", 10,
                 BountyDifficulty.MEDIUM, "Mine 10 Adamantite Ore", "Endgame_Drop_Reward_10", 100, 2),
         new BountyTemplate("med_mine_mithril_15", BountyType.MINE_ORE, "OreMithril", 15,
@@ -213,14 +205,12 @@ public class BountyTemplate {
                 BountyDifficulty.HARD, "Defeat Void Golem in under 5 minutes", "Endgame_Drop_Reward_20"),
         new BountyTemplate("hard_boss_3", BountyType.KILL_ANY_BOSS, null, 3,
                 BountyDifficulty.HARD, "Defeat 3 Bosses", "Endgame_Drop_Reward_20"),
-        // Phase 2: New bounty types in hard pool
         new BountyTemplate("hard_craft_prisma_sword", BountyType.CRAFT_ITEM, "Endgame_Sword_Prisma", 1,
                 BountyDifficulty.HARD, "Craft a Prisma Sword", "Endgame_Drop_Reward_20", 250, 3),
         new BountyTemplate("hard_dungeon_clear_3", BountyType.DUNGEON_CLEAR, null, 3,
                 BountyDifficulty.HARD, "Clear 3 dungeon instances", "Endgame_Drop_Reward_20", 300, 3),
         new BountyTemplate("hard_damage_5000", BountyType.DAMAGE_DEALT, null, 5000,
                 BountyDifficulty.HARD, "Deal 5000 damage to bosses", "Endgame_Drop_Reward_20", 250, 3),
-        // Phase 3: Mining and exploration bounties
         new BountyTemplate("hard_mine_adamantite_25", BountyType.MINE_ORE, "OreAdamantite", 25,
                 BountyDifficulty.HARD, "Mine 25 Adamantite Ore", "Endgame_Drop_Reward_20", 200, 3),
         new BountyTemplate("hard_explore_both", BountyType.EXPLORE_DUNGEON, null, 2,
@@ -229,7 +219,6 @@ public class BountyTemplate {
                 BountyDifficulty.HARD, "Craft Hedera Daggers", "Endgame_Drop_Reward_20", 250, 3)
     );
 
-    // B1: Weekly bounty pool — much harder, 7-day refresh
     private static final List<BountyTemplate> WEEKLY_POOL = List.of(
         new BountyTemplate("weekly_warlord", BountyType.KILL_UNIQUE_BOSSES, null, 5,
                 BountyDifficulty.WEEKLY, "Defeat 5 unique boss types", "Endgame_Drop_Bounty_Weekly"),
@@ -241,7 +230,6 @@ public class BountyTemplate {
                 BountyDifficulty.WEEKLY, "Kill 100 endgame NPCs", "Endgame_Drop_Bounty_Weekly"),
         new BountyTemplate("weekly_boss_slayer", BountyType.KILL_ANY_BOSS, null, 5,
                 BountyDifficulty.WEEKLY, "Defeat 5 Bosses", "Endgame_Drop_Bounty_Weekly"),
-        // Phase 3: Crafting weekly
         new BountyTemplate("weekly_craft_5_weapons", BountyType.CRAFT_ITEM, null, 5,
                 BountyDifficulty.WEEKLY, "Craft 5 endgame weapons", "Endgame_Drop_Bounty_Weekly")
     );

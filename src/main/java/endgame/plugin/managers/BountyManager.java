@@ -43,7 +43,6 @@ public class BountyManager {
         this.plugin = plugin;
     }
 
-    // === Component Cache ===
 
     public void onPlayerConnect(UUID playerUuid, PlayerEndgameComponent comp) {
         components.put(playerUuid, comp);
@@ -63,20 +62,19 @@ public class BountyManager {
         if (comp == null) return null;
         PlayerBountyState state = comp.getBountyState();
 
-        // Check if daily refresh needed
         long now = System.currentTimeMillis();
         long refreshMs = config.getBountyRefreshHours() * HOUR_MS;
         if (now - state.getLastRefreshTimestamp() >= refreshMs) {
             generateBounties(playerUuid, state);
-            // No explicit save — Hytale auto-persists the ECS component
+    
         }
 
-        // B1: Check if weekly refresh needed (7-day cycle)
+
         if (config.isBountyWeeklyEnabled()) {
             long weeklyRefreshMs = WEEK_MS;
             if (now - state.getLastWeeklyRefreshTimestamp() >= weeklyRefreshMs) {
                 generateWeeklyBounty(playerUuid, state);
-                // No explicit save — Hytale auto-persists the ECS component
+        
             }
         }
 
@@ -108,7 +106,6 @@ public class BountyManager {
             }
         }
 
-        // B1: Weekly — KILL_ENDGAME_NPCS
         ActiveBounty weekly = state.getWeeklyBounty();
         if (weekly != null && !weekly.isCompleted() && !weekly.isClaimed()) {
             BountyTemplate wt = findTemplate(weekly.getTemplateId());
@@ -118,7 +115,7 @@ public class BountyManager {
             }
         }
 
-        // No explicit save — Hytale auto-persists the ECS component
+
     }
 
     /**
@@ -154,7 +151,6 @@ public class BountyManager {
                 }
             }
 
-            // B3: Check bonus objective — "during_gauntlet"
             if (!bounty.isBonusCompleted() && !bounty.getBonusType().isEmpty()) {
                 if (isBonusConditionMet(playerUuid, bounty.getBonusType())) {
                     bounty.setBonusCompleted(true);
@@ -163,7 +159,6 @@ public class BountyManager {
             }
         }
 
-        // B1: Weekly — KILL_ANY_BOSS and KILL_UNIQUE_BOSSES
         ActiveBounty weekly = state.getWeeklyBounty();
         if (weekly != null && !weekly.isCompleted() && !weekly.isClaimed()) {
             BountyTemplate wt = findTemplate(weekly.getTemplateId());
@@ -183,7 +178,7 @@ public class BountyManager {
             }
         }
 
-        // No explicit save — Hytale auto-persists the ECS component
+
     }
 
     /**
@@ -211,7 +206,6 @@ public class BountyManager {
             }
         }
 
-        // B1: Weekly — COMPLETE_TRIAL (tier III+ = tier >= 3)
         ActiveBounty weekly = state.getWeeklyBounty();
         if (weekly != null && !weekly.isCompleted() && !weekly.isClaimed()) {
             BountyTemplate wt = findTemplate(weekly.getTemplateId());
@@ -223,7 +217,7 @@ public class BountyManager {
             }
         }
 
-        // No explicit save — Hytale auto-persists the ECS component
+
     }
 
     /**
@@ -250,7 +244,7 @@ public class BountyManager {
                 }
             }
         }
-        // No explicit save — Hytale auto-persists the ECS component
+
     }
 
     /**
@@ -275,7 +269,7 @@ public class BountyManager {
 
             }
         }
-        // No explicit save — Hytale auto-persists the ECS component
+
     }
 
     /**
@@ -301,7 +295,7 @@ public class BountyManager {
 
             }
         }
-        // No explicit save — Hytale auto-persists the ECS component
+
     }
 
     /**
@@ -327,7 +321,7 @@ public class BountyManager {
                 }
             }
         }
-        // No explicit save — Hytale auto-persists the ECS component
+
     }
 
     /**
@@ -353,7 +347,7 @@ public class BountyManager {
                 }
             }
         }
-        // No explicit save — Hytale auto-persists the ECS component
+
     }
 
     /**
@@ -380,7 +374,6 @@ public class BountyManager {
                 }
             }
 
-            // B3: Check bonus — "combo_x3" or "combo_frenzy"
             if (!bounty.isBonusCompleted() && !bounty.getBonusType().isEmpty()) {
                 if (isBonusConditionMet(playerUuid, bounty.getBonusType())) {
                     bounty.setBonusCompleted(true);
@@ -389,7 +382,6 @@ public class BountyManager {
             }
         }
 
-        // B1: Weekly — REACH_FRENZY_COUNT (tier 4 = FRENZY)
         if (tier >= 4) {
             ActiveBounty weekly = state.getWeeklyBounty();
             if (weekly != null && !weekly.isCompleted() && !weekly.isClaimed()) {
@@ -401,7 +393,7 @@ public class BountyManager {
             }
         }
 
-        // No explicit save — Hytale auto-persists the ECS component
+
     }
 
     /**
@@ -411,7 +403,6 @@ public class BountyManager {
         PlayerBountyState state = getPlayerBounties(playerUuid);
         if (state == null) return null;
 
-        // B1: Index 3 = weekly bounty
         if (index == 3) {
             return claimWeeklyBounty(playerUuid, state);
         }
@@ -430,12 +421,10 @@ public class BountyManager {
         BountyTemplate template = findTemplate(bounty.getTemplateId());
         String dropTable = template != null ? template.getRewardDropTable() : "Endgame_Drop_Reward_5";
 
-        // Phase 2: Award reputation points from template
         if (template != null && template.getReputationReward() > 0) {
             state.addReputation(template.getReputationReward());
         }
 
-        // Phase 2: Award XP via leveling integrations
         if (template != null && template.getXpReward() > 0) {
             if (plugin.isRPGLevelingActive()) {
                 try {
@@ -453,17 +442,16 @@ public class BountyManager {
             }
         }
 
-        // B3: Bonus objective — if completed, upgrade the drop table
         if (bounty.isBonusCompleted() && template != null) {
             dropTable = getBonusDropTable(template.getDifficulty(), dropTable);
         }
 
-        // No explicit save — Hytale auto-persists the ECS component
+
         return dropTable;
     }
 
     /**
-     * B1: Claim weekly bounty. Returns the reward drop table, or null.
+     * Claim weekly bounty. Returns the reward drop table, or null.
      */
     private String claimWeeklyBounty(UUID playerUuid, PlayerBountyState state) {
         ActiveBounty weekly = state.getWeeklyBounty();
@@ -472,12 +460,12 @@ public class BountyManager {
         weekly.setClaimed(true);
         state.incrementTotalCompleted();
 
-        // No explicit save — Hytale auto-persists the ECS component
+
         return "Endgame_Drop_Bounty_Weekly";
     }
 
     /**
-     * B3: Get upgraded drop table for bonus completion (+50% reward = next tier drop table).
+     * Get upgraded drop table for bonus completion (+50% reward = next tier drop table).
      */
     private String getBonusDropTable(BountyTemplate.BountyDifficulty difficulty, String baseDrop) {
         return switch (difficulty) {
@@ -501,7 +489,7 @@ public class BountyManager {
         if (!state.allCompleted() || state.isStreakClaimed()) return false;
 
         state.setStreakClaimed(true);
-        // No explicit save — Hytale auto-persists the ECS component
+
         return true;
     }
 
@@ -554,14 +542,12 @@ public class BountyManager {
 
     /**
      * Remove a player from the in-memory cache on disconnect.
-     * No manual save needed — Hytale auto-persists the ECS component.
      */
     public void onPlayerDisconnect(UUID playerUuid) {
         if (playerUuid == null) return;
         components.remove(playerUuid);
     }
 
-    // === Internal ===
 
     private void generateBounties(UUID playerUuid, PlayerBountyState state) {
         long now = System.currentTimeMillis();
@@ -583,7 +569,6 @@ public class BountyManager {
         ActiveBounty medBounty = new ActiveBounty(medium.getId(), bountyTarget(medium));
         ActiveBounty hardBounty = new ActiveBounty(hard.getId(), bountyTarget(hard));
 
-        // B3: Assign cross-system bonus objectives
         assignBonusObjective(easyBounty, easy, rng);
         assignBonusObjective(medBounty, medium, rng);
         assignBonusObjective(hardBounty, hard, rng);
@@ -597,7 +582,7 @@ public class BountyManager {
     }
 
     /**
-     * B1: Generate a weekly bounty for the player.
+     * Generate a weekly bounty for the player.
      */
     private void generateWeeklyBounty(UUID playerUuid, PlayerBountyState state) {
         long now = System.currentTimeMillis();
@@ -617,7 +602,7 @@ public class BountyManager {
     }
 
     /**
-     * B3: Assign a cross-system bonus objective to a bounty based on its type.
+     * Assign a cross-system bonus objective to a bounty based on its type.
      * Kill bounties → "while at Combo x3+"
      * Boss bounties → "while maintaining FRENZY"
      * Trial bounties → "at full HP"
@@ -636,7 +621,7 @@ public class BountyManager {
     }
 
     /**
-     * B3: Check if a bonus condition is currently met for a player.
+     * Check if a bonus condition is currently met for a player.
      */
     private boolean isBonusConditionMet(UUID playerUuid, String bonusTypeId) {
         BountyTemplate.BonusType bonus = BountyTemplate.BonusType.fromId(bonusTypeId);
@@ -678,7 +663,7 @@ public class BountyManager {
     }
 
     /**
-     * B2: Get the player's reputation rank string.
+     * Get the player's reputation rank string.
      */
     public String getReputationRank(UUID playerUuid) {
         PlayerBountyState state = getPlayerBounties(playerUuid);
@@ -686,7 +671,7 @@ public class BountyManager {
     }
 
     /**
-     * B2: Get the player's total bounties completed.
+     * Get the player's total bounties completed.
      */
     public int getTotalBountiesCompleted(UUID playerUuid) {
         PlayerBountyState state = getPlayerBounties(playerUuid);
@@ -694,7 +679,7 @@ public class BountyManager {
     }
 
     /**
-     * B1: Get time remaining until weekly refresh in milliseconds.
+     * Get time remaining until weekly refresh in milliseconds.
      */
     public long getWeeklyTimeUntilRefresh(UUID playerUuid) {
         PlayerBountyState state = getPlayerBounties(playerUuid);
@@ -724,5 +709,5 @@ public class BountyManager {
         return BountyTemplate.getById(id);
     }
 
-    // No debouncedSave needed — Hytale auto-persists the ECS component
+
 }

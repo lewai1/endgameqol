@@ -74,7 +74,6 @@ public class HederaRootsSystem extends DamageEventSystem {
             return;
         }
 
-        // Check if the source is Hedera
         if (!isHederaDamage(sourceRef, commandBuffer)) {
             return;
         }
@@ -84,13 +83,11 @@ public class HederaRootsSystem extends DamageEventSystem {
             return; // Didn't proc
         }
 
-        // Get the target player's ref
         Ref<EntityStore> targetRef = archetypeChunk.getReferenceTo(index);
         if (targetRef == null || !targetRef.isValid()) {
             return;
         }
 
-        // Get the EffectControllerComponent of the target
         EffectControllerComponent effectController = store.getComponent(
                 targetRef, EffectControllerComponent.getComponentType()
         );
@@ -99,7 +96,6 @@ public class HederaRootsSystem extends DamageEventSystem {
             return;
         }
 
-        // Get the Root effect
         EntityEffect rootEffect = EntityEffect.getAssetMap().getAsset(ROOT_EFFECT_ID);
         if (rootEffect == null) {
             plugin.getLogger().atWarning().log("[HederaRootsSystem] Root effect not found!");

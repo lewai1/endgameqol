@@ -47,7 +47,6 @@ public class AchievementManager {
         this.plugin = plugin;
     }
 
-    // === Component Cache ===
 
     public void onPlayerConnect(UUID playerUuid, PlayerEndgameComponent comp) {
         components.put(playerUuid, comp);
@@ -64,7 +63,6 @@ public class AchievementManager {
         uniqueWeaponCrafts.remove(playerUuid);
         uniqueSpeedKills.remove(playerUuid);
         uniqueDungeonTypes.remove(playerUuid);
-        // No manual save needed — Hytale auto-persists the component
     }
 
     // === Bestiary + Achievement State Access ===
@@ -84,7 +82,6 @@ public class AchievementManager {
         return comp != null ? comp.getBestiaryState() : new PlayerBestiaryState();
     }
 
-    // === Event Hooks ===
 
     /**
      * Called when a player kills any NPC (from ComboKillTracker hook).
@@ -278,7 +275,6 @@ public class AchievementManager {
         }
     }
 
-    // === Claim Methods ===
 
     /**
      * Claims an achievement reward. Returns the drop table ID, or null if invalid.
@@ -365,7 +361,6 @@ public class AchievementManager {
         return dropTable;
     }
 
-    // === Internal ===
 
     private void checkProgress(UUID playerUuid, PlayerAchievementState state, String achievementId, int currentValue) {
         if (state.isCompleted(achievementId)) return;
@@ -423,7 +418,6 @@ public class AchievementManager {
         return hasPrefix && WEAPON_TYPES.stream().anyMatch(lower::contains);
     }
 
-    // === Cleanup ===
 
     public void forceClear() {
         components.clear();

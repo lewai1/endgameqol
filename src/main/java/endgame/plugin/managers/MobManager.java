@@ -145,7 +145,6 @@ public class MobManager {
             String typeId = npc.getNPCTypeId();
             if (typeId == null) return;
 
-            // Check if this is a boss we care about
             if (!manager.isBoss(typeId)) {
                 return;
             }
@@ -208,7 +207,6 @@ public class MobManager {
                 }
             }
 
-            // Handle Endgame_Golem_Void specific logic
             if (typeId.toLowerCase().contains("endgame_golem_void")) {
                 plugin.getLogger().atFine().log("[EntitySetupSystem] Endgame_Golem_Void spawned! Boss bar will show on first damage.");
             }

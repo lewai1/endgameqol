@@ -62,7 +62,6 @@ public class ComboDamageBoostSystem extends DamageEventSystem {
 
         if (!plugin.getConfig().get().isComboEnabled()) return;
 
-        // Source must be a player
         if (!(damage.getSource() instanceof Damage.EntitySource es)) return;
 
         Ref<EntityStore> attackerRef = es.getRef();
@@ -71,13 +70,11 @@ public class ComboDamageBoostSystem extends DamageEventSystem {
         Player player = attackerRef.getStore().getComponent(attackerRef, Player.getComponentType());
         if (player == null) return;
 
-        // Find player UUID
-        UUID uuid = findPlayerUuid(attackerRef);
+        UUID uuid = endgame.plugin.utils.EntityUtils.getUuid(attackerRef.getStore(), attackerRef);
         if (uuid == null) return;
 
         float multiplier = comboManager.getDamageMultiplier(uuid);
 
-        // C1: Precision — 20% crit chance at x4+ tier (1.5x multiplier)
         float critChance = comboManager.getCritChance(uuid);
         if (critChance > 0 && ThreadLocalRandom.current().nextFloat() < critChance) {
             multiplier *= 1.5f;
@@ -93,14 +90,4 @@ public class ComboDamageBoostSystem extends DamageEventSystem {
                 uuid, original, modified, multiplier);
     }
 
-    private UUID findPlayerUuid(Ref<EntityStore> playerEntityRef) {
-        for (PlayerRef pRef : Universe.get().getPlayers()) {
-            if (pRef == null) continue;
-            Ref<EntityStore> ref = pRef.getReference();
-            if (ref != null && ref.equals(playerEntityRef)) {
-                return endgame.plugin.utils.EntityUtils.getUuid(pRef);
-            }
-        }
-        return null;
-    }
 }

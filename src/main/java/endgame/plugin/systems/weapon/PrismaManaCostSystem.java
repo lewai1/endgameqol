@@ -92,7 +92,6 @@ public class PrismaManaCostSystem extends DamageEventSystem {
         UUID attackerUuid = endgame.plugin.utils.EntityUtils.getUuid(attackerStore, attackerRef);
         if (attackerUuid == null) return;
 
-        // Check if attacker has an active signature interaction chain
         int signatureChainId = WeaponUtils.getActiveSignatureChainId(attackerStore, attackerRef);
         if (signatureChainId == -1) {
             // No signature chain active — nothing to do

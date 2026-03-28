@@ -39,7 +39,6 @@ public class BountyUI {
     private static final String[] DIFF_CARD_BG = {"#141f14", "#1f1f14", "#1f1414", "#1a141f"};
     private static final String[] DIFF_BAR_BG = {"#0a150a", "#15150a", "#150a0a", "#0f0a15"};
 
-    // B2: Reputation rank colors
     private static final Map<String, String> RANK_COLORS = Map.of(
         "Novice", "#888888",
         "Veteran", "#55ff55",
@@ -62,22 +61,18 @@ public class BountyUI {
         long minutes = (remainingMs % 3600000) / 60000;
         String refreshText = String.format("%dh %dm", hours, minutes);
 
-        // Count completed
         int completedCount = 0;
         for (ActiveBounty b : bounties) {
             if (b.isCompleted()) completedCount++;
         }
 
-        // B2: Reputation
         String rank = state.getReputationRank();
         String rankColor = RANK_COLORS.getOrDefault(rank, "#888888");
         int totalCompleted = state.getTotalBountiesCompleted();
 
-        // B1: Weekly bounty
         ActiveBounty weeklyBounty = state.getWeeklyBounty();
         boolean weeklyEnabled = plugin.getConfig().get().isBountyWeeklyEnabled();
 
-        // Weekly refresh timer
         long weeklyRemainingMs = manager.getWeeklyTimeUntilRefresh(playerUuid);
         long weeklyDays = weeklyRemainingMs / 86400000L;
         long weeklyHours = (weeklyRemainingMs % 86400000L) / 3600000L;
@@ -280,7 +275,6 @@ public class BountyUI {
             "<p class=\"bounty-progress-summary\">%d / %d completed</p>",
             completedCount, bounties.size()));
 
-        // Phase 2: Reputation rank badge
         sb.append(String.format(
             "<p style=\"font-size: 9; font-weight: bold; color: %s; anchor-height: 20; vertical-align: center; anchor-width: 120; text-align: center;\">%s (%d)</p>",
             rankColor, rank.toUpperCase(), totalCompleted));
@@ -289,7 +283,6 @@ public class BountyUI {
                         </div>
             """);
 
-        // Phase 2: Reputation progress bar
         int reputation = state.getReputation();
         int nextThreshold = state.getNextRankThreshold();
         float repProgress = nextThreshold > 0 ? Math.min(1f, (float) reputation / nextThreshold) : 1f;
@@ -373,7 +366,6 @@ public class BountyUI {
                 progressWidth, barColor,
                 progressStr));
 
-            // Phase 2: Reward preview (XP + reputation points)
             if (template != null && (template.getXpReward() > 0 || template.getReputationReward() > 0)) {
                 StringBuilder rewardSb = new StringBuilder();
                 if (template.getXpReward() > 0) {
@@ -388,7 +380,6 @@ public class BountyUI {
                     rewardSb.toString()));
             }
 
-            // B3: Bonus objective line
             String bonusTypeId = bounty.getBonusType();
             if (bonusTypeId != null && !bonusTypeId.isEmpty()) {
                 BountyTemplate.BonusType bonusType = BountyTemplate.BonusType.fromId(bonusTypeId);
@@ -472,7 +463,6 @@ public class BountyUI {
             sb.append("</div>");
         }
 
-        // B1: Weekly bounty card
         if (weeklyEnabled && weeklyBounty != null) {
             sb.append("<div class=\"bounty-divider\" style=\"background-color: #bb88ff; anchor-height: 2; margin-top: 8; margin-bottom: 8;\"></div>");
 
@@ -580,7 +570,6 @@ public class BountyUI {
             }
         }
 
-        // B1: Weekly claim listener (only if button exists)
         if (weeklyEnabled && weeklyBounty != null && weeklyBounty.isCompleted() && !weeklyBounty.isClaimed()) {
             builder.addEventListener("claim_3", CustomUIEventBindingType.Activating, (data, ctx) -> {
                 String dropTable = manager.claimBounty(playerUuid, 3);
@@ -630,24 +619,8 @@ public class BountyUI {
         }
     }
 
-    private static final java.util.Map<String, BountyTemplate> TEMPLATE_CACHE = new java.util.concurrent.ConcurrentHashMap<>();
-
     private static BountyTemplate findTemplate(String id) {
-        return TEMPLATE_CACHE.computeIfAbsent(id, key -> {
-            for (BountyTemplate t : BountyTemplate.getEasyPool()) {
-                if (t.getId().equals(key)) return t;
-            }
-            for (BountyTemplate t : BountyTemplate.getMediumPool()) {
-                if (t.getId().equals(key)) return t;
-            }
-            for (BountyTemplate t : BountyTemplate.getHardPool()) {
-                if (t.getId().equals(key)) return t;
-            }
-            for (BountyTemplate t : BountyTemplate.getWeeklyPool()) {
-                if (t.getId().equals(key)) return t;
-            }
-            return null;
-        });
+        return BountyTemplate.getById(id);
     }
 
     private static String escapeHtml(String text) {

@@ -60,7 +60,6 @@ public class FrostDragonSkyBoltSystem extends EntityTickingSystem<EntityStore> {
     private static final String BOLT_CONFIG_ID = "Projectile_Config_Endgame_Dragon_Frost_Ice";
     private static final String NOVA_CONFIG_ID = "Projectile_Config_Endgame_Dragon_Frost_Nova";
 
-    // Phase thresholds
     private static final float PHASE2_THRESHOLD = 0.70f;
     private static final float PHASE3_THRESHOLD = 0.40f;
 
@@ -340,7 +339,6 @@ public class FrostDragonSkyBoltSystem extends EntityTickingSystem<EntityStore> {
             state.barrageBoltsFired++;
         }
 
-        // Check if barrage is complete
         if (state.barrageBoltsFired >= state.barrageBoltsTotal) {
             state.barrageActive = false;
         }

@@ -59,7 +59,6 @@ public class ComboKillTracker extends DeathSystems.OnDeathSystem {
     public void onComponentAdded(@Nonnull Ref<EntityStore> ref, @Nonnull DeathComponent component,
                                   @Nonnull Store<EntityStore> store, @Nonnull CommandBuffer<EntityStore> commandBuffer) {
         try {
-            // Get the killer from death info
             Damage deathInfo = component.getDeathInfo();
             if (deathInfo == null) return;
             if (!(deathInfo.getSource() instanceof Damage.EntitySource es)) return;
@@ -67,7 +66,6 @@ public class ComboKillTracker extends DeathSystems.OnDeathSystem {
             Ref<EntityStore> killerRef = es.getRef();
             if (killerRef == null || !killerRef.isValid()) return;
 
-            // Check if killer is a player
             Player player = killerRef.getStore().getComponent(killerRef, Player.getComponentType());
             if (player == null) return;
 
@@ -78,7 +76,6 @@ public class ComboKillTracker extends DeathSystems.OnDeathSystem {
             // Notify combo manager
             comboManager.onPlayerKill(playerUuid);
 
-            // C1: Adrenaline — heal 2% max HP on kill at x3+ tier
             float healPercent = comboManager.getHealOnKillPercent(playerUuid);
             if (healPercent > 0) {
                 try {

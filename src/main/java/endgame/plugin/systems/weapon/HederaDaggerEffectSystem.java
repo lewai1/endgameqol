@@ -72,12 +72,10 @@ public class HederaDaggerEffectSystem extends DamageEventSystem {
             @Nonnull Damage damage) {
         EndgameConfig config = plugin.getConfig().get();
 
-        // Check if any Hedera dagger effect is enabled
         if (!config.isEnableHederaDaggerPoison() && !config.isEnableHederaDaggerLifesteal()) {
             return;
         }
 
-        // Check if the damage source is a player
         if (!(damage.getSource() instanceof Damage.EntitySource entitySource)) {
             return;
         }

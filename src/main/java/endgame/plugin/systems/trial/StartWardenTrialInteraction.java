@@ -65,7 +65,6 @@ public class StartWardenTrialInteraction extends SimpleInstantInteraction {
         WardenTrialManager manager = plugin.getWardenTrialManager();
         if (manager == null) return;
 
-        // Check if player already has an active challenge
         if (manager.hasActiveTrial(playerUuid)) {
             playerRef.sendMessage(Message.raw("[Warden Challenge] " + I18n.getForPlayer(playerRef, "warden.already_active")).color("#ff5555"));
             return;

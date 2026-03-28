@@ -89,7 +89,6 @@ public class BossHealthManager {
             }
         }
 
-        // Get the health stat
         int healthStat = DefaultEntityStatTypes.getHealth();
 
         // Remove existing modifier first

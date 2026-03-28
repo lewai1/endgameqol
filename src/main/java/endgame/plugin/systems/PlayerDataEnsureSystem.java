@@ -51,7 +51,6 @@ public class PlayerDataEnsureSystem extends RefSystem<EntityStore> {
     @Override
     public void onEntityAdded(@Nonnull Ref<EntityStore> ref, @Nonnull AddReason reason,
                               @Nonnull Store<EntityStore> store, @Nonnull CommandBuffer<EntityStore> cb) {
-        // Get the Player component to retrieve UUID
         Player player = store.getComponent(ref, Player.getComponentType());
         if (player == null) return;
 

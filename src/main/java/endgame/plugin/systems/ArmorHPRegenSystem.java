@@ -84,13 +84,14 @@ public class ArmorHPRegenSystem extends DelayedEntitySystem<EntityStore> {
         long evictionNow = System.currentTimeMillis();
         if (evictionNow - lastEvictionTime > EVICTION_INTERVAL_MS) {
             lastEvictionTime = evictionNow;
-            lastDamageTime.entrySet().removeIf(e -> !e.getKey().isValid());
+            lastDamageTime.entrySet().removeIf(e -> {
+                try { return !e.getKey().isValid(); } catch (Exception ex) { return true; }
+            });
         }
 
         var ref = archetypeChunk.getReferenceTo(index);
         if (ref == null || !ref.isValid()) return;
 
-        // Check if enough time has passed since last damage
         Long lastDamage = lastDamageTime.get(ref);
         long now = System.currentTimeMillis();
         float delaySec = config.getArmorHPRegenDelaySec();

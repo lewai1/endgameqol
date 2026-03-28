@@ -275,7 +275,6 @@ public class GenericBossManager {
     }
 
     // =========================================================================
-    // Phase callbacks
     // =========================================================================
 
     private void onFrostDragonPhaseChange(GenericBossState state, int newPhase, Store<EntityStore> store) {
@@ -379,7 +378,6 @@ public class GenericBossManager {
     public void tick(Store<EntityStore> store) {
         long now = System.currentTimeMillis();
 
-        // Process deferred HUD removals (from onRefresh callbacks)
         // CRITICAL: h.remove() must happen outside onRefresh to avoid corrupting HyUI's
         // command buffer
         if (!pendingHudRemovals.isEmpty()) {
@@ -396,7 +394,6 @@ public class GenericBossManager {
             pendingHudRemovals.clear();
         }
 
-        // Process pending boss removals
         if (!pendingBossRemovals.isEmpty()) {
             for (Ref<EntityStore> bossRef : pendingBossRemovals) {
                 activeBosses.remove(bossRef);
@@ -461,7 +458,6 @@ public class GenericBossManager {
     }
 
     // =========================================================================
-    // Phase calculation
     // =========================================================================
 
     private int calculatePhase(BossEncounterConfig config, float healthPercent) {

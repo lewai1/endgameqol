@@ -76,13 +76,11 @@ public class StaffEffectSystem extends DamageEventSystem {
             return;
         }
 
-        // Get the player's held weapon
         String staffType = getStaffType(shooterRef.getStore(), shooterRef);
         if (staffType == null) {
             return;
         }
 
-        // Get the effect to apply based on staff type
         String effectId = getEffectForStaff(staffType);
         if (effectId == null) {
             return;

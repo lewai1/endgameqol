@@ -73,18 +73,15 @@ public class FrostSlowSystem extends DamageEventSystem {
             return;
         }
 
-        // Check if the source is a Frost Dragon
         if (!isFrostDragonDamage(sourceRef, commandBuffer)) {
             return;
         }
 
-        // Get the target player's ref
         Ref<EntityStore> targetRef = archetypeChunk.getReferenceTo(index);
         if (targetRef == null || !targetRef.isValid()) {
             return;
         }
 
-        // Get the EffectControllerComponent of the target
         EffectControllerComponent effectController = store.getComponent(
                 targetRef, EffectControllerComponent.getComponentType()
         );
@@ -93,7 +90,6 @@ public class FrostSlowSystem extends DamageEventSystem {
             return;
         }
 
-        // Get the Slow effect
         EntityEffect slowEffect = cachedSlowEffect;
         if (slowEffect == null) {
             slowEffect = EntityEffect.getAssetMap().getAsset(SLOW_EFFECT_ID);
@@ -121,7 +117,6 @@ public class FrostSlowSystem extends DamageEventSystem {
     }
 
     private boolean isFrostDragonDamage(Ref<EntityStore> sourceRef, CommandBuffer<EntityStore> commandBuffer) {
-        // Check if source is an NPC
         ComponentType<EntityStore, NPCEntity> npcType = NPCEntity.getComponentType();
         if (npcType == null) {
             return false;

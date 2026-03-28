@@ -123,25 +123,19 @@ public class EventRegistry {
 
             if (playerUuid != null) {
                 // All UUID-based methods only touch ConcurrentHashMaps — thread-safe
-                if (systemRegistry.getGolemVoidBossManager() != null) {
-                    systemRegistry.getGolemVoidBossManager().hideBossBarForPlayerUuid(playerUuid);
-                }
-                if (systemRegistry.getGenericBossManager() != null) {
-                    systemRegistry.getGenericBossManager().hideBossBarForPlayerUuid(playerUuid);
-                }
-                if (systemRegistry.getDangerZoneTickSystem() != null) {
-                    systemRegistry.getDangerZoneTickSystem().clearPlayerState(playerUuid);
-                }
-                if (systemRegistry.getWardenTrialManager() != null) {
-                    systemRegistry.getWardenTrialManager().failTrial(playerUuid);
-                }
-                if (systemRegistry.getGauntletManager() != null) {
-                    systemRegistry.getGauntletManager().failGauntlet(playerUuid);
-                }
-                if (systemRegistry.getComboMeterManager() != null) {
-                    // Only hide HUD — don't destroy combo state (survives world transfers)
-                    systemRegistry.getComboMeterManager().onPlayerLeaveWorld(playerUuid);
-                }
+                var golemBoss = systemRegistry.getGolemVoidBossManager();
+                if (golemBoss != null) golemBoss.hideBossBarForPlayerUuid(playerUuid);
+                var genericBoss = systemRegistry.getGenericBossManager();
+                if (genericBoss != null) genericBoss.hideBossBarForPlayerUuid(playerUuid);
+                var dangerZone = systemRegistry.getDangerZoneTickSystem();
+                if (dangerZone != null) dangerZone.clearPlayerState(playerUuid);
+                var warden = systemRegistry.getWardenTrialManager();
+                if (warden != null) warden.failTrial(playerUuid);
+                var gauntlet = systemRegistry.getGauntletManager();
+                if (gauntlet != null) gauntlet.failGauntlet(playerUuid);
+                var combo = systemRegistry.getComboMeterManager();
+                // Only hide HUD — don't destroy combo state (survives world transfers)
+                if (combo != null) combo.onPlayerLeaveWorld(playerUuid);
             }
 
             String worldName = event.getWorld() != null ? event.getWorld().getName() : "";

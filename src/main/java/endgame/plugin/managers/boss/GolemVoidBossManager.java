@@ -82,7 +82,6 @@ public class GolemVoidBossManager {
     public void registerBoss(Ref<EntityStore> bossRef, String npcTypeId, Store<EntityStore> store) {
         if (bossRef == null || !bossRef.isValid()) return;
 
-        // Check if already registered (avoid duplicate registration)
         if (activeBosses.containsKey(bossRef)) {
             plugin.getLogger().atFine().log("[GolemVoidBoss] Boss already registered: %s", npcTypeId);
             return;
@@ -167,7 +166,6 @@ public class GolemVoidBossManager {
     public void tick(Store<EntityStore> store) {
         long now = System.currentTimeMillis();
 
-        // Process deferred HUD removals (from onRefresh callbacks)
         // CRITICAL: h.remove() must happen outside onRefresh to avoid corrupting HyUI's command buffer
         if (!pendingHudRemovals.isEmpty()) {
             for (UUID key : Set.copyOf(pendingHudRemovals)) {
@@ -180,7 +178,6 @@ public class GolemVoidBossManager {
             pendingHudRemovals.clear();
         }
 
-        // Process pending boss removals from background threads
         if (!pendingBossRemovals.isEmpty()) {
             for (Ref<EntityStore> bossRef : pendingBossRemovals) {
                 activeBosses.remove(bossRef);

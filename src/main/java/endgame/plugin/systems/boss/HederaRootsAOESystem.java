@@ -123,7 +123,6 @@ public class HederaRootsAOESystem extends EntityTickingSystem<EntityStore> {
         String typeId = npcEntity.getNPCTypeId();
         if (typeId == null) return;
 
-        // Check if this is Hedera
         String lowerType = typeId.toLowerCase();
         if (!lowerType.contains("endgame_hedera")) {
             return;
@@ -192,7 +191,6 @@ public class HederaRootsAOESystem extends EntityTickingSystem<EntityStore> {
                                           float radius, float duration) {
         int rootedCount = 0;
 
-        // Get the Root effect asset
         EntityEffect rootEffect = EntityEffect.getAssetMap().getAsset(ROOT_EFFECT_ID);
         if (rootEffect == null) {
             plugin.getLogger().atWarning().log("[HederaRootsAOESystem] Root effect asset not found!");
@@ -213,7 +211,6 @@ public class HederaRootsAOESystem extends EntityTickingSystem<EntityStore> {
             Ref<EntityStore> ref = playerRef.getReference();
             if (ref == null || !ref.isValid()) continue;
 
-            // Check if player is in the same world
             Store<EntityStore> playerStore = ref.getStore();
             World playerWorld = playerStore.getExternalData().getWorld();
             if (!playerWorld.equals(world)) continue;
@@ -269,6 +266,8 @@ public class HederaRootsAOESystem extends EntityTickingSystem<EntityStore> {
      * Called periodically to prevent memory leaks.
      */
     public void cleanupInvalidRefs() {
-        hederaStates.entrySet().removeIf(entry -> !entry.getKey().isValid());
+        hederaStates.entrySet().removeIf(entry -> {
+            try { return !entry.getKey().isValid(); } catch (Exception e) { return true; }
+        });
     }
 }

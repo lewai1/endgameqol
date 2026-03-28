@@ -49,7 +49,9 @@ public final class BossKillHelper {
                     Ref<EntityStore> pRef = pr.getReference();
                     if (pRef == null || !pRef.isValid()) continue;
                     Player p = pRef.getStore().getComponent(pRef, Player.getComponentType());
-                    if (p == null || !bossWorld.equals(p.getWorld())) continue;
+                    if (p == null) continue;
+                    World pWorld = pRef.getStore().getExternalData().getWorld();
+                    if (!bossWorld.equals(pWorld)) continue;
                     UUID pUuid = EntityUtils.getUuid(pRef.getStore(), pRef);
                     if (pUuid != null) creditedPlayers.add(pUuid);
                 }

@@ -49,7 +49,6 @@ public class GolemVoidDamageSystem extends AbstractBossDamageSystem {
             @Nonnull Store<EntityStore> store,
             @Nonnull CommandBuffer<EntityStore> commandBuffer,
             @Nonnull Damage damage) {
-        // Get the target entity (the one receiving damage)
         Ref<EntityStore> targetRef = archetypeChunk.getReferenceTo(index);
         if (targetRef == null || !targetRef.isValid()) {
             return;

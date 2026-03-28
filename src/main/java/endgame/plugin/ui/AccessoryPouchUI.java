@@ -56,7 +56,6 @@ public class AccessoryPouchUI {
             pouch = storage.getAccessoryPouch(playerUuid);
         }
 
-        // Create a 6-slot container and populate from saved data
         SimpleItemContainer container = new SimpleItemContainer((short) AccessoryPouchData.MAX_SLOTS);
         for (int i = 0; i < AccessoryPouchData.MAX_SLOTS; i++) {
             if (pouch.isSlotOccupied(i)) {
@@ -143,7 +142,6 @@ public class AccessoryPouchUI {
      * Called on container close — this is the moment accessories become active/inactive.
      * Uses the pouch reference captured at open time — safe even if player disconnects
      * while the container is open (component may already be uncached).
-     * No explicit file save needed — Hytale auto-persists the ECS component.
      */
     static void saveContainerToPouch(String playerUuid, SimpleItemContainer container,
                                      AccessoryPouchData pouch) {

@@ -36,7 +36,6 @@ public class ConfigUI {
         // Resolve player locale once for all tabs
         String locale = I18n.resolveLocale(playerRef);
 
-        // Create all tab builders
         DifficultyTab difficultyTab = new DifficultyTab(plugin, saveManager);
         ScalingTab scalingTab = new ScalingTab(plugin, saveManager, combatSubTab);
         IntegrationTab integrationTab = new IntegrationTab(plugin, saveManager);

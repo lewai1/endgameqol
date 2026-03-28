@@ -111,7 +111,6 @@ public class DaggerVanishSystem extends DamageEventSystem {
     ) {
         EndgameConfig config = plugin.getConfig().get();
 
-        // Check if the damage source is a player
         if (!(damage.getSource() instanceof Damage.EntitySource entitySource)) return;
 
         Ref<EntityStore> attackerRef = entitySource.getRef();
@@ -137,7 +136,6 @@ public class DaggerVanishSystem extends DamageEventSystem {
         // Clean up expired invulnerability
         cleanupInvulnerability(attackerRef, commandBuffer, attackerUuid);
 
-        // Check if attacker has an active signature interaction chain
         int signatureChainId = WeaponUtils.getActiveSignatureChainId(attackerStore, attackerRef);
         if (signatureChainId == -1) {
             // No signature chain active — nothing to do

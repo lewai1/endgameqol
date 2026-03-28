@@ -223,7 +223,6 @@ public class WardenTrialManager {
             plugin.getLogger().atFine().log("[WardenChallenge] Enemy died for %s, remaining: %d/%d",
                     playerUuid, state.aliveNpcRefs.size(), state.totalEnemiesInWave);
 
-            // Check if wave is clear
             if (state.aliveNpcRefs.isEmpty() && state.phase == TrialPhase.ACTIVE) {
                 state.phase = TrialPhase.WAVE_CLEAR;
                 state.phaseStartTime = System.currentTimeMillis();
@@ -904,7 +903,6 @@ public class WardenTrialManager {
                 }
             }
 
-            // Check if wave is now clear
             if (state.aliveNpcRefs.isEmpty() && state.phase == TrialPhase.ACTIVE) {
                 state.phase = TrialPhase.WAVE_CLEAR;
                 state.phaseStartTime = System.currentTimeMillis();

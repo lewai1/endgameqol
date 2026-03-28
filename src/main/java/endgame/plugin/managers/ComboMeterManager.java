@@ -123,7 +123,6 @@ public class ComboMeterManager {
         synchronized (state) {
             long timerMs = getEffectiveTimerMs(state, config);
 
-            // Check if combo expired
             if (state.comboCount > 0 && (now - state.lastKillTime) > timerMs) {
                 state.comboCount = 0;
                 state.comboTier = 0;
@@ -222,7 +221,6 @@ public class ComboMeterManager {
             ComboState state = entry.getValue();
 
             synchronized (state) {
-                // Process deferred HUD removal
                 if (state.pendingHudRemoval) {
                     state.pendingHudRemoval = false;
                     state.hudRemoved = true;
@@ -234,7 +232,6 @@ public class ComboMeterManager {
 
                 long timerMs = getEffectiveTimerMs(state, config);
 
-                // Check if combo expired
                 if (state.comboCount > 0 && (now - state.lastKillTime) > timerMs) {
                     if (config.isComboDecayEnabled() && state.comboTier > 0) {
                         // Graceful decay — drop one tier

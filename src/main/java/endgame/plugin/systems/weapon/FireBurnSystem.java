@@ -72,18 +72,15 @@ public class FireBurnSystem extends DamageEventSystem {
             return;
         }
 
-        // Check if the source is a Fire Dragon
         if (!isFireDragonDamage(sourceRef, commandBuffer)) {
             return;
         }
 
-        // Get the target player's ref
         Ref<EntityStore> targetRef = archetypeChunk.getReferenceTo(index);
         if (targetRef == null || !targetRef.isValid()) {
             return;
         }
 
-        // Get the EffectControllerComponent of the target
         EffectControllerComponent effectController = store.getComponent(
                 targetRef, EffectControllerComponent.getComponentType()
         );
@@ -92,7 +89,6 @@ public class FireBurnSystem extends DamageEventSystem {
             return;
         }
 
-        // Get the Burn effect
         EntityEffect burnEffect = cachedBurnEffect;
         if (burnEffect == null) {
             burnEffect = EntityEffect.getAssetMap().getAsset(BURN_EFFECT_ID);
@@ -120,7 +116,6 @@ public class FireBurnSystem extends DamageEventSystem {
     }
 
     private boolean isFireDragonDamage(Ref<EntityStore> sourceRef, CommandBuffer<EntityStore> commandBuffer) {
-        // Check if source is an NPC
         ComponentType<EntityStore, NPCEntity> npcType = NPCEntity.getComponentType();
         if (npcType == null) {
             return false;

@@ -31,7 +31,6 @@ public class ClaimProtectionBridge {
      */
     public void init() {
         try {
-            // Check if SimpleClaims is present
             Class<?> claimManagerClass = Class.forName("com.buuz135.simpleclaims.claim.ClaimManager");
             Method getInstanceMethod = claimManagerClass.getMethod("getInstance");
             claimManagerInstance = getInstanceMethod.invoke(null);
@@ -43,7 +42,6 @@ public class ClaimProtectionBridge {
                     "isAllowedToInteract", UUID.class, String.class, int.class, int.class,
                     Predicate.class, String.class);
 
-            // Get the permission string constant
             Class<?> overridesClass = Class.forName("com.buuz135.simpleclaims.claim.party.PartyOverrides");
             breakBlockPermission = overridesClass.getField("PARTY_PROTECTION_BREAK_BLOCKS").get(null);
 
@@ -53,7 +51,7 @@ public class ClaimProtectionBridge {
                 try {
                     return (Boolean) isBlockBreakEnabled.invoke(obj);
                 } catch (Exception e) {
-                    return true; // fail-open
+                    return false; // fail-closed: deny break if check fails
                 }
             };
 
@@ -86,8 +84,8 @@ public class ClaimProtectionBridge {
                     claimManagerInstance, playerUUID, worldName, blockX, blockZ,
                     breakBlockPredicate, breakBlockPermission);
         } catch (Exception e) {
-            LOGGER.atFine().log("[ClaimBridge] Permission check failed, allowing: %s", e.getMessage());
-            return true; // fail-open
+            LOGGER.atWarning().log("[ClaimBridge] Permission check failed, denying break: %s", e.getMessage());
+            return false; // fail-closed: deny break if API call fails
         }
     }
 

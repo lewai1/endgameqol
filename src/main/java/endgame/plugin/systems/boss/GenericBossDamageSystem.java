@@ -174,7 +174,6 @@ public class GenericBossDamageSystem extends AbstractBossDamageSystem {
                 UUID attackerUuid = endgame.plugin.utils.EntityUtils.getUuid(attPRef);
                 if (attackerUuid != null) {
                     recordDamageForAggro(targetRef, attackerUuid, damage.getAmount());
-                    // Phase 2: Bounty DAMAGE_DEALT tracking
                     var bountyManager = plugin.getBountyManager();
                     if (bountyManager != null) {
                         bountyManager.onBossDamageDealt(attackerUuid, damage.getAmount());

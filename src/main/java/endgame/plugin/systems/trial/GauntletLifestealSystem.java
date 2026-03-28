@@ -83,7 +83,6 @@ public class GauntletLifestealSystem extends DamageEventSystem {
                     if (gauntletManager.hasActiveGauntlet(uuid)) {
                         totalLifesteal += gauntletManager.getLifestealPercent(uuid);
                     }
-                    // C1: Combo FRENZY lifesteal (Bloodlust — 3%)
                     if (comboManager != null) {
                         totalLifesteal += comboManager.getLifestealPercent(uuid);
                     }

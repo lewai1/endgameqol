@@ -29,7 +29,6 @@ public class BountyData {
                     (b, v) -> b.completed = v != null ? v : false, b -> b.completed).add()
             .append(new KeyedCodec<Boolean>("Claimed", Codec.BOOLEAN),
                     (b, v) -> b.claimed = v != null ? v : false, b -> b.claimed).add()
-            // B3: Bonus objective
             .append(new KeyedCodec<String>("BonusType", Codec.STRING),
                     (b, v) -> b.bonusType = v != null ? v : "", b -> b.bonusType).add()
             .append(new KeyedCodec<Boolean>("BonusCompleted", Codec.BOOLEAN),
@@ -62,12 +61,10 @@ public class BountyData {
                     }).add()
             .append(new KeyedCodec<Boolean>("StreakClaimed", Codec.BOOLEAN),
                     (s, v) -> s.streakClaimed = v != null ? v : false, s -> s.streakClaimed).add()
-            // B2: Reputation
             .append(new KeyedCodec<Integer>("TotalBountiesCompleted", Codec.INTEGER),
                     (s, v) -> s.totalBountiesCompleted = v != null ? v : 0, s -> s.totalBountiesCompleted).add()
             .append(new KeyedCodec<Integer>("Reputation", Codec.INTEGER),
                     (s, v) -> s.reputation = v != null ? v : 0, s -> s.reputation).add()
-            // B1: Weekly bounty
             .append(new KeyedCodec<Long>("LastWeeklyRefreshTimestamp", Codec.LONG),
                     (s, v) -> s.lastWeeklyRefreshTimestamp = v != null ? v : 0L, s -> s.lastWeeklyRefreshTimestamp).add()
             .append(new KeyedCodec<Map<String, ActiveBounty>>("WeeklyBounty",
@@ -118,7 +115,6 @@ public class BountyData {
         int target = 1;
         boolean completed = false;
         boolean claimed = false;
-        // B3: Bonus objective
         String bonusType = "";
         boolean bonusCompleted = false;
         // Tracking metadata (e.g., comma-separated boss types for KILL_UNIQUE_BOSSES)
@@ -168,10 +164,8 @@ public class BountyData {
         long lastRefreshTimestamp = 0;
         final List<ActiveBounty> bounties = new CopyOnWriteArrayList<>();
         boolean streakClaimed = false;
-        // B2: Reputation
         int totalBountiesCompleted = 0;
         int reputation = 0;
-        // B1: Weekly bounty
         long lastWeeklyRefreshTimestamp = 0;
         ActiveBounty weeklyBounty = null;
 
@@ -195,14 +189,12 @@ public class BountyData {
         public boolean isStreakClaimed() { return streakClaimed; }
         public void setStreakClaimed(boolean claimed) { this.streakClaimed = claimed; }
 
-        // B2: Reputation
         public int getTotalBountiesCompleted() { return totalBountiesCompleted; }
         public void incrementTotalCompleted() { this.totalBountiesCompleted++; }
 
         public int getReputation() { return reputation; }
         public void addReputation(int amount) { this.reputation += amount; }
 
-        // B1: Weekly bounty
         public long getLastWeeklyRefreshTimestamp() { return lastWeeklyRefreshTimestamp; }
         public void setLastWeeklyRefreshTimestamp(long ts) { this.lastWeeklyRefreshTimestamp = ts; }
         public ActiveBounty getWeeklyBounty() { return weeklyBounty; }

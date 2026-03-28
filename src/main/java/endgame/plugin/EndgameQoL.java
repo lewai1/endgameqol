@@ -107,7 +107,6 @@ public class EndgameQoL extends JavaPlugin {
     protected void setup() {
         this.getLogger().atInfo().log("[EndgameQoL] Setup started...");
 
-        // Initialize services
         endgame.plugin.services.SoundService.register(this, gameEventBus);
 
         // Phase 2 migration: restore old values from backup into the live config
@@ -123,7 +122,6 @@ public class EndgameQoL extends JavaPlugin {
         this.databaseInitializer = new DatabaseInitializer(this);
         this.databaseInitializer.initialize(this.databaseConfig);
 
-        // Initialize i18n translations
         I18n.init(this, this.playerLocaleConfig);
 
         // Custom interaction types

@@ -27,7 +27,6 @@ public class BossConfig {
     private int xpReward = 0;
     // Golem-specific: danger zone start phase (1-3)
     private int dangerZoneStartPhase = 1;
-    // Phase thresholds (HP percentage: 0.0-1.0)
     private float phase2Threshold = 0.66f;
     private float phase3Threshold = 0.33f;
     // Phase transition invulnerability duration (ms, 0 = disabled)

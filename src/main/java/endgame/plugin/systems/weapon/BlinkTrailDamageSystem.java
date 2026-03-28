@@ -85,7 +85,6 @@ public class BlinkTrailDamageSystem extends EntityTickingSystem<EntityStore> {
                 continue;
             }
 
-            // Check if this NPC was already damaged by this trail
             Set<Ref<EntityStore>> damaged = damagedNpcs.get(entry.getKey());
             if (damaged != null && damaged.contains(npcRef)) continue;
 
