@@ -1,7 +1,9 @@
 package endgame.plugin.managers;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Static pool of achievement definitions.
@@ -42,7 +44,7 @@ public class AchievementTemplate {
 
     // === Achievement Pool ===
 
-    private static final List<AchievementTemplate> ALL_ACHIEVEMENTS = Arrays.asList(
+    private static final List<AchievementTemplate> ALL_ACHIEVEMENTS = List.of(
         // --- COMBAT ---
         new AchievementTemplate("combat_first_blood", "First Blood",
                 "Kill your first endgame NPC", Category.COMBAT, 1, 25, null),
@@ -144,15 +146,15 @@ public class AchievementTemplate {
                 "Mine 1000 blocks total", Category.MINING, 1000, 500, "Endgame_Drop_Reward_20")
     );
 
+    private static final Map<String, AchievementTemplate> BY_ID = ALL_ACHIEVEMENTS.stream()
+            .collect(Collectors.toUnmodifiableMap(AchievementTemplate::getId, Function.identity()));
+
     public static List<AchievementTemplate> getAll() {
         return ALL_ACHIEVEMENTS;
     }
 
     public static AchievementTemplate findById(String id) {
-        for (AchievementTemplate t : ALL_ACHIEVEMENTS) {
-            if (t.id.equals(id)) return t;
-        }
-        return null;
+        return BY_ID.get(id);
     }
 
     public static List<AchievementTemplate> getByCategory(Category category) {

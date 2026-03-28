@@ -65,6 +65,7 @@ public final class BestiaryRegistry {
         "Endgame_Drop_Reward_5", "Endgame_Drop_Reward_10", "Endgame_Drop_Reward_10",
         "Endgame_Drop_Reward_15", "Endgame_Drop_Reward_20", "Endgame_Drop_Bounty_Weekly"
     };
+    static { assert DISCOVERY_MILESTONES.length == DISCOVERY_DROP_TABLES.length; }
 
     public static List<KillMilestone> getKillMilestones(Category category) {
         return KILL_MILESTONES.getOrDefault(category, List.of());

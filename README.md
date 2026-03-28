@@ -11,12 +11,12 @@ Hytale server plugin adding endgame content: bosses, weapons, dungeons, NPCs, cr
 - **2 Dungeons** — Frozen Dungeon and Swamp Dungeon with unique enemies, traders, and loot
 - **5 Armor sets** — Mithril, Onyxium, Prisma, Hedera, Frost Bone
 - **6 Accessories** — Trinket Pouch with Frostwalkers, Ocean Striders, Void Amulet, Blazefist, Pocket Garden, Hedera Seed
-- **Achievement System** — 24 achievements across 5 categories
-- **Bounty Board** — Daily/weekly quests with reputation ranks
+- **Achievement System** — 42 achievements across 8 categories (Combat, Boss, Bounty, Discovery, Crafting, Exploration, Speedrun, Mining)
+- **Bounty Board** — 54 bounty templates with daily/weekly quests, mining and exploration bounties, reputation ranks
 - **Combo Meter** — Kill streak tracker with tier effects
 - **Warden Trials** — 4-tier wave survival challenge
 - **Bestiary** — 32 NPC entries with kill milestones
-- **Multi-language** — EN, PT-BR, RU (FR, ES when officially added to the game)
+- **Multi-language** — EN, PT-BR, RU (FR, ES prepared — will activate when Hytale adds official support)
 - **Database support** — Optional SQL persistence (SQLite, MySQL, MariaDB, PostgreSQL)
 
 ## Requirements

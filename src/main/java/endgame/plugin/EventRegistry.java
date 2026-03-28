@@ -119,15 +119,7 @@ public class EventRegistry {
         try {
             if (event.getHolder() == null) return;
 
-            // Thread-safe: find PlayerRef by matching holder (field access only, no ECS)
-            // then use UUID-based cleanup (ConcurrentHashMap operations only)
-            UUID playerUuid = null;
-            for (PlayerRef pRef : Universe.get().getPlayers()) {
-                if (pRef != null && java.util.Objects.equals(pRef.getHolder(), event.getHolder())) {
-                    playerUuid = pRef.getUuid(); // final field, thread-safe
-                    break;
-                }
-            }
+            UUID playerUuid = findUuidByHolder(event.getHolder());
 
             if (playerUuid != null) {
                 // All UUID-based methods only touch ConcurrentHashMaps — thread-safe
@@ -163,14 +155,7 @@ public class EventRegistry {
         try {
             if (event.getHolder() == null) return;
 
-            // Thread-safe: find PlayerRef by matching holder (field access only, no ECS)
-            UUID playerUuid = null;
-            for (PlayerRef pRef : Universe.get().getPlayers()) {
-                if (pRef != null && java.util.Objects.equals(pRef.getHolder(), event.getHolder())) {
-                    playerUuid = pRef.getUuid(); // final field, thread-safe
-                    break;
-                }
-            }
+            UUID playerUuid = findUuidByHolder(event.getHolder());
 
             // ALWAYS clear boss bars on world entry — handles cross-instance transitions
             // (e.g., Golem Void → Frost Dragon) and non-boss worlds alike.
@@ -223,6 +208,19 @@ public class EventRegistry {
         } catch (Exception e) {
             plugin.getLogger().atWarning().withCause(e).log("[EndgameQoL] Error in onPlayerEnterWorld (non-fatal)");
         }
+    }
+
+    /**
+     * Thread-safe UUID lookup by holder reference (field access only, no ECS).
+     */
+    private static UUID findUuidByHolder(Object holder) {
+        if (holder == null) return null;
+        for (PlayerRef pRef : Universe.get().getPlayers()) {
+            if (pRef != null && java.util.Objects.equals(pRef.getHolder(), holder)) {
+                return pRef.getUuid();
+            }
+        }
+        return null;
     }
 
     private void onWorldAdded(AddWorldEvent event) {

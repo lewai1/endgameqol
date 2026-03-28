@@ -35,7 +35,8 @@ public class BossHealthManager {
     private final ConcurrentHashMap<UUID, BossHealthState> trackedBosses = new ConcurrentHashMap<>();
 
     // Cleanup interval
-    private static final long CLEANUP_INTERVAL_MS = 60000;
+    private static final long CLEANUP_INTERVAL_MS = 60_000L;
+    private static final float MINIMUM_BOSS_HEALTH = 100f;
     private volatile long lastCleanupTime = 0;
 
     private static class BossHealthState {
@@ -97,14 +98,13 @@ public class BossHealthManager {
         // Use the known JSON base health (stable, predictable)
         float baseMax = bossType.getDefaultHealth();
         if (baseMax <= 0) {
-            baseMax = 100f;
+            baseMax = MINIMUM_BOSS_HEALTH;
         }
 
         // Calculate additive modifier: targetHealth = baseMax + additive
         float additive = targetHealth - baseMax;
 
         // Ensure final health is at least minimum
-        float MINIMUM_BOSS_HEALTH = 100f;
         if (baseMax + additive < MINIMUM_BOSS_HEALTH) {
             additive = MINIMUM_BOSS_HEALTH - baseMax;
             plugin.getLogger().atWarning().log("[BossHealthManager] Adjusted additive to ensure minimum health: %.0f", MINIMUM_BOSS_HEALTH);

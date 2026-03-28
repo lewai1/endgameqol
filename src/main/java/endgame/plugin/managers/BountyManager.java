@@ -33,10 +33,10 @@ import java.util.concurrent.ConcurrentHashMap;
 public class BountyManager {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("EndgameQoL.Bounty");
+    private static final long HOUR_MS = 3_600_000L;
+    private static final long WEEK_MS = 7 * 24 * HOUR_MS;
 
     private final EndgameQoL plugin;
-
-    // In-memory cache of player components (populated on connect, cleared on disconnect)
     private final ConcurrentHashMap<UUID, PlayerEndgameComponent> components = new ConcurrentHashMap<>();
 
     public BountyManager(EndgameQoL plugin) {
@@ -65,7 +65,7 @@ public class BountyManager {
 
         // Check if daily refresh needed
         long now = System.currentTimeMillis();
-        long refreshMs = config.getBountyRefreshHours() * 3600000L;
+        long refreshMs = config.getBountyRefreshHours() * HOUR_MS;
         if (now - state.getLastRefreshTimestamp() >= refreshMs) {
             generateBounties(playerUuid, state);
             // No explicit save — Hytale auto-persists the ECS component
@@ -73,7 +73,7 @@ public class BountyManager {
 
         // B1: Check if weekly refresh needed (7-day cycle)
         if (config.isBountyWeeklyEnabled()) {
-            long weeklyRefreshMs = 7L * 24 * 3600000L;
+            long weeklyRefreshMs = WEEK_MS;
             if (now - state.getLastWeeklyRefreshTimestamp() >= weeklyRefreshMs) {
                 generateWeeklyBounty(playerUuid, state);
                 // No explicit save — Hytale auto-persists the ECS component
@@ -513,7 +513,7 @@ public class BountyManager {
         if (state == null) return 0;
 
         EndgameConfig config = plugin.getConfig().get();
-        long refreshMs = config.getBountyRefreshHours() * 3600000L;
+        long refreshMs = config.getBountyRefreshHours() * HOUR_MS;
         long elapsed = System.currentTimeMillis() - state.getLastRefreshTimestamp();
         return Math.max(0, refreshMs - elapsed);
     }
@@ -671,7 +671,9 @@ public class BountyManager {
                 EntityStatValue health = statMap.get(DefaultEntityStatTypes.getHealth());
                 return health != null && health.get() >= health.getMax();
             }
-        } catch (Exception ignored) {}
+        } catch (Exception e) {
+            LOGGER.atFine().log("[Bounty] Failed to check player HP for %s: %s", playerUuid, e.getMessage());
+        }
         return false;
     }
 
@@ -698,7 +700,7 @@ public class BountyManager {
         PlayerBountyState state = getPlayerBounties(playerUuid);
         if (state == null) return 0;
 
-        long weeklyRefreshMs = 7L * 24 * 3600000L;
+        long weeklyRefreshMs = WEEK_MS;
         long elapsed = System.currentTimeMillis() - state.getLastWeeklyRefreshTimestamp();
         return Math.max(0, weeklyRefreshMs - elapsed);
     }

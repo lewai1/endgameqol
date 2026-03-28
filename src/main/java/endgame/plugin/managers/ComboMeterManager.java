@@ -501,7 +501,7 @@ public class ComboMeterManager {
             PlayerRef playerRef = findPlayerRef(state.playerUuid);
             if (playerRef == null) return;
 
-            int tierIdx = Math.max(0, state.comboTier - 1);
+            int tierIdx = Math.clamp(state.comboTier - 1, 0, TIER_COLORS.length - 1);
             String color = TIER_COLORS[tierIdx];
             String barColor = TIER_BAR_COLORS[tierIdx];
 
@@ -601,7 +601,7 @@ public class ComboMeterManager {
     }
 
     private String buildHudHtml(ComboState state, String color, String barColor) {
-        int tierIdx = Math.max(0, state.comboTier - 1);
+        int tierIdx = Math.clamp(state.comboTier - 1, 0, TIER_NAMES.length - 1);
         String tierName = TIER_NAMES[tierIdx];
         String bgColor = TIER_BG_COLORS[tierIdx];
         boolean isFrenzy = state.comboTier == 4;

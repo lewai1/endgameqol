@@ -413,14 +413,14 @@ public class AchievementManager {
         }
     }
 
+    private static final Set<String> WEAPON_TYPES = Set.of(
+            "sword", "dagger", "staff", "longsword", "mace", "bow", "axe", "spear", "shield", "shortbow", "battleaxe");
+
     private boolean isEndgameWeapon(String itemId) {
         if (itemId == null) return false;
         String lower = itemId.toLowerCase();
-        return lower.contains("endgame_") && (
-                lower.contains("sword") || lower.contains("dagger") ||
-                lower.contains("staff") || lower.contains("longsword") ||
-                lower.contains("mace") || lower.contains("bow") ||
-                lower.contains("axe") || lower.contains("spear"));
+        boolean hasPrefix = lower.startsWith("endgame_") || lower.startsWith("weapon_");
+        return hasPrefix && WEAPON_TYPES.stream().anyMatch(lower::contains);
     }
 
     // === Cleanup ===

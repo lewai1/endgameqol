@@ -1,9 +1,8 @@
 package endgame.plugin.managers;
 
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -57,11 +56,12 @@ public class BountyTemplate {
         public String getId() { return id; }
         public String getDescription() { return description; }
 
+        private static final Map<String, BonusType> BY_ID = Map.of(
+                "combo_x3", COMBO_X3, "combo_frenzy", COMBO_FRENZY,
+                "during_gauntlet", DURING_GAUNTLET, "at_full_hp", AT_FULL_HP);
+
         public static BonusType fromId(String id) {
-            for (BonusType bt : values()) {
-                if (bt.id.equals(id)) return bt;
-            }
-            return NONE;
+            return BY_ID.getOrDefault(id, NONE);
         }
     }
 
@@ -106,7 +106,7 @@ public class BountyTemplate {
 
     // === Template Pool ===
 
-    private static final List<BountyTemplate> EASY_POOL = Arrays.asList(
+    private static final List<BountyTemplate> EASY_POOL = List.of(
         new BountyTemplate("easy_saurian_10", BountyType.KILL_NPC, "Saurian_Warrior", 10,
                 BountyDifficulty.EASY, "Slay 10 Saurian Warriors", "Endgame_Drop_Reward_5"),
         new BountyTemplate("easy_werewolf_5", BountyType.KILL_NPC, "Werewolf", 5,
@@ -147,7 +147,7 @@ public class BountyTemplate {
                 BountyDifficulty.EASY, "Craft 3 Adamantite Ore", "Endgame_Drop_Reward_5", 40, 1)
     );
 
-    private static final List<BountyTemplate> MEDIUM_POOL = Arrays.asList(
+    private static final List<BountyTemplate> MEDIUM_POOL = List.of(
         new BountyTemplate("med_rex_2", BountyType.KILL_NPC, "Alpha_Rex", 2,
                 BountyDifficulty.MEDIUM, "Slay 2 Alpha Rex", "Endgame_Drop_Reward_10"),
         new BountyTemplate("med_duke_3", BountyType.KILL_NPC, "Goblin_Duke", 3,
@@ -192,7 +192,7 @@ public class BountyTemplate {
                 BountyDifficulty.MEDIUM, "Craft an Onyxium Sword", "Endgame_Drop_Reward_10", 120, 2)
     );
 
-    private static final List<BountyTemplate> HARD_POOL = Arrays.asList(
+    private static final List<BountyTemplate> HARD_POOL = List.of(
         new BountyTemplate("hard_boss_2", BountyType.KILL_ANY_BOSS, null, 2,
                 BountyDifficulty.HARD, "Defeat 2 Bosses", "Endgame_Drop_Reward_20"),
         new BountyTemplate("hard_trial_4", BountyType.COMPLETE_TRIAL, null, 4,
@@ -230,7 +230,7 @@ public class BountyTemplate {
     );
 
     // B1: Weekly bounty pool — much harder, 7-day refresh
-    private static final List<BountyTemplate> WEEKLY_POOL = Arrays.asList(
+    private static final List<BountyTemplate> WEEKLY_POOL = List.of(
         new BountyTemplate("weekly_warlord", BountyType.KILL_UNIQUE_BOSSES, null, 5,
                 BountyDifficulty.WEEKLY, "Defeat 5 unique boss types", "Endgame_Drop_Bounty_Weekly"),
         new BountyTemplate("weekly_combo_master", BountyType.REACH_FRENZY_COUNT, null, 5,
@@ -246,15 +246,10 @@ public class BountyTemplate {
                 BountyDifficulty.WEEKLY, "Craft 5 endgame weapons", "Endgame_Drop_Bounty_Weekly")
     );
 
-    // Pre-built lookup map for O(1) template-by-id access
-    private static final Map<String, BountyTemplate> TEMPLATE_BY_ID;
-    static {
-        Map<String, BountyTemplate> map = new HashMap<>();
-        Stream.of(EASY_POOL, MEDIUM_POOL, HARD_POOL, WEEKLY_POOL)
-                .flatMap(List::stream)
-                .forEach(t -> map.put(t.getId(), t));
-        TEMPLATE_BY_ID = Map.copyOf(map);
-    }
+    private static final Map<String, BountyTemplate> TEMPLATE_BY_ID =
+            Stream.of(EASY_POOL, MEDIUM_POOL, HARD_POOL, WEEKLY_POOL)
+                    .flatMap(List::stream)
+                    .collect(Collectors.toUnmodifiableMap(BountyTemplate::getId, t -> t));
 
     public static List<BountyTemplate> getEasyPool() { return EASY_POOL; }
     public static List<BountyTemplate> getMediumPool() { return MEDIUM_POOL; }
