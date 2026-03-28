@@ -302,8 +302,16 @@ public class SystemRegistry {
             for (java.util.UUID playerUuid : event.creditedPlayers()) {
                 this.bountyManager.onBossKill(playerUuid, event.bossTypeId(), event.encounterDurationSeconds());
                 if (plugin.getAchievementManager() != null) {
-                    plugin.getAchievementManager().onBossKill(playerUuid, event.bossTypeId());
+                    plugin.getAchievementManager().onBossKill(playerUuid, event.bossTypeId(), event.encounterDurationSeconds());
                 }
+            }
+        });
+
+        // Subscribe to dungeon enter events for exploration bounties + achievements
+        eventBus.subscribe(endgame.plugin.events.domain.GameEvent.DungeonEnterEvent.class, event -> {
+            this.bountyManager.onDungeonEnter(event.playerUuid(), event.dungeonType());
+            if (plugin.getAchievementManager() != null) {
+                plugin.getAchievementManager().onDungeonEnter(event.playerUuid(), event.dungeonType());
             }
         });
     }

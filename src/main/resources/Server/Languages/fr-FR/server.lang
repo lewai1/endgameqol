@@ -1,0 +1,175 @@
+ui.endgame = EndgameQoL
+ui.endgame.weapons = Armes
+ui.endgame.armor = Armure
+ui.endgame.tools = Outils
+ui.endgame.materials = Matériaux
+ui.endgame.consumables = Consommables
+ui.endgame.portals = Portails
+ui.endgame.misc = Divers
+items.Bench_Endgame.name = Établi Endgame
+endgameCategories.armor_onyxium = Armure et Lingots d'Onyxium
+endgameCategories.armor_prisma = Armure et Lingots de Prisma
+endgameCategories.portals = Portails
+endgameCategories.misc = Divers
+endgameCategories.challenge = Défi
+benchCategories.staff = Bâton
+benchCategories.longsword = Épée Longue
+benchCategories.spear = Lance
+items.Bench_Endgame.description = Permet de fabriquer des objets auparavant inaccessibles.\n\nMinerai d'Onyxium/Armure et Outils d'Onyxium/Défis/Divers
+items.Forgotten_Temple_Portal.description = Portail du Temple Oublié avec marqueur de carte personnalisé
+items.Forgotten_Temple_Marker.name = Maison
+items.Advanced_Glider.name = Planeur Avancé
+items.Advanced_Glider.description = Une amélioration significative du modèle de base. Vol plus fluide, meilleure vitesse.
+items.Standard_Glider.name = Planeur Standard
+items.Standard_Glider.description = Tu as failli tomber...
+items.Endgame_Weapon_Staff_Crystal_Ice.description = Un bâton couronné d'un cristal de saphir irradiant un froid glacial. Lance des projectiles glacés qui refroidissent l'air à l'impact.\nConsomme <color is="#05c09a">25 Mana</color> par incantation.
+items.Endgame_Weapon_Staff_Crystal_Flame.description = Un bâton enveloppé de flammes vivantes, son noyau de rubis tournoyant de magie de feu. Projette des boules de feu explosives qui calcinent tout sur leur passage.\nConsomme <color is="#05c09a">25 Mana</color> par incantation.
+items.Endgame_Weapon_Staff_Adamantite.description = Un bâton forgé en adamantite dense, son poids démentant la vitesse de ses projectiles arcaniques. Une arme fiable pour le lanceur de sorts expérimenté.\nConsomme <color is="#05c09a">25 Mana</color> par incantation.
+items.Endgame_Weapon_Staff_Cobalt.description = Un bâton renforcé d'alliage de cobalt, crépitant d'énergie agitée. Ses projectiles volent vite et frappent fort.\nConsomme <color is="#05c09a">20 Mana</color> par incantation.
+items.Endgame_Weapon_Staff_Copper.description = Un humble bâton à pointe de cuivre. Le premier pas sur la voie de la guerre arcanique. Tire des projectiles faibles mais réguliers.\nConsomme <color is="#05c09a">12 Mana</color> par incantation.
+items.Endgame_Weapon_Staff_Mithril.description = Un bâton infusé de rare mithril, vibrant d'une profonde résonance magique. Ses projectiles percent l'obscurité avec une force dévastatrice.\nConsomme <color is="#05c09a">30 Mana</color> par incantation.
+items.Endgame_Weapon_Staff_Iron.description = Un solide bâton de fer, un cran au-dessus du cuivre. Fiable et efficace, il sert bien ceux qui perfectionnent encore leur art.\nConsomme <color is="#05c09a">15 Mana</color> par incantation.
+items.Endgame_Weapon_Staff_Onyxium.description = Un bâton taillé dans le cristal d'onyxium, pulsant d'énergie volatile du vide. Ses projectiles déchirent la réalité elle-même.\nConsomme <color is="#05c09a">35 Mana</color> par incantation.
+items.Endgame_Weapon_Staff_Thorium.description = Un bâton à noyau de thorium luisant faiblement en vert. Ses tirs portent un poids étrange, comme s'ils déformaient l'espace qu'ils traversent.\nConsomme <color is="#05c09a">18 Mana</color> par incantation.
+items.Weapon_Daggers_Hedera.name = Dagues Liées de Vignes
+items.Weapon_Daggers_Hedera.description = Forgées à partir des propres épines d'<color is="#2E8B57">Hedera</color>, ces lames sont éternellement liées par des vignes vivantes. Chaque frappe murmure la colère de la forêt.
+items.Hedera_Gem.name = Gemme d'Hedera
+items.Hedera_Gem.description = Jadis incrustée au cœur de la cuirasse d'<color is="#2E8B57">Hedera</color>, cette gemme pulse encore de la fureur verdoyante du gardien de la forêt. Nécessaire pour améliorer l'Enclume Endgame au <color is="#FFD700">Niveau 5</color>.
+items.Ingredient_Forest_Essence.name = Essence de la Forêt
+items.Ingredient_Forest_Essence.description = Une essence concentrée de la forêt, pulsant d'énergie vitale. Utilisée pour fabriquer les <color is="#2E8B57">Dagues Liées de Vignes</color> et améliorer l'Enclume Endgame au <color is="#FFD700">Niveau 5</color>.
+items.Dragon_Heart.name = Cœur de Dragon
+items.Dragon_Heart.description = Le cœur palpitant d'un dragon terrassé, encore chaud d'un pouvoir ancestral. Nécessaire pour améliorer l'Enclume Endgame au <color is="#FFD700">Niveau 5</color>.
+items.Big_Rex_Cave_Leather.name = Cuir de Souverain Suprême
+items.Big_Rex_Cave_Leather.description = Un cuir épais et résistant récolté sur l'Alpha Rex des cavernes. Il semble ancestral et incroyablement durable. Utilisé pour fabriquer les <color is="#FFD700">Améliorations de Sac Endgame I à III</color>.
+items.Endgame_Upgrade_Backpack_1.name = Amélioration de Sac Endgame I
+items.Endgame_Upgrade_Backpack_1.description = Augmente la capacité de votre sac de 9 emplacements.
+items.Endgame_Upgrade_Backpack_2.name = Amélioration de Sac Endgame II
+items.Endgame_Upgrade_Backpack_2.description = Augmente la capacité de votre sac de 9 emplacements.
+items.Endgame_Upgrade_Backpack_3.name = Amélioration de Sac Endgame III
+items.Endgame_Upgrade_Backpack_3.description = Augmente la capacité de votre sac de 9 emplacements.
+items.Endgame_Glider.name = Planeur du Vide
+items.Endgame_Glider.description = Vous envoie sur la lune.\n<color is="#b8860b">Clic Droit</color> consomme 5 <color is="#800080">Essence du Vide</color> pour fournir une poussée d'accélération horizontale.
+items.Food_Meat_Raw_Alpha_Trex.name = Viande Crue d'Alpha Rex
+items.Food_Meat_Raw_Alpha_Trex.description = Viande crue de l'Alpha Rex. Elle a l'air dure et peu appétissante.
+items.Food_Meat_Cooked_Alpha_Trex.name = Viande Cuite d'Alpha Rex
+items.Food_Meat_Cooked_Alpha_Trex.description = Viande cuite de l'Alpha Rex. Elle a l'air dure et peu appétissante.\n<color is="#00FF00">Restaure 20% de vie en 0.2 secondes.</color>
+npcRoles.Endgame_Golem_Void.name = Golem du Vide
+npcRoles.Golem_Eye_Void.name = Œil du Vide
+items.Endgame_Portal_Mithril_Dragon.name = Éclat du Sommet Gelé
+items.Endgame_Portal_Mithril_Dragon.description = Un fragment irrégulier de permafrost. <color is="#b8860b">Clic Droit</color> sur un <color is="#a9a9a9">Portail Ancestral</color> pour ouvrir le passage vers le <color is="#7de8ff">Sommet Gelé</color>.\nSous les pics enneigés de cette taïga glaciale, des <color is="#7de8ff">Dragons de Glace</color> gardent d'anciens filons de <color is="#7de8ff">Mithril</color>.
+portals.mithril.tip = <i><color is="#05c09a">Une bête mythique sommeille ici,\nprisonnière d'un sommeil éternel...</color></i>\n\n<color is="#888888">On dit qu'un</color> <color is="#7de8ff">minerai argenté</color> <color is="#888888">scintille dans les profondeurs gelées.</color>
+items.Endgame_Portal_Swamp_Dungeon.name = Clé du Donjon du Marais
+items.Endgame_Portal_Swamp_Dungeon.description = Une clé tissée de racines ancestrales, dégoulinant de sève sombre. <color is="#b8860b">Clic Droit</color> sur un <color is="#a9a9a9">Portail Ancestral</color> pour ouvrir le passage vers le <color is="#2E8B57">Donjon du Marais</color>.\nAu plus profond du marais suffocant, <color is="#2E8B57">Hedera</color> attend au cœur du Grand Arbre Creux.
+items.Endgame_Portal_Golem_Void.name = Éclat du Vide
+items.Endgame_Portal_Golem_Void.description = Un morceau d'énergie du vide cristallisée, glacial au toucher. <color is="#b8860b">Clic Droit</color> sur un <color is="#a9a9a9">Portail Ancestral</color> pour ouvrir le passage vers le <color is="#800080">Royaume du Vide</color>.\nDans l'obscurité éternelle, le <color is="#800080">Golem du Vide</color> garde un savoir interdit.
+items.Endgame_Portal_Luminia.name = Éclat de la Lumière Radieuse (WIP)
+items.Endgame_Portal_Luminia.description = Un fragment de lumière pure, luttant contre les ombres envahissantes. <color is="#b8860b">Clic Droit</color> sur un <color is="#a9a9a9">Portail Ancestral</color> pour ouvrir le passage vers <color is="#FFD700">Luminia</color>.\nUne dimension d'éclat aveuglant, où des <color is="#FFFACD">Biomes Lumineux</color> mènent une guerre éternelle contre les <color is="#800080">Terres Corrompues</color>.
+portals.void_golem = Porte du Vide Glacial
+portals.void_golem.description = Un vortex tourbillonnant de <color is="#2F4F4F">ténèbres pures</color>, crépitant d'<color is="#00BFFF">énergie glaciale instable</color>. Seuls les plus braves osent traverser la <color is="#ADD8E6">brume gelante</color>.
+portals.void_golem.tip1 = L'air ici mord d'un <color is="#B0C4DE">froid surnaturel</color>,
+portals.void_golem.tip2 = brisé seulement par les murmures lointains du <color is="#483D8B">Vide</color>.
+portals.void_golem.tip3 = Prenez garde aux <color is="#708090">ombres</color>,
+portals.void_golem.tip4 = car elles ont des yeux dans ce <color is="#F0F8FF">royaume gelé</color>.
+npcRoles.Endgame_Dragon_Frost.name = Dragon de Glace
+barter.Vorthak.title = Boutique de Troc de Vorthak
+items.Tool_Pickaxe_Prisma.name = Pioche de Prisma
+items.Tool_Pickaxe_Prisma.description = Une pioche forgée en cristal prismatique. Ses frappes résonnantes brisent la roche avec une efficacité inégalée.
+items.Tool_Hatchet_Prisma.name = Hachette de Prisma
+items.Tool_Hatchet_Prisma.description = Une hachette forgée en cristal prismatique. Son tranchant prismatique fend le bois comme s'il était de l'air.
+items.Weapon_Sword_Prisma.name = Épée de Prisma
+items.Weapon_Sword_Prisma.description = Une lame de cristal prismatique pur, son tranchant scintille de chaque nuance de lumière réfractée. Coupe à travers l'armure aussi facilement que l'air.
+items.Weapon_Daggers_Prisma.name = Dagues de Prisma
+items.Weapon_Daggers_Prisma.description = Lames jumelles forgées en cristal prismatique, réfractant la lumière à chaque coup. Leur tranchant vibre d'énergie résonnante qui brise les défenses à l'impact.
+items.Hedera_Key.name = Clé d'Hedera
+items.Hedera_Key.description = Une clé dorée forgée à partir des vignes ancestrales d'<color is="#2E8B57">Hedera</color>. Ouvre les portes scellées du <color is="#2E8B57">Donjon du Marais</color>.
+items.Endgame_Portal_Frozen_Dungeon.name = Clé du Donjon Gelé
+items.Endgame_Portal_Frozen_Dungeon.description = Une clé forgée dans la glace éternelle, sa surface crépite d'énergie gelée. <color is="#b8860b">Clic Droit</color> sur un <color is="#a9a9a9">Portail Ancestral</color> pour ouvrir le passage vers <color is="#7de8ff">Frostfall</color>.\nUn bastion fracassé suspendu au-dessus du vide, où des <color is="#7de8ff">Yétis de Glace</color> rôdent dans les ruines ouvertes et un <color is="#7de8ff">Dragon de Glace</color> survole les cieux gelés.
+portals.frozen_dungeon = Porte de Frostfall
+portals.frozen_dungeon.description = Une faille hurlante de <color is="#7de8ff">glace et de vide</color>, ses bords crépitant d'éclairs gelés. Au-delà se trouve un bastion en ruines ouvert au <color is="#B0C4DE">ciel infini</color>.
+portals.frozen_dungeon.tip1 = <i><color is="#7de8ff">Le vent hurle à travers la pierre brisée,</color></i>
+portals.frozen_dungeon.tip2 = <i><color is="#7de8ff">et au-dessus, quelque chose d'immense tourne dans le givre...</color></i>
+portals.swamp_dungeon = Porte du Donjon du Marais
+portals.swamp_dungeon.description = Un portail de <color is="#2E8B57">vignes emmêlées et d'énergie sombre</color>, ses bords pulsant de vie corrompue. Au-delà se trouve un marais consumé par le pouvoir ancestral d'<color is="#2E8B57">Hedera</color>.
+portals.swamp_dungeon.tip1 = <i><color is="#2E8B57">Les racines se tordent et s'étendent à travers la brume,</color></i>
+portals.swamp_dungeon.tip2 = <i><color is="#2E8B57">et quelque part dans les profondeurs, quelque chose d'ancestral respire...</color></i>
+npcRoles.Endgame_Yeti.name = Yéti de Glace
+npcRoles.Endgame_Rat_Frost.name = Rat de Glace
+npcRoles.Endgame_Toad_Frost.name = Crapaud de Glace
+items.Flocon_Currency.name = Monnaie Flocon
+items.Flocon_Currency.description = Un flocon de neige scintillant qui ne fond jamais, pulsant de la magie glaciale du Donjon Gelé.
+items.Swamp_Currency.name = Monnaie du Marais
+items.Swamp_Currency.description = Un jeton trouble dragué des profondeurs du Donjon du Marais, enduit de mousse ancestrale et d'enchantement sombre.
+items.Swamp_Ingot.name = Lingot du Marais
+items.Swamp_Ingot.description = Un lingot dense fondu à partir de minerais trouvés dans les profondeurs du Donjon du Marais, veiné de résidus bioluminescents. Utilisé pour fabriquer la <color is="#FFD700">Clé d'Hedera</color>.
+npcRoles.Frozen_Trader.name = Korvyn
+barter.Frozen_Trader.title = Emporium de Glace de Korvyn
+npcRoles.Swamp_Trader.name = Morghul
+barter.Morghul.title = Bazar du Marais de Morghul
+items.Endgame_Frozen_Sword.name = Lame de Givre
+items.Endgame_Frozen_Sword.description = Une lame forgée dans la glace éternelle, son tranchant ne s'émousse jamais et son froid ne se dissipe jamais.\nChaque frappe applique <color is="#80ecff">Frisson Glacial</color> (50% ralentissement, 5s).\nFinisseur <color is="#4080ff">Vortexstrike</color> <color is="#4080ff">gèle</color> la cible pendant 3s.
+npcRoles.Endgame_Swamp_Crocodile.name = Crocodile du Marais
+npcRoles.Endgame_Ghoul.name = Goule
+npcRoles.Endgame_Goblin_Duke.name = Duc Gobelin
+npcRoles.Endgame_Necromancer_Void.name = Nécromancien du Vide
+npcRoles.Endgame_Saurian_Warrior.name = Guerrier Saurien
+npcRoles.Endgame_Saurian_Hunter.name = Chasseur Saurien
+npcRoles.Endgame_Saurian_Rogue.name = Voleur Saurien
+npcRoles.Endgame_Shadow_Knight.name = Chevalier des Ombres
+npcRoles.Endgame_Werewolf.name = Loup-Garou
+npcRoles.Onyxium_Encounter.name = Chevalier d'Onyxium
+items.Endgame_Swamp_Crocodile_Scale.name = Écaille de Crocodile du Marais
+items.Endgame_Swamp_Crocodile_Scale.description = Une écaille résistante et iridescente arrachée à un Crocodile du Marais. Prisée par les armuriers pour sa résistance naturelle. Utilisée pour fabriquer la <color is="#FFD700">Clé d'Hedera</color>.
+items.Torch_Swamp_Dungeon.name = Torche du Donjon du Marais
+items.Torch_Swamp_Dungeon.description = Une torche faible brûlant d'une lueur verdâtre, trouvée au plus profond des donjons marécageux.
+items.Rope_Vertical_Infused.name = Corde Verticale Infusée
+items.Rope_Vertical_Infused.description = Une corde solide infusée de fibres magiques. Peut être escaladée.
+items.Rope_Infused.name = Corde Infusée
+items.Rope_Infused.description = Une corde infusée de la magie ancestrale du marais, vibrant encore d'énergie résiduelle. Utilisée pour fabriquer la <color is="#FFD700">Clé d'Hedera</color>.
+items.Dead_Tree_Small.name = Arbre Mort
+items.Dead_Tree_Small.description = Un petit arbre flétri. Ses branches nues n'offrent aucune ombre.
+items.Dead_Stump.name = Souche Morte
+items.Dead_Stump.description = Les restes pourrissants d'un arbre autrefois majestueux.
+items.Hedera_Autel.name = Autel d'Hedera
+items.Hedera_Autel.description = Un autel ancestral envahi par les vignes, pulsant faiblement de la présence persistante d'Hedera.
+items.Endgame_Mana_Totem.name = Totem de Mana
+items.Endgame_Mana_Totem.description = Un totem déployable qui régénère le mana des alliés proches.\nLancez pour déployer. Dure <color is="#05c09a">12 secondes</color>, restaure <color is="#4080ff">6 Mana/sec</color> dans un rayon de 5m.
+items.Hedera_Bramble.name = Ronce d'Hedera
+items.Hedera_Bramble.description = Une relique épineuse arrachée du domaine d'<color is="#2E8B57">Hedera</color>. Ses vignes tordues se débattent encore d'une vie ténue, aspirant à reconquérir le marais. Utilisée pour fabriquer la <color is="#FFD700">Clé d'Hedera</color>.
+items.Swamp_Gem.name = Gemme du Marais
+items.Swamp_Gem.description = Une gemme mystérieuse pulsant de l'énergie ancestrale du <color is="#2E8B57">marais</color>. Son éclat d'émeraude clignote comme un battement de cœur sous la mousse. Utilisée pour fabriquer la <color is="#FFD700">Clé d'Hedera</color>.
+items.Warden_Challenge_I.name = Défi du Gardien I
+items.Warden_Challenge_I.description = Un sceau cramoisi pulsant de fureur contenue. Brisez-le pour libérer les sentinelles les plus faibles du Gardien.\n<color is="#b8860b">Clic Gauche</color> en tenant l'objet pour activer.\n<color is="#FFD700">Niveau I</color> — Recommandé : <color is="#44cc44">équipement en Adamantite</color>
+items.Warden_Challenge_II.name = Défi du Gardien II
+items.Warden_Challenge_II.description = Un sceau forgé dans l'ombre et l'acier. Les créatures à l'intérieur connaissent le combat — et ont soif de plus.\n<color is="#b8860b">Clic Gauche</color> en tenant l'objet pour activer.\n<color is="#FFD700">Niveau II</color> — Recommandé : <color is="#66aaff">équipement en Mithril</color>
+items.Warden_Challenge_III.name = Défi du Gardien III
+items.Warden_Challenge_III.description = Un sceau qui vibre d'effroi. Seuls les vétérans osent le briser — car ce qui rôde à l'intérieur ne montre aucune pitié.\n<color is="#b8860b">Clic Gauche</color> en tenant l'objet pour activer.\n<color is="#FFD700">Niveau III</color> — Recommandé : <color is="#cc55ff">équipement en Onyxium</color>
+items.Warden_Challenge_IV.name = Défi du Gardien IV
+items.Warden_Challenge_IV.description = Le sceau final. La réalité fracturée saigne à travers ses fissures. Ceux qui le brisent affrontent l'épreuve ultime du Gardien — peu en reviennent.\n<color is="#b8860b">Clic Gauche</color> en tenant l'objet pour activer.\n<color is="#FFD700">Niveau IV</color> — Recommandé : <color is="#ff5555">équipement en Prisma</color>
+ui.endgame.accessories = Accessoires
+ui.endgame.blocks = Blocs
+items.Endgame_Corrupted_Block.name = Bloc Corrompu
+items.Endgame_Void_Ancient.name = Pierre Ancestrale du Vide
+items.Endgame_Void_Block.name = Bloc du Vide
+items.Endgame_Void_Brick.name = Brique du Vide
+items.Endgame_Void_Core.name = Noyau du Vide
+items.Endgame_Void_Fluid.name = Fluide du Vide
+items.Endgame_Corrupted_Block_Light.name = Lumière Corrompue
+items.Endgame_Void_Ancient_Light.name = Lumière Ancestrale du Vide
+items.Endgame_Void_Block_Light.name = Lumière du Vide
+items.Endgame_Void_Brick_Light.name = Brique Lumineuse du Vide
+items.Endgame_Void_Core_Light.name = Noyau Lumineux du Vide
+items.Build_Lightsource_Plum.name = Lumière Prune
+items.Endgame_Accessory_Pouch.name = Sac à accessoires
+items.Endgame_Accessory_Pouch.description = Une bourse renforcée fabriquée à partir des meilleurs matériaux endgame. Contient jusqu'à <color is="#FFD700">5 accessoires</color> qui confèrent des bonus passifs de combat.\n<color is="#b8860b">Clic Droit</color> pour ouvrir.
+items.Endgame_Accessory_Frostwalkers.name = Marcheurs de Glace
+items.Endgame_Accessory_Frostwalkers.description = Des bottes imprégnées de magie de glace, gelant l'eau sous les pieds du porteur.\n<color is="#05c09a">Effet :</color> <color is="#66ccff">Marcher sur l'eau (la glace fond après 3s)</color>
+items.Endgame_Accessory_Ocean_Striders.name = Arpenteurs de l'Océan
+items.Endgame_Accessory_Ocean_Striders.description = Des nageoires enchantées bénies par la mer, propulsant le porteur à travers l'eau à une vitesse incroyable.\n<color is="#05c09a">Effet :</color> <color is="#00BFFF">2x vitesse de nage dans l'eau</color>
+items.Endgame_Accessory_Void_Amulet.name = Amulette du Vide
+items.Endgame_Accessory_Void_Amulet.description = Une amulette pulsant d'énergie du vide. Quand un coup fatal devrait vous terrasser, survivez à 1 PV avec 3 secondes d'invulnérabilité.\n<color is="#05c09a">Effet :</color> <color is="#800080">Tromper la mort (5min CD)</color>
+items.Endgame_Accessory_Blazefist.name = Poing de Braise
+items.Endgame_Accessory_Blazefist.description = Un poing forgé dans le feu de dragon, embrasant tous ceux qui osent se tenir près de votre cible.\n<color is="#05c09a">Effet :</color> <color is="#ff5555">Brûlure sur la cible + feu AOE 3m</color>
+items.Endgame_Accessory_Pocket_Garden.name = Jardin de Poche
+items.Endgame_Accessory_Pocket_Garden.description = Un charme vivant contenant un jardin miniature qui irradie une énergie curative.\n<color is="#05c09a">Effet :</color> <color is="#2E8B57">+1 PV/sec de régénération passive</color>
+items.Endgame_Accessory_Hedera_Seed.name = Graine d'Hedera
+items.Endgame_Accessory_Hedera_Seed.description = Une graine dormante d'Hedera, ripostant contre ceux qui oseraient blesser son porteur avec des racines enlaçantes.\n<color is="#05c09a">Effet :</color> <color is="#2E8B57">15% de chance d'enraciner l'attaquant pendant 2s</color>

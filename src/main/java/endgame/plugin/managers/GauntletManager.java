@@ -1010,7 +1010,7 @@ public class GauntletManager {
                 Ref<EntityStore> pRef = state.playerRef.getReference();
                 if (pRef == null || !pRef.isValid()) return;
                 // Use gauntlet 10 drops as source for a random weapon
-                List<ItemStack> items = ItemModule.get().getRandomItemDrops("Endgame_Drop_Gauntlet_10");
+                List<ItemStack> items = ItemModule.get().getRandomItemDrops("Endgame_Drop_Reward_10");
                 if (items != null) {
                     for (ItemStack item : items) {
                         ItemUtils.dropItem(pRef, item, pRef.getStore());
@@ -1031,17 +1031,17 @@ public class GauntletManager {
         // G4: Expanded reward tiers
         String dropTable;
         if (state.currentWave.get() >= 30) {
-            dropTable = "Endgame_Drop_Gauntlet_30";
+            dropTable = "Endgame_Drop_Reward_30";
         } else if (state.currentWave.get() >= 25) {
-            dropTable = "Endgame_Drop_Gauntlet_25";
+            dropTable = "Endgame_Drop_Reward_25";
         } else if (state.currentWave.get() >= 20) {
-            dropTable = "Endgame_Drop_Gauntlet_20";
+            dropTable = "Endgame_Drop_Reward_20";
         } else if (state.currentWave.get() >= 15) {
-            dropTable = "Endgame_Drop_Gauntlet_15";
+            dropTable = "Endgame_Drop_Reward_15";
         } else if (state.currentWave.get() >= 10) {
-            dropTable = "Endgame_Drop_Gauntlet_10";
+            dropTable = "Endgame_Drop_Reward_10";
         } else {
-            dropTable = "Endgame_Drop_Gauntlet_5";
+            dropTable = "Endgame_Drop_Reward_5";
         }
 
         // Award XP on milestone waves (wave/5 * base = 50, 100, 150...)

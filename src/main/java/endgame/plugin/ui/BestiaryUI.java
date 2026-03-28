@@ -38,7 +38,7 @@ public class BestiaryUI {
     private static final HytaleLogger LOGGER = HytaleLogger.get("EndgameQoL.BestiaryUI");
 
     private static final String[] ACH_CATEGORY_COLORS = {
-        "#ff5555", "#ff8800", "#FFD700", "#55ff55", "#55aaff", "#bb88ff"
+        "#ff5555", "#ff8800", "#FFD700", "#55ff55", "#55aaff", "#bb88ff", "#ff66cc", "#cc8844"
     };
 
     private static final DateTimeFormatter DATE_FMT =

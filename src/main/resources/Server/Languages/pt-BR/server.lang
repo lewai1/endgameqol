@@ -70,10 +70,7 @@ portals.void_golem.tip1 = O ar aqui morde com um <color is="#B0C4DE">frio sobren
 portals.void_golem.tip2 = quebrado apenas pelos sussurros distantes do <color is="#483D8B">Vazio</color>.
 portals.void_golem.tip3 = Cuidado com as <color is="#708090">sombras</color>,
 portals.void_golem.tip4 = pois elas têm olhos neste <color is="#F0F8FF">reino congelado</color>.
-items.Egg_Spawner_Golem_Void.name = Ovo Gerador - Golem do Vazio
-items.Egg_Spawner_Endgame_Dragon_Frost.name = Ovo Gerador - Dragão de Gelo
 npcRoles.Endgame_Dragon_Frost.name = Dragão de Gelo
-items.Egg_Spawner_Hedera.name = Ovo Gerador - Hedera
 barter.Vorthak.title = Loja de Trocas do Vorthak
 items.Tool_Pickaxe_Prisma.name = Picareta de Prisma
 items.Tool_Pickaxe_Prisma.description = Uma picareta forjada de cristal prismático. Seus golpes ressonantes destroem pedra com eficiência incomparável.

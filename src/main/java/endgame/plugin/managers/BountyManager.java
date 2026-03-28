@@ -305,6 +305,58 @@ public class BountyManager {
     }
 
     /**
+     * Phase 3: Called when a player mines a block (from MiningTracker).
+     * @param gatherType the block's gather type (e.g., "OreMithril", "OreAdamantite")
+     */
+    public void onBlockMined(UUID playerUuid, String gatherType) {
+        EndgameConfig config = plugin.getConfig().get();
+        if (!config.isBountyEnabled()) return;
+
+        PlayerBountyState state = getPlayerBounties(playerUuid);
+        if (state == null) return;
+
+        for (ActiveBounty bounty : state.getBounties()) {
+            if (bounty.isClaimed() || bounty.isCompleted()) continue;
+
+            BountyTemplate template = findTemplate(bounty.getTemplateId());
+            if (template == null) continue;
+
+            if (template.getType() == BountyTemplate.BountyType.MINE_ORE) {
+                if (template.getTarget() == null || gatherType.equalsIgnoreCase(template.getTarget())) {
+                    bounty.incrementProgress(1);
+                }
+            }
+        }
+        // No explicit save — Hytale auto-persists the ECS component
+    }
+
+    /**
+     * Phase 3: Called when a player enters a dungeon instance (from DungeonEnterEvent).
+     * @param dungeonType "frozen_dungeon" or "swamp_dungeon"
+     */
+    public void onDungeonEnter(UUID playerUuid, String dungeonType) {
+        EndgameConfig config = plugin.getConfig().get();
+        if (!config.isBountyEnabled()) return;
+
+        PlayerBountyState state = getPlayerBounties(playerUuid);
+        if (state == null) return;
+
+        for (ActiveBounty bounty : state.getBounties()) {
+            if (bounty.isClaimed() || bounty.isCompleted()) continue;
+
+            BountyTemplate template = findTemplate(bounty.getTemplateId());
+            if (template == null) continue;
+
+            if (template.getType() == BountyTemplate.BountyType.EXPLORE_DUNGEON) {
+                if (template.getTarget() == null || dungeonType.equalsIgnoreCase(template.getTarget())) {
+                    bounty.incrementProgress(1);
+                }
+            }
+        }
+        // No explicit save — Hytale auto-persists the ECS component
+    }
+
+    /**
      * Called when player reaches a combo tier.
      */
     public void onComboTier(UUID playerUuid, int tier) {
@@ -376,7 +428,7 @@ public class BountyManager {
         state.incrementTotalCompleted();
 
         BountyTemplate template = findTemplate(bounty.getTemplateId());
-        String dropTable = template != null ? template.getRewardDropTable() : "Endgame_Drop_Gauntlet_5";
+        String dropTable = template != null ? template.getRewardDropTable() : "Endgame_Drop_Reward_5";
 
         // Phase 2: Award reputation points from template
         if (template != null && template.getReputationReward() > 0) {
@@ -429,8 +481,8 @@ public class BountyManager {
      */
     private String getBonusDropTable(BountyTemplate.BountyDifficulty difficulty, String baseDrop) {
         return switch (difficulty) {
-            case EASY -> "Endgame_Drop_Gauntlet_10";      // Easy bonus → Medium reward
-            case MEDIUM -> "Endgame_Drop_Gauntlet_20";     // Medium bonus → Hard reward
+            case EASY -> "Endgame_Drop_Reward_10";      // Easy bonus → Medium reward
+            case MEDIUM -> "Endgame_Drop_Reward_20";     // Medium bonus → Hard reward
             case HARD -> "Endgame_Drop_Bounty_Weekly";     // Hard bonus → Weekly reward
             default -> baseDrop;
         };
@@ -576,6 +628,8 @@ public class BountyManager {
             case KILL_ANY_BOSS, SPEED_KILL_BOSS -> BountyTemplate.BonusType.COMBO_FRENZY;
             case COMBO_TIER -> BountyTemplate.BonusType.AT_FULL_HP;
             case COMPLETE_TRIAL -> BountyTemplate.BonusType.COMBO_X3;
+            case MINE_ORE -> BountyTemplate.BonusType.COMBO_X3;
+            case EXPLORE_DUNGEON -> BountyTemplate.BonusType.AT_FULL_HP;
             default -> BountyTemplate.BonusType.NONE;
         };
         bounty.setBonusType(bonus.getId());

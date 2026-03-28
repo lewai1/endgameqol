@@ -37,6 +37,12 @@ public class AchievementManager {
     // Track unique weapon crafts per player for craft_all_types achievement (transient)
     private final ConcurrentHashMap<UUID, Set<String>> uniqueWeaponCrafts = new ConcurrentHashMap<>();
 
+    // Track unique speed kills per player for speedrun achievements (transient)
+    private final ConcurrentHashMap<UUID, Set<String>> uniqueSpeedKills = new ConcurrentHashMap<>();
+
+    // Track unique dungeon types entered per player for explore_both (transient)
+    private final ConcurrentHashMap<UUID, Set<String>> uniqueDungeonTypes = new ConcurrentHashMap<>();
+
     public AchievementManager(EndgameQoL plugin) {
         this.plugin = plugin;
     }
@@ -47,6 +53,8 @@ public class AchievementManager {
         components.put(playerUuid, comp);
         uniqueBossKills.remove(playerUuid);
         uniqueWeaponCrafts.remove(playerUuid);
+        uniqueSpeedKills.remove(playerUuid);
+        uniqueDungeonTypes.remove(playerUuid);
     }
 
     public void onPlayerDisconnect(UUID playerUuid) {
@@ -54,6 +62,8 @@ public class AchievementManager {
         components.remove(playerUuid);
         uniqueBossKills.remove(playerUuid);
         uniqueWeaponCrafts.remove(playerUuid);
+        uniqueSpeedKills.remove(playerUuid);
+        uniqueDungeonTypes.remove(playerUuid);
         // No manual save needed — Hytale auto-persists the component
     }
 
@@ -82,6 +92,9 @@ public class AchievementManager {
     public void onNPCKill(UUID playerUuid, String npcTypeId) {
         if (!components.containsKey(playerUuid)) return;
 
+        // Only track NPCs registered in the endgame bestiary
+        if (BestiaryRegistry.get(npcTypeId) == null) return;
+
         // Bestiary: record kill
         PlayerBestiaryState bestiary = getBestiaryState(playerUuid);
         bestiary.getOrCreate(npcTypeId).recordKill();
@@ -105,8 +118,9 @@ public class AchievementManager {
 
     /**
      * Called when a boss is killed.
+     * @param encounterDurationSeconds seconds elapsed since boss spawned
      */
-    public void onBossKill(UUID playerUuid, String bossTypeId) {
+    public void onBossKill(UUID playerUuid, String bossTypeId, long encounterDurationSeconds) {
         if (!components.containsKey(playerUuid)) return;
 
         PlayerAchievementState achievements = getAchievementState(playerUuid);
@@ -137,6 +151,31 @@ public class AchievementManager {
         int totalBossKills = achievements.getProgress("boss_slayer_10") + 1;
         checkProgress(playerUuid, achievements, "boss_slayer_10", totalBossKills);
         checkProgress(playerUuid, achievements, "boss_slayer_25", totalBossKills);
+
+        // Speedrun achievements — check if kill was fast enough
+        boolean speedKill = false;
+        if (normalizedId.contains("dragon_frost") && encounterDurationSeconds <= 180) {
+            checkAndAward(playerUuid, achievements, "speed_frost_180");
+            speedKill = true;
+        }
+        if (normalizedId.contains("hedera") && encounterDurationSeconds <= 240) {
+            checkAndAward(playerUuid, achievements, "speed_hedera_240");
+            speedKill = true;
+        }
+        if (normalizedId.contains("golem_void") && encounterDurationSeconds <= 300) {
+            checkAndAward(playerUuid, achievements, "speed_golem_300");
+            speedKill = true;
+        }
+        if (normalizedId.contains("dragon_fire") && encounterDurationSeconds <= 120) {
+            checkAndAward(playerUuid, achievements, "speed_fire_120");
+            speedKill = true;
+        }
+        if (speedKill) {
+            Set<String> speeds = uniqueSpeedKills.computeIfAbsent(playerUuid, k -> ConcurrentHashMap.newKeySet());
+            speeds.add(normalizedId);
+            checkProgress(playerUuid, achievements, "speed_any_3", speeds.size());
+            checkProgress(playerUuid, achievements, "speed_all", speeds.size());
+        }
     }
 
     /**
@@ -158,6 +197,65 @@ public class AchievementManager {
         PlayerAchievementState achievements = getAchievementState(playerUuid);
         int streaks = achievements.getProgress("bounty_streak_3") + 1;
         checkProgress(playerUuid, achievements, "bounty_streak_3", streaks);
+    }
+
+    /**
+     * Called when a player enters a dungeon instance (from DungeonEnterEvent).
+     * @param dungeonType "frozen_dungeon" or "swamp_dungeon"
+     */
+    public void onDungeonEnter(UUID playerUuid, String dungeonType) {
+        if (!components.containsKey(playerUuid)) return;
+        PlayerAchievementState achievements = getAchievementState(playerUuid);
+
+        // Total dungeon entries
+        int totalEntries = achievements.getProgress("explore_dungeon_first") + 1;
+        checkProgress(playerUuid, achievements, "explore_dungeon_first", totalEntries);
+        checkProgress(playerUuid, achievements, "explore_dungeon_5", totalEntries);
+        checkProgress(playerUuid, achievements, "explore_dungeon_15", totalEntries);
+
+        // Specific dungeon types
+        if ("frozen_dungeon".equalsIgnoreCase(dungeonType)) {
+            checkAndAward(playerUuid, achievements, "explore_frozen");
+        } else if ("swamp_dungeon".equalsIgnoreCase(dungeonType)) {
+            checkAndAward(playerUuid, achievements, "explore_swamp");
+        }
+
+        // Both dungeon types (unique tracking)
+        Set<String> types = uniqueDungeonTypes.computeIfAbsent(playerUuid, k -> ConcurrentHashMap.newKeySet());
+        types.add(dungeonType.toLowerCase());
+        checkProgress(playerUuid, achievements, "explore_both", types.size());
+    }
+
+    /**
+     * Called when a player mines a block (from MiningTracker).
+     * @param gatherType the block's gather type (e.g., "OreMithril", "OreAdamantite")
+     */
+    public void onBlockMined(UUID playerUuid, String gatherType) {
+        if (!components.containsKey(playerUuid)) return;
+        PlayerAchievementState achievements = getAchievementState(playerUuid);
+
+        boolean isEndgameOre = "OreMithril".equals(gatherType) || "OreAdamantite".equals(gatherType);
+
+        // Total blocks mined (any type)
+        int totalBlocks = achievements.getProgress("mine_1000") + 1;
+        checkProgress(playerUuid, achievements, "mine_1000", totalBlocks);
+
+        if (isEndgameOre) {
+            // Endgame ore count (Mithril + Adamantite combined)
+            int oreCount = achievements.getProgress("mine_first") + 1;
+            checkProgress(playerUuid, achievements, "mine_first", oreCount);
+            checkProgress(playerUuid, achievements, "mine_50", oreCount);
+            checkProgress(playerUuid, achievements, "mine_200", oreCount);
+        }
+
+        // Specific ore types
+        if ("OreMithril".equals(gatherType)) {
+            int mithril = achievements.getProgress("mine_mithril_25") + 1;
+            checkProgress(playerUuid, achievements, "mine_mithril_25", mithril);
+        } else if ("OreAdamantite".equals(gatherType)) {
+            int adamantite = achievements.getProgress("mine_adamantite_25") + 1;
+            checkProgress(playerUuid, achievements, "mine_adamantite_25", adamantite);
+        }
     }
 
     /**
@@ -331,5 +429,7 @@ public class AchievementManager {
         components.clear();
         uniqueBossKills.clear();
         uniqueWeaponCrafts.clear();
+        uniqueSpeedKills.clear();
+        uniqueDungeonTypes.clear();
     }
 }

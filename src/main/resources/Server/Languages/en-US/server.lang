@@ -70,10 +70,7 @@ portals.void_golem.tip1 = The air here bites with an <color is="#B0C4DE">unnatur
 portals.void_golem.tip2 = broken only by the distant whispers of the <color is="#483D8B">Void</color>.
 portals.void_golem.tip3 = Beware the <color is="#708090">shadows</color>,
 portals.void_golem.tip4 = for they have eyes in this <color is="#F0F8FF">frozen realm</color>.
-items.Egg_Spawner_Golem_Void.name = Egg Spawner - Void Golem
-items.Egg_Spawner_Endgame_Dragon_Frost.name = Egg Spawner - Frost Dragon
 npcRoles.Endgame_Dragon_Frost.name = Frost Dragon
-items.Egg_Spawner_Hedera.name = Egg Spawner - Hedera
 barter.Vorthak.title = Vorthak's Barter Shop
 items.Tool_Pickaxe_Prisma.name = Prisma Pickaxe
 items.Tool_Pickaxe_Prisma.description = A pickaxe forged from prismatic crystal. Its resonant strikes shatter stone with unmatched efficiency.

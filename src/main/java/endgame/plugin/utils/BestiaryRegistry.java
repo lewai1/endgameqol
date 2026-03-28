@@ -35,35 +35,35 @@ public final class BestiaryRegistry {
 
     private static final Map<Category, List<KillMilestone>> KILL_MILESTONES = Map.of(
         Category.BOSS, List.of(
-            new KillMilestone(3, "Endgame_Drop_Gauntlet_10"),
-            new KillMilestone(10, "Endgame_Drop_Gauntlet_20"),
+            new KillMilestone(3, "Endgame_Drop_Reward_10"),
+            new KillMilestone(10, "Endgame_Drop_Reward_20"),
             new KillMilestone(25, "Endgame_Drop_Bounty_Weekly")),
         Category.ELITE, List.of(
-            new KillMilestone(5, "Endgame_Drop_Gauntlet_5"),
-            new KillMilestone(15, "Endgame_Drop_Gauntlet_10"),
-            new KillMilestone(30, "Endgame_Drop_Gauntlet_20")),
+            new KillMilestone(5, "Endgame_Drop_Reward_5"),
+            new KillMilestone(15, "Endgame_Drop_Reward_10"),
+            new KillMilestone(30, "Endgame_Drop_Reward_20")),
         Category.ELEMENTAL, List.of(
-            new KillMilestone(10, "Endgame_Drop_Gauntlet_5"),
-            new KillMilestone(25, "Endgame_Drop_Gauntlet_10"),
-            new KillMilestone(50, "Endgame_Drop_Gauntlet_15")),
+            new KillMilestone(10, "Endgame_Drop_Reward_5"),
+            new KillMilestone(25, "Endgame_Drop_Reward_10"),
+            new KillMilestone(50, "Endgame_Drop_Reward_15")),
         Category.CREATURE, List.of(
-            new KillMilestone(15, "Endgame_Drop_Gauntlet_5"),
-            new KillMilestone(40, "Endgame_Drop_Gauntlet_5"),
-            new KillMilestone(75, "Endgame_Drop_Gauntlet_10")),
+            new KillMilestone(15, "Endgame_Drop_Reward_5"),
+            new KillMilestone(40, "Endgame_Drop_Reward_5"),
+            new KillMilestone(75, "Endgame_Drop_Reward_10")),
         Category.ENDGAME, List.of(
-            new KillMilestone(10, "Endgame_Drop_Gauntlet_5"),
-            new KillMilestone(25, "Endgame_Drop_Gauntlet_10"),
-            new KillMilestone(50, "Endgame_Drop_Gauntlet_20")),
+            new KillMilestone(10, "Endgame_Drop_Reward_5"),
+            new KillMilestone(25, "Endgame_Drop_Reward_10"),
+            new KillMilestone(50, "Endgame_Drop_Reward_20")),
         Category.SPECIAL, List.of(
-            new KillMilestone(3, "Endgame_Drop_Gauntlet_10"),
-            new KillMilestone(10, "Endgame_Drop_Gauntlet_20"),
+            new KillMilestone(3, "Endgame_Drop_Reward_10"),
+            new KillMilestone(10, "Endgame_Drop_Reward_20"),
             new KillMilestone(25, "Endgame_Drop_Bounty_Weekly"))
     );
 
     public static final int[] DISCOVERY_MILESTONES = {5, 10, 15, 20, 25, -1}; // -1 = all
     public static final String[] DISCOVERY_DROP_TABLES = {
-        "Endgame_Drop_Gauntlet_5", "Endgame_Drop_Gauntlet_10", "Endgame_Drop_Gauntlet_10",
-        "Endgame_Drop_Gauntlet_15", "Endgame_Drop_Gauntlet_20", "Endgame_Drop_Bounty_Weekly"
+        "Endgame_Drop_Reward_5", "Endgame_Drop_Reward_10", "Endgame_Drop_Reward_10",
+        "Endgame_Drop_Reward_15", "Endgame_Drop_Reward_20", "Endgame_Drop_Bounty_Weekly"
     };
 
     public static List<KillMilestone> getKillMilestones(Category category) {

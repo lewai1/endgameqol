@@ -47,6 +47,7 @@ public class EventRegistry {
         plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.BlockProtectionSystem.DamageProtection(plugin));
         plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.BlockProtectionSystem.PlaceProtection(plugin));
         plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.events.CraftTracker(plugin));
+        plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.events.MiningTracker(plugin));
         plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.block.PrismaHatchetAreaBreakSystem());
         plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.block.PrismaPickaxeAreaBreakSystem());
         plugin.getEventRegistry().registerGlobal(PlayerDisconnectEvent.class, this::onPlayerDisconnect);

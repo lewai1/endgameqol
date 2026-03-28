@@ -70,10 +70,7 @@ portals.void_golem.tip1 = Воздух здесь кусает <color is="#B0C4D
 portals.void_golem.tip2 = нарушаемым лишь далёкими шёпотами <color is="#483D8B">Пустоты</color>.
 portals.void_golem.tip3 = Остерегайся <color is="#708090">теней</color>,
 portals.void_golem.tip4 = ибо у них есть глаза в этом <color is="#F0F8FF">ледяном царстве</color>.
-items.Egg_Spawner_Golem_Void.name = Яйцо Призывателя - Голем Пустоты
-items.Egg_Spawner_Endgame_Dragon_Frost.name = Яйцо Призывателя - Ледяной Дракон
 npcRoles.Endgame_Dragon_Frost.name = Ледяной Дракон
-items.Egg_Spawner_Hedera.name = Яйцо Призывателя - Хедера
 barter.Vorthak.title = Лавка Обмена Вортака
 items.Tool_Pickaxe_Prisma.name = Призматическая кирка
 items.Tool_Pickaxe_Prisma.description = Кирка, выкованная из призматического кристалла. Её резонансные удары раскалывают камень с непревзойдённой эффективностью.
