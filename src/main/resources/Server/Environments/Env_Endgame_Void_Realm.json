@@ -1,0 +1,32 @@
+{
+  "SpawnDensity": 0,
+  "Tags": {
+    "Void": []
+  },
+  "WeatherForecasts": {
+    "0": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "1": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "2": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "3": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "4": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "5": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "6": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "7": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "8": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "9": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "10": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "11": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "12": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "13": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "14": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "15": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "16": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "17": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "18": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "19": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "20": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "21": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "22": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }],
+    "23": [{ "WeatherId": "Endgame_Void_Realm", "Weight": 100 }]
+  }
+}

@@ -7,18 +7,21 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.EntityEventSystem;
+import com.hypixel.hytale.component.AddReason;
+import com.hypixel.hytale.component.Holder;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockBreakingDropType;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockGathering;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
-import com.hypixel.hytale.server.core.entity.ItemUtils;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
-import com.hypixel.hytale.server.core.inventory.transaction.ItemStackTransaction;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
+import com.hypixel.hytale.server.core.modules.entity.item.ItemComponent;
 import com.hypixel.hytale.server.core.modules.item.ItemModule;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.hypixel.hytale.math.vector.Vector3d;
+import com.hypixel.hytale.math.vector.Vector3f;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.logger.HytaleLogger;
 
@@ -181,12 +184,7 @@ public class PrismaPickaxeAreaBreakSystem extends EntityEventSystem<EntityStore,
                     continue;
                 }
                 extraBroken++;
-
-                // Re-fetch player after each setBlock (side effects can invalidate the reference)
-                player = store.getComponent(playerRef, Player.getComponentType());
-                if (player == null) continue;
-
-                giveDrops(player, playerRef, store, block);
+                giveDrops(store, block);
             }
 
             LOGGER.atFine().log("[PrismaPickaxe] 3x3 complete: %d extra blocks broken at %d,%d,%d", extraBroken, cx, cy, cz);
@@ -203,31 +201,25 @@ public class PrismaPickaxeAreaBreakSystem extends EntityEventSystem<EntityStore,
         }
     }
 
-    private void giveDrops(Player player, Ref<EntityStore> playerRef, Store<EntityStore> store, PendingBreak block) {
-        if (block.dropItemId != null && !block.dropItemId.isEmpty()) {
-            try {
-                ItemStack dropStack = new ItemStack(block.dropItemId, block.dropQuantity);
-                ItemStackTransaction transaction = player.giveItem(dropStack, playerRef, store);
-                ItemStack remainder = transaction.getRemainder();
-                if (remainder != null && !remainder.isEmpty()) {
-                    ItemUtils.dropItem(playerRef, remainder, store);
-                }
-            } catch (Exception e) {
-                LOGGER.atFine().log("Failed to give drop %s: %s", block.dropItemId, e.getMessage());
+    /**
+     * Drop items at the block's world position, exactly like vanilla block breaking.
+     * Items spawn as physical entities that players pick up naturally.
+     */
+    private void giveDrops(Store<EntityStore> store, PendingBreak block) {
+        Vector3d dropPos = new Vector3d(block.x + 0.5, block.y, block.z + 0.5);
+        try {
+            List<ItemStack> drops;
+            if (block.dropItemId != null && !block.dropItemId.isEmpty()) {
+                drops = List.of(new ItemStack(block.dropItemId, block.dropQuantity));
+            } else if (block.dropListId != null && !block.dropListId.isEmpty()) {
+                drops = ItemModule.get().getRandomItemDrops(block.dropListId);
+            } else {
+                return;
             }
-        } else if (block.dropListId != null && !block.dropListId.isEmpty()) {
-            try {
-                List<ItemStack> dropStacks = ItemModule.get().getRandomItemDrops(block.dropListId);
-                for (ItemStack dropStack : dropStacks) {
-                    ItemStackTransaction transaction = player.giveItem(dropStack, playerRef, store);
-                    ItemStack remainder = transaction.getRemainder();
-                    if (remainder != null && !remainder.isEmpty()) {
-                        ItemUtils.dropItem(playerRef, remainder, store);
-                    }
-                }
-            } catch (Exception e) {
-                LOGGER.atFine().log("Failed to resolve drop list %s: %s", block.dropListId, e.getMessage());
-            }
+            Holder<EntityStore>[] holders = ItemComponent.generateItemDrops(store, drops, dropPos, Vector3f.ZERO);
+            store.addEntities(holders, AddReason.SPAWN);
+        } catch (Exception e) {
+            LOGGER.atFine().log("Failed to drop items at %d,%d,%d: %s", block.x, block.y, block.z, e.getMessage());
         }
     }
 

@@ -136,7 +136,7 @@
             "Sensor": {"Type": "Not", "Sensor": {"Type": "State", "State": "$Interaction"}},
             "Actions": [
               {"Type": "LockOnInteractionTarget"},
-              {"Type": "OpenBarterShop", "Shop": "Endgame_Morghul"},
+              {"Type": "EndgameOpenTradeUI", "Shop": "Endgame_Morghul", "MerchantName": "Morghul"},
               {"Type": "State", "State": "$Interaction"}
             ]
           }

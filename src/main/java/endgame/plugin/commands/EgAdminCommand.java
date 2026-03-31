@@ -50,6 +50,30 @@ public class EgAdminCommand extends AbstractCommandCollection {
 
         // /egadmin reload
         this.addSubCommand(new ReloadConfigCommand(plugin));
+
+        // /egadmin migrate
+        this.addSubCommand(new AbstractPlayerCommand("migrate", "Migrate old item IDs in all chests in current world") {
+            @Override
+            public void execute(CommandContext ctx, Store<EntityStore> store,
+                                com.hypixel.hytale.component.Ref<EntityStore> ref,
+                                PlayerRef playerRef,
+                                com.hypixel.hytale.server.core.universe.world.World world) {
+                int count = endgame.plugin.migration.ItemIdMigration.migrateWorldChests(world);
+                playerRef.sendMessage(com.hypixel.hytale.server.core.Message.raw(
+                        "[EndgameQoL] Migrated " + count + " item(s) in chests").color("#4ade80"));
+            }
+        });
+
+        // /egadmin tradeui (test)
+        this.addSubCommand(new AbstractPlayerCommand("tradeui", "Test custom trade UI") {
+            @Override
+            public void execute(CommandContext ctx, Store<EntityStore> store,
+                                com.hypixel.hytale.component.Ref<EntityStore> ref,
+                                PlayerRef playerRef,
+                                com.hypixel.hytale.server.core.universe.world.World world) {
+                endgame.plugin.ui.TradeUI.open(playerRef, store, "Endgame_Korvyn", "Korvyn");
+            }
+        });
     }
 
     // =========================================================================

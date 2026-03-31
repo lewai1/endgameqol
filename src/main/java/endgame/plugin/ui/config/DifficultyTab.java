@@ -137,7 +137,7 @@ public class DifficultyTab extends ConfigTabBuilder {
             config.setDifficulty(difficulty);
             saveManager.markDirty();
             LOGGER.atInfo().log("[ConfigUI] Difficulty: %s", difficulty.getDisplayName());
-            ConfigUI.open(plugin, playerRef, store);
+            ctx.updatePage(true);
         });
 
         // Scope: affects bosses
@@ -147,7 +147,6 @@ public class DifficultyTab extends ConfigTabBuilder {
             config.setDifficultyAffectsBosses(affects);
             saveManager.markDirty();
             LOGGER.atInfo().log("[ConfigUI] Difficulty affects bosses: %b", affects);
-            ConfigUI.open(plugin, playerRef, store);
         });
 
         // Scope: affects mobs
@@ -157,7 +156,6 @@ public class DifficultyTab extends ConfigTabBuilder {
             config.setDifficultyAffectsMobs(affects);
             saveManager.markDirty();
             LOGGER.atInfo().log("[ConfigUI] Difficulty affects mobs: %b", affects);
-            ConfigUI.open(plugin, playerRef, store);
         });
 
         // Custom multiplier sliders (only active when CUSTOM difficulty is selected)

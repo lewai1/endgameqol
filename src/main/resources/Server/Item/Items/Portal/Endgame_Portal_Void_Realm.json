@@ -1,24 +1,24 @@
 {
   "TranslationProperties": {
-    "Name": "server.items.Endgame_Portal_Golem_Void.name",
-    "Description": "server.items.Endgame_Portal_Golem_Void.description"
+    "Name": "server.items.Endgame_Portal_Void_Realm.name",
+    "Description": "server.items.Endgame_Portal_Void_Realm.description"
   },
-  "Icon": "Icons/ItemsGenerated/Endgame_Portal_Golem_Void.png",
+  "Icon": "Icons/ItemsGenerated/Endgame_Portal_Void_Realm.png",
   "Categories": [
     "Endgame.Portals"
   ],
   "PortalKey": {
-    "PortalType": "Endgame_Portal_Void_Golem",
+    "PortalType": "Endgame_Portal_Void_Realm",
     "TimeLimitSeconds": 1800
   },
   "BlockType": {
     "DrawType": "Model",
     "Material": "Solid",
     "Opacity": "Transparent",
-    "CustomModel": "Blocks/Miscellaneous/Endgame_Portal_Golem_Void.blockymodel",
+    "CustomModel": "Blocks/Miscellaneous/Endgame_Portal_Void_Realm.blockymodel",
     "CustomModelTexture": [
       {
-        "Texture": "Blocks/Miscellaneous/Endgame_Portal_Golem_Void_Texture.png",
+        "Texture": "Blocks/Miscellaneous/Endgame_Portal_Void_Realm_Texture.png",
         "Weight": 1
       }
     ]

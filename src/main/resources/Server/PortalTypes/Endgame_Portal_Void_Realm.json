@@ -1,0 +1,15 @@
+{
+    "InstanceId": "Endgame_Void_Realm",
+    "Description": {
+        "DisplayName": "server.portals.void_realm",
+        "FlavorText": "server.portals.void_realm.description",
+        "ThemeColor": "#81fdedff",
+        "SplashImage": "DefaultArtwork.png",
+        "Tips": [
+            "server.portals.void_realm.tip1",
+            "server.portals.void_realm.tip2",
+            "server.portals.void_realm.tip3",
+            "server.portals.void_realm.tip4"
+        ]
+    }
+}

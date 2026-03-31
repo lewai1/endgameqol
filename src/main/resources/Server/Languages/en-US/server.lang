@@ -60,16 +60,16 @@ items.Endgame_Portal_Mithril_Dragon.description = A jagged fragment of permafros
 portals.mithril.tip = <i><color is="#05c09a">A mythical beast sleeps here,\nbound in an eternal slumber...</color></i>\n\n<color is="#888888">They say a</color> <color is="#7de8ff">silvery ore</color> <color is="#888888">glimmers in the frozen depths.</color>
 items.Endgame_Portal_Swamp_Dungeon.name = Swamp Dungeon Key
 items.Endgame_Portal_Swamp_Dungeon.description = A key woven from ancient roots, dripping with dark sap. <color is="#b8860b">Right Click</color> on an <color is="#a9a9a9">Ancient Portal</color> to open the way to the <color is="#2E8B57">Swamp Dungeon</color>.\nDeep within the suffocating swamp, <color is="#2E8B57">Hedera</color> waits at the heart of the Great Hollow Tree.
-items.Endgame_Portal_Golem_Void.name = Shard of the Void
-items.Endgame_Portal_Golem_Void.description = A chunk of crystallized void energy, cold to the touch. <color is="#b8860b">Right Click</color> on an <color is="#a9a9a9">Ancient Portal</color> to open the way to the <color is="#800080">Void Realm</color>.\nIn the eternal darkness, the <color is="#800080">Void Golem</color> stands guard over forbidden knowledge.
+items.Endgame_Portal_Void_Realm.name = Shard of the Void
+items.Endgame_Portal_Void_Realm.description = A chunk of crystallized void energy, cold to the touch. <color is="#b8860b">Right Click</color> on an <color is="#a9a9a9">Ancient Portal</color> to open the way to the <color is="#800080">Void Realm</color>.\nIn the eternal darkness, the <color is="#800080">Void Golem</color> stands guard over forbidden knowledge.
 items.Endgame_Portal_Luminia.name = Shard of the Radiant Light (WIP)
 items.Endgame_Portal_Luminia.description = A fragment of pure light, struggling against encroaching shadows. <color is="#b8860b">Right Click</color> on an <color is="#a9a9a9">Ancient Portal</color> to open the way to <color is="#FFD700">Luminia</color>.\nA dimension of blinding brilliance, where <color is="#FFFACD">Luminous Biomes</color> fight an eternal war against the <color is="#800080">Corrupted Lands</color>.
-portals.void_golem = Gate of the Glacial Void
-portals.void_golem.description = A swirling vortex of <color is="#2F4F4F">pure darkness</color>, crackling with <color is="#00BFFF">unstable glacial energy</color>. Only the bravest dare to step through into the <color is="#ADD8E6">freezing mist</color>.
-portals.void_golem.tip1 = The air here bites with an <color is="#B0C4DE">unnatural chill</color>,
-portals.void_golem.tip2 = broken only by the distant whispers of the <color is="#483D8B">Void</color>.
-portals.void_golem.tip3 = Beware the <color is="#708090">shadows</color>,
-portals.void_golem.tip4 = for they have eyes in this <color is="#F0F8FF">frozen realm</color>.
+portals.void_realm = Gate of the Glacial Void
+portals.void_realm.description = A swirling vortex of <color is="#2F4F4F">pure darkness</color>, crackling with <color is="#00BFFF">unstable glacial energy</color>. Only the bravest dare to step through into the <color is="#ADD8E6">freezing mist</color>.
+portals.void_realm.tip1 = The air here bites with an <color is="#B0C4DE">unnatural chill</color>,
+portals.void_realm.tip2 = broken only by the distant whispers of the <color is="#483D8B">Void</color>.
+portals.void_realm.tip3 = Beware the <color is="#708090">shadows</color>,
+portals.void_realm.tip4 = for they have eyes in this <color is="#F0F8FF">frozen realm</color>.
 npcRoles.Endgame_Dragon_Frost.name = Frost Dragon
 barter.Vorthak.title = Vorthak's Barter Shop
 items.Tool_Pickaxe_Prisma.name = Prisma Pickaxe

@@ -1,0 +1,64 @@
+$C = "../Common.ui";
+
+Button #TradeBtn {
+  Anchor: (Height: 64);
+  Padding: (Full: 5);
+  LayoutMode: Left;
+  Style: (
+    Default: (Background: #000000(0.1)),
+    Hovered: (Background: #000000(0.25)),
+    Pressed: (Background: #000000(0.35)),
+    Disabled: (Background: #000000(0.05)),
+    Sounds: $C.@ButtonSounds
+  );
+
+  // Output item icon
+  Group #OutputIcon {
+    Anchor: (Width: 48, Height: 48);
+    Padding: (Full: 4);
+
+    ItemSlot #OutputSlot {
+      Anchor: (Width: 40, Height: 40);
+    }
+  }
+
+  // Item info
+  Group {
+    FlexWeight: 1;
+    LayoutMode: Top;
+    Padding: (Left: 6, Top: 6);
+
+    Label #ItemName {
+      Style: (FontSize: 16, TextColor: #ffffff, RenderBold: true);
+      Anchor: (Height: 22);
+    }
+
+    Label #ItemQty {
+      Style: (FontSize: 12, TextColor: #5a6a7a);
+      Anchor: (Height: 16);
+    }
+  }
+
+  // Stock
+  Label #Stock {
+    Style: (FontSize: 13, TextColor: #96a9be, VerticalAlignment: Center, HorizontalAlignment: Center);
+    Anchor: (Width: 50);
+  }
+
+  // Cost icon
+  Group #CostIcon {
+    Anchor: (Width: 32, Height: 32);
+    Padding: (Full: 4);
+
+    ItemSlot #CostSlot {
+      Anchor: (Width: 24, Height: 24);
+    }
+  }
+
+  // Cost amount
+  Label #CostAmount {
+    Style: (FontSize: 15, TextColor: #E8A93B, RenderBold: true, VerticalAlignment: Center);
+    Anchor: (Width: 40);
+    Padding: (Left: 2);
+  }
+}

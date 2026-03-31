@@ -317,7 +317,7 @@ public class IntegrationTab extends ConfigTabBuilder {
             config.setOrbisGuardEnabled(enabled);
             saveManager.saveNow();
             playerRef.sendMessage(Message.raw("[EndgameQoL] " + I18n.getForPlayer(playerRef, "ui.config.og_restart")).color("#f5c542"));
-            ConfigUI.open(plugin, playerRef, store, "bosses", "integration");
+            ctx.updatePage(true);
         });
 
         // OG-specific config listeners (only when OG is enabled — elements don't exist otherwise)
@@ -379,7 +379,6 @@ public class IntegrationTab extends ConfigTabBuilder {
             if (!saveManager.tryApply()) return;
             saveManager.saveIfDirty();
             playerRef.sendMessage(Message.raw("[EndgameQoL] " + I18n.getForPlayer(playerRef, "ui.config.xp_updated")).color("#4ade80"));
-            ConfigUI.open(plugin, playerRef, store, "bosses", "integration");
         });
     }
 

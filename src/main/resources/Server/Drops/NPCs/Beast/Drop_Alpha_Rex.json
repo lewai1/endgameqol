@@ -9,7 +9,7 @@
           {
             "Type": "Single",
             "Item": {
-              "ItemId": "Big_Rex_Cave_Leather",
+              "ItemId": "Alpha_Rex_Leather",
               "QuantityMin": 2,
               "QuantityMax": 3
             }

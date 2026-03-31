@@ -239,8 +239,9 @@
                 "Type": "LockOnInteractionTarget"
               },
               {
-                "Type": "OpenBarterShop",
-                "Shop": "Endgame_Korvyn"
+                "Type": "EndgameOpenTradeUI",
+                "Shop": "Endgame_Korvyn",
+                "MerchantName": "Korvyn"
               },
               {
                 "Type": "State",

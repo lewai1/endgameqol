@@ -547,7 +547,6 @@ public class WeaponsTab extends ConfigTabBuilder {
                 plugin.getBossHealthManager().refreshAllBossStats();
             }
             playerRef.sendMessage(Message.raw("[EndgameQoL] " + I18n.getForPlayer(playerRef, "ui.config.weapons_saved")).color("#4ade80"));
-            ConfigUI.open(plugin, playerRef, store, "bosses", "weapons");
         });
     }
 }

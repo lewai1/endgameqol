@@ -238,7 +238,6 @@ public class ArmorTab extends ConfigTabBuilder {
             LOGGER.atInfo().log("[ConfigUI] Apply Changes button clicked (Armor tab)");
             saveManager.saveIfDirty();
             playerRef.sendMessage(Message.raw("[EndgameQoL] " + I18n.getForPlayer(playerRef, "ui.config.armor_saved")).color("#4ade80"));
-            ConfigUI.open(plugin, playerRef, store, "bosses", "armor");
         });
     }
 }

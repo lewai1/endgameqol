@@ -26,7 +26,7 @@ public class OrbisGuardBridge {
 
     private static final String REGION_PREFIX = "endgameqol_";
     private static final List<String> INSTANCE_PATTERNS = List.of(
-            "frozen_dungeon", "swamp_dungeon", "golem_void");
+            "frozen_dungeon", "swamp_dungeon", "void_realm");
 
     private static final BlockVector3 MIN = BlockVector3.at(-10000, -500, -10000);
     private static final BlockVector3 MAX = BlockVector3.at(10000, 500, 10000);

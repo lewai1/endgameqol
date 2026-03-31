@@ -20,8 +20,8 @@ dependencies {
     implementation("me.elliesaur:HyUI:0.9.5")
     implementation("com.zaxxer:HikariCP:5.1.0")
 
-    compileOnly("org.zuxaw:RPGLeveling:0.3.2")
-    compileOnly("com.airijko:EndlessLeveling:7.1")
+    compileOnly("org.zuxaw:RPGLeveling:0.3.3")
+    compileOnly("com.airijko:EndlessLeveling:7.0.6")
     compileOnly("com.orbisguard:OrbisGuard:0.8.8")
 
     compileOnly("org.xerial:sqlite-jdbc:3.45.1.0")

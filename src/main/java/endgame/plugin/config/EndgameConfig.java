@@ -19,17 +19,11 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class EndgameConfig {
 
-    /**
-     * Legacy CODEC — reads the old flat format (pre-4.0). Used only by ConfigMigration.
-     */
-    @Nonnull
-    public static final BuilderCodec<EndgameConfig> LEGACY_CODEC = buildLegacyCodec();
-
     @Nonnull
     public static final BuilderCodec<EndgameConfig> CODEC = BuilderCodec
             .builder(EndgameConfig.class, EndgameConfig::new)
             .append(new KeyedCodec<String>("Version", Codec.STRING),
-                    (c, v) -> c.version = "4.1.6", c -> c.version).add()
+                    (c, v) -> c.version = "4.2.0", c -> c.version).add()
             .append(new KeyedCodec<DifficultyConfig>("Difficulty", DifficultyConfig.CODEC),
                     (c, v) -> { if (v != null) c.difficulty = v; }, c -> c.difficulty).add()
             .append(new KeyedCodec<Map<String, BossConfig>>("Bosses",
@@ -54,7 +48,7 @@ public class EndgameConfig {
 
     // === SUB-CONFIG INSTANCES ===
 
-    private String version = "4.1.6";
+    private String version = "4.2.0";
     private DifficultyConfig difficulty = new DifficultyConfig();
     private final Map<String, BossConfig> bossConfigs = new ConcurrentHashMap<>();
     private WeaponsConfig weapons = new WeaponsConfig();
@@ -370,138 +364,4 @@ public class EndgameConfig {
     // LEGACY CODEC — reads old flat format for migration
     // ========================================================================
 
-    private static BuilderCodec<EndgameConfig> buildLegacyCodec() {
-        return BuilderCodec
-                .builder(EndgameConfig.class, EndgameConfig::new)
-                .append(new KeyedCodec<String>("Difficulty", Codec.STRING),
-                        (c, v) -> c.setDifficultyString(v), EndgameConfig::getDifficultyString).add()
-                .append(new KeyedCodec<Boolean>("DifficultyAffectsBosses", Codec.BOOLEAN),
-                        (c, v) -> c.setDifficultyAffectsBosses(v != null ? v : true), c -> c.isDifficultyAffectsBosses()).add()
-                .append(new KeyedCodec<Boolean>("DifficultyAffectsMobs", Codec.BOOLEAN),
-                        (c, v) -> c.setDifficultyAffectsMobs(v != null ? v : true), c -> c.isDifficultyAffectsMobs()).add()
-                .append(new KeyedCodec<Float>("CustomHealthMultiplier", Codec.FLOAT),
-                        (c, v) -> c.setCustomHealthMultiplier(v != null ? v : 1.0f), c -> c.getCustomHealthMultiplier()).add()
-                .append(new KeyedCodec<Float>("CustomDamageMultiplier", Codec.FLOAT),
-                        (c, v) -> c.setCustomDamageMultiplier(v != null ? v : 1.0f), c -> c.getCustomDamageMultiplier()).add()
-                .append(new KeyedCodec<Boolean>("EnableDungeonBlockProtection", Codec.BOOLEAN),
-                        (c, v) -> c.setEnableDungeonBlockProtection(v != null ? v : true), c -> c.isEnableDungeonBlockProtection()).add()
-                .append(new KeyedCodec<Boolean>("EnableGliderCrafting", Codec.BOOLEAN),
-                        (c, v) -> c.setEnableGliderCrafting(v != null ? v : true), EndgameConfig::isEnableGliderCrafting).add()
-                .append(new KeyedCodec<Boolean>("EnablePortalKeyTaiga", Codec.BOOLEAN),
-                        (c, v) -> c.setEnablePortalKeyTaiga(v != null ? v : false), EndgameConfig::isEnablePortalKeyTaiga).add()
-                .append(new KeyedCodec<Boolean>("EnablePortalKeyHederasLair", Codec.BOOLEAN),
-                        (c, v) -> c.setEnablePortalKeyHederasLair(v != null ? v : false), EndgameConfig::isEnablePortalKeyHederasLair).add()
-                .append(new KeyedCodec<Boolean>("EnableMithrilOreCrafting", Codec.BOOLEAN),
-                        (c, v) -> c.setEnableMithrilOreCrafting(v != null ? v : false), c -> c.isEnableMithrilOreCrafting()).add()
-                .append(new KeyedCodec<Boolean>("EnablePortalHedera", Codec.BOOLEAN),
-                        (c, v) -> c.setEnablePortalHedera(v != null ? v : true), c -> c.isEnablePortalHedera()).add()
-                .append(new KeyedCodec<Boolean>("EnablePortalGolemVoid", Codec.BOOLEAN),
-                        (c, v) -> c.setEnablePortalGolemVoid(v != null ? v : true), c -> c.isEnablePortalGolemVoid()).add()
-                .append(new KeyedCodec<Boolean>("EnableHederaDaggerPoison", Codec.BOOLEAN),
-                        (c, v) -> c.setEnableHederaDaggerPoison(v != null ? v : true), c -> c.isEnableHederaDaggerPoison()).add()
-                .append(new KeyedCodec<Float>("HederaDaggerPoisonDamage", Codec.FLOAT),
-                        (c, v) -> c.setHederaDaggerPoisonDamage(v != null ? v : 5.0f), c -> c.getHederaDaggerPoisonDamage()).add()
-                .append(new KeyedCodec<Integer>("HederaDaggerPoisonTicks", Codec.INTEGER),
-                        (c, v) -> c.setHederaDaggerPoisonTicks(v != null ? v : 4), c -> c.getHederaDaggerPoisonTicks()).add()
-                .append(new KeyedCodec<Boolean>("EnableHederaDaggerLifesteal", Codec.BOOLEAN),
-                        (c, v) -> c.setEnableHederaDaggerLifesteal(v != null ? v : true), c -> c.isEnableHederaDaggerLifesteal()).add()
-                .append(new KeyedCodec<Float>("HederaDaggerLifestealPercent", Codec.FLOAT),
-                        (c, v) -> c.setHederaDaggerLifestealPercent(v != null ? v : 0.08f), c -> c.getHederaDaggerLifestealPercent()).add()
-                .append(new KeyedCodec<Float>("MinionSpawnRadius", Codec.FLOAT),
-                        (c, v) -> c.setMinionSpawnRadius(v != null ? v : 12.0f), c -> c.getMinionSpawnRadius()).add()
-                .append(new KeyedCodec<Float>("EyeVoidHealthMultiplier", Codec.FLOAT),
-                        (c, v) -> c.setEyeVoidHealthMultiplier(v != null ? v : 1.5f), c -> c.getEyeVoidHealthMultiplier()).add()
-                .append(new KeyedCodec<Boolean>("PvpEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setPvpEnabled(v != null ? v : false), c -> c.isPvpEnabled()).add()
-                .append(new KeyedCodec<Boolean>("ManaRegenArmorEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setManaRegenArmorEnabled(v != null ? v : true), c -> c.isManaRegenArmorEnabled()).add()
-                .append(new KeyedCodec<Float>("ManaRegenMithrilPerPiece", Codec.FLOAT),
-                        (c, v) -> c.setManaRegenMithrilPerPiece(v != null ? v : 0.5f), c -> c.getManaRegenMithrilPerPiece()).add()
-                .append(new KeyedCodec<Float>("ManaRegenOnyxiumPerPiece", Codec.FLOAT),
-                        (c, v) -> c.setManaRegenOnyxiumPerPiece(v != null ? v : 0.75f), c -> c.getManaRegenOnyxiumPerPiece()).add()
-                .append(new KeyedCodec<Float>("ManaRegenPrismaPerPiece", Codec.FLOAT),
-                        (c, v) -> c.setManaRegenPrismaPerPiece(v != null ? v : 1.0f), c -> c.getManaRegenPrismaPerPiece()).add()
-                .append(new KeyedCodec<Boolean>("RPGLevelingEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setRPGLevelingEnabled(v != null ? v : false), c -> c.isRPGLevelingEnabled()).add()
-                .append(new KeyedCodec<String>("RPGLevelingAutoDetected", Codec.STRING),
-                        (c, v) -> c.setRPGLevelingAutoDetected(v != null ? v : "pending"), c -> c.getRPGLevelingAutoDetected()).add()
-                .append(new KeyedCodec<Boolean>("EndlessLevelingEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setEndlessLevelingEnabled(v != null ? v : false), c -> c.isEndlessLevelingEnabled()).add()
-                .append(new KeyedCodec<String>("EndlessLevelingAutoDetected", Codec.STRING),
-                        (c, v) -> c.setEndlessLevelingAutoDetected(v != null ? v : "pending"), c -> c.getEndlessLevelingAutoDetected()).add()
-                .append(new KeyedCodec<Map<String, BossConfig>>("BossConfigs",
-                        new MapCodec<>(BossConfig.CODEC, HashMap::new, false)),
-                        (c, v) -> { if (v != null) c.bossConfigs.putAll(v); }, c -> c.bossConfigs).add()
-                .append(new KeyedCodec<Boolean>("PrismaMirageEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setPrismaMirageEnabled(v != null ? v : true), c -> c.isPrismaMirageEnabled()).add()
-                .append(new KeyedCodec<Integer>("PrismaMirageCooldownMs", Codec.INTEGER),
-                        (c, v) -> c.setPrismaMirageCooldownMs(v != null ? v : 15000), c -> c.getPrismaMirageCooldownMs()).add()
-                .append(new KeyedCodec<Integer>("PrismaMirageLifetimeMs", Codec.INTEGER),
-                        (c, v) -> c.setPrismaMirageLifetimeMs(v != null ? v : 5000), c -> c.getPrismaMirageLifetimeMs()).add()
-                .append(new KeyedCodec<Boolean>("VoidMarkEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setVoidMarkEnabled(v != null ? v : true), c -> c.isVoidMarkEnabled()).add()
-                .append(new KeyedCodec<Integer>("VoidMarkDurationMs", Codec.INTEGER),
-                        (c, v) -> c.setVoidMarkDurationMs(v != null ? v : 10000), c -> c.getVoidMarkDurationMs()).add()
-                .append(new KeyedCodec<Boolean>("VoidMarkExecutionEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setVoidMarkExecutionEnabled(v != null ? v : true), c -> c.isVoidMarkExecutionEnabled()).add()
-                .append(new KeyedCodec<Float>("VoidMarkExecutionThreshold", Codec.FLOAT),
-                        (c, v) -> c.setVoidMarkExecutionThreshold(v != null ? v : 0.25f), c -> c.getVoidMarkExecutionThreshold()).add()
-                .append(new KeyedCodec<Float>("VoidMarkExecutionMultiplier", Codec.FLOAT),
-                        (c, v) -> c.setVoidMarkExecutionMultiplier(v != null ? v : 3.0f), c -> c.getVoidMarkExecutionMultiplier()).add()
-                .append(new KeyedCodec<Boolean>("DaggerBlinkEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setDaggerBlinkEnabled(v != null ? v : true), c -> c.isDaggerBlinkEnabled()).add()
-                .append(new KeyedCodec<Float>("DaggerBlinkDistance", Codec.FLOAT),
-                        (c, v) -> c.setDaggerBlinkDistance(v != null ? v : 12.0f), c -> c.getDaggerBlinkDistance()).add()
-                .append(new KeyedCodec<Boolean>("ArmorHPRegenEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setArmorHPRegenEnabled(v != null ? v : true), c -> c.isArmorHPRegenEnabled()).add()
-                .append(new KeyedCodec<Float>("ArmorHPRegenDelaySec", Codec.FLOAT),
-                        (c, v) -> c.setArmorHPRegenDelaySec(v != null ? v : 15.0f), c -> c.getArmorHPRegenDelaySec()).add()
-                .append(new KeyedCodec<Float>("ArmorHPRegenOnyxiumPerPiece", Codec.FLOAT),
-                        (c, v) -> c.setArmorHPRegenOnyxiumPerPiece(v != null ? v : 0.5f), c -> c.getArmorHPRegenOnyxiumPerPiece()).add()
-                .append(new KeyedCodec<Float>("ArmorHPRegenPrismaPerPiece", Codec.FLOAT),
-                        (c, v) -> c.setArmorHPRegenPrismaPerPiece(v != null ? v : 0.75f), c -> c.getArmorHPRegenPrismaPerPiece()).add()
-                .append(new KeyedCodec<Boolean>("DaggerTrailEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setDaggerTrailEnabled(v != null ? v : true), c -> c.isDaggerTrailEnabled()).add()
-                .append(new KeyedCodec<Float>("DaggerTrailDamage", Codec.FLOAT),
-                        (c, v) -> c.setDaggerTrailDamage(v != null ? v : 15.0f), c -> c.getDaggerTrailDamage()).add()
-                .append(new KeyedCodec<Boolean>("BlazefistBurnEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setBlazefistBurnEnabled(v != null ? v : true), c -> c.isBlazefistBurnEnabled()).add()
-                .append(new KeyedCodec<Float>("BlazefistBurnDamage", Codec.FLOAT),
-                        (c, v) -> c.setBlazefistBurnDamage(v != null ? v : 50.0f), c -> c.getBlazefistBurnDamage()).add()
-                .append(new KeyedCodec<Integer>("BlazefistBurnTicks", Codec.INTEGER),
-                        (c, v) -> c.setBlazefistBurnTicks(v != null ? v : 3), c -> c.getBlazefistBurnTicks()).add()
-                .append(new KeyedCodec<Boolean>("EnableWardenTrial", Codec.BOOLEAN),
-                        (c, v) -> c.setWardenTrialEnabled(v != null ? v : true), c -> c.isWardenTrialEnabled()).add()
-                .append(new KeyedCodec<Boolean>("ComboEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setComboEnabled(v != null ? v : true), c -> c.isComboEnabled()).add()
-                .append(new KeyedCodec<Float>("ComboTimerSeconds", Codec.FLOAT),
-                        (c, v) -> c.setComboTimerSeconds(v != null ? v : 5.0f), c -> c.getComboTimerSeconds()).add()
-                .append(new KeyedCodec<Float>("ComboDamageX2", Codec.FLOAT),
-                        (c, v) -> c.setComboDamageX2(v != null ? v : 1.10f), c -> c.getComboDamageX2()).add()
-                .append(new KeyedCodec<Float>("ComboDamageX3", Codec.FLOAT),
-                        (c, v) -> c.setComboDamageX3(v != null ? v : 1.25f), c -> c.getComboDamageX3()).add()
-                .append(new KeyedCodec<Float>("ComboDamageX4", Codec.FLOAT),
-                        (c, v) -> c.setComboDamageX4(v != null ? v : 1.50f), c -> c.getComboDamageX4()).add()
-                .append(new KeyedCodec<Float>("ComboDamageFrenzy", Codec.FLOAT),
-                        (c, v) -> c.setComboDamageFrenzy(v != null ? v : 2.00f), c -> c.getComboDamageFrenzy()).add()
-                .append(new KeyedCodec<Boolean>("GauntletEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setGauntletEnabled(v != null ? v : false), c -> c.isGauntletEnabled()).add()
-                .append(new KeyedCodec<Integer>("GauntletScalingPercent", Codec.INTEGER),
-                        (c, v) -> c.setGauntletScalingPercent(v != null ? v : 10), c -> c.getGauntletScalingPercent()).add()
-                .append(new KeyedCodec<Integer>("GauntletBuffCount", Codec.INTEGER),
-                        (c, v) -> c.setGauntletBuffCount(v != null ? v : 3), c -> c.getGauntletBuffCount()).add()
-                .append(new KeyedCodec<Boolean>("BountyEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setBountyEnabled(v != null ? v : true), c -> c.isBountyEnabled()).add()
-                .append(new KeyedCodec<Integer>("BountyRefreshHours", Codec.INTEGER),
-                        (c, v) -> c.setBountyRefreshHours(v != null ? v : 24), c -> c.getBountyRefreshHours()).add()
-                .append(new KeyedCodec<Boolean>("BountyStreakEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setBountyStreakEnabled(v != null ? v : true), c -> c.isBountyStreakEnabled()).add()
-                .append(new KeyedCodec<Boolean>("ComboTierEffectsEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setComboTierEffectsEnabled(v != null ? v : true), c -> c.isComboTierEffectsEnabled()).add()
-                .append(new KeyedCodec<Boolean>("ComboDecayEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setComboDecayEnabled(v != null ? v : true), c -> c.isComboDecayEnabled()).add()
-                .append(new KeyedCodec<Boolean>("BountyWeeklyEnabled", Codec.BOOLEAN),
-                        (c, v) -> c.setBountyWeeklyEnabled(v != null ? v : true), c -> c.isBountyWeeklyEnabled()).add()
-                .build();
-    }
 }

@@ -90,8 +90,6 @@ public class EndgameQoL extends JavaPlugin {
     public EndgameQoL(@Nonnull JavaPluginInit init) {
         super(init);
         instance = this;
-        // Phase 1 migration: move old flat-format config out of the way BEFORE withConfig() parses it
-        endgame.plugin.config.ConfigMigration.backupOldFormatIfNeeded(getDataDirectory());
         this.config = this.withConfig("EndgameConfig", EndgameConfig.CODEC);
         this.accessoryPouchConfig = this.withConfig("EndgameAccessories", AccessoryPouchStorage.CODEC);
         this.recipeOverrideConfig = this.withConfig("RecipeOverrides", RecipeOverrideConfig.CODEC);
@@ -109,8 +107,12 @@ public class EndgameQoL extends JavaPlugin {
 
         endgame.plugin.services.SoundService.register(this, gameEventBus);
 
-        // Phase 2 migration: restore old values from backup into the live config
-        endgame.plugin.config.ConfigMigration.restoreFromBackupIfNeeded(getDataDirectory(), this.config);
+        // Item ID migrations (old ID -> new ID, applied on player connect + chunk load)
+        endgame.plugin.migration.ItemIdMigration.register("Big_Rex_Cave_Leather", "Alpha_Rex_Leather");
+        endgame.plugin.migration.ItemIdMigration.register("Endgame_Portal_Golem_Void", "Endgame_Portal_Void_Realm");
+        this.getEventRegistry().registerGlobal(
+                com.hypixel.hytale.server.core.universe.world.events.ChunkPreLoadProcessEvent.class,
+                endgame.plugin.migration.ItemIdMigration::onChunkLoaded);
 
         this.config.save();
         this.databaseConfig.save();
@@ -141,6 +143,8 @@ public class EndgameQoL extends JavaPlugin {
         this.getCodecRegistry(Interaction.CODEC).register(
                 "EndgameAccessoryPouch", endgame.plugin.ui.OpenAccessoryPouchInteraction.class,
                 endgame.plugin.ui.OpenAccessoryPouchInteraction.CODEC);
+        com.hypixel.hytale.server.npc.NPCPlugin.get().registerCoreComponentType(
+                "EndgameOpenTradeUI", endgame.plugin.ui.BuilderActionOpenTradeUI::new);
 
         // Commands
         this.getCommandRegistry().registerCommand(new EgConfigCommand(this));
@@ -183,15 +187,15 @@ public class EndgameQoL extends JavaPlugin {
         endgame.plugin.integration.ClaimProtectionBridge.get().init();
 
         // HStats analytics (hstats.dev)
-        new HStats("00a9cb44-fac7-4aae-bdd7-8fb5e8291280", "4.1.6");
+        new HStats("00a9cb44-fac7-4aae-bdd7-8fb5e8291280", "4.2.0");
 
         this.getLogger().atInfo().log("[EndgameQoL] Setup finished!");
     }
 
     private void initRPGLevelingIntegration() {
-        // Always attempt to patch InstanceLevelConfig.json if the RPG Leveling folder exists.
-        // This ensures endgame instances are pre-configured even if the toggle is currently off.
-        endgame.plugin.integration.rpgleveling.RPGLevelingConfigPatcher.patch(getDataDirectory(), getLogger());
+        // Register config defaults via RPG Leveling's API (0.3.3+).
+        // Only overrides values matching RPG Leveling's bundled defaults — admin customizations preserved.
+        endgame.plugin.integration.rpgleveling.RPGLevelingConfigPatcher.register();
 
         // Auto-detect on first run: if RPGLevelingAutoDetected is "pending", this is a fresh config.
         // Enable if the mod is present, disable if not, then persist the decision.
@@ -450,8 +454,9 @@ public class EndgameQoL extends JavaPlugin {
             this.databaseInitializer.shutdown();
         }
 
-        // Clear event bus
+        // Clear event bus and migrations
         gameEventBus.clear();
+        endgame.plugin.migration.ItemIdMigration.clear();
         endgame.plugin.events.PlayerEventHandler.reset();
         endgame.plugin.managers.RecipeManager.reset();
 
@@ -670,7 +675,8 @@ public class EndgameQoL extends JavaPlugin {
 
     public static boolean isGolemVoidInstance(World world) {
         String name = world.getName().toLowerCase();
-        return name.contains("endgame_golem_void") || name.contains("endgame-golem-void");
+        return name.contains("endgame_void_realm") || name.contains("endgame-void-realm")
+                || name.contains("endgame_golem_void") || name.contains("endgame-golem-void");
     }
 
     public void resetVorthakShopStock() {

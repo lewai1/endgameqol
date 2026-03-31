@@ -41,7 +41,7 @@
       "Type": "Fixed",
       "Trade": {
         "Output": {
-          "ItemId": "Big_Rex_Cave_Leather",
+          "ItemId": "Alpha_Rex_Leather",
           "Quantity": 1
         },
         "Input": [

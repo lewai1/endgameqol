@@ -302,7 +302,6 @@ public class MiscTab extends ConfigTabBuilder {
                 plugin.getBossHealthManager().refreshAllBossStats();
             }
             playerRef.sendMessage(Message.raw("[EndgameQoL] " + I18n.getForPlayer(playerRef, "ui.config.changes_applied")).color("#4ade80"));
-            ConfigUI.open(plugin, playerRef, store, "bosses", "misc");
         });
 
         // ── Combo Meter ──

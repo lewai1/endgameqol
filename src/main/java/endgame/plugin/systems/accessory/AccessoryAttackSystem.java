@@ -132,6 +132,7 @@ public class AccessoryAttackSystem extends DamageEventSystem {
                         OverlapBehavior.OVERWRITE, store);
             } else {
                 commandBuffer.run(s -> {
+                    if (!ref.isValid()) return;
                     EffectControllerComponent ec = s.ensureAndGetComponent(
                             ref, EffectControllerComponent.getComponentType());
                     if (ec != null) {
@@ -144,6 +145,7 @@ public class AccessoryAttackSystem extends DamageEventSystem {
 
         // Apply configurable BurnComponent for actual damage (ticked by BurnTickSystem)
         commandBuffer.run(s -> {
+            if (!ref.isValid()) return;
             BurnComponent existing = s.getComponent(ref, burnComponentType);
             if (existing != null) {
                 existing.refresh(damagePerTick, 1.0f, ticks);

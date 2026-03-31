@@ -26,7 +26,7 @@ public class ScalingTab extends ConfigTabBuilder {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("EndgameQoL.ConfigUI");
 
-    private final String combatSubTab;
+    private String combatSubTab;
 
     public ScalingTab(EndgameQoL plugin, ConfigSaveManager saveManager, String combatSubTab) {
         super(plugin, saveManager);
@@ -236,15 +236,18 @@ public class ScalingTab extends ConfigTabBuilder {
     public void registerListeners(PageBuilder builder, PlayerRef playerRef,
                                   Store<EntityStore> store) {
 
-        // Sub-tab navigation buttons
+        // Sub-tab navigation buttons — rebuild page in-place
         builder.addEventListener("SubTabBosses", CustomUIEventBindingType.Activating, (data, ctx) -> {
-            ConfigUI.open(plugin, playerRef, store, "bosses", "scaling");
+            this.combatSubTab = "bosses";
+            ctx.updatePage(true);
         });
         builder.addEventListener("SubTabMobs", CustomUIEventBindingType.Activating, (data, ctx) -> {
-            ConfigUI.open(plugin, playerRef, store, "mobs", "scaling");
+            this.combatSubTab = "mobs";
+            ctx.updatePage(true);
         });
         builder.addEventListener("SubTabZone4", CustomUIEventBindingType.Activating, (data, ctx) -> {
-            ConfigUI.open(plugin, playerRef, store, "zone4", "scaling");
+            this.combatSubTab = "zone4";
+            ctx.updatePage(true);
         });
 
         // Per-boss listeners for current sub-tab
@@ -390,7 +393,6 @@ public class ScalingTab extends ConfigTabBuilder {
                 plugin.getBossHealthManager().refreshAllBossStats();
             }
             playerRef.sendMessage(Message.raw("[EndgameQoL] " + I18n.getForPlayer(playerRef, "ui.config.changes_applied")).color("#4ade80"));
-            ConfigUI.open(plugin, playerRef, store, combatSubTab, "scaling");
         });
     }
 

@@ -1,7 +1,7 @@
 {
   "TranslationProperties": {
-    "Name": "server.items.Big_Rex_Cave_Leather.name",
-    "Description": "server.items.Big_Rex_Cave_Leather.description"
+    "Name": "server.items.Alpha_Rex_Leather.name",
+    "Description": "server.items.Alpha_Rex_Leather.description"
   },
   "Categories": [
     "Endgame.Materials"

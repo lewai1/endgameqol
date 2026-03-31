@@ -32,7 +32,7 @@ public class CraftingTab extends ConfigTabBuilder {
     private List<String> visibleIds;
     /** All recipe IDs for stable indexing (element IDs stay consistent across searches). */
     private List<String> allIds;
-    private final String searchFilter;
+    private String searchFilter;
     private final AtomicLong lastRecipeSaveTime = new AtomicLong(0);
     private static final long RECIPE_SAVE_DEBOUNCE_MS = 2000;
 
@@ -242,7 +242,8 @@ public class CraftingTab extends ConfigTabBuilder {
         // Search bar — re-render on change
         builder.addEventListener("craft_search", CustomUIEventBindingType.ValueChanged, (data, ctx) -> {
             String filter = data != null ? data.toString().trim() : "";
-            ConfigUI.open(plugin, playerRef, store, "bosses", "crafting", filter);
+            this.searchFilter = filter;
+            ctx.updatePage(true);
         });
 
         // Register listeners only for visible (filtered) recipes

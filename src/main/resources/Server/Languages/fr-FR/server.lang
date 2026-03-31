@@ -60,16 +60,16 @@ items.Endgame_Portal_Mithril_Dragon.description = Un fragment irrégulier de per
 portals.mithril.tip = <i><color is="#05c09a">Une bête mythique sommeille ici,\nprisonnière d'un sommeil éternel...</color></i>\n\n<color is="#888888">On dit qu'un</color> <color is="#7de8ff">minerai argenté</color> <color is="#888888">scintille dans les profondeurs gelées.</color>
 items.Endgame_Portal_Swamp_Dungeon.name = Clé du Donjon du Marais
 items.Endgame_Portal_Swamp_Dungeon.description = Une clé tissée de racines ancestrales, dégoulinant de sève sombre. <color is="#b8860b">Clic Droit</color> sur un <color is="#a9a9a9">Portail Ancestral</color> pour ouvrir le passage vers le <color is="#2E8B57">Donjon du Marais</color>.\nAu plus profond du marais suffocant, <color is="#2E8B57">Hedera</color> attend au cœur du Grand Arbre Creux.
-items.Endgame_Portal_Golem_Void.name = Éclat du Vide
-items.Endgame_Portal_Golem_Void.description = Un morceau d'énergie du vide cristallisée, glacial au toucher. <color is="#b8860b">Clic Droit</color> sur un <color is="#a9a9a9">Portail Ancestral</color> pour ouvrir le passage vers le <color is="#800080">Royaume du Vide</color>.\nDans l'obscurité éternelle, le <color is="#800080">Golem du Vide</color> garde un savoir interdit.
+items.Endgame_Portal_Void_Realm.name = Éclat du Vide
+items.Endgame_Portal_Void_Realm.description = Un morceau d'énergie du vide cristallisée, glacial au toucher. <color is="#b8860b">Clic Droit</color> sur un <color is="#a9a9a9">Portail Ancestral</color> pour ouvrir le passage vers le <color is="#800080">Royaume du Vide</color>.\nDans l'obscurité éternelle, le <color is="#800080">Golem du Vide</color> garde un savoir interdit.
 items.Endgame_Portal_Luminia.name = Éclat de la Lumière Radieuse (WIP)
 items.Endgame_Portal_Luminia.description = Un fragment de lumière pure, luttant contre les ombres envahissantes. <color is="#b8860b">Clic Droit</color> sur un <color is="#a9a9a9">Portail Ancestral</color> pour ouvrir le passage vers <color is="#FFD700">Luminia</color>.\nUne dimension d'éclat aveuglant, où des <color is="#FFFACD">Biomes Lumineux</color> mènent une guerre éternelle contre les <color is="#800080">Terres Corrompues</color>.
-portals.void_golem = Porte du Vide Glacial
-portals.void_golem.description = Un vortex tourbillonnant de <color is="#2F4F4F">ténèbres pures</color>, crépitant d'<color is="#00BFFF">énergie glaciale instable</color>. Seuls les plus braves osent traverser la <color is="#ADD8E6">brume gelante</color>.
-portals.void_golem.tip1 = L'air ici mord d'un <color is="#B0C4DE">froid surnaturel</color>,
-portals.void_golem.tip2 = brisé seulement par les murmures lointains du <color is="#483D8B">Vide</color>.
-portals.void_golem.tip3 = Prenez garde aux <color is="#708090">ombres</color>,
-portals.void_golem.tip4 = car elles ont des yeux dans ce <color is="#F0F8FF">royaume gelé</color>.
+portals.void_realm = Porte du Vide Glacial
+portals.void_realm.description = Un vortex tourbillonnant de <color is="#2F4F4F">ténèbres pures</color>, crépitant d'<color is="#00BFFF">énergie glaciale instable</color>. Seuls les plus braves osent traverser la <color is="#ADD8E6">brume gelante</color>.
+portals.void_realm.tip1 = L'air ici mord d'un <color is="#B0C4DE">froid surnaturel</color>,
+portals.void_realm.tip2 = brisé seulement par les murmures lointains du <color is="#483D8B">Vide</color>.
+portals.void_realm.tip3 = Prenez garde aux <color is="#708090">ombres</color>,
+portals.void_realm.tip4 = car elles ont des yeux dans ce <color is="#F0F8FF">royaume gelé</color>.
 npcRoles.Endgame_Dragon_Frost.name = Dragon de Glace
 barter.Vorthak.title = Boutique de Troc de Vorthak
 items.Tool_Pickaxe_Prisma.name = Pioche de Prisma

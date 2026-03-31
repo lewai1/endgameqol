@@ -240,8 +240,9 @@
                 "Type": "LockOnInteractionTarget"
               },
               {
-                "Type": "OpenBarterShop",
-                "Shop": "Endgame_Vorthak"
+                "Type": "EndgameOpenTradeUI",
+                "Shop": "Endgame_Vorthak",
+                "MerchantName": "Vorthak"
               },
               {
                 "Type": "State",

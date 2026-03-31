@@ -60,16 +60,16 @@ items.Endgame_Portal_Mithril_Dragon.description = Um fragmento irregular de perm
 portals.mithril.tip = <i><color is="#05c09a">Uma besta mítica dorme aqui,\npresa em um sono eterno...</color></i>\n\n<color is="#888888">Dizem que um</color> <color is="#7de8ff">minério prateado</color> <color is="#888888">brilha nas profundezas congeladas.</color>
 items.Endgame_Portal_Swamp_Dungeon.name = Chave da Masmorra do Pântano
 items.Endgame_Portal_Swamp_Dungeon.description = Uma chave tecida de raízes ancestrais, gotejando seiva escura. <color is="#b8860b">Clique Direito</color> em um <color is="#a9a9a9">Portal Ancestral</color> para abrir o caminho à <color is="#2E8B57">Masmorra do Pântano</color>.\nNas profundezas do pântano sufocante, <color is="#2E8B57">Hedera</color> aguarda no coração da Grande Árvore Oca.
-items.Endgame_Portal_Golem_Void.name = Fragmento do Vazio
-items.Endgame_Portal_Golem_Void.description = Um pedaço de energia do vazio cristalizada, gélido ao toque. <color is="#b8860b">Clique Direito</color> em um <color is="#a9a9a9">Portal Ancestral</color> para abrir o caminho para o <color is="#800080">Reino do Vazio</color>.\nNa escuridão eterna, o <color is="#800080">Golem do Vazio</color> guarda o conhecimento proibido.
+items.Endgame_Portal_Void_Realm.name = Fragmento do Vazio
+items.Endgame_Portal_Void_Realm.description = Um pedaço de energia do vazio cristalizada, gélido ao toque. <color is="#b8860b">Clique Direito</color> em um <color is="#a9a9a9">Portal Ancestral</color> para abrir o caminho para o <color is="#800080">Reino do Vazio</color>.\nNa escuridão eterna, o <color is="#800080">Golem do Vazio</color> guarda o conhecimento proibido.
 items.Endgame_Portal_Luminia.name = Fragmento da Luz Radiante (WIP)
 items.Endgame_Portal_Luminia.description = Um fragmento de luz pura, lutando contra sombras invasoras. <color is="#b8860b">Clique Direito</color> em um <color is="#a9a9a9">Portal Ancestral</color> para abrir o caminho para <color is="#FFD700">Lumínia</color>.\nUma dimensão de brilho ofuscante, onde <color is="#FFFACD">Biomas Luminosos</color> travam uma guerra eterna contra as <color is="#800080">Terras Corrompidas</color>.
-portals.void_golem = Portão do Vazio Glacial
-portals.void_golem.description = Um vórtice giratório de <color is="#2F4F4F">escuridão pura</color>, crepitando com <color is="#00BFFF">energia glacial instável</color>. Somente os mais corajosos ousam atravessar a <color is="#ADD8E6">névoa congelante</color>.
-portals.void_golem.tip1 = O ar aqui morde com um <color is="#B0C4DE">frio sobrenatural</color>,
-portals.void_golem.tip2 = quebrado apenas pelos sussurros distantes do <color is="#483D8B">Vazio</color>.
-portals.void_golem.tip3 = Cuidado com as <color is="#708090">sombras</color>,
-portals.void_golem.tip4 = pois elas têm olhos neste <color is="#F0F8FF">reino congelado</color>.
+portals.void_realm = Portão do Vazio Glacial
+portals.void_realm.description = Um vórtice giratório de <color is="#2F4F4F">escuridão pura</color>, crepitando com <color is="#00BFFF">energia glacial instável</color>. Somente os mais corajosos ousam atravessar a <color is="#ADD8E6">névoa congelante</color>.
+portals.void_realm.tip1 = O ar aqui morde com um <color is="#B0C4DE">frio sobrenatural</color>,
+portals.void_realm.tip2 = quebrado apenas pelos sussurros distantes do <color is="#483D8B">Vazio</color>.
+portals.void_realm.tip3 = Cuidado com as <color is="#708090">sombras</color>,
+portals.void_realm.tip4 = pois elas têm olhos neste <color is="#F0F8FF">reino congelado</color>.
 npcRoles.Endgame_Dragon_Frost.name = Dragão de Gelo
 barter.Vorthak.title = Loja de Trocas do Vorthak
 items.Tool_Pickaxe_Prisma.name = Picareta de Prisma

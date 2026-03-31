@@ -145,7 +145,6 @@ public class RPGLevelingTab extends ConfigTabBuilder {
             if (!saveManager.tryApply()) return;
             saveManager.saveIfDirty();
             playerRef.sendMessage(Message.raw("[EndgameQoL] " + I18n.getForPlayer(playerRef, "ui.config.xp_updated")).color("#4ade80"));
-            ConfigUI.open(plugin, playerRef, store, "bosses", "rpgleveling");
         });
     }
 

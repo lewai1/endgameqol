@@ -42,8 +42,8 @@ public class ComboMeterManager {
     private static final int TIER_FRENZY_KILLS = 15;
 
     // HUD constants
-    private static final int HUD_WIDTH = 180;
-    private static final int TIMER_BAR_WIDTH = 160;
+    private static final int HUD_WIDTH = 130;
+    private static final int TIMER_BAR_WIDTH = 108;
     private static final long HUD_REFRESH_MS = 100;
 
     // Tier colors (text, glow bg, bar fill, bar dim)
@@ -552,37 +552,34 @@ public class ComboMeterManager {
             int barWidth = Math.round(TIMER_BAR_WIDTH * timeRemaining);
 
             String countText = String.valueOf(comboCount);
-            boolean isFrenzy = comboTier == 4;
-            String tierText;
+
+            // Tier + effect combined: "FRENZY · Bloodlust" or "x4"
+            String tierText = "";
             if (comboTier > 0) {
-                tierText = isFrenzy ? "!! FRENZY !!" : TIER_NAMES[comboTier - 1];
-            } else {
-                tierText = "";
+                String tierName = TIER_NAMES[comboTier - 1];
+                String effectText = config.isComboTierEffectsEnabled()
+                        ? TIER_EFFECT_NAMES[comboTier - 1] : "";
+                tierText = effectText.isEmpty() ? tierName : tierName + " · " + effectText;
             }
 
-            // Tier effect label
-            String effectText = "";
-            if (comboTier > 0 && config.isComboTierEffectsEnabled()) {
-                effectText = TIER_EFFECT_NAMES[comboTier - 1];
+            boolean isNewBest;
+            synchronized (state) {
+                isNewBest = state.newRecord;
             }
-
-            // Personal best label
-            String bestText = personalBest > 0 ? "BEST: " + personalBest : "";
-
-            final String fEffectText = effectText;
-            final String fBestText = bestText;
+            final String fBestLine = isNewBest
+                    ? "NEW BEST! " + personalBest
+                    : "Best: " + personalBest;
+            final String fTierText = tierText;
 
             try { hud.getById("combo-count", LabelBuilder.class)
                     .ifPresent(l -> l.withText(countText)); } catch (Exception ignored) {}
             try { hud.getById("combo-tier", LabelBuilder.class)
-                    .ifPresent(l -> l.withText(tierText)); } catch (Exception ignored) {}
-            try { hud.getById("combo-effect", LabelBuilder.class)
-                    .ifPresent(l -> l.withText(fEffectText)); } catch (Exception ignored) {}
+                    .ifPresent(l -> l.withText(fTierText)); } catch (Exception ignored) {}
             try { hud.getById("combo-best", LabelBuilder.class)
-                    .ifPresent(l -> l.withText(fBestText)); } catch (Exception ignored) {}
+                    .ifPresent(l -> l.withText(fBestLine)); } catch (Exception ignored) {}
             try { hud.getById("timer-bar-fill", GroupBuilder.class)
                     .ifPresent(b -> b.withAnchor(new HyUIAnchor()
-                            .setWidth(barWidth).setHeight(4).setLeft(0).setTop(0))); } catch (Exception ignored) {}
+                            .setWidth(Math.round(TIMER_BAR_WIDTH * timeRemaining)).setHeight(3).setLeft(0).setTop(0))); } catch (Exception ignored) {}
         } catch (Exception e) {
             // Non-fatal
         }
@@ -600,109 +597,92 @@ public class ComboMeterManager {
     private String buildHudHtml(ComboState state, String color, String barColor) {
         int tierIdx = Math.clamp(state.comboTier - 1, 0, TIER_NAMES.length - 1);
         String tierName = TIER_NAMES[tierIdx];
-        String bgColor = TIER_BG_COLORS[tierIdx];
         boolean isFrenzy = state.comboTier == 4;
-        EndgameConfig config = plugin.getConfig().get();
-        String effectName = (config.isComboTierEffectsEnabled() && state.comboTier > 0)
+        String tierDisplay = isFrenzy ? "FRENZY" : tierName;
+
+        // Combine tier + effect on one line: "FRENZY · Bloodlust" or just "x2"
+        String effectText = (plugin.getConfig().get().isComboTierEffectsEnabled() && state.comboTier > 0)
                 ? TIER_EFFECT_NAMES[state.comboTier - 1] : "";
-        String bestText = state.personalBest > 0 ? "BEST: " + state.personalBest : "";
+        String tierLine = effectText.isEmpty() ? tierDisplay : tierDisplay + " · " + effectText;
+
+        String bestLine = state.newRecord
+                ? "NEW BEST! " + state.personalBest
+                : "Best: " + state.personalBest;
+        String bestColor = state.newRecord ? "#ffd700" : "#777777";
 
         return String.format("""
             <style>
                 #combo-container {
-                    anchor-right: 16;
-                    anchor-top: 160;
-                    anchor-width: %d;
-                    anchor-height: 116;
-                    padding: 8;
+                    anchor-right: 20;
+                    anchor-top: 140;
+                    anchor-width: 130;
+                    anchor-height: 58;
                     layout-mode: top;
+                    background-color: #000000(0.6);
+                }
+                #combo-accent {
+                    anchor-width: 100%%;
+                    anchor-height: 2;
                     background-color: %s;
                 }
-                #combo-top-row {
-                    layout-mode: left;
-                    anchor-height: 36;
-                    anchor-width: 100%%;
-                    vertical-align: center;
-                    horizontal-align: center;
-                }
                 #combo-count {
-                    font-size: 28;
+                    font-size: 18;
                     font-weight: bold;
                     color: %s;
-                    anchor-height: 36;
-                    vertical-align: center;
-                    text-align: center;
-                    anchor-width: 70;
-                }
-                #combo-label {
-                    font-size: 11;
-                    color: #888888;
-                    anchor-height: 36;
-                    vertical-align: center;
-                    padding-left: 6;
-                    anchor-width: 50;
+                    anchor-width: 100%%;
+                    anchor-height: 20;
+                    horizontal-align: center;
+                    margin-top: 4;
                 }
                 #combo-tier {
-                    font-size: %d;
+                    font-size: 10;
                     font-weight: bold;
                     color: %s;
-                    text-align: center;
-                    anchor-height: 22;
                     anchor-width: 100%%;
-                }
-                #combo-effect {
-                    font-size: 10;
-                    color: #aaaaaa;
-                    text-align: center;
-                    anchor-height: 14;
-                    anchor-width: 100%%;
-                }
-                #timer-bar-bg {
-                    anchor-width: %d;
-                    anchor-height: 4;
-                    background-color: #111118;
-                    margin-top: 4;
+                    anchor-height: 12;
                     horizontal-align: center;
                 }
+                #timer-bar-bg {
+                    anchor-width: 108;
+                    anchor-height: 3;
+                    background-color: #ffffff(0.12);
+                    margin-top: 4;
+                    margin-left: 11;
+                }
                 #timer-bar-fill {
-                    anchor-width: %d;
-                    anchor-height: 4;
+                    anchor-width: 108;
+                    anchor-height: 3;
                     background-color: %s;
                     anchor-left: 0;
                     anchor-top: 0;
                 }
                 #combo-best {
                     font-size: 9;
-                    color: #666666;
-                    text-align: center;
-                    anchor-height: 12;
+                    color: %s;
                     anchor-width: 100%%;
+                    anchor-height: 11;
+                    horizontal-align: center;
                     margin-top: 2;
                 }
             </style>
             <div id="combo-container">
-                <div id="combo-top-row">
-                    <p id="combo-count">%d</p>
-                    <p id="combo-label">KILLS</p>
-                </div>
+                <div id="combo-accent"></div>
+                <p id="combo-count">%d</p>
                 <p id="combo-tier">%s</p>
-                <p id="combo-effect">%s</p>
                 <div id="timer-bar-bg">
                     <div id="timer-bar-fill"></div>
                 </div>
                 <p id="combo-best">%s</p>
             </div>
             """,
-            HUD_WIDTH,
-            bgColor,
-            color,
-            isFrenzy ? 18 : 14,
-            color,
-            TIMER_BAR_WIDTH, TIMER_BAR_WIDTH, barColor,
+            color,       // accent
+            color,       // count
+            color,       // tier
+            barColor,    // timer bar
+            bestColor,   // best label color
             state.comboCount,
-            isFrenzy ? "!! FRENZY !!" : tierName,
-            effectName,
-            bestText
+            tierLine,
+            bestLine
         );
     }
 

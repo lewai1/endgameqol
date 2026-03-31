@@ -37,6 +37,8 @@ public class PlayerEventHandler {
                 if (pRef != null && entityRef.equals(pRef.getReference())) {
                     RecipeManager.syncRecipesToPlayer(pRef);
                     I18n.sendUpdateTranslationsPacket(pRef);
+                    // Migrate renamed item IDs in player inventory
+                    endgame.plugin.migration.ItemIdMigration.migratePlayer(pRef, entityRef.getStore());
                     break;
                 }
             }

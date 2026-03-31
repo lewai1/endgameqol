@@ -1,0 +1,90 @@
+{
+  "$NodeId": "Biome-vr001000-e53e-4d5b-b6a4-0cb6ec297000",
+  "Terrain": {
+    "$NodeId": "Terrain-vr001001-c1c4-44d3-a6b2-0fbd4bb68001",
+    "Type": "DAOTerrain",
+    "Density": {
+      "$NodeId": "ConstantDensityNode-vr001002-80c4-480a-8a43-f6f792000002",
+      "Type": "Constant",
+      "Skip": false,
+      "Value": 0
+    }
+  },
+  "MaterialProvider": {
+    "$NodeId": "ConstantMaterialProvider-vr001003-44d3-4d5b-b6a4-000000003",
+    "Type": "Constant",
+    "Material": {
+      "$NodeId": "Material-vr001004-c1c4-44d3-a6b2-000000000004",
+      "Solid": "Empty"
+    }
+  },
+  "Props": [
+    {
+      "$NodeId": "Runtime-vr001010-e53e-4d5b-b6a4-000000000010",
+      "Skip": false,
+      "Runtime": 0,
+      "Positions": {
+        "$NodeId": "ListPositions-vr001011-c1c4-44d3-a6b2-000000000011",
+        "Type": "List",
+        "Skip": false,
+        "Positions": [
+          {
+            "$NodeId": "Point3D-vr001012-80c4-480a-8a43-000000000012",
+            "X": 0,
+            "Y": 22,
+            "Z": -62
+          }
+        ]
+      },
+      "Assignments": {
+        "$NodeId": "Constant.Assignments-vr001013-44d3-4d5b-b6a4-000000000013",
+        "Type": "Constant",
+        "Prop": {
+          "$NodeId": "Prefab.Prop-vr001014-c1c4-44d3-a6b2-000000000014",
+          "Type": "Prefab",
+          "Skip": false,
+          "WeightedPrefabPaths": [
+            {
+              "$NodeId": "WeightedPath.Prefab.Prop-vr001015-80c4-480a-8a43-000000000015",
+              "Path": "Dungeon/Void_Realm",
+              "Weight": 1
+            }
+          ],
+          "LegacyPath": false,
+          "LoadEntities": true,
+          "Directionality": {
+            "$NodeId": "Static.Directionality-vr001019-44d3-4d5b-b6a4-000000000019",
+            "Type": "Static",
+            "Rotation": 0,
+            "Pattern": {
+              "$NodeId": "BlockType.Pattern-vr001016-44d3-4d5b-b6a4-000000000016",
+              "Type": "BlockType",
+              "Skip": false,
+              "Material": {
+                "$NodeId": "Material-vr001017-c1c4-44d3-a6b2-000000000017",
+                "Solid": "Empty"
+              }
+            }
+          },
+          "Scanner": {
+            "$NodeId": "Origin.Scanner-vr001018-80c4-480a-8a43-000000000018",
+            "Type": "Origin",
+            "Skip": false
+          },
+          "MoldingDirection": "None",
+          "MoldingChildren": false
+        }
+      }
+    }
+  ],
+  "EnvironmentProvider": {
+    "$NodeId": "Constant.EnvironmentProvider-vr001022-44d3-4d5b-b6a4-000000000022",
+    "Type": "Constant",
+    "Environment": "Env_Endgame_Void_Realm"
+  },
+  "TintProvider": {
+    "$NodeId": "Constant.TintProvider-vr001023-c1c4-44d3-a6b2-000000000023",
+    "Type": "Constant",
+    "Color": "#5b9e28"
+  }
+}
