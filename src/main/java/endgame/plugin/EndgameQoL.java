@@ -72,6 +72,7 @@ public class EndgameQoL extends JavaPlugin {
 
     private endgame.plugin.events.RecipeOverrideSystem recipeOverrideSystem;
     private ForgottenTempleWatcher forgottenTempleWatcher;
+    private endgame.plugin.systems.portal.TemporalPortalManager temporalPortalManager;
     private endgame.plugin.integration.rpgleveling.RPGLevelingBridge rpgLevelingBridge;
     private endgame.plugin.integration.endlessleveling.EndlessLevelingBridge endlessLevelingBridge;
     private endgame.plugin.integration.orbisguard.OrbisGuardBridge orbisGuardBridge;
@@ -124,6 +125,9 @@ public class EndgameQoL extends JavaPlugin {
 
         I18n.init(this, this.playerLocaleConfig);
 
+        // Custom CAE conditions
+        endgame.plugin.systems.boss.HealthPercentBelowCondition.register();
+
         // Custom interaction types
         this.getCodecRegistry(Interaction.CODEC).register(
                 "EndgameStanceChange", endgame.plugin.systems.weapon.EndgameStanceChangeInteraction.class,
@@ -143,6 +147,14 @@ public class EndgameQoL extends JavaPlugin {
                 endgame.plugin.ui.OpenAccessoryPouchInteraction.CODEC);
         com.hypixel.hytale.server.npc.NPCPlugin.get().registerCoreComponentType(
                 "EndgameOpenTradeUI", endgame.plugin.ui.BuilderActionOpenTradeUI::new);
+        com.hypixel.hytale.server.npc.NPCPlugin.get().registerCoreComponentType(
+                "SetMotionController", endgame.plugin.systems.boss.BuilderActionSetMotionController::new);
+        com.hypixel.hytale.server.npc.NPCPlugin.get().registerCoreComponentType(
+                "EnterTemporalPortal", endgame.plugin.systems.portal.BuilderActionEnterTemporalPortal::new);
+
+        // Boss knockback suppression (INSPECT damage group)
+        this.getEntityStoreRegistry().registerSystem(
+                new endgame.plugin.systems.boss.BossKnockbackSuppressionSystem());
 
         // Commands
         this.getCommandRegistry().registerCommand(new EgCommand(this));
@@ -403,6 +415,10 @@ public class EndgameQoL extends JavaPlugin {
         this.getLogger().atInfo().log("[EndgameQoL] Starting ForgottenTempleWatcher...");
         this.forgottenTempleWatcher = new ForgottenTempleWatcher(this);
         this.forgottenTempleWatcher.start();
+
+        // Start the Temporal Portal system
+        this.temporalPortalManager = new endgame.plugin.systems.portal.TemporalPortalManager(this);
+        this.temporalPortalManager.start();
     }
 
     @Override
@@ -412,6 +428,11 @@ public class EndgameQoL extends JavaPlugin {
         // CRITICAL: Clean up all systems to prevent handlers from doubling on reload
         if (this.systemRegistry != null) {
             this.systemRegistry.shutdownAll();
+        }
+
+        if (this.temporalPortalManager != null) {
+            this.temporalPortalManager.stop();
+            this.getLogger().atInfo().log("[EndgameQoL] Stopped TemporalPortalManager");
         }
 
         if (this.forgottenTempleWatcher != null) {
@@ -669,6 +690,10 @@ public class EndgameQoL extends JavaPlugin {
         String name = world.getName().toLowerCase();
         return name.contains("endgame_void_realm") || name.contains("endgame-void-realm")
                 || name.contains("endgame_golem_void") || name.contains("endgame-golem-void");
+    }
+
+    public endgame.plugin.systems.portal.TemporalPortalManager getTemporalPortalManager() {
+        return temporalPortalManager;
     }
 
     public void resetVorthakShopStock() {

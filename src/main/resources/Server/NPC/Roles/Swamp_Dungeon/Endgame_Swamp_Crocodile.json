@@ -2,7 +2,7 @@
   "Type": "Variant",
   "Reference": "Template_Predator",
   "Modify": {
-    "Appearance": "Swamp_Crocodile",
+    "Appearance": "Endgame_Swamp_Crocodile",
     "AttitudeGroup": "PredatorsBig",
     "WanderRadius": 8,
     "ViewRange": 15,

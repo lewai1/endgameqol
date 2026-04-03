@@ -29,7 +29,7 @@
         ],
         "AttackDistance": 6,
         "KnockbackScale": 0.05,
-        "RangedAttack": "Dragon_Fire_Blast",
+        "RangedAttack": "Endgame_Dragon_Fire_Blast",
         "RangedAttackDistance": 80,
         "EnableRangedAttack": true,
         "ChaseRelativeSpeed": 1.2,

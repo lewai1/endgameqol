@@ -16,7 +16,7 @@
     "HardLeashDistance": 60,
     "LeashDistance": 30,
     "CombatBehaviorDistance": 4,
-    "Attack": "Root_NPC_Frost_Feran_Attack",
+    "Attack": "Root_NPC_Endgame_Frost_Feran_Attack",
     "AttackDistance": 2.5,
     "ChaseRelativeSpeed": 0.8,
     "CombatMovingRelativeSpeed": 0.7,

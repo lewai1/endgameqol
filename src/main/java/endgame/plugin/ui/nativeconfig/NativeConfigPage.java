@@ -103,6 +103,11 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         new SearchEntry("Bounty Refresh", "Misc", "toggle:bounty", c -> c.getBountyRefreshHours() + "h", "bounty hours cooldown"),
         new SearchEntry("Warden Trials", "Misc", "toggle:warden", c -> c.isWardenTrialEnabled() ? "ON" : "OFF", "warden trial challenge"),
         new SearchEntry("Vorthak Merchant", "Misc", "toggle:vorthak", c -> c.isVorthakEnabled() ? "ON" : "OFF", "shop trade npc"),
+        new SearchEntry("Temporal Portals", "Misc", "toggle:temporalPortal", c -> c.getTemporalPortalConfig().isEnabled() ? "ON" : "OFF", "temporal portal random dungeon"),
+        new SearchEntry("Portal Spawn Interval", "Misc", "field:portalSpawnMin", c -> c.getTemporalPortalConfig().getSpawnIntervalMinSeconds() + "-" + c.getTemporalPortalConfig().getSpawnIntervalMaxSeconds() + "s", "temporal portal spawn timer"),
+        new SearchEntry("Portal Duration", "Misc", "field:portalDuration", c -> c.getTemporalPortalConfig().getPortalDurationSeconds() + "s", "temporal portal despawn time"),
+        new SearchEntry("Max Portals", "Misc", "field:maxPortals", c -> String.valueOf(c.getTemporalPortalConfig().getMaxConcurrentPortals()), "temporal portal max concurrent"),
+        new SearchEntry("Instance Time Limit", "Misc", "field:instanceTimeLimit", c -> c.getTemporalPortalConfig().getInstanceTimeLimitSeconds() + "s", "temporal portal dungeon duration"),
         new SearchEntry("RPG Leveling", "Integration", "toggle:rpgLeveling", c -> c.isRPGLevelingEnabled() ? "ON" : "OFF", "xp level mod"),
         new SearchEntry("Endless Leveling", "Integration", "toggle:endlessLeveling", c -> c.isEndlessLevelingEnabled() ? "ON" : "OFF", "xp level mod"),
         new SearchEntry("OrbisGuard", "Integration", "toggle:orbisGuard", c -> c.isOrbisGuardEnabled() ? "ON" : "OFF", "claim protection mod"),
@@ -565,6 +570,10 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         cmd.set("#BountyRefresh.Value", String.valueOf(config.getBountyRefreshHours()));
         setToggleValue(cmd, "#ToggleWarden", config.isWardenTrialEnabled());
         setToggleValue(cmd, "#ToggleVorthak", config.isVorthakEnabled());
+        setToggleValue(cmd, "#ToggleTemporalPortal", config.getTemporalPortalConfig().isEnabled());
+        cmd.set("#PortalDuration.Value", String.valueOf(config.getTemporalPortalConfig().getPortalDurationSeconds()));
+        cmd.set("#MaxPortals.Value", String.valueOf(config.getTemporalPortalConfig().getMaxConcurrentPortals()));
+        cmd.set("#InstanceTimeLimit.Value", String.valueOf(config.getTemporalPortalConfig().getInstanceTimeLimitSeconds()));
 
         events.addEventBinding(CustomUIEventBindingType.Activating, "#TogglePvp", EventData.of("Action", "toggle:pvp"), false);
         events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleDungeonProt", EventData.of("Action", "toggle:dungeonProt"), false);
@@ -582,6 +591,16 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         bindAdjust(events, "#BountyRefreshUp", "adjust:bountyRefreshUp");
         events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleWarden", EventData.of("Action", "toggle:warden"), false);
         events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleVorthak", EventData.of("Action", "toggle:vorthak"), false);
+        events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleTemporalPortal", EventData.of("Action", "toggle:temporalPortal"), false);
+        bindNumField(events, "#PortalDuration", "portalDuration");
+        bindAdjust(events, "#PortalDurationDown", "adjust:portalDurationDown");
+        bindAdjust(events, "#PortalDurationUp", "adjust:portalDurationUp");
+        bindNumField(events, "#MaxPortals", "maxPortals");
+        bindAdjust(events, "#MaxPortalsDown", "adjust:maxPortalsDown");
+        bindAdjust(events, "#MaxPortalsUp", "adjust:maxPortalsUp");
+        bindNumField(events, "#InstanceTimeLimit", "instanceTimeLimit");
+        bindAdjust(events, "#InstanceTimeLimitDown", "adjust:instanceTimeLimitDown");
+        bindAdjust(events, "#InstanceTimeLimitUp", "adjust:instanceTimeLimitUp");
     }
 
     // ==================== INTEGRATION ====================
@@ -888,6 +907,9 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
                 case "hpRegenPrisma" -> config.setArmorHPRegenPrismaPerPiece(Math.max(0f, Math.min(5f, Float.parseFloat(cleaned))));
                 case "comboTimer" -> config.setComboTimerSeconds(Math.max(1f, Math.min(30f, Float.parseFloat(cleaned))));
                 case "bountyRefresh" -> config.setBountyRefreshHours(Math.max(1, Math.min(168, Integer.parseInt(cleaned))));
+                case "portalDuration" -> config.getTemporalPortalConfig().setPortalDurationSeconds(Integer.parseInt(cleaned));
+                case "maxPortals" -> config.getTemporalPortalConfig().setMaxConcurrentPortals(Integer.parseInt(cleaned));
+                case "instanceTimeLimit" -> config.getTemporalPortalConfig().setInstanceTimeLimitSeconds(Integer.parseInt(cleaned));
             }
         } catch (NumberFormatException ignored) {}
     }
@@ -917,6 +939,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
             case "bountyWeekly" -> config.setBountyWeeklyEnabled(!config.isBountyWeeklyEnabled());
             case "warden" -> config.setWardenTrialEnabled(!config.isWardenTrialEnabled());
             case "vorthak" -> config.setVorthakEnabled(!config.isVorthakEnabled());
+            case "temporalPortal" -> config.getTemporalPortalConfig().setEnabled(!config.getTemporalPortalConfig().isEnabled());
             case "rpgLeveling" -> {
                 boolean newVal = !config.isRPGLevelingEnabled();
                 config.setRPGLevelingEnabled(newVal);
@@ -967,6 +990,12 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
             case "comboTimerDown" -> config.setComboTimerSeconds(Math.max(1f, config.getComboTimerSeconds() - 1f));
             case "bountyRefreshUp" -> config.setBountyRefreshHours(Math.min(168, config.getBountyRefreshHours() + 1));
             case "bountyRefreshDown" -> config.setBountyRefreshHours(Math.max(1, config.getBountyRefreshHours() - 1));
+            case "portalDurationUp" -> config.getTemporalPortalConfig().setPortalDurationSeconds(config.getTemporalPortalConfig().getPortalDurationSeconds() + 30);
+            case "portalDurationDown" -> config.getTemporalPortalConfig().setPortalDurationSeconds(config.getTemporalPortalConfig().getPortalDurationSeconds() - 30);
+            case "maxPortalsUp" -> config.getTemporalPortalConfig().setMaxConcurrentPortals(config.getTemporalPortalConfig().getMaxConcurrentPortals() + 1);
+            case "maxPortalsDown" -> config.getTemporalPortalConfig().setMaxConcurrentPortals(config.getTemporalPortalConfig().getMaxConcurrentPortals() - 1);
+            case "instanceTimeLimitUp" -> config.getTemporalPortalConfig().setInstanceTimeLimitSeconds(config.getTemporalPortalConfig().getInstanceTimeLimitSeconds() + 60);
+            case "instanceTimeLimitDown" -> config.getTemporalPortalConfig().setInstanceTimeLimitSeconds(config.getTemporalPortalConfig().getInstanceTimeLimitSeconds() - 60);
         }
     }
 

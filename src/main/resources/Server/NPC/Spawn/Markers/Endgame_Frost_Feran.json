@@ -2,7 +2,7 @@
     "Model": "NPC_Spawn_Marker",
     "NPCs": [
         {
-            "Name": "Frost_Feran",
+            "Name": "Endgame_Frost_Feran",
             "Weight": 100,
             "SpawnAfterGameTime": "PT1H"
         }

@@ -81,12 +81,16 @@ public class BossHealthManager {
         }
 
         // H6 FIX: Claim the UUID slot BEFORE applying modifier to prevent race condition.
+        // CRITICAL: If already tracked, NEVER re-apply (prevents heal-to-100% on stat recalc)
         if (uuid != null) {
             BossHealthState existing = trackedBosses.putIfAbsent(uuid, new BossHealthState(typeId));
             if (existing != null) {
-                plugin.getLogger().atFine().log("[BossHealthManager] Skipping - already applied for UUID %s", uuid);
                 return;
             }
+        } else {
+            // No UUID = can't track, skip entirely to prevent accidental full heal
+            plugin.getLogger().atFine().log("[BossHealthManager] Skipping - no UUID for %s", typeId);
+            return;
         }
 
         int healthStat = DefaultEntityStatTypes.getHealth();

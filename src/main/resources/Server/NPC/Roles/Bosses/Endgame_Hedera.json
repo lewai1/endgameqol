@@ -17,6 +17,7 @@
     "MaxHealth": 1800,
     "Weapons": [],
     "OffHand": [],
+    "AttitudeGroup": "Endgame_Swamp",
     "UseCombatActionEvaluator": true,
     "WakingIdleBehaviorComponent": "Component_Instruction_Stationary_Idle",
     "LeashDistance": 99999,

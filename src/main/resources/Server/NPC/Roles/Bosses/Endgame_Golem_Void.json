@@ -27,7 +27,7 @@
     "MaxHealth": 3500,
     "Weapons": [],
     "OffHand": [],
-    "Attack": "Root_NPC_Golem_Void_Attack",
+    "Attack": "Root_NPC_Endgame_Golem_Void_Attack",
     "BlockProbability": 0,
     "UseCombatActionEvaluator": false,
     "WakingIdleBehaviorComponent": "Component_Instruction_Stationary_Idle",

@@ -183,7 +183,7 @@ public class BossConfig {
     }
 
     public void setXpReward(int xp) {
-        this.xpReward = Math.max(0, Math.min(100000, xp));
+        this.xpReward = Math.max(0, Math.min(1000000, xp));
     }
 
     // === DANGER ZONE (Golem-specific) ===

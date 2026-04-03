@@ -4,7 +4,7 @@
     {
       "Type": "TriggerSpawnMarkers",
       "MarkerType": "Endgame_Spirit_Root_Manual",
-      "Range": 30
+      "Range": 100
     }
   ]
 }

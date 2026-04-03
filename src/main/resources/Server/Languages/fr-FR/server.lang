@@ -92,6 +92,8 @@ portals.swamp_dungeon = Porte du Donjon du Marais
 portals.swamp_dungeon.description = Un portail de <color is="#2E8B57">vignes emmêlées et d'énergie sombre</color>, ses bords pulsant de vie corrompue. Au-delà se trouve un marais consumé par le pouvoir ancestral d'<color is="#2E8B57">Hedera</color>.
 portals.swamp_dungeon.tip1 = <i><color is="#2E8B57">Les racines se tordent et s'étendent à travers la brume,</color></i>
 portals.swamp_dungeon.tip2 = <i><color is="#2E8B57">et quelque part dans les profondeurs, quelque chose d'ancestral respire...</color></i>
+npcRoles.Endgame_Temporal_Portal.name = Portail Temporel
+interactionHints.enter_portal = Entrer dans le Portail
 npcRoles.Endgame_Yeti.name = Yéti de Glace
 npcRoles.Endgame_Rat_Frost.name = Rat de Glace
 npcRoles.Endgame_Toad_Frost.name = Crapaud de Glace

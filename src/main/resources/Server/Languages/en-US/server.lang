@@ -92,6 +92,8 @@ portals.swamp_dungeon = Gate of the Swamp Dungeon
 portals.swamp_dungeon.description = A writhing portal of <color is="#2E8B57">tangled vines and dark energy</color>, its edges pulsing with corrupted life. Beyond it lies a swamp consumed by <color is="#2E8B57">Hedera's</color> ancient power.
 portals.swamp_dungeon.tip1 = <i><color is="#2E8B57">The roots twist and reach through the fog,</color></i>
 portals.swamp_dungeon.tip2 = <i><color is="#2E8B57">and somewhere deep within, something ancient breathes...</color></i>
+npcRoles.Endgame_Temporal_Portal.name = Temporal Portal
+interactionHints.enter_portal = Enter Portal
 npcRoles.Endgame_Yeti.name = Frost Yeti
 npcRoles.Endgame_Rat_Frost.name = Ice Rat
 npcRoles.Endgame_Toad_Frost.name = Frost Toad

@@ -1,0 +1,56 @@
+{
+  "$Comment": "Ground Slam — heavy AOE with telegraph. Uses Scream animation.",
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Hedera_Default",
+    "ItemAnimationId": "Scream",
+    "WorldSoundEventId": "SFX_NPC_Unarmed_Swing",
+    "MovementEffects": { "DisableAll": true }
+  },
+  "RunTime": 0.8,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.2,
+            "Selector": {
+              "Id": "AOECircle",
+              "Range": 7
+            },
+            "Effects": {
+              "WorldSoundEventId": "SFX_Golem_Earth_Slam_Impact",
+              "Particles": [
+                {
+                  "SystemId": "Golem_Void_Slam",
+                  "DetachedFromModel": true,
+                  "Scale": 2
+                }
+              ]
+            },
+            "HitEntity": {
+              "Interactions": [ "Endgame_Hedera_Ground_Slam_Damage" ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "RunTime": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 1.2,
+            "Effects": {
+              "MovementEffects": { "DisableAll": true }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

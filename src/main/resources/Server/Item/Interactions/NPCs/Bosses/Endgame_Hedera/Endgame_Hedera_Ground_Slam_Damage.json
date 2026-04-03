@@ -1,0 +1,20 @@
+{
+  "Parent": "DamageEntityParent",
+  "DamageCalculator": {
+    "Type": "Absolute",
+    "BaseDamage": {
+      "Physical": 70
+    },
+    "RandomPercentageModifier": 0.15
+  },
+  "DamageEffects": {
+    "Knockback": {
+      "Force": 6,
+      "RelativeZ": -0.5,
+      "VelocityY": 2
+    },
+    "StaminaDrainMultiplier": 1.5,
+    "CameraEffect": "Impact",
+    "WorldSoundEventId": "SFX_Golem_Earth_Slam_Impact"
+  }
+}

@@ -4,10 +4,11 @@
     {
       "Name": "Endgame_Spirit_Root",
       "Weight": 100,
-      "SpawnAfterGameTime": "PT1H"
+      "SpawnAfterGameTime": "PT0S"
     }
   ],
   "ManualTrigger": true,
   "ExclusionRadius": 0,
-  "MaxDropHeight": 10
+  "MaxDropHeight": 4,
+  "DeactivationDistance": 150
 }

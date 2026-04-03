@@ -175,20 +175,7 @@ public class MobManager {
                         "[EntitySetupSystem] Endgame_Golem_Void spawned outside Golem Void instance — despawning");
                 return;
             }
-
-            // Register EL world-level override for this dungeon instance (dynamic world names)
-            if (plugin.isEndlessLevelingActive()) {
-                var elBridge = plugin.getEndlessLevelingBridge();
-                String worldName = world.getName();
-                if (EndgameQoL.isFrozenDungeonInstance(world)) {
-                    elBridge.registerWorldLevelOverride("eg_" + worldName, worldName, 80, 110);
-                } else if (EndgameQoL.isSwampDungeonInstance(world)) {
-                    elBridge.registerWorldLevelOverride("eg_" + worldName, worldName, 100, 135);
-                } else if (EndgameQoL.isGolemVoidInstance(world)) {
-                    elBridge.registerWorldLevelOverride("eg_" + worldName, worldName, 110, 155);
-                }
-            }
-
+            
             // Log detection event
             manager.onBossDetected(typeId);
 

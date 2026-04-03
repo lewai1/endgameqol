@@ -1,0 +1,59 @@
+{
+  "$Comment": "Vine Grab — pulls player toward Hedera. Entangle animation (hand on ground, vine attack).",
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Hedera_Default",
+    "ItemAnimationId": "Entangle",
+    "WorldSoundEventId": "SFX_Hedera_Scream",
+    "MovementEffects": { "DisableAll": true }
+  },
+  "RunTime": 0.8,
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.3,
+            "Selector": {
+              "Id": "Horizontal",
+              "Direction": "ToLeft",
+              "TestLineOfSight": true,
+              "ExtendTop": 3,
+              "ExtendBottom": 2,
+              "StartDistance": 2,
+              "EndDistance": 8,
+              "Length": 120,
+              "YawStartOffset": -60
+            },
+            "HitEntity": {
+              "Interactions": [ "Endgame_Hedera_Vine_Grab_Damage" ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "RunTime": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0.8,
+            "Effects": {
+              "Particles": [
+                {
+                  "SystemId": "Hedera_Scream",
+                  "TargetEntityPart": "Entity",
+                  "TargetNodeName": "Head"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

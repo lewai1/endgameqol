@@ -157,6 +157,7 @@ public class SystemRegistry {
         plugin.getEntityStoreRegistry().registerSystem(this.dangerZoneTickSystem);
         plugin.getEntityStoreRegistry().registerSystem(new GolemVoidDeathSystem(plugin, this.golemVoidBossManager, this.enrageTracker));
         plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.boss.BossDamageFilterSystem(plugin, this.enrageTracker));
+        plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.boss.BossFriendlyFireFilterSystem());
         plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.boss.PrismaWeaponBossFilterSystem(plugin));
         plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.boss.PrismaArmorBossAmplifySystem(plugin));
         plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.PvPDamageFilterSystem(plugin));
@@ -179,6 +180,11 @@ public class SystemRegistry {
         var hederaRootsAOESystem = new endgame.plugin.systems.boss.HederaRootsAOESystem(plugin);
         hederaRootsAOESystem.setGenericBossManager(this.genericBossManager);
         plugin.getEntityStoreRegistry().registerSystem(hederaRootsAOESystem);
+
+        // Hedera poison cloud (Phase 2+ lingering AOE)
+        var hederaPoisonCloudSystem = new endgame.plugin.systems.boss.HederaPoisonCloudSystem(plugin, poisonComponentType);
+        hederaPoisonCloudSystem.setGenericBossManager(this.genericBossManager);
+        plugin.getEntityStoreRegistry().registerSystem(hederaPoisonCloudSystem);
 
         // Hedera dagger effect (weapon that applies boss poison)
         plugin.getEntityStoreRegistry().registerSystem(new HederaDaggerEffectSystem(plugin, poisonComponentType));

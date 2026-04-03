@@ -1,10 +1,10 @@
 {
     "Interactions": [
-        "Endgame_Hedera_Summon"
+        "Endgame_Hedera_Vine_Grab"
     ],
     "Tags": {
         "Attack": [
-            "Ranged"
+            "Melee"
         ]
     }
 }

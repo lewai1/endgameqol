@@ -92,6 +92,8 @@ portals.swamp_dungeon = Portão da Masmorra do Pântano
 portals.swamp_dungeon.description = Um portal retorcido de <color is="#2E8B57">vinhas emaranhadas e energia sombria</color>, suas bordas pulsando com vida corrompida. Além dele jaz um pântano consumido pelo poder ancestral de <color is="#2E8B57">Hedera</color>.
 portals.swamp_dungeon.tip1 = <i><color is="#2E8B57">As raízes se torcem e alcançam através da névoa,</color></i>
 portals.swamp_dungeon.tip2 = <i><color is="#2E8B57">e em algum lugar nas profundezas, algo ancestral respira...</color></i>
+npcRoles.Endgame_Temporal_Portal.name = Portal Temporal
+interactionHints.enter_portal = Entrar no Portal
 npcRoles.Endgame_Yeti.name = Yeti de Gelo
 npcRoles.Endgame_Rat_Frost.name = Rato de Gelo
 npcRoles.Endgame_Toad_Frost.name = Sapo de Gelo

@@ -92,6 +92,8 @@ portals.swamp_dungeon = Врата Болотного Подземелья
 portals.swamp_dungeon.description = Извивающийся портал из <color is="#2E8B57">спутанных лоз и тёмной энергии</color>, его края пульсируют испорченной жизнью. За ним лежит болото, поглощённое древней силой <color is="#2E8B57">Хедеры</color>.
 portals.swamp_dungeon.tip1 = <i><color is="#2E8B57">Корни извиваются и тянутся сквозь туман,</color></i>
 portals.swamp_dungeon.tip2 = <i><color is="#2E8B57">а где-то в глубине что-то древнее дышит...</color></i>
+npcRoles.Endgame_Temporal_Portal.name = Временной Портал
+interactionHints.enter_portal = Войти в Портал
 npcRoles.Endgame_Yeti.name = Ледяной Йети
 npcRoles.Endgame_Rat_Frost.name = Ледяная Крыса
 npcRoles.Endgame_Toad_Frost.name = Морозная Жаба

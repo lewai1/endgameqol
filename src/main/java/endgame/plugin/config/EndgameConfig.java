@@ -44,6 +44,9 @@ public class EndgameConfig {
                     (c, v) -> { if (v != null) c.crafting = v; }, c -> c.crafting).add()
             .append(new KeyedCodec<MiscConfig>("Misc", MiscConfig.CODEC),
                     (c, v) -> { if (v != null) c.misc = v; }, c -> c.misc).add()
+            .append(new KeyedCodec<endgame.plugin.systems.portal.TemporalPortalConfig>("TemporalPortal",
+                    endgame.plugin.systems.portal.TemporalPortalConfig.CODEC),
+                    (c, v) -> { if (v != null) c.temporalPortal = v; }, c -> c.temporalPortal).add()
             .build();
 
     // === SUB-CONFIG INSTANCES ===
@@ -58,6 +61,7 @@ public class EndgameConfig {
     private BountyConfig bounty = new BountyConfig();
     private CraftingConfig crafting = new CraftingConfig();
     private MiscConfig misc = new MiscConfig();
+    private endgame.plugin.systems.portal.TemporalPortalConfig temporalPortal = new endgame.plugin.systems.portal.TemporalPortalConfig();
 
     public EndgameConfig() {
         initDefaultBossConfigs();
@@ -71,6 +75,7 @@ public class EndgameConfig {
     public ArmorConfig armor() { return armor; }
     public ComboConfig combo() { return combo; }
     public GauntletConfig gauntlet() { return gauntlet; }
+    public endgame.plugin.systems.portal.TemporalPortalConfig getTemporalPortalConfig() { return temporalPortal; }
     public BountyConfig bounty() { return bounty; }
     public CraftingConfig crafting() { return crafting; }
     public MiscConfig misc() { return misc; }

@@ -1,5 +1,5 @@
 {
-  "$Comment": "Dragon Frost Hybrid — Fly/Walk Boss. States: Idle/Alerted/FlyingCombat/GroundCombat",
+  "$Comment": "Dragon Frost Hybrid — Fly/Walk Boss with timed phases. Uses SetMotionController for clean transitions.",
 
   "Type": "Generic",
   "Appearance": "Endgame_Dragon_Frost",
@@ -12,7 +12,7 @@
   "DropList": "Drop_Dragon_Frost",
   "AttitudeGroup": "Dragon",
   "DisableDamageGroups": ["Self"],
-  "KnockbackScale": 0.05,
+  "KnockbackScale": 0.0,
   "NameTranslationKey": "server.npcRoles.Dragon_Frost_Hybrid.name",
   "InitialMotionController": "Fly",
 
@@ -62,78 +62,40 @@
           "Sensor": { "Type": "State", "State": "Idle" },
           "Instructions": [
             {
-              "$Comment": "Detect hostile player → Alerted",
-              "Sensor": {
-                "Type": "Player",
-                "Range": 80,
-                "LockOnTarget": true
-              },
+              "Sensor": { "Type": "Player", "Range": 80, "LockOnTarget": true },
               "Actions": [
                 { "Type": "PlayAnimation", "Slot": "Status", "Animation": "Alerted" },
                 { "Type": "State", "State": "Alerted" }
               ]
             },
             {
-              "$Comment": "Damaged → lock attacker → Combat",
-              "Sensor": {
-                "Type": "Damage",
-                "Combat": true,
-                "TargetSlot": "LockedTarget"
-              },
-              "Actions": [
-                { "Type": "State", "State": "FlyingCombat" }
-              ]
+              "Sensor": { "Type": "Damage", "Combat": true, "TargetSlot": "LockedTarget" },
+              "Actions": [ { "Type": "State", "State": "FlyingCombat" } ]
             },
             {
-              "$Comment": "Default: circle lazily, observe surroundings",
-              "HeadMotion": {
-                "Type": "Observe",
-                "AngleRange": [-60, 60],
-                "PauseTimeRange": [2, 4],
-                "RelativeTurnSpeed": 0.5
-              },
-              "BodyMotion": {
-                "Type": "WanderInCircle",
-                "Radius": 20,
-                "MaxHeadingChange": 25,
-                "RelativeSpeed": 0.3
-              }
+              "HeadMotion": { "Type": "Observe", "AngleRange": [-60, 60], "PauseTimeRange": [2, 4], "RelativeTurnSpeed": 0.5 },
+              "BodyMotion": { "Type": "WanderInCircle", "Radius": 20, "MaxHeadingChange": 25, "RelativeSpeed": 0.3 }
             }
           ]
         },
 
         {
-          "$Comment": "========== ALERTED — Brief pause, face target, then engage ==========",
+          "$Comment": "========== ALERTED — Face target, then engage ==========",
           "Sensor": { "Type": "State", "State": "Alerted" },
           "Instructions": [
             {
-              "$Comment": "Damaged during alert → skip to combat",
-              "Sensor": {
-                "Type": "Damage",
-                "Combat": true,
-                "TargetSlot": "LockedTarget"
-              },
-              "Actions": [
-                { "Type": "State", "State": "FlyingCombat" }
-              ]
+              "Sensor": { "Type": "Damage", "Combat": true, "TargetSlot": "LockedTarget" },
+              "Actions": [ { "Type": "State", "State": "FlyingCombat" } ]
             },
             {
-              "$Comment": "Target visible → watch briefly then engage",
-              "Sensor": {
-                "Type": "Target",
-                "Range": 100
-              },
+              "Sensor": { "Type": "Target", "Range": 100 },
               "HeadMotion": { "Type": "Watch", "RelativeTurnSpeed": 2.0 },
               "Actions": [
-                {
-                  "Type": "Timeout",
-                  "Delay": [1.0, 1.5],
-                  "Action": { "Type": "State", "State": "FlyingCombat" }
-                }
+                { "Type": "Timeout", "Delay": [1.0, 1.5],
+                  "Action": { "Type": "State", "State": "FlyingCombat" } }
               ]
             },
             {
-              "$Comment": "Target lost → back to idle",
               "Actions": [
                 { "Type": "PlayAnimation", "Slot": "Status" },
                 { "Type": "ReleaseTarget" },
@@ -144,11 +106,11 @@
         },
 
         {
-          "$Comment": "========== FLYING COMBAT — Ranged + approach + land ==========",
+          "$Comment": "========== FLYING COMBAT — Ranged attacks, then land after ~15s ==========",
           "Sensor": { "Type": "State", "State": "FlyingCombat" },
           "Instructions": [
             {
-              "$Comment": "LANDED: Walk controller + on ground → Ground state",
+              "$Comment": "Phase sync: already on Walk + ground → go to GroundCombat",
               "Sensor": {
                 "Type": "And",
                 "Sensors": [
@@ -156,21 +118,39 @@
                   { "Type": "OnGround" }
                 ]
               },
-              "Actions": [
-                { "Type": "State", "State": "GroundCombat" }
-              ]
+              "Actions": [ { "Type": "State", "State": "GroundCombat" } ]
             },
             {
-              "$Comment": "Re-target on damage (works in Creative)",
+              "$Comment": "Re-target on damage",
               "Continue": true,
-              "Sensor": {
-                "Type": "Damage",
-                "Combat": true,
-                "TargetSlot": "LockedTarget"
-              }
+              "Sensor": { "Type": "Damage", "Combat": true, "TargetSlot": "LockedTarget" }
             },
             {
-              "$Comment": "STUCK RECOVERY: Blocked by terrain → go higher + back off",
+              "$Comment": "PHASE TIMER: After 15-20s flying → force land via SetMotionController",
+              "Sensor": {
+                "Type": "And",
+                "Sensors": [
+                  { "Type": "MotionController", "MotionController": "Fly" },
+                  { "Type": "Target", "Range": 120 }
+                ]
+              },
+              "Actions": [
+                {
+                  "Type": "Timeout",
+                  "Delay": [15, 20],
+                  "Action": {
+                    "Type": "Sequence",
+                    "Actions": [
+                      { "Type": "SetMotionController", "MotionController": "Walk" },
+                      { "Type": "State", "State": "GroundCombat" }
+                    ]
+                  }
+                }
+              ],
+              "Continue": true
+            },
+            {
+              "$Comment": "STUCK RECOVERY: Blocked → wander + go higher",
               "Sensor": {
                 "Type": "And",
                 "Sensors": [
@@ -178,51 +158,26 @@
                   { "Type": "Eval", "Expression": "blocked" }
                 ]
               },
-              "BodyMotion": {
-                "Type": "Wander",
-                "MaxHeadingChange": 90,
-                "RelativeSpeed": 0.8
-              },
-              "Actions": [
-                { "Type": "OverrideAltitude", "DesiredAltitudeRange": [12, 20] }
-              ]
+              "BodyMotion": { "Type": "Wander", "MaxHeadingChange": 90, "RelativeSpeed": 0.8 },
+              "Actions": [ { "Type": "OverrideAltitude", "DesiredAltitudeRange": [12, 20] } ]
             },
             {
-              "$Comment": "AERIAL ATTACK: Frost bolt at any range with LOS",
+              "$Comment": "AERIAL ATTACK: Frost bolt with approach",
               "Sensor": {
                 "Type": "And",
                 "Sensors": [
                   { "Type": "MotionController", "MotionController": "Fly" },
-                  {
-                    "Type": "Target",
-                    "Range": 50,
-                    "Filters": [{ "Type": "LineOfSight" }]
-                  }
+                  { "Type": "Target", "Range": 50, "Filters": [{ "Type": "LineOfSight" }] }
                 ]
               },
-              "HeadMotion": {
-                "Type": "Aim",
-                "RelativeTurnSpeed": 2.0,
-                "HitProbability": 0.9,
-                "Deflection": true
-              },
+              "HeadMotion": { "Type": "Aim", "RelativeTurnSpeed": 2.0, "HitProbability": 0.9, "Deflection": true },
               "BodyMotion": {
-                "Type": "Seek",
-                "StopDistance": 8,
-                "SlowDownDistance": 15,
-                "RelativeSpeed": 0.5,
-                "DesiredAltitudeWeight": 0.1,
-                "MaxTotalNodes": 1500,
-                "MaxOpenNodes": 400,
-                "MaxPathLength": 300
+                "Type": "Seek", "StopDistance": 8, "SlowDownDistance": 15, "RelativeSpeed": 0.5,
+                "DesiredAltitudeWeight": 0.1, "MaxTotalNodes": 1500, "MaxOpenNodes": 400, "MaxPathLength": 300
               },
               "ActionsBlocking": true,
               "Actions": [
-                {
-                  "Type": "Attack",
-                  "Attack": "Root_NPC_Endgame_Dragon_Frost_Frost_Bolt",
-                  "AttackPauseRange": [2.5, 4.0]
-                }
+                { "Type": "Attack", "Attack": "Root_NPC_Endgame_Dragon_Frost_Frost_Bolt", "AttackPauseRange": [2.5, 4.0] }
               ]
             },
             {
@@ -236,117 +191,92 @@
               },
               "HeadMotion": { "Type": "Watch", "RelativeTurnSpeed": 2.0 },
               "BodyMotion": {
-                "Type": "Seek",
-                "StopDistance": 8,
-                "SlowDownDistance": 15,
-                "RelativeSpeed": 0.8,
-                "DesiredAltitudeWeight": 0.1,
-                "MaxTotalNodes": 1500,
-                "MaxOpenNodes": 400,
-                "MaxPathLength": 300
+                "Type": "Seek", "StopDistance": 8, "SlowDownDistance": 15, "RelativeSpeed": 0.8,
+                "DesiredAltitudeWeight": 0.1, "MaxTotalNodes": 1500, "MaxOpenNodes": 400, "MaxPathLength": 300
               }
             },
             {
               "$Comment": "Target lost → idle",
-              "Actions": [
-                { "Type": "ReleaseTarget" },
-                { "Type": "State", "State": "Idle" }
-              ]
+              "Actions": [ { "Type": "ReleaseTarget" }, { "Type": "State", "State": "Idle" } ]
             }
           ]
         },
 
         {
-          "$Comment": "========== GROUND COMBAT — Melee + ranged + take off ==========",
+          "$Comment": "========== GROUND COMBAT — Melee + ranged, then take off after ~10s ==========",
           "Sensor": { "Type": "State", "State": "GroundCombat" },
           "Instructions": [
             {
+              "$Comment": "Phase sync: still on Fly → force Walk",
+              "Sensor": { "Type": "MotionController", "MotionController": "Fly" },
+              "Actions": [ { "Type": "SetMotionController", "MotionController": "Walk" } ]
+            },
+            {
               "$Comment": "Re-target on damage",
               "Continue": true,
-              "Sensor": {
-                "Type": "Damage",
-                "Combat": true,
-                "TargetSlot": "LockedTarget"
-              }
+              "Sensor": { "Type": "Damage", "Combat": true, "TargetSlot": "LockedTarget" }
             },
             {
-              "$Comment": "Target far or lost → take off",
+              "$Comment": "PHASE TIMER: After 10-15s on ground → take off",
               "Sensor": {
                 "Type": "And",
                 "Sensors": [
                   { "Type": "MotionController", "MotionController": "Walk" },
-                  { "Type": "OnGround" },
-                  { "Type": "Not", "Sensor": { "Type": "Target", "Range": 30 } }
+                  { "Type": "OnGround" }
                 ]
               },
-              "BodyMotion": {
-                "Type": "TakeOff",
-                "JumpSpeed": 12
-              },
               "Actions": [
-                { "Type": "State", "State": "FlyingCombat" }
-              ]
+                {
+                  "Type": "Timeout",
+                  "Delay": [10, 15],
+                  "Action": {
+                    "Type": "Sequence",
+                    "Actions": [
+                      { "Type": "SetMotionController", "MotionController": "Fly" },
+                      { "Type": "State", "State": "FlyingCombat" }
+                    ]
+                  }
+                }
+              ],
+              "Continue": true
             },
             {
-              "$Comment": "MELEE: Stomp AOE at close range",
+              "$Comment": "MELEE: Swing+Bite chain at close range",
               "Sensor": {
                 "Type": "And",
                 "Sensors": [
                   { "Type": "MotionController", "MotionController": "Walk" },
-                  {
-                    "Type": "Target",
-                    "Range": 10,
-                    "Filters": [{ "Type": "LineOfSight" }]
-                  }
+                  { "Type": "Target", "Range": 10, "Filters": [{ "Type": "LineOfSight" }] }
                 ]
               },
               "HeadMotion": { "Type": "Aim", "RelativeTurnSpeed": 2.0 },
               "BodyMotion": {
                 "Type": "MaintainDistance",
-                "DesiredDistanceRange": [3, 6],
-                "MoveThreshold": 0.2,
-                "RelativeForwardsSpeed": 0.7,
-                "RelativeBackwardsSpeed": 0.4,
-                "StrafingDurationRange": [1.0, 2.0],
-                "StrafingFrequencyRange": [2.0, 4.0]
+                "DesiredDistanceRange": [3, 6], "MoveThreshold": 0.2,
+                "RelativeForwardsSpeed": 0.7, "RelativeBackwardsSpeed": 0.4,
+                "StrafingDurationRange": [1.0, 2.0], "StrafingFrequencyRange": [2.0, 4.0]
               },
               "ActionsBlocking": true,
               "Actions": [
-                {
-                  "Type": "Attack",
-                  "Attack": "Root_NPC_Endgame_Dragon_Frost_Attack",
-                  "AttackPauseRange": [0.8, 1.2]
-                }
+                { "Type": "Attack", "Attack": "Root_NPC_Endgame_Dragon_Frost_Attack", "AttackPauseRange": [0.8, 1.2] }
               ]
             },
             {
-              "$Comment": "RANGED: Frost bolt at medium range",
+              "$Comment": "STOMP: AOE at medium range",
               "Sensor": {
                 "Type": "And",
                 "Sensors": [
                   { "Type": "MotionController", "MotionController": "Walk" },
-                  {
-                    "Type": "Target",
-                    "Range": 30,
-                    "Filters": [{ "Type": "LineOfSight" }]
-                  }
+                  { "Type": "Target", "Range": 20, "Filters": [{ "Type": "LineOfSight" }] }
                 ]
               },
-              "HeadMotion": { "Type": "Aim", "RelativeTurnSpeed": 2.0, "HitProbability": 0.7 },
+              "HeadMotion": { "Type": "Aim", "RelativeTurnSpeed": 2.0 },
               "BodyMotion": {
-                "Type": "Seek",
-                "StopDistance": 6,
-                "SlowDownDistance": 12,
-                "RelativeSpeed": 0.8,
-                "UsePathfinder": true
+                "Type": "Seek", "StopDistance": 6, "SlowDownDistance": 12, "RelativeSpeed": 0.8, "UsePathfinder": true
               },
               "ActionsBlocking": true,
               "Actions": [
-                {
-                  "Type": "Attack",
-                  "Attack": "Root_NPC_Endgame_Dragon_Frost_Frost_Bolt",
-                  "AttackPauseRange": [2, 3]
-                }
+                { "Type": "Attack", "Attack": "Root_NPC_Endgame_Dragon_Frost_Stomp", "AttackPauseRange": [1.5, 2.5] }
               ]
             },
             {
@@ -355,17 +285,11 @@
                 "Type": "And",
                 "Sensors": [
                   { "Type": "MotionController", "MotionController": "Walk" },
-                  { "Type": "Target", "Range": 30 }
+                  { "Type": "Target", "Range": 40 }
                 ]
               },
               "HeadMotion": { "Type": "Watch", "RelativeTurnSpeed": 2.0 },
-              "BodyMotion": {
-                "Type": "Seek",
-                "StopDistance": 4,
-                "SlowDownDistance": 8,
-                "RelativeSpeed": 0.9,
-                "UsePathfinder": true
-              }
+              "BodyMotion": { "Type": "Seek", "StopDistance": 4, "SlowDownDistance": 8, "RelativeSpeed": 0.9, "UsePathfinder": true }
             },
             {
               "$Comment": "No target → take off and patrol",
@@ -376,22 +300,14 @@
                   { "Type": "OnGround" }
                 ]
               },
-              "BodyMotion": {
-                "Type": "TakeOff",
-                "JumpSpeed": 8
-              },
               "Actions": [
+                { "Type": "SetMotionController", "MotionController": "Fly" },
                 { "Type": "State", "State": "Idle" }
               ]
             },
             {
               "$Comment": "Fallback: wander",
-              "BodyMotion": {
-                "Type": "Wander",
-                "MaxHeadingChange": 30,
-                "RelativeSpeed": 0.3,
-                "MinWalkTime": 2
-              }
+              "BodyMotion": { "Type": "Wander", "MaxHeadingChange": 30, "RelativeSpeed": 0.3, "MinWalkTime": 2 }
             }
           ]
         }

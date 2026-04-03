@@ -5,8 +5,8 @@
       "ChainId": "Slashes",
       "ChainingAllowance": 15,
       "Next": [
-        "Hedera_Swing_Left",
-        "Hedera_Swing_Right"
+        "Endgame_Hedera_Swing_Left",
+        "Endgame_Hedera_Swing_Right"
       ]
     }
   ],

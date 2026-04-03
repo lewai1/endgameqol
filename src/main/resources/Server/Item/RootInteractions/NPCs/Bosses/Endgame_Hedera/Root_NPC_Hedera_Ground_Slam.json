@@ -1,10 +1,10 @@
 {
     "Interactions": [
-        "Endgame_Hedera_Summon"
+        "Endgame_Hedera_Ground_Slam"
     ],
     "Tags": {
         "Attack": [
-            "Ranged"
+            "Melee"
         ]
     }
 }

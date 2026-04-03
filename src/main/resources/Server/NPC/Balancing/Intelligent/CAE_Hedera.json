@@ -204,6 +204,126 @@
                         "Curve": "ReverseLinear"
                     }
                 ]
+            },
+            "VineGrab": {
+                "Type": "Ability",
+                "Description": "Pulls player toward Hedera with vines",
+                "Target": "Hostile",
+                "OffhandSlot": 0,
+                "Ability": "Root_NPC_Hedera_Vine_Grab",
+                "AttackDistanceRange": [
+                    3,
+                    8
+                ],
+                "PostExecuteDistanceRange": [
+                    2,
+                    3
+                ],
+                "ChargeFor": 0.5,
+                "WeightCoefficient": 1.5,
+                "Conditions": [
+                    {
+                        "Type": "TimeSinceLastUsed",
+                        "Curve": {
+                            "Type": "Switch",
+                            "SwitchPoint": 12
+                        }
+                    },
+                    {
+                        "Type": "TargetDistance",
+                        "Curve": {
+                            "ResponseCurve": "Linear",
+                            "XRange": [
+                                3,
+                                8
+                            ]
+                        }
+                    },
+                    {
+                        "Type": "HealthPercentBelow",
+                        "Threshold": 0.66
+                    }
+                ]
+            },
+            "GroundSlam": {
+                "Type": "Ability",
+                "Description": "Heavy AOE ground slam",
+                "Target": "Hostile",
+                "OffhandSlot": 0,
+                "Ability": "Root_NPC_Hedera_Ground_Slam",
+                "AttackDistanceRange": [
+                    0,
+                    7
+                ],
+                "PostExecuteDistanceRange": [
+                    3,
+                    5
+                ],
+                "ChargeFor": 0.8,
+                "WeightCoefficient": 1.5,
+                "Conditions": [
+                    {
+                        "Type": "TimeSinceLastUsed",
+                        "Curve": {
+                            "Type": "Switch",
+                            "SwitchPoint": 15
+                        }
+                    },
+                    {
+                        "Type": "TargetDistance",
+                        "Curve": {
+                            "ResponseCurve": "SimpleDescendingLogistic",
+                            "XRange": [
+                                0,
+                                7
+                            ]
+                        }
+                    },
+                    {
+                        "Type": "HealthPercentBelow",
+                        "Threshold": 0.66
+                    }
+                ]
+            },
+            "Charge": {
+                "Type": "Ability",
+                "Description": "Forward charge with wide sweep — Phase 3 only (<33% HP)",
+                "Target": "Hostile",
+                "OffhandSlot": 0,
+                "Ability": "Root_NPC_Hedera_Charge",
+                "AttackDistanceRange": [
+                    3,
+                    12
+                ],
+                "PostExecuteDistanceRange": [
+                    2,
+                    4
+                ],
+                "ChargeFor": 0.4,
+                "WeightCoefficient": 2.0,
+                "Conditions": [
+                    {
+                        "Type": "TimeSinceLastUsed",
+                        "Curve": {
+                            "Type": "Switch",
+                            "SwitchPoint": 10
+                        }
+                    },
+                    {
+                        "Type": "TargetDistance",
+                        "Curve": {
+                            "ResponseCurve": "Linear",
+                            "XRange": [
+                                3,
+                                12
+                            ]
+                        }
+                    },
+                    {
+                        "Type": "HealthPercentBelow",
+                        "Threshold": 0.33
+                    }
+                ]
             }
         },
         "ActionSets": {
@@ -216,7 +336,7 @@
                         "Swing_Left_Damage": {
                             "Interactions": [
                                 {
-                                    "Parent": "Hedera_Swing_Left_Damage",
+                                    "Parent": "Endgame_Hedera_Swing_Left_Damage",
                                     "DamageCalculator": {
                                         "Type": "Absolute",
                                         "BaseDamage": {
@@ -234,7 +354,7 @@
                         "Swing_Right_Damage": {
                             "Interactions": [
                                 {
-                                    "Parent": "Hedera_Swing_Right_Damage",
+                                    "Parent": "Endgame_Hedera_Swing_Right_Damage",
                                     "DamageCalculator": {
                                         "Type": "Absolute",
                                         "BaseDamage": {
@@ -262,7 +382,10 @@
                 "Actions": [
                     "VineBlock",
                     "Scream",
-                    "BackOff"
+                    "BackOff",
+                    "VineGrab",
+                    "GroundSlam",
+                    "Charge"
                 ]
             },
             "Strafe": {
@@ -274,7 +397,7 @@
                         "Swing_Left_Damage": {
                             "Interactions": [
                                 {
-                                    "Parent": "Hedera_Swing_Left_Damage",
+                                    "Parent": "Endgame_Hedera_Swing_Left_Damage",
                                     "DamageCalculator": {
                                         "Type": "Absolute",
                                         "BaseDamage": {
@@ -292,7 +415,7 @@
                         "Swing_Right_Damage": {
                             "Interactions": [
                                 {
-                                    "Parent": "Hedera_Swing_Right_Damage",
+                                    "Parent": "Endgame_Hedera_Swing_Right_Damage",
                                     "DamageCalculator": {
                                         "Type": "Absolute",
                                         "BaseDamage": {
@@ -321,7 +444,10 @@
                     "VineBlock",
                     "Scream",
                     "Summon",
-                    "Default"
+                    "Default",
+                    "VineGrab",
+                    "GroundSlam",
+                    "Charge"
                 ]
             }
         }

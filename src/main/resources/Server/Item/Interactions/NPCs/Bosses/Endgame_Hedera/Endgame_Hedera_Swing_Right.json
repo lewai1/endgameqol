@@ -35,7 +35,7 @@
                   "DefaultOk": true,
                   "DefaultValue": {
                     "Interactions": [
-                      "Hedera_Swing_Right_Damage"
+                      "Endgame_Hedera_Swing_Right_Damage"
                     ]
                   },
                   "Var": "Swing_Right_Damage"

@@ -1,0 +1,21 @@
+{
+  "Parent": "DamageEntityParent",
+  "DamageCalculator": {
+    "Type": "Absolute",
+    "BaseDamage": {
+      "Physical": 30
+    },
+    "RandomPercentageModifier": 0.15
+  },
+  "DamageEffects": {
+    "Knockback": {
+      "Force": 2,
+      "RelativeX": 0,
+      "RelativeZ": 0.25,
+      "VelocityY": 0.15,
+      "VelocityType": "Set"
+    },
+    "WorldSoundEventId": "SFX_Unarmed_Impact",
+    "CameraEffect": "Impact_Light"
+  }
+}

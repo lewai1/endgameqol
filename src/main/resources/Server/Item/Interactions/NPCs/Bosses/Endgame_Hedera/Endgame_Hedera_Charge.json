@@ -1,0 +1,76 @@
+{
+  "$Comment": "Charge — Hedera sprints toward player (Run anim), then slams with ScratchLeft on arrival.",
+  "Type": "Simple",
+  "Effects": {
+    "ItemPlayerAnimationsId": "Default",
+    "ItemAnimationId": "Run",
+    "WorldSoundEventId": "SFX_NPC_Unarmed_Swing"
+  },
+  "RunTime": 0.1,
+  "Next": {
+    "Type": "ApplyForce",
+    "RunTime": 0.6,
+    "Direction": { "Z": -1 },
+    "Force": 1500,
+    "Next": {
+      "Type": "Simple",
+      "Effects": {
+        "ItemPlayerAnimationsId": "Hedera_Default",
+        "ItemAnimationId": "ScratchLeft",
+        "WorldSoundEventId": "SFX_NPC_Unarmed_Swing",
+        "MovementEffects": { "DisableAll": true }
+      },
+      "RunTime": 0.3,
+      "Next": {
+        "Type": "Parallel",
+        "Interactions": [
+          {
+            "Interactions": [
+              {
+                "Type": "Selector",
+                "RunTime": 0.3,
+                "Selector": {
+                  "Id": "Horizontal",
+                  "Direction": "ToLeft",
+                  "TestLineOfSight": false,
+                  "ExtendTop": 4,
+                  "ExtendBottom": 3,
+                  "StartDistance": 0,
+                  "EndDistance": 5,
+                  "Length": 180,
+                  "YawStartOffset": -90
+                },
+                "HitEntity": {
+                  "Interactions": [ "Endgame_Hedera_Charge_Damage" ]
+                }
+              }
+            ]
+          },
+          {
+            "Interactions": [
+              {
+                "Type": "Simple",
+                "RunTime": 0.3,
+                "Effects": {
+                  "Trails": [
+                    {
+                      "TrailId": "Bear_Claw",
+                      "TargetNodeName": "R-Hand",
+                      "TargetEntityPart": "Entity",
+                      "RotationOffset": { "Yaw": 0, "Pitch": 0, "Roll": 90 },
+                      "PositionOffset": { "X": 0, "Y": -0.1, "Z": 0.25 }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "Next": {
+          "Type": "Simple",
+          "RunTime": 0.8
+        }
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@
   "Reference": "Template_Spirit_Root",
   "Modify": {
     "Appearance": "Spirit_Root",
+    "AttitudeGroup": "Endgame_Swamp",
     "DropList": "Drop_Spirit_Root",
     "MaxHealth": 200,
     "IsMemory": true,
