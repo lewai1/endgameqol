@@ -1,138 +1,225 @@
 $C = "../Common.ui";
 
-@SummonStyle = TextButtonStyle(
-  Default: (Background: #1a3d2e, LabelStyle: (FontSize: 11, TextColor: #4aff7f, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
-  Hovered: (Background: #2a4d3e, LabelStyle: (FontSize: 11, TextColor: #6aff9f, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
-  Pressed: (Background: #0a2d1e, LabelStyle: (FontSize: 11, TextColor: #4aff7f, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+// ===== Styles inspired by EndlessLeveling + MMOSkillTree =====
+
+@SummonBtn = TextButtonStyle(
+  Default: (Background: #1a3d2e, LabelStyle: (FontSize: 12, TextColor: #4aff7f, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Hovered: (Background: #225538, LabelStyle: (FontSize: 12, TextColor: #6affaa, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Pressed: (Background: #123020, LabelStyle: (FontSize: 12, TextColor: #4aff7f, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
   Sounds: $C.@ButtonSounds
 );
-
-@DismissStyle = TextButtonStyle(
-  Default: (Background: #3d1a1a, LabelStyle: (FontSize: 11, TextColor: #ff4a4a, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
-  Hovered: (Background: #4d2a2a, LabelStyle: (FontSize: 11, TextColor: #ff6a6a, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
-  Pressed: (Background: #2d0a0a, LabelStyle: (FontSize: 11, TextColor: #ff4a4a, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+@DismissBtn = TextButtonStyle(
+  Default: (Background: #3d1a1a, LabelStyle: (FontSize: 12, TextColor: #ff5555, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Hovered: (Background: #552228, LabelStyle: (FontSize: 12, TextColor: #ff7777, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Pressed: (Background: #301218, LabelStyle: (FontSize: 12, TextColor: #ff5555, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Sounds: $C.@ButtonSounds
+);
+@FeedBtn = TextButtonStyle(
+  Default: (Background: #2e2818, LabelStyle: (FontSize: 12, TextColor: #ffaa44, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Hovered: (Background: #443822, LabelStyle: (FontSize: 12, TextColor: #ffcc66, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Pressed: (Background: #221c0e, LabelStyle: (FontSize: 12, TextColor: #ffaa44, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
   Sounds: $C.@ButtonSounds
 );
 
 $C.@PageOverlay {
   $C.@DecoratedContainer {
-    Anchor: (Width: 520, Height: 440);
+    Anchor: (Width: 520, Height: 600);
 
     #Title {
-      Group {
-        $C.@Title {
-          @Text = "Pets";
-        }
-      }
+      Group { $C.@Title { @Text = "Pets"; } }
     }
 
     #Content {
-      LayoutMode: Top;
-      Padding: (Full: 12);
+      LayoutMode: TopScrolling;
+      ScrollbarStyle: $C.@DefaultScrollbarStyle;
+      Padding: (Left: 12, Right: 12, Top: 8, Bottom: 8);
 
       // Header
-      Group { LayoutMode: Left; Anchor: (Height: 20);
-        Label { Style: (FontSize: 12, TextColor: #ffaa00, RenderBold: true, VerticalAlignment: Center); FlexWeight: 1; Text: "COMPANIONS"; }
-        Label #UnlockCount { Style: (FontSize: 10, TextColor: #5a6a7a, VerticalAlignment: Center); Anchor: (Width: 90); Text: "0/4 Unlocked"; }
+      Group { LayoutMode: Left; Anchor: (Height: 18);
+        Label { Style: (FontSize: 11, TextColor: #7a9abf, RenderBold: true, LetterSpacing: 1, VerticalAlignment: Center); FlexWeight: 1; Text: "COMPANIONS"; }
+        Label #UnlockCount { Style: (FontSize: 10, TextColor: #3a5a70, VerticalAlignment: Center); Anchor: (Width: 80); Text: ""; }
       }
-      Group { Anchor: (Height: 1); Background: #ffaa00; }
+      Group { Anchor: (Height: 1); Background: #ffffff(0.06); }
       Group { Anchor: (Height: 8); }
 
-      // 2x2 grid
-      Group { LayoutMode: Left; FlexWeight: 1;
-
-        // Left column
-        Group { LayoutMode: Top; Anchor: (Width: 240); Padding: (Right: 4);
-
-          // Pet 0 — Dragon Frost
-          Group #Pet0 { Background: #0b141f(0.88); LayoutMode: Left; Padding: (Full: 0); Anchor: (Height: 160, Bottom: 8);
-            Group #Pet0Accent { Anchor: (Width: 3, Height: 160); Background: #5bceff; }
-            Group { LayoutMode: Top; FlexWeight: 1; Padding: (Full: 10);
-              Group { LayoutMode: Left; Anchor: (Height: 52);
-                Group #Pet0PortraitBg { Anchor: (Width: 52, Height: 52); Background: #0a0f14;
-                  AssetImage #Pet0Portrait { Anchor: (Width: 48, Height: 48); AssetPath: ""; }
-                }
-                Group { Anchor: (Width: 8); }
-                Group { LayoutMode: Top; FlexWeight: 1;
-                  Label #Pet0Name { Style: (FontSize: 13, TextColor: #f4f9ff, RenderBold: true); Anchor: (Height: 18); Text: "???"; }
-                  Label #Pet0Boss { Style: (FontSize: 9, TextColor: #5a6a7a); Anchor: (Height: 14); Text: ""; }
-                  Label #Pet0Status { Style: (FontSize: 9, TextColor: #ff5555, RenderBold: true); Anchor: (Height: 14); Text: "LOCKED"; }
-                }
+      // ===== Pet 0 =====
+      Group #Pet0 { Anchor: (Height: 160, Bottom: 8); Padding: (Full: 2); Background: #1a2636;
+        Group { Background: #060d19(0.95); LayoutMode: Top; Padding: (Full: 0);
+          // Category strip
+          Group #Pet0Strip { Anchor: (Height: 3); Background: #5bceff; }
+          Group { LayoutMode: Left; Padding: (Left: 12, Right: 12, Top: 10, Bottom: 8);
+            // Left column: portrait + tier
+            Group { LayoutMode: Top; Anchor: (Width: 64);
+              Group #Pet0PortraitBg { Anchor: (Width: 56, Height: 56); Background: #040a12;
+                AssetImage #Pet0Portrait { Anchor: (Width: 48, Height: 48); AssetPath: ""; }
               }
-              Group { Anchor: (Height: 4); }
-              Label #Pet0Desc { Style: (FontSize: 9, TextColor: #7a8d9e, Wrap: true); Anchor: (Height: 36); Text: ""; }
-              Group { Anchor: (Height: 4); }
-              TextButton #Pet0Action { Anchor: (Width: 100, Height: 24); Style: @SummonStyle; Text: "Summon"; }
+              Group { Anchor: (Height: 6); }
+              Group { Background: #040a12; Anchor: (Width: 56, Height: 20);
+                Label #Pet0TierBadge { Style: (FontSize: 13, TextColor: #3a5a70, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Text: ""; }
+              }
             }
-          }
-
-          // Pet 1 — Dragon Fire
-          Group #Pet1 { Background: #0b141f(0.88); LayoutMode: Left; Padding: (Full: 0); Anchor: (Height: 160);
-            Group #Pet1Accent { Anchor: (Width: 3, Height: 160); Background: #ff6600; }
-            Group { LayoutMode: Top; FlexWeight: 1; Padding: (Full: 10);
-              Group { LayoutMode: Left; Anchor: (Height: 52);
-                Group #Pet1PortraitBg { Anchor: (Width: 52, Height: 52); Background: #0a0f14;
-                  AssetImage #Pet1Portrait { Anchor: (Width: 48, Height: 48); AssetPath: ""; }
-                }
-                Group { Anchor: (Width: 8); }
-                Group { LayoutMode: Top; FlexWeight: 1;
-                  Label #Pet1Name { Style: (FontSize: 13, TextColor: #f4f9ff, RenderBold: true); Anchor: (Height: 18); Text: "???"; }
-                  Label #Pet1Boss { Style: (FontSize: 9, TextColor: #5a6a7a); Anchor: (Height: 14); Text: ""; }
-                  Label #Pet1Status { Style: (FontSize: 9, TextColor: #ff5555, RenderBold: true); Anchor: (Height: 14); Text: "LOCKED"; }
-                }
+            // Right column: info
+            Group { LayoutMode: Top; FlexWeight: 1; Padding: (Left: 10);
+              // Name
+              Label #Pet0Name { Style: (FontSize: 15, TextColor: #e8f0ff, RenderBold: true); Anchor: (Height: 18); Text: "???"; }
+              Label #Pet0Sub { Style: (FontSize: 10, TextColor: #4a6a80); Anchor: (Height: 14); Text: ""; }
+              Group { Anchor: (Height: 4); }
+              // Abilities row
+              Group { LayoutMode: Left; Anchor: (Height: 12);
+                Label #Pet0Ab0 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet0Ab1 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet0Ab2 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
               }
+              Group { LayoutMode: Left; Anchor: (Height: 12);
+                Label #Pet0Ab3 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet0Ab4 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet0Ab5 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+              }
+              Group { Anchor: (Height: 3); }
+              Group { Anchor: (Height: 1); Background: #ffffff(0.05); }
               Group { Anchor: (Height: 4); }
-              Label #Pet1Desc { Style: (FontSize: 9, TextColor: #7a8d9e, Wrap: true); Anchor: (Height: 36); Text: ""; }
+              // Next tier + cost
+              Label #Pet0NextTier { Style: (FontSize: 9, TextColor: #e5c68a, RenderBold: true); Anchor: (Height: 12); Text: ""; }
+              Label #Pet0FeedCost { Style: (FontSize: 9, TextColor: #5a7a5a); Anchor: (Height: 12); Text: ""; }
               Group { Anchor: (Height: 4); }
-              TextButton #Pet1Action { Anchor: (Width: 100, Height: 24); Style: @SummonStyle; Text: "Summon"; }
+              // Buttons
+              Group { LayoutMode: Left; Anchor: (Height: 26);
+                TextButton #Pet0Action { Anchor: (Width: 110, Height: 26); Style: @SummonBtn; Text: ""; Visible: false; }
+                Group { Anchor: (Width: 6); }
+                TextButton #Pet0Feed { Anchor: (Width: 130, Height: 26); Style: @FeedBtn; Text: ""; Visible: false; }
+              }
             }
           }
         }
+      }
 
-        // Right column
-        Group { LayoutMode: Top; Anchor: (Width: 240); Padding: (Left: 4);
-
-          // Pet 2 — Golem Void
-          Group #Pet2 { Background: #0b141f(0.88); LayoutMode: Left; Padding: (Full: 0); Anchor: (Height: 160, Bottom: 8);
-            Group #Pet2Accent { Anchor: (Width: 3, Height: 160); Background: #9040ff; }
-            Group { LayoutMode: Top; FlexWeight: 1; Padding: (Full: 10);
-              Group { LayoutMode: Left; Anchor: (Height: 52);
-                Group #Pet2PortraitBg { Anchor: (Width: 52, Height: 52); Background: #0a0f14;
-                  AssetImage #Pet2Portrait { Anchor: (Width: 48, Height: 48); AssetPath: ""; }
-                }
-                Group { Anchor: (Width: 8); }
-                Group { LayoutMode: Top; FlexWeight: 1;
-                  Label #Pet2Name { Style: (FontSize: 13, TextColor: #f4f9ff, RenderBold: true); Anchor: (Height: 18); Text: "???"; }
-                  Label #Pet2Boss { Style: (FontSize: 9, TextColor: #5a6a7a); Anchor: (Height: 14); Text: ""; }
-                  Label #Pet2Status { Style: (FontSize: 9, TextColor: #ff5555, RenderBold: true); Anchor: (Height: 14); Text: "LOCKED"; }
-                }
+      // ===== Pet 1 =====
+      Group #Pet1 { Anchor: (Height: 160, Bottom: 8); Padding: (Full: 2); Background: #1a2636;
+        Group { Background: #060d19(0.95); LayoutMode: Top; Padding: (Full: 0);
+          Group #Pet1Strip { Anchor: (Height: 3); Background: #ff6600; }
+          Group { LayoutMode: Left; Padding: (Left: 12, Right: 12, Top: 10, Bottom: 8);
+            Group { LayoutMode: Top; Anchor: (Width: 64);
+              Group #Pet1PortraitBg { Anchor: (Width: 56, Height: 56); Background: #040a12;
+                AssetImage #Pet1Portrait { Anchor: (Width: 48, Height: 48); AssetPath: ""; }
               }
+              Group { Anchor: (Height: 6); }
+              Group { Background: #040a12; Anchor: (Width: 56, Height: 20);
+                Label #Pet1TierBadge { Style: (FontSize: 13, TextColor: #3a5a70, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Text: ""; }
+              }
+            }
+            Group { LayoutMode: Top; FlexWeight: 1; Padding: (Left: 10);
+              Label #Pet1Name { Style: (FontSize: 15, TextColor: #e8f0ff, RenderBold: true); Anchor: (Height: 18); Text: "???"; }
+              Label #Pet1Sub { Style: (FontSize: 10, TextColor: #4a6a80); Anchor: (Height: 14); Text: ""; }
               Group { Anchor: (Height: 4); }
-              Label #Pet2Desc { Style: (FontSize: 9, TextColor: #7a8d9e, Wrap: true); Anchor: (Height: 36); Text: ""; }
+              Group { LayoutMode: Left; Anchor: (Height: 12);
+                Label #Pet1Ab0 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet1Ab1 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet1Ab2 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+              }
+              Group { LayoutMode: Left; Anchor: (Height: 12);
+                Label #Pet1Ab3 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet1Ab4 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet1Ab5 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+              }
+              Group { Anchor: (Height: 3); }
+              Group { Anchor: (Height: 1); Background: #ffffff(0.05); }
               Group { Anchor: (Height: 4); }
-              TextButton #Pet2Action { Anchor: (Width: 100, Height: 24); Style: @SummonStyle; Text: "Summon"; }
+              Label #Pet1NextTier { Style: (FontSize: 9, TextColor: #e5c68a, RenderBold: true); Anchor: (Height: 12); Text: ""; }
+              Label #Pet1FeedCost { Style: (FontSize: 9, TextColor: #5a7a5a); Anchor: (Height: 12); Text: ""; }
+              Group { Anchor: (Height: 4); }
+              Group { LayoutMode: Left; Anchor: (Height: 26);
+                TextButton #Pet1Action { Anchor: (Width: 110, Height: 26); Style: @SummonBtn; Text: ""; Visible: false; }
+                Group { Anchor: (Width: 6); }
+                TextButton #Pet1Feed { Anchor: (Width: 130, Height: 26); Style: @FeedBtn; Text: ""; Visible: false; }
+              }
             }
           }
+        }
+      }
 
-          // Pet 3 — Hedera
-          Group #Pet3 { Background: #0b141f(0.88); LayoutMode: Left; Padding: (Full: 0); Anchor: (Height: 160);
-            Group #Pet3Accent { Anchor: (Width: 3, Height: 160); Background: #33cc33; }
-            Group { LayoutMode: Top; FlexWeight: 1; Padding: (Full: 10);
-              Group { LayoutMode: Left; Anchor: (Height: 52);
-                Group #Pet3PortraitBg { Anchor: (Width: 52, Height: 52); Background: #0a0f14;
-                  AssetImage #Pet3Portrait { Anchor: (Width: 48, Height: 48); AssetPath: ""; }
-                }
-                Group { Anchor: (Width: 8); }
-                Group { LayoutMode: Top; FlexWeight: 1;
-                  Label #Pet3Name { Style: (FontSize: 13, TextColor: #f4f9ff, RenderBold: true); Anchor: (Height: 18); Text: "???"; }
-                  Label #Pet3Boss { Style: (FontSize: 9, TextColor: #5a6a7a); Anchor: (Height: 14); Text: ""; }
-                  Label #Pet3Status { Style: (FontSize: 9, TextColor: #ff5555, RenderBold: true); Anchor: (Height: 14); Text: "LOCKED"; }
-                }
+      // ===== Pet 2 =====
+      Group #Pet2 { Anchor: (Height: 160, Bottom: 8); Padding: (Full: 2); Background: #1a2636;
+        Group { Background: #060d19(0.95); LayoutMode: Top; Padding: (Full: 0);
+          Group #Pet2Strip { Anchor: (Height: 3); Background: #9040ff; }
+          Group { LayoutMode: Left; Padding: (Left: 12, Right: 12, Top: 10, Bottom: 8);
+            Group { LayoutMode: Top; Anchor: (Width: 64);
+              Group #Pet2PortraitBg { Anchor: (Width: 56, Height: 56); Background: #040a12;
+                AssetImage #Pet2Portrait { Anchor: (Width: 48, Height: 48); AssetPath: ""; }
               }
+              Group { Anchor: (Height: 6); }
+              Group { Background: #040a12; Anchor: (Width: 56, Height: 20);
+                Label #Pet2TierBadge { Style: (FontSize: 13, TextColor: #3a5a70, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Text: ""; }
+              }
+            }
+            Group { LayoutMode: Top; FlexWeight: 1; Padding: (Left: 10);
+              Label #Pet2Name { Style: (FontSize: 15, TextColor: #e8f0ff, RenderBold: true); Anchor: (Height: 18); Text: "???"; }
+              Label #Pet2Sub { Style: (FontSize: 10, TextColor: #4a6a80); Anchor: (Height: 14); Text: ""; }
               Group { Anchor: (Height: 4); }
-              Label #Pet3Desc { Style: (FontSize: 9, TextColor: #7a8d9e, Wrap: true); Anchor: (Height: 36); Text: ""; }
+              Group { LayoutMode: Left; Anchor: (Height: 12);
+                Label #Pet2Ab0 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet2Ab1 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet2Ab2 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+              }
+              Group { LayoutMode: Left; Anchor: (Height: 12);
+                Label #Pet2Ab3 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet2Ab4 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet2Ab5 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+              }
+              Group { Anchor: (Height: 3); }
+              Group { Anchor: (Height: 1); Background: #ffffff(0.05); }
               Group { Anchor: (Height: 4); }
-              TextButton #Pet3Action { Anchor: (Width: 100, Height: 24); Style: @SummonStyle; Text: "Summon"; }
+              Label #Pet2NextTier { Style: (FontSize: 9, TextColor: #e5c68a, RenderBold: true); Anchor: (Height: 12); Text: ""; }
+              Label #Pet2FeedCost { Style: (FontSize: 9, TextColor: #5a7a5a); Anchor: (Height: 12); Text: ""; }
+              Group { Anchor: (Height: 4); }
+              Group { LayoutMode: Left; Anchor: (Height: 26);
+                TextButton #Pet2Action { Anchor: (Width: 110, Height: 26); Style: @SummonBtn; Text: ""; Visible: false; }
+                Group { Anchor: (Width: 6); }
+                TextButton #Pet2Feed { Anchor: (Width: 130, Height: 26); Style: @FeedBtn; Text: ""; Visible: false; }
+              }
+            }
+          }
+        }
+      }
+
+      // ===== Pet 3 =====
+      Group #Pet3 { Anchor: (Height: 160); Padding: (Full: 2); Background: #1a2636;
+        Group { Background: #060d19(0.95); LayoutMode: Top; Padding: (Full: 0);
+          Group #Pet3Strip { Anchor: (Height: 3); Background: #33cc33; }
+          Group { LayoutMode: Left; Padding: (Left: 12, Right: 12, Top: 10, Bottom: 8);
+            Group { LayoutMode: Top; Anchor: (Width: 64);
+              Group #Pet3PortraitBg { Anchor: (Width: 56, Height: 56); Background: #040a12;
+                AssetImage #Pet3Portrait { Anchor: (Width: 48, Height: 48); AssetPath: ""; }
+              }
+              Group { Anchor: (Height: 6); }
+              Group { Background: #040a12; Anchor: (Width: 56, Height: 20);
+                Label #Pet3TierBadge { Style: (FontSize: 13, TextColor: #3a5a70, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Text: ""; }
+              }
+            }
+            Group { LayoutMode: Top; FlexWeight: 1; Padding: (Left: 10);
+              Label #Pet3Name { Style: (FontSize: 15, TextColor: #e8f0ff, RenderBold: true); Anchor: (Height: 18); Text: "???"; }
+              Label #Pet3Sub { Style: (FontSize: 10, TextColor: #4a6a80); Anchor: (Height: 14); Text: ""; }
+              Group { Anchor: (Height: 4); }
+              Group { LayoutMode: Left; Anchor: (Height: 12);
+                Label #Pet3Ab0 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet3Ab1 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet3Ab2 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+              }
+              Group { LayoutMode: Left; Anchor: (Height: 12);
+                Label #Pet3Ab3 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet3Ab4 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+                Label #Pet3Ab5 { Style: (FontSize: 9, TextColor: #1e3040); FlexWeight: 1; Text: ""; }
+              }
+              Group { Anchor: (Height: 3); }
+              Group { Anchor: (Height: 1); Background: #ffffff(0.05); }
+              Group { Anchor: (Height: 4); }
+              Label #Pet3NextTier { Style: (FontSize: 9, TextColor: #e5c68a, RenderBold: true); Anchor: (Height: 12); Text: ""; }
+              Label #Pet3FeedCost { Style: (FontSize: 9, TextColor: #5a7a5a); Anchor: (Height: 12); Text: ""; }
+              Group { Anchor: (Height: 4); }
+              Group { LayoutMode: Left; Anchor: (Height: 26);
+                TextButton #Pet3Action { Anchor: (Width: 110, Height: 26); Style: @SummonBtn; Text: ""; Visible: false; }
+                Group { Anchor: (Width: 6); }
+                TextButton #Pet3Feed { Anchor: (Width: 130, Height: 26); Style: @FeedBtn; Text: ""; Visible: false; }
+              }
             }
           }
         }

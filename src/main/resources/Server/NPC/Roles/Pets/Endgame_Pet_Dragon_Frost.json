@@ -21,7 +21,6 @@
       { "Sensor": { "Type": "State", "State": "Idle" }, "Instructions": [
         { "Sensor": { "Type": "State", "State": ".Default" }, "Instructions": [
           {
-            "$Comment": "Attack LockedTarget when close — DisableDamageGroups prevents damage to owner",
             "Sensor": { "Type": "Target", "TargetSlot": "LockedTarget", "Range": 4 },
             "HeadMotion": { "Type": "Watch" },
             "BodyMotion": { "Type": "Seek", "SlowDownDistance": 2, "StopDistance": 1, "RelativeSpeed": 0.9 },
@@ -31,10 +30,14 @@
             ]
           },
           {
-            "$Comment": "Follow LockedTarget when far — Java handles Walk/Fly transitions",
             "Sensor": { "Type": "Target", "TargetSlot": "LockedTarget", "Range": 200 },
             "HeadMotion": { "Type": "Watch" },
-            "BodyMotion": { "Type": "Seek", "SlowDownDistance": 5, "StopDistance": 2, "RelativeSpeed": 0.7 },
+            "BodyMotion": { "Type": "Seek", "SlowDownDistance": 5, "StopDistance": 2, "RelativeSpeed": 0.8 }
+          },
+          {
+            "Sensor": { "Type": "Target", "TargetSlot": "FollowTarget", "Range": 200 },
+            "HeadMotion": { "Type": "Watch" },
+            "BodyMotion": { "Type": "Seek", "SlowDownDistance": 5, "StopDistance": 4, "RelativeSpeed": 0.6 },
             "Continue": true
           },
           {

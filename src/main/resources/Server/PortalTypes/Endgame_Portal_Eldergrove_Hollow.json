@@ -1,0 +1,26 @@
+{
+  "InstanceId": "Endgame_Eldergrove_Hollow",
+  "Description": {
+    "DisplayName": "server.portals.eldergrove_hollow",
+    "FlavorText": "server.portals.eldergrove_hollow.description",
+    "ThemeColor": "#44cc66ff",
+    "SplashImage": "DefaultArtwork.png",
+    "Tips": [
+      "server.portals.eldergrove_hollow.tip1",
+      "server.portals.eldergrove_hollow.tip2"
+    ]
+  },
+  "Spawn": {
+    "SpawnProviderOverride": {
+      "Id": "Global",
+      "SpawnPoint": {
+        "X": 0,
+        "Y": 120.0,
+        "Z": 0,
+        "Pitch": 0,
+        "Yaw": 0,
+        "Roll": 0.0
+      }
+    }
+  }
+}

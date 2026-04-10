@@ -30,7 +30,13 @@
           {
             "Sensor": { "Type": "Target", "TargetSlot": "LockedTarget", "Range": 200 },
             "HeadMotion": { "Type": "Watch" },
-            "BodyMotion": { "Type": "Seek", "SlowDownDistance": 8, "StopDistance": 5, "RelativeSpeed": 0.5 }
+            "BodyMotion": { "Type": "Seek", "SlowDownDistance": 5, "StopDistance": 2, "RelativeSpeed": 0.6 }
+          },
+          {
+            "Sensor": { "Type": "Target", "TargetSlot": "FollowTarget", "Range": 200 },
+            "HeadMotion": { "Type": "Watch" },
+            "BodyMotion": { "Type": "Seek", "SlowDownDistance": 5, "StopDistance": 4, "RelativeSpeed": 0.4 },
+            "Continue": true
           },
           {
             "Sensor": { "Type": "Any" },

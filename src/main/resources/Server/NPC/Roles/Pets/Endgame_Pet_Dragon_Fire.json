@@ -24,18 +24,19 @@
             "BodyMotion": { "Type": "Seek", "SlowDownDistance": 2, "StopDistance": 1, "RelativeSpeed": 0.9 },
             "ActionsBlocking": true,
             "Actions": [
-              {
-                "Type": "Random",
-                "Actions": [
-                  { "Action": { "Type": "Attack", "Attack": "Root_NPC_Attack_Melee", "AttackPauseRange": [1.0, 2.0] }, "Weight": 1 }
-                ]
-              }
+              { "Type": "Attack", "Attack": "Root_NPC_Attack_Melee", "AttackPauseRange": [1.0, 2.0] }
             ]
           },
           {
             "Sensor": { "Type": "Target", "TargetSlot": "LockedTarget", "Range": 200 },
             "HeadMotion": { "Type": "Watch" },
-            "BodyMotion": { "Type": "Seek", "SlowDownDistance": 8, "StopDistance": 5, "RelativeSpeed": 0.7 }
+            "BodyMotion": { "Type": "Seek", "SlowDownDistance": 5, "StopDistance": 2, "RelativeSpeed": 0.8 }
+          },
+          {
+            "Sensor": { "Type": "Target", "TargetSlot": "FollowTarget", "Range": 200 },
+            "HeadMotion": { "Type": "Watch" },
+            "BodyMotion": { "Type": "Seek", "SlowDownDistance": 5, "StopDistance": 4, "RelativeSpeed": 0.6 },
+            "Continue": true
           },
           {
             "Sensor": { "Type": "Any" },

@@ -85,6 +85,7 @@ public class EndgameQoL extends JavaPlugin {
     private volatile Boolean cachedRpgLevelingPresent;
     private volatile Boolean cachedEndlessLevelingPresent;
     private volatile Boolean cachedOrbisGuardPresent;
+    private volatile Boolean cachedEndgamePetsPresent;
 
     public EndgameQoL(@Nonnull JavaPluginInit init) {
         super(init);
@@ -275,7 +276,13 @@ public class EndgameQoL extends JavaPlugin {
             if (endlessLevelingBridge.init()) {
                 getEntityStoreRegistry().registerSystem(
                         new endgame.plugin.integration.endlessleveling.EndlessLevelingXPSystem(this, endlessLevelingBridge));
-                this.getLogger().atInfo().log("[EndgameQoL] Endless Leveling integration active — boss kills award XP");
+                // Initialize pet bridge for EL ↔ pet stat stacking
+                try {
+                    var petBridge = new endgame.plugin.integration.endlessleveling.EndlessLevelingPetBridge(this);
+                    petBridge.init();
+                } catch (Exception ignored) {}
+
+                this.getLogger().atInfo().log("[EndgameQoL] Endless Leveling integration active — boss kills award XP + pet bridge");
             } else {
                 endlessLevelingBridge = null;
                 this.getLogger().atWarning().log("[EndgameQoL] Endless Leveling API not available (mod loaded but API init failed)");
@@ -418,6 +425,19 @@ public class EndgameQoL extends JavaPlugin {
             return true;
         } catch (ClassNotFoundException e) {
             cachedOrbisGuardPresent = false;
+            return false;
+        }
+    }
+
+    public boolean isEndgamePetsModPresent() {
+        Boolean cached = cachedEndgamePetsPresent;
+        if (cached != null) return cached;
+        try {
+            Class.forName("me.lewai.endgamepets.api.PetAPI");
+            cachedEndgamePetsPresent = true;
+            return true;
+        } catch (ClassNotFoundException e) {
+            cachedEndgamePetsPresent = false;
             return false;
         }
     }

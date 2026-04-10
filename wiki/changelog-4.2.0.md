@@ -58,7 +58,6 @@ Lingering **Poison Clouds** spawn every 18-25s during Phase 2+, last 6 seconds, 
 - **Frostwalker destroying waterlogged blocks** - Ice no longer replaces stairs, slabs, or other solid blocks in water
 - **Boss registration race condition** - Fixed in GolemVoidBossManager and GenericBossManager
 - **Dragon Fire not tracked by boss system** - Added missing config for Dragon Fire and Zombie Aberrant
-- **Hedera interaction references broken** - Updated after asset reorganization
 - **Hedera Summon not spawning spirits** - Spawn marker delay and trigger range fixed
 - **Boss friendly fire** - Bosses no longer damage their own minions
 - **Hedera/Spirit_Root attacking each other** - Fixed with shared attitude group

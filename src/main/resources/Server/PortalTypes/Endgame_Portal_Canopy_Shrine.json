@@ -1,0 +1,26 @@
+{
+  "InstanceId": "Endgame_Canopy_Shrine",
+  "Description": {
+    "DisplayName": "server.portals.canopy_shrine",
+    "FlavorText": "server.portals.canopy_shrine.description",
+    "ThemeColor": "#33aa55ff",
+    "SplashImage": "DefaultArtwork.png",
+    "Tips": [
+      "server.portals.canopy_shrine.tip1",
+      "server.portals.canopy_shrine.tip2"
+    ]
+  },
+  "Spawn": {
+    "SpawnProviderOverride": {
+      "Id": "Global",
+      "SpawnPoint": {
+        "X": 0,
+        "Y": 120.0,
+        "Z": 0,
+        "Pitch": 0,
+        "Yaw": 0,
+        "Roll": 0.0
+      }
+    }
+  }
+}

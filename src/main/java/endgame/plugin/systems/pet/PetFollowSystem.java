@@ -12,6 +12,9 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.entities.NPCEntity;
 import endgame.plugin.EndgameQoL;
+import endgame.plugin.components.PetOwnerComponent;
+import endgame.plugin.components.PlayerEndgameComponent;
+import endgame.plugin.config.PetTier;
 import endgame.plugin.managers.PetManager;
 
 import javax.annotation.Nonnull;
@@ -21,17 +24,16 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * Global tick system (every 500ms) that manages pet emergency teleport and combat target reset.
+ * Global tick system (every 500ms) for pet follow management.
  *
- * Following is handled by NPC AI (LockedTarget set once at spawn).
- * Combat targeting is handled by PetCombatSystem (damage event).
- * This system only handles:
- * - Emergency teleport if pet is too far from owner
- * - Reset LockedTarget to owner when combat target dies/becomes invalid
- * - Despawn pet if owner disconnects or changes world
+ * Follow system:
+ * - LockedTarget set to owner for passive follow (NPC Seek instruction)
+ * - PetCombatSystem overrides LockedTarget for combat
+ * - Emergency teleport as safety net (>40 blocks)
+ * - When combat target dies, LockedTarget reset to owner
  *
- * Thread safety: Uses PlayerRef.getUuid() (no Store access needed).
- * Only accesses petRef components via world.execute() on the pet's world thread.
+ * Thread safety: Uses PlayerRef.getUuid() (no Store access needed for owner lookup).
+ * All pet component access via world.execute() on the pet's world thread.
  */
 public class PetFollowSystem extends TickingSystem<EntityStore> {
 
@@ -64,7 +66,7 @@ public class PetFollowSystem extends TickingSystem<EntityStore> {
                 continue;
             }
 
-            // Find owner using PlayerRef.getUuid() — NO Store access, thread-safe
+            // Find owner
             PlayerRef ownerPlayerRef = findPlayerRef(ownerUuid);
             if (ownerPlayerRef == null) {
                 despawnPetSafe(petRef, ownerUuid);
@@ -77,7 +79,7 @@ public class PetFollowSystem extends TickingSystem<EntityStore> {
                 continue;
             }
 
-            // All pet component access must happen on the pet's world thread
+            // Check same world
             World petWorld;
             try {
                 petWorld = petRef.getStore().getExternalData().getWorld();
@@ -90,12 +92,11 @@ public class PetFollowSystem extends TickingSystem<EntityStore> {
                 continue;
             }
 
-            // Check owner is in same world (compare world objects, no Store access needed)
             World ownerWorld;
             try {
                 ownerWorld = ownerRef.getStore().getExternalData().getWorld();
             } catch (Exception e) {
-                continue; // Skip this tick, owner might be transitioning
+                continue;
             }
 
             if (ownerWorld == null || !ownerWorld.equals(petWorld)) {
@@ -103,7 +104,7 @@ public class PetFollowSystem extends TickingSystem<EntityStore> {
                 continue;
             }
 
-            // Execute all pet component access on the pet's world thread
+            // Execute on pet's world thread
             final Ref<EntityStore> finalOwnerRef = ownerRef;
             petWorld.execute(() -> {
                 if (!petRef.isValid() || !finalOwnerRef.isValid()) return;
@@ -111,19 +112,33 @@ public class PetFollowSystem extends TickingSystem<EntityStore> {
                 try {
                     Store<EntityStore> petStore = petRef.getStore();
 
-                    // Clear LockedTarget if combat target died/invalid — pet returns to wandering near owner
                     NPCEntity npc = petStore.getComponent(petRef, NPCEntity.getComponentType());
-                    if (npc != null && npc.getRole() != null) {
-                        Ref<EntityStore> currentTarget = npc.getRole().getMarkedEntitySupport()
-                                .getMarkedEntityRef("LockedTarget");
-                        if (currentTarget != null && !currentTarget.isValid()) {
-                            npc.getRole().getMarkedEntitySupport().setMarkedEntity("LockedTarget", null);
-                            // Take off again after combat ends
-                            npc.getRole().setActiveMotionController(petRef, npc, "Fly", petStore);
+                    if (npc == null || npc.getRole() == null) return;
+
+                    // === Set FollowTarget to owner (always — for passive follow) ===
+                    npc.getRole().getMarkedEntitySupport().setMarkedEntity("FollowTarget", finalOwnerRef);
+
+                    // === Clear dead combat target ===
+                    Ref<EntityStore> currentTarget = npc.getRole().getMarkedEntitySupport()
+                            .getMarkedEntityRef("LockedTarget");
+                    if (currentTarget != null && !currentTarget.isValid()) {
+                        // Combat target died — clear it so pet stops attacking
+                        npc.getRole().getMarkedEntitySupport().setMarkedEntity("LockedTarget", null);
+                        // Switch motion controller based on tier
+                        String controller = "Walk";
+                        PetOwnerComponent poc = petStore.getComponent(petRef, PetOwnerComponent.getComponentType());
+                        if (poc != null && poc.getPetId().contains("Dragon")) {
+                            PlayerEndgameComponent pec = plugin.getPlayerComponent(poc.getOwnerUuid());
+                            if (pec != null && pec.getPetData().getPetTier(poc.getPetId()).ordinal() >= PetTier.B.ordinal()) {
+                                controller = "Fly";
+                            }
                         }
+                        try {
+                            npc.getRole().setActiveMotionController(petRef, npc, controller, petStore);
+                        } catch (Exception ignored) {}
                     }
 
-                    // Emergency teleport if too far
+                    // === Emergency teleport (safety net) ===
                     float teleportDistSq = plugin.getConfig().get().pets().getTeleportDistance();
                     teleportDistSq *= teleportDistSq;
 
@@ -142,9 +157,7 @@ public class PetFollowSystem extends TickingSystem<EntityStore> {
                             petStore.addComponent(petRef, teleportType, teleport);
                         }
                     }
-                } catch (Exception ignored) {
-                    // Non-fatal: pet might have been removed between check and execute
-                }
+                } catch (Exception ignored) {}
             });
         }
     }
@@ -163,9 +176,6 @@ public class PetFollowSystem extends TickingSystem<EntityStore> {
         petManager.clearPet(ownerUuid);
     }
 
-    /**
-     * Find PlayerRef by UUID using PlayerRef.getUuid() — thread-safe, no Store access.
-     */
     @Nullable
     private PlayerRef findPlayerRef(@Nonnull UUID uuid) {
         for (PlayerRef p : Universe.get().getPlayers()) {

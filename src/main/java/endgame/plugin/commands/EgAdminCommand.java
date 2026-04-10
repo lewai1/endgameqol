@@ -185,7 +185,7 @@ public class EgAdminCommand extends AbstractCommandCollection {
     }
 
     // =========================================================================
-    // /egadmin portal [frozen|swamp]
+    // /egadmin portal <dungeonId>
     // =========================================================================
     private static class SpawnPortalCommand extends AbstractPlayerCommand {
         private final EndgameQoL plugin;
@@ -194,7 +194,7 @@ public class EgAdminCommand extends AbstractCommandCollection {
         SpawnPortalCommand(EndgameQoL plugin) {
             super("portal", "Force-spawn a temporal portal near you");
             this.plugin = plugin;
-            this.typeArg = this.withRequiredArg("type", "frozen or swamp", ArgTypes.STRING);
+            this.typeArg = this.withRequiredArg("type", "dungeon id", ArgTypes.STRING);
         }
 
         @Override
@@ -210,24 +210,23 @@ public class EgAdminCommand extends AbstractCommandCollection {
             }
 
             String type = typeArg.get(context).toLowerCase();
-            endgame.plugin.systems.portal.TemporalPortalSession.DungeonType dungeonType = switch (type) {
-                case "frozen" -> endgame.plugin.systems.portal.TemporalPortalSession.DungeonType.FROZEN_DUNGEON;
-                case "swamp" -> endgame.plugin.systems.portal.TemporalPortalSession.DungeonType.SWAMP_DUNGEON;
-                default -> null;
-            };
+            var config = plugin.getConfig().get().getTemporalPortalConfig();
+            endgame.plugin.systems.portal.DungeonDefinition dungeonDef = config.getDungeonById(type);
 
-            if (dungeonType == null) {
+            if (dungeonDef == null) {
+                // List available dungeon IDs
+                String available = String.join(", ", config.getDungeons().keySet());
                 playerRef.sendMessage(Message.join(
                         Message.raw("[EgAdmin] ").color("#bb44ff"),
-                        Message.raw("Unknown type. Use: frozen, swamp").color("#ff4444")
+                        Message.raw("Unknown dungeon. Available: " + available).color("#ff4444")
                 ));
                 return;
             }
 
-            portalMgr.forceSpawnNear(playerRef, dungeonType);
+            portalMgr.forceSpawnNear(playerRef, dungeonDef);
             playerRef.sendMessage(Message.join(
                     Message.raw("[EgAdmin] ").color("#bb44ff"),
-                    Message.raw("Spawning " + dungeonType.getDisplayName() + " portal near you...").color("#4ade80")
+                    Message.raw("Spawning " + dungeonDef.getDisplayName() + " portal near you...").color("#4ade80")
             ));
         }
     }

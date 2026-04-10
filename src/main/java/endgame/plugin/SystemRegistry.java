@@ -76,6 +76,7 @@ public class SystemRegistry {
     // Accessory systems
     private AccessoryPassiveSystem accessoryPassiveSystem;
     private endgame.plugin.managers.PetManager petManager;
+    private endgame.plugin.systems.pet.PetMountListener petMountListener;
     private AccessoryDefenseSystem accessoryDefenseSystem;
 
     // Systems
@@ -155,6 +156,7 @@ public class SystemRegistry {
         // Golem Void boss pipeline
         plugin.getEntityStoreRegistry().registerSystem(new GolemVoidDamageSystem(this.golemVoidBossManager, this.enrageTracker));
         plugin.getEntityStoreRegistry().registerSystem(new PlayerDeathBossBarSystem(plugin));
+        plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.portal.InstanceRespawnSystem(plugin));
         this.dangerZoneTickSystem = new DangerZoneTickSystem(plugin, this.golemVoidBossManager, this.genericBossManager, this.enrageTracker);
         plugin.getEntityStoreRegistry().registerSystem(this.dangerZoneTickSystem);
         plugin.getEntityStoreRegistry().registerSystem(new GolemVoidDeathSystem(plugin, this.golemVoidBossManager, this.enrageTracker));
@@ -345,7 +347,7 @@ public class SystemRegistry {
 
         // Register PetOwnerComponent
         var petOwnerType = plugin.getEntityStoreRegistry().registerComponent(
-                endgame.plugin.components.PetOwnerComponent.class, "EndgamePetOwner",
+                endgame.plugin.components.PetOwnerComponent.class, "EQoL_PetOwner",
                 endgame.plugin.components.PetOwnerComponent.CODEC);
         endgame.plugin.components.PetOwnerComponent.setComponentType(petOwnerType);
 
@@ -359,6 +361,18 @@ public class SystemRegistry {
         // PetCombatSystem (INSPECT damage group — routes player damage target to pet)
         plugin.getEntityStoreRegistry().registerSystem(
                 new endgame.plugin.systems.pet.PetCombatSystem(plugin, this.petManager));
+
+        // PetDamageScalingSystem (FILTER damage group — scales pet damage by tier)
+        plugin.getEntityStoreRegistry().registerSystem(
+                new endgame.plugin.systems.pet.PetDamageScalingSystem(plugin));
+
+        // PetAuraSystem (Tier SS — AOE effects around pet)
+        plugin.getEntityStoreRegistry().registerSystem(
+                new endgame.plugin.systems.pet.PetAuraSystem(plugin, this.petManager));
+
+        // PetMountListener (intercepts right-click on pet for mounting)
+        this.petMountListener = new endgame.plugin.systems.pet.PetMountListener(plugin);
+        com.hypixel.hytale.server.core.io.adapter.PacketAdapters.registerInbound(this.petMountListener);
 
         // Subscribe to BossKillEvent for pet unlock
         plugin.getGameEventBus().subscribe(

@@ -21,7 +21,7 @@ dependencies {
     implementation("com.zaxxer:HikariCP:5.1.0")
 
     compileOnly("org.zuxaw:RPGLeveling:0.3.4")
-    compileOnly("com.airijko:EndlessLeveling:7.3.4")
+    compileOnly("com.airijko:EndlessLeveling:7.6.0")
     compileOnly("com.orbisguard:OrbisGuard:0.8.8")
 
     compileOnly("org.xerial:sqlite-jdbc:3.45.1.0")

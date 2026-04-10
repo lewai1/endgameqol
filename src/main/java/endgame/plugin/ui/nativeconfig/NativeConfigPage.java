@@ -106,9 +106,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         new SearchEntry("Temporal Portals", "Misc", "toggle:temporalPortal", c -> c.getTemporalPortalConfig().isEnabled() ? "ON" : "OFF", "temporal portal random dungeon"),
         new SearchEntry("Pet System", "Misc", "toggle:pets", c -> c.pets().isEnabled() ? "ON" : "OFF", "pet companion system"),
         new SearchEntry("Portal Spawn Interval", "Misc", "field:portalSpawnMin", c -> c.getTemporalPortalConfig().getSpawnIntervalMinSeconds() + "-" + c.getTemporalPortalConfig().getSpawnIntervalMaxSeconds() + "s", "temporal portal spawn timer"),
-        new SearchEntry("Portal Duration", "Misc", "field:portalDuration", c -> c.getTemporalPortalConfig().getPortalDurationSeconds() + "s", "temporal portal despawn time"),
         new SearchEntry("Max Portals", "Misc", "field:maxPortals", c -> String.valueOf(c.getTemporalPortalConfig().getMaxConcurrentPortals()), "temporal portal max concurrent"),
-        new SearchEntry("Instance Time Limit", "Misc", "field:instanceTimeLimit", c -> c.getTemporalPortalConfig().getInstanceTimeLimitSeconds() + "s", "temporal portal dungeon duration"),
         new SearchEntry("RPG Leveling", "Integration", "toggle:rpgLeveling", c -> c.isRPGLevelingEnabled() ? "ON" : "OFF", "xp level mod"),
         new SearchEntry("Endless Leveling", "Integration", "toggle:endlessLeveling", c -> c.isEndlessLevelingEnabled() ? "ON" : "OFF", "xp level mod"),
         new SearchEntry("OrbisGuard", "Integration", "toggle:orbisGuard", c -> c.isOrbisGuardEnabled() ? "ON" : "OFF", "claim protection mod"),
@@ -131,6 +129,22 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         }
 
         populateAllTabs(cmd, events);
+    }
+
+    /**
+     * Refresh the page content without resetting scroll position.
+     * Uses sendUpdate() instead of rebuild() to preserve the current scroll state.
+     */
+    private void refreshPage() {
+        UICommandBuilder cmd = new UICommandBuilder();
+        UIEventBuilder events = new UIEventBuilder();
+        // Re-bind tab buttons (events are cleared on sendUpdate)
+        for (int i = 0; i < TAB_IDS.length; i++) {
+            events.addEventBinding(CustomUIEventBindingType.Activating, TAB_BTN_IDS[i],
+                    EventData.of("Action", "tab:" + TAB_IDS[i]), false);
+        }
+        populateAllTabs(cmd, events);
+        this.sendUpdate(cmd, events, false);
     }
 
     private void populateAllTabs(UICommandBuilder cmd, UIEventBuilder events) {
@@ -438,7 +452,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
                 var entry = overrides.get(id);
                 cmd.set(rowPrefix + ".Visible", true);
                 cmd.set(rowPrefix + "Name.Text", formatRecipeName(id));
-                setToggleValue(cmd, rowPrefix + "Toggle", entry.isEnabled());
+                setToggleValue(cmd, rowPrefix + "Toggle", entry.isEnabled(), true);
                 events.addEventBinding(CustomUIEventBindingType.Activating, rowPrefix + "Toggle",
                         EventData.of("Action", "craft:toggle:" + idx), false);
                 events.addEventBinding(CustomUIEventBindingType.Activating, rowPrefix + "Edit",
@@ -456,7 +470,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         if (entry == null) { selectedRecipeId = null; return; }
 
         cmd.set("#DetailName.Text", formatRecipeName(selectedRecipeId));
-        setToggleValue(cmd, "#DetailToggle", entry.isEnabled());
+        setToggleValue(cmd, "#DetailToggle", entry.isEnabled(), true);
         events.addEventBinding(CustomUIEventBindingType.Activating, "#DetailToggle",
                 EventData.of("Action", "craft:detail:toggle"), false);
         events.addEventBinding(CustomUIEventBindingType.Activating, "#DetailBack",
@@ -570,12 +584,10 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         setToggleValue(cmd, "#ToggleBountyWeekly", config.isBountyWeeklyEnabled());
         cmd.set("#BountyRefresh.Value", String.valueOf(config.getBountyRefreshHours()));
         setToggleValue(cmd, "#ToggleWarden", config.isWardenTrialEnabled());
-        setToggleValue(cmd, "#ToggleVorthak", config.isVorthakEnabled());
+        setToggleValue(cmd, "#ToggleVorthak", config.isVorthakEnabled(), true);
         setToggleValue(cmd, "#ToggleTemporalPortal", config.getTemporalPortalConfig().isEnabled());
         setToggleValue(cmd, "#TogglePets", config.pets().isEnabled());
-        cmd.set("#PortalDuration.Value", String.valueOf(config.getTemporalPortalConfig().getPortalDurationSeconds()));
         cmd.set("#MaxPortals.Value", String.valueOf(config.getTemporalPortalConfig().getMaxConcurrentPortals()));
-        cmd.set("#InstanceTimeLimit.Value", String.valueOf(config.getTemporalPortalConfig().getInstanceTimeLimitSeconds()));
 
         events.addEventBinding(CustomUIEventBindingType.Activating, "#TogglePvp", EventData.of("Action", "toggle:pvp"), false);
         events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleDungeonProt", EventData.of("Action", "toggle:dungeonProt"), false);
@@ -595,15 +607,9 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleVorthak", EventData.of("Action", "toggle:vorthak"), false);
         events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleTemporalPortal", EventData.of("Action", "toggle:temporalPortal"), false);
         events.addEventBinding(CustomUIEventBindingType.Activating, "#TogglePets", EventData.of("Action", "toggle:pets"), false);
-        bindNumField(events, "#PortalDuration", "portalDuration");
-        bindAdjust(events, "#PortalDurationDown", "adjust:portalDurationDown");
-        bindAdjust(events, "#PortalDurationUp", "adjust:portalDurationUp");
         bindNumField(events, "#MaxPortals", "maxPortals");
         bindAdjust(events, "#MaxPortalsDown", "adjust:maxPortalsDown");
         bindAdjust(events, "#MaxPortalsUp", "adjust:maxPortalsUp");
-        bindNumField(events, "#InstanceTimeLimit", "instanceTimeLimit");
-        bindAdjust(events, "#InstanceTimeLimitDown", "adjust:instanceTimeLimitDown");
-        bindAdjust(events, "#InstanceTimeLimitUp", "adjust:instanceTimeLimitUp");
     }
 
     // ==================== INTEGRATION ====================
@@ -613,21 +619,21 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
 
         // RPG Leveling
         boolean rpgPresent = p.isRPGLevelingModPresent();
-        setToggleValue(cmd, "#ToggleRPGLeveling", config.isRPGLevelingEnabled());
+        setToggleValue(cmd, "#ToggleRPGLeveling", config.isRPGLevelingEnabled(), true);
         cmd.set("#IntegRPGStatus.Text", rpgPresent ? "DETECTED" : "NOT FOUND");
         cmd.set("#IntegRPGStatus.Style.TextColor", rpgPresent ? "#4aff7f" : "#ff5555");
         cmd.set("#IntegRPGAccent.Background.Color", rpgPresent ? "#55ccff" : "#333333");
 
         // Endless Leveling
         boolean elPresent = p.isEndlessLevelingModPresent();
-        setToggleValue(cmd, "#ToggleEndlessLeveling", config.isEndlessLevelingEnabled());
+        setToggleValue(cmd, "#ToggleEndlessLeveling", config.isEndlessLevelingEnabled(), true);
         cmd.set("#IntegELStatus.Text", elPresent ? "DETECTED" : "NOT FOUND");
         cmd.set("#IntegELStatus.Style.TextColor", elPresent ? "#4aff7f" : "#ff5555");
         cmd.set("#IntegELAccent.Background.Color", elPresent ? "#E8A93B" : "#333333");
 
         // OrbisGuard
         boolean ogPresent = p.isOrbisGuardModPresent();
-        setToggleValue(cmd, "#ToggleOrbisGuard", config.isOrbisGuardEnabled());
+        setToggleValue(cmd, "#ToggleOrbisGuard", config.isOrbisGuardEnabled(), true);
         cmd.set("#IntegOGStatus.Text", ogPresent ? "DETECTED" : "NOT FOUND");
         cmd.set("#IntegOGStatus.Style.TextColor", ogPresent ? "#4aff7f" : "#ff5555");
         cmd.set("#IntegOGAccent.Background.Color", ogPresent ? "#55ff88" : "#333333");
@@ -635,6 +641,15 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleRPGLeveling", EventData.of("Action", "toggle:rpgLeveling"), false);
         events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleEndlessLeveling", EventData.of("Action", "toggle:endlessLeveling"), false);
         events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleOrbisGuard", EventData.of("Action", "toggle:orbisGuard"), false);
+
+        // Addons section — EndgamePets
+        boolean epetsPresent = p.isEndgamePetsModPresent();
+        cmd.set("#AddonEPets.Visible", epetsPresent);
+        cmd.set("#AddonEmpty.Visible", !epetsPresent);
+        if (epetsPresent) {
+            cmd.set("#AddonEPetsStatus.Text", "ACTIVE");
+            cmd.set("#AddonEPetsStatus.Style.TextColor", "#4aff7f");
+        }
     }
 
     // ==================== EVENT HANDLING ====================
@@ -660,13 +675,13 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
                 // Validating event sends the text; button uses stored text
                 if (data.searchInput != null) globalSearchText = data.searchInput.trim();
                 globalSearchActive = !globalSearchText.isEmpty();
-                this.rebuild();
+                refreshPage();
                 return;
             }
             if ("clear".equals(gsAction)) {
                 globalSearchText = "";
                 globalSearchActive = false;
-                this.rebuild();
+                refreshPage();
                 return;
             }
         }
@@ -675,7 +690,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         if (globalSearchActive && action.startsWith("toggle:")) {
             handleToggle(action.substring(7), config);
             save();
-            this.rebuild();
+            refreshPage();
             return;
         }
 
@@ -693,7 +708,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         if (action.startsWith("preset:")) {
             config.setDifficulty(Difficulty.fromString(action.substring(7)));
             save();
-            this.rebuild();
+            refreshPage();
             return;
         }
 
@@ -701,7 +716,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         if (action.startsWith("toggle:")) {
             handleToggle(action.substring(7), config);
             save();
-            this.rebuild();
+            refreshPage();
             return;
         }
 
@@ -709,7 +724,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         if (action.startsWith("adjust:")) {
             handleAdjust(action.substring(7), config);
             save();
-            this.rebuild();
+            refreshPage();
             return;
         }
 
@@ -717,7 +732,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         if (action.startsWith("boss:")) {
             handleBossAdjust(action.substring(5), config);
             save();
-            this.rebuild();
+            refreshPage();
             return;
         }
 
@@ -727,7 +742,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
             if (plugin.getBossHealthManager() != null) {
                 plugin.getBossHealthManager().refreshAllBossStats();
             }
-            this.rebuild();
+            refreshPage();
             return;
         }
 
@@ -756,13 +771,13 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         if ("search".equals(action)) {
             // Apply stored search filter
             craftPage = 0;
-            this.rebuild();
+            refreshPage();
             return;
         }
         if ("clearSearch".equals(action)) {
             recipeSearchFilter = "";
             craftPage = 0;
-            this.rebuild();
+            refreshPage();
             return;
         }
         // Category switch
@@ -770,14 +785,14 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
             craftCategory = action.substring(4);
             craftPage = 0;
             selectedRecipeId = null;
-            this.rebuild();
+            refreshPage();
             return;
         }
         // Pagination
-        if ("prev".equals(action) && craftPage > 0) { craftPage--; this.rebuild(); return; }
+        if ("prev".equals(action) && craftPage > 0) { craftPage--; refreshPage(); return; }
         if ("next".equals(action)) {
             int totalPages = Math.max(1, (filteredRecipeIds.size() + RECIPES_PER_PAGE - 1) / RECIPES_PER_PAGE);
-            if (craftPage < totalPages - 1) { craftPage++; this.rebuild(); }
+            if (craftPage < totalPages - 1) { craftPage++; refreshPage(); }
             return;
         }
         // Toggle recipe from list — sendUpdate to preserve scroll
@@ -791,7 +806,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
                     // Update just the toggle button instead of full rebuild
                     int rowIdx = idx - craftPage * RECIPES_PER_PAGE;
                     UICommandBuilder cmd = new UICommandBuilder();
-                    setToggleValue(cmd, "#Row" + rowIdx + "Toggle", entry.isEnabled());
+                    setToggleValue(cmd, "#Row" + rowIdx + "Toggle", entry.isEnabled(), true);
                     this.sendUpdate(cmd, new UIEventBuilder(), false);
                 }
             }
@@ -803,11 +818,11 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
             if (idx >= 0 && idx < filteredRecipeIds.size()) {
                 selectedRecipeId = filteredRecipeIds.get(idx);
             }
-            this.rebuild();
+            refreshPage();
             return;
         }
         // Back to list
-        if ("back".equals(action)) { selectedRecipeId = null; this.rebuild(); return; }
+        if ("back".equals(action)) { selectedRecipeId = null; refreshPage(); return; }
         // Detail actions
         if (action.startsWith("detail:")) {
             handleCraftDetailAction(action.substring(7));
@@ -848,7 +863,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
 
     private void sendCraftDetailUpdate(RecipeOverrideConfig.RecipeEntry entry) {
         UICommandBuilder cmd = new UICommandBuilder();
-        setToggleValue(cmd, "#DetailToggle", entry.isEnabled());
+        setToggleValue(cmd, "#DetailToggle", entry.isEnabled(), true);
         cmd.set("#DetailOutputQty.Text", "x" + entry.getOutputQuantity());
         if (entry.getInputs() != null) {
             for (int i = 0; i < entry.getInputs().length && i < MAX_INPUTS; i++) {
@@ -929,9 +944,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
                 case "hpRegenPrisma" -> config.setArmorHPRegenPrismaPerPiece(Math.max(0f, Math.min(5f, Float.parseFloat(cleaned))));
                 case "comboTimer" -> config.setComboTimerSeconds(Math.max(1f, Math.min(30f, Float.parseFloat(cleaned))));
                 case "bountyRefresh" -> config.setBountyRefreshHours(Math.max(1, Math.min(168, Integer.parseInt(cleaned))));
-                case "portalDuration" -> config.getTemporalPortalConfig().setPortalDurationSeconds(Integer.parseInt(cleaned));
                 case "maxPortals" -> config.getTemporalPortalConfig().setMaxConcurrentPortals(Integer.parseInt(cleaned));
-                case "instanceTimeLimit" -> config.getTemporalPortalConfig().setInstanceTimeLimitSeconds(Integer.parseInt(cleaned));
             }
         } catch (NumberFormatException ignored) {}
     }
@@ -1013,12 +1026,8 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
             case "comboTimerDown" -> config.setComboTimerSeconds(Math.max(1f, config.getComboTimerSeconds() - 1f));
             case "bountyRefreshUp" -> config.setBountyRefreshHours(Math.min(168, config.getBountyRefreshHours() + 1));
             case "bountyRefreshDown" -> config.setBountyRefreshHours(Math.max(1, config.getBountyRefreshHours() - 1));
-            case "portalDurationUp" -> config.getTemporalPortalConfig().setPortalDurationSeconds(config.getTemporalPortalConfig().getPortalDurationSeconds() + 30);
-            case "portalDurationDown" -> config.getTemporalPortalConfig().setPortalDurationSeconds(config.getTemporalPortalConfig().getPortalDurationSeconds() - 30);
             case "maxPortalsUp" -> config.getTemporalPortalConfig().setMaxConcurrentPortals(config.getTemporalPortalConfig().getMaxConcurrentPortals() + 1);
             case "maxPortalsDown" -> config.getTemporalPortalConfig().setMaxConcurrentPortals(config.getTemporalPortalConfig().getMaxConcurrentPortals() - 1);
-            case "instanceTimeLimitUp" -> config.getTemporalPortalConfig().setInstanceTimeLimitSeconds(config.getTemporalPortalConfig().getInstanceTimeLimitSeconds() + 60);
-            case "instanceTimeLimitDown" -> config.getTemporalPortalConfig().setInstanceTimeLimitSeconds(config.getTemporalPortalConfig().getInstanceTimeLimitSeconds() - 60);
         }
     }
 
@@ -1049,11 +1058,28 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
     // ==================== HELPERS ====================
 
     private void setToggleValue(UICommandBuilder cmd, String selector, boolean value) {
-        cmd.set(selector + ".Text", value ? "ON" : "OFF");
-        cmd.set(selector + ".Style.Default.Background", value ? "#1a3d2e" : "#3d1a1a");
-        cmd.set(selector + ".Style.Default.LabelStyle.TextColor", value ? "#4aff7f" : "#ff4a4a");
-        cmd.set(selector + ".Style.Hovered.Background", value ? "#2a4d3e" : "#4d2a2a");
-        cmd.set(selector + ".Style.Hovered.LabelStyle.TextColor", value ? "#6aff9f" : "#ff6a6a");
+        setToggleValue(cmd, selector, value, false);
+    }
+
+    /**
+     * Set toggle button visual state.
+     * @param requiresRestart if true, appends "*" and uses amber tint to indicate restart needed
+     */
+    private void setToggleValue(UICommandBuilder cmd, String selector, boolean value, boolean requiresRestart) {
+        String suffix = requiresRestart ? "*" : "";
+        cmd.set(selector + ".Text", (value ? "ON" : "OFF") + suffix);
+        if (requiresRestart) {
+            // Amber tint for restart-required settings
+            cmd.set(selector + ".Style.Default.Background", value ? "#2e3d1a" : "#3d2e1a");
+            cmd.set(selector + ".Style.Default.LabelStyle.TextColor", value ? "#aaff4a" : "#ffaa4a");
+            cmd.set(selector + ".Style.Hovered.Background", value ? "#3e4d2a" : "#4d3e2a");
+            cmd.set(selector + ".Style.Hovered.LabelStyle.TextColor", value ? "#ccff6a" : "#ffcc6a");
+        } else {
+            cmd.set(selector + ".Style.Default.Background", value ? "#1a3d2e" : "#3d1a1a");
+            cmd.set(selector + ".Style.Default.LabelStyle.TextColor", value ? "#4aff7f" : "#ff4a4a");
+            cmd.set(selector + ".Style.Hovered.Background", value ? "#2a4d3e" : "#4d2a2a");
+            cmd.set(selector + ".Style.Hovered.LabelStyle.TextColor", value ? "#6aff9f" : "#ff6a6a");
+        }
     }
 
     private void bindAdjust(UIEventBuilder events, String selector, String action) {

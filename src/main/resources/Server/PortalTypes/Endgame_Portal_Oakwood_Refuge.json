@@ -1,0 +1,26 @@
+{
+  "InstanceId": "Endgame_Oakwood_Refuge",
+  "Description": {
+    "DisplayName": "server.portals.oakwood_refuge",
+    "FlavorText": "server.portals.oakwood_refuge.description",
+    "ThemeColor": "#88aa44ff",
+    "SplashImage": "DefaultArtwork.png",
+    "Tips": [
+      "server.portals.oakwood_refuge.tip1",
+      "server.portals.oakwood_refuge.tip2"
+    ]
+  },
+  "Spawn": {
+    "SpawnProviderOverride": {
+      "Id": "Global",
+      "SpawnPoint": {
+        "X": 0,
+        "Y": 120.0,
+        "Z": 0,
+        "Pitch": 0,
+        "Yaw": 0,
+        "Roll": 0.0
+      }
+    }
+  }
+}

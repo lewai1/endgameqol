@@ -12,39 +12,16 @@ import javax.annotation.Nullable;
  */
 public class TemporalPortalSession {
 
-    public enum DungeonType {
-        FROZEN_DUNGEON("Endgame_Frozen_Dungeon", "Frozen Dungeon", "#5bceff",
-                "Endgame_Portal_Frozen_Dungeon", 1200),
-        SWAMP_DUNGEON("Endgame_Swamp_Dungeon", "Swamp Dungeon", "#23970c",
-                "Endgame_Portal_Swamp_Dungeon", 5400);
-
-        private final String instanceId;
-        private final String displayName;
-        private final String color;
-        private final String portalTypeId;
-        private final int timeLimitSeconds;
-
-        DungeonType(String instanceId, String displayName, String color, String portalTypeId, int timeLimitSeconds) {
-            this.instanceId = instanceId;
-            this.displayName = displayName;
-            this.color = color;
-            this.portalTypeId = portalTypeId;
-            this.timeLimitSeconds = timeLimitSeconds;
-        }
-
-        public String getInstanceId() { return instanceId; }
-        public String getDisplayName() { return displayName; }
-        public String getColor() { return color; }
-        public String getPortalTypeId() { return portalTypeId; }
-        public int getTimeLimitSeconds() { return timeLimitSeconds; }
-    }
-
     public enum InstanceState { NONE, SPAWNING, READY, FAILED }
+
+    /** Lifetime status — visual/warning progression inspired by Shards mod. */
+    public enum LifetimeStatus { STABLE, DESTABILIZING, CRITICAL, COLLAPSING }
 
     // Identity
     @Nonnull private final String id;
-    @Nonnull private final DungeonType dungeonType;
+    @Nonnull private final DungeonDefinition dungeonDef;
     private final long createdAtMs;
+    private final int portalDurationSeconds;
 
     // Overworld portal
     @Nullable private volatile String spawnWorldName;
@@ -54,15 +31,21 @@ public class TemporalPortalSession {
     private volatile InstanceState instanceState = InstanceState.NONE;
     @Nullable private volatile World instanceWorld;
 
-    public TemporalPortalSession(@Nonnull String id, @Nonnull DungeonType dungeonType) {
+    // Lifetime warnings
+    private volatile boolean warned5min = false;
+    private volatile boolean warned1min = false;
+    private volatile LifetimeStatus lifetimeStatus = LifetimeStatus.STABLE;
+
+    public TemporalPortalSession(@Nonnull String id, @Nonnull DungeonDefinition dungeonDef, int portalDurationSeconds) {
         this.id = id;
-        this.dungeonType = dungeonType;
+        this.dungeonDef = dungeonDef;
         this.createdAtMs = System.currentTimeMillis();
+        this.portalDurationSeconds = portalDurationSeconds;
     }
 
     // --- Identity ---
     @Nonnull public String getId() { return id; }
-    @Nonnull public DungeonType getDungeonType() { return dungeonType; }
+    @Nonnull public DungeonDefinition getDungeonDef() { return dungeonDef; }
     public long getCreatedAtMs() { return createdAtMs; }
 
     // --- Overworld portal ---
@@ -80,8 +63,50 @@ public class TemporalPortalSession {
         if (w != null) this.instanceState = InstanceState.READY;
     }
 
-    // --- Lifecycle ---
-    public boolean isPortalExpired(int durationSeconds) {
-        return System.currentTimeMillis() - createdAtMs > durationSeconds * 1000L;
+    // --- Lifetime ---
+    public long getRemainingMs() {
+        long elapsed = System.currentTimeMillis() - createdAtMs;
+        return Math.max(0, portalDurationSeconds * 1000L - elapsed);
     }
+
+    public int getRemainingSeconds() {
+        return (int) (getRemainingMs() / 1000L);
+    }
+
+    public boolean isPortalExpired() {
+        return getRemainingMs() <= 0;
+    }
+
+    public boolean shouldWarn5min() {
+        if (warned5min) return false;
+        if (getRemainingSeconds() <= 300) { warned5min = true; return true; }
+        return false;
+    }
+
+    public boolean shouldWarn1min() {
+        if (warned1min) return false;
+        if (getRemainingSeconds() <= 60) { warned1min = true; return true; }
+        return false;
+    }
+
+    @Nonnull
+    public LifetimeStatus updateLifetimeStatus() {
+        long remaining = getRemainingMs();
+        long total = portalDurationSeconds * 1000L;
+        LifetimeStatus newStatus;
+        if (remaining <= 0) {
+            newStatus = LifetimeStatus.COLLAPSING;
+        } else if (remaining < total / 4) {
+            newStatus = LifetimeStatus.CRITICAL;
+        } else if (remaining < total / 2) {
+            newStatus = LifetimeStatus.DESTABILIZING;
+        } else {
+            newStatus = LifetimeStatus.STABLE;
+        }
+        this.lifetimeStatus = newStatus;
+        return newStatus;
+    }
+
+    @Nonnull
+    public LifetimeStatus getLifetimeStatus() { return lifetimeStatus; }
 }
