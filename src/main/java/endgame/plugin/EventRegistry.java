@@ -72,24 +72,13 @@ public class EventRegistry {
             // Systems cleanup
             var dangerZone = systemRegistry.getDangerZoneTickSystem();
             if (dangerZone != null) dangerZone.clearPlayerState(playerUuid);
-            var daggerVanish = systemRegistry.getDaggerVanishSystem();
-            if (daggerVanish != null) daggerVanish.onPlayerDisconnect(playerUuid);
-            var manaCost = systemRegistry.getPrismaManaCostSystem();
-            if (manaCost != null) manaCost.onPlayerDisconnect(playerUuid);
-            var mirage = systemRegistry.getPrismaMirageSystem();
-            if (mirage != null) mirage.onPlayerDisconnect(playerUuid);
-            var blink = systemRegistry.getBlinkTrailDamageSystem();
-            if (blink != null) blink.onPlayerDisconnect(playerUuid);
             var accessory = systemRegistry.getAccessoryPassiveSystem();
             if (accessory != null) accessory.onPlayerDisconnect(playerUuid);
 
             // Game modes
-            var warden = systemRegistry.getWardenTrialManager();
-            if (warden != null) warden.failTrial(playerUuid);
+            endgame.wavearena.WaveArenaAPI.failArena(playerUuid);
             var combo = systemRegistry.getComboMeterManager();
             if (combo != null) combo.onPlayerDisconnect(playerUuid);
-            var gauntlet = systemRegistry.getGauntletManager();
-            if (gauntlet != null) gauntlet.failGauntlet(playerUuid);
             var bounty = systemRegistry.getBountyManager();
             if (bounty != null) bounty.onPlayerDisconnect(playerUuid);
 
@@ -100,6 +89,7 @@ public class EventRegistry {
             // Static state cleanup
             endgame.plugin.systems.block.PrismaPickaxeAreaBreakSystem.clearPlayer(playerUuid);
             endgame.plugin.utils.CommandRateLimit.clearPlayer(playerUuid);
+            endgame.plugin.utils.PlayerRefCache.unregister(playerUuid);
             I18n.onPlayerDisconnect(playerUuid);
 
             // Database sync: save player data on disconnect (before uncaching component)
@@ -129,10 +119,7 @@ public class EventRegistry {
                 if (genericBoss != null) genericBoss.hideBossBarForPlayerUuid(playerUuid);
                 var dangerZone = systemRegistry.getDangerZoneTickSystem();
                 if (dangerZone != null) dangerZone.clearPlayerState(playerUuid);
-                var warden = systemRegistry.getWardenTrialManager();
-                if (warden != null) warden.failTrial(playerUuid);
-                var gauntlet = systemRegistry.getGauntletManager();
-                if (gauntlet != null) gauntlet.failGauntlet(playerUuid);
+                endgame.wavearena.WaveArenaAPI.failArena(playerUuid);
                 var combo = systemRegistry.getComboMeterManager();
                 // Only hide HUD — don't destroy combo state (survives world transfers)
                 if (combo != null) combo.onPlayerLeaveWorld(playerUuid);

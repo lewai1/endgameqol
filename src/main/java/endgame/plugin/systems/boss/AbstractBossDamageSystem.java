@@ -9,7 +9,6 @@ import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageModule;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
-import com.hypixel.hytale.server.core.universe.Universe;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.entities.NPCEntity;
 
@@ -117,12 +116,6 @@ public abstract class AbstractBossDamageSystem extends DamageEventSystem {
      */
     @Nullable
     protected PlayerRef findPlayerRef(@Nonnull Ref<EntityStore> attackerRef) {
-        for (PlayerRef playerRef : Universe.get().getPlayers()) {
-            if (playerRef != null && playerRef.getReference() != null
-                    && attackerRef.equals(playerRef.getReference())) {
-                return playerRef;
-            }
-        }
-        return null;
+        return endgame.plugin.utils.PlayerRefCache.getByRef(attackerRef);
     }
 }

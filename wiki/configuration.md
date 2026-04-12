@@ -36,16 +36,10 @@ Presets: **Easy** 60%/50% | **Medium** 100%/100% | **Hard** 150%/150% | **Extrem
 | `HederaPoisonTicks` | 4 | Number of poison ticks (1 -- 20) |
 | `HederaLifestealEnabled` | true | Hedera Daggers lifesteal |
 | `HederaLifestealPercent` | 0.08 | Lifesteal percentage (8%) |
-| `PrismaMirageEnabled` | true | Prisma Sword clone spawns |
-| `PrismaMirageCooldownMs` | 15000 | Clone cooldown in ms (1000 -- 60000) |
-| `VoidMarkEnabled` | true | Prisma Daggers void mark |
-| `VoidMarkExecutionMultiplier` | 3.0 | Execution damage multiplier below 25% HP |
-| `DaggerBlinkEnabled` | true | Prisma Daggers blink mode |
-| `DaggerBlinkDistance` | 12.0 | Blink distance in blocks (3 -- 30) |
-| `DaggerVanishCooldownMs` | 10000 | Vanish teleport cooldown (1000 -- 60000) |
-| `DaggerVanishInvulnerabilityMs` | 2000 | Invulnerability after vanish (500 -- 10000) |
 | `BlazefistBurnDamage` | 50.0 | Blazefist burn damage per tick |
 | `BlazefistBurnTicks` | 3 | Number of burn ticks (1 -- 10) |
+
+> Prisma Sword and Prisma Daggers abilities (Beam, Judgment, Dash, Razor Storm) are fully defined in JSON and have no runtime config toggles. Balance values (mana cost, damage, cooldown) are edited directly in the interaction JSON files under `Server/Item/Interactions/Weapons/{Sword,Daggers}/`.
 
 ## Armor
 

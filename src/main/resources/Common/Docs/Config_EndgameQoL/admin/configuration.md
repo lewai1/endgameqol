@@ -92,37 +92,17 @@ Per-boss enrage tuning. Available for Dragon Frost, Hedera, and Golem Void.
 
 <#aaaaaa>HederaDaggerLifestealPercent</#aaaaaa> — Fraction healed (default: 0.08 = 8%)
 
-### Prisma Mirage (Sword Clones)
+### Prisma Sword / Prisma Daggers
 
-<#aaaaaa>PrismaMirageEnabled</#aaaaaa> — Toggle clone summon (default: true)
+Prisma weapon abilities (<#d16eff>Prismatic Beam</#d16eff>, <#d16eff>Prismatic Judgment</#d16eff>, <#d16eff>Prisma Dash</#d16eff>, <#d16eff>Razor Storm</#d16eff>) are **data-driven in JSON**. To rebalance mana/signature cost, damage, range, or cooldown, edit the interaction files directly:
 
-<#aaaaaa>PrismaMirageCooldownMs</#aaaaaa> — Cooldown (default: 15s, range: 1-60s)
+- <#aaaaaa>Server/Item/Interactions/Weapons/Sword/Endgame_Sword_Prisma_Beam.json</#aaaaaa>
+- <#aaaaaa>Server/Item/Interactions/Weapons/Sword/Endgame_Sword_Prisma_Judgment.json</#aaaaaa>
+- <#aaaaaa>Server/Item/Interactions/Weapons/Daggers/Endgame_Daggers_Prisma_Dash.json</#aaaaaa>
+- <#aaaaaa>Server/Item/Interactions/Weapons/Daggers/Endgame_Daggers_Prisma_Storm.json</#aaaaaa>
+- <#aaaaaa>Server/Projectiles/Weapons/Endgame_Prisma_Beam.json</#aaaaaa> (beam projectile physics + explosion)
 
-<#aaaaaa>PrismaMirageLifetimeMs</#aaaaaa> — Clone lifetime (default: 5s, range: 1-30s)
-
-### Void Mark (Dagger Execution)
-
-<#aaaaaa>VoidMarkEnabled</#aaaaaa> — Toggle void mark (default: true)
-
-<#aaaaaa>VoidMarkDurationMs</#aaaaaa> — Mark expiration (default: 10s, range: 1-60s)
-
-<#aaaaaa>VoidMarkExecutionEnabled</#aaaaaa> — Toggle execution (default: true)
-
-<#aaaaaa>VoidMarkExecutionThreshold</#aaaaaa> — HP % for execution (default: 25%)
-
-<#aaaaaa>VoidMarkExecutionMultiplier</#aaaaaa> — Execution damage (default: 3.0x)
-
-### Dagger Blink Mode
-
-<#aaaaaa>DaggerBlinkEnabled</#aaaaaa> — Toggle blink stance (default: true)
-
-<#aaaaaa>DaggerBlinkDistance</#aaaaaa> — Blink teleport distance (default: 12, range: 3-30 blocks)
-
-### Dagger Shadow Trail
-
-<#aaaaaa>DaggerTrailEnabled</#aaaaaa> — Toggle Shadow Trail damage during blink (default: true)
-
-<#aaaaaa>DaggerTrailDamage</#aaaaaa> — Damage dealt to enemies along the blink path (default: 15)
+No runtime toggles in <#55ffff>/eg config</#55ffff>. Server restart required to apply JSON edits.
 
 ---
 
@@ -217,12 +197,6 @@ Related settings for reward pools, reputation thresholds, and streak bonuses are
 
 ---
 
-## <#d16eff>Gauntlet</#d16eff>
-
-<#aaaaaa>GauntletEnabled</#aaaaaa> — Toggle The Gauntlet (default: false — disabled, still in development)
-
----
-
 ## <#55ffff>Database</#55ffff>
 
 <#aaaaaa>DatabaseEnabled</#aaaaaa> — Toggle SQL database sync (default: false)
@@ -262,7 +236,6 @@ Boss kill XP is shared between RPG Leveling and Endless Leveling (same values, c
 | Activity | Default XP | Config Key |
 |:---------|---:|:-----------|
 | Boss Kill | per boss | <#aaaaaa>XP Rewards per Boss</#aaaaaa> (shared) |
-| Gauntlet (every 5 waves) | wave/5 x 50 | <#aaaaaa>EndlessLevelingGauntletXpBase</#aaaaaa> |
 | Warden Trial | tier x 150 | <#aaaaaa>EndlessLevelingWardenXpBase</#aaaaaa> |
 | Achievement Claim | 50 | <#aaaaaa>EndlessLevelingAchievementXp</#aaaaaa> |
 | Bounty Complete | per bounty | from bounty template |

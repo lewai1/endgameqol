@@ -82,13 +82,9 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         new SearchEntry("Hedera Poison Ticks", "Weapons", "toggle:hederaPoison", c -> c.getHederaDaggerPoisonTicks() + " ticks", "dagger hedera"),
         new SearchEntry("Hedera Lifesteal", "Weapons", "toggle:hederaLifesteal", c -> c.isEnableHederaDaggerLifesteal() ? "ON" : "OFF", "dagger hedera"),
         new SearchEntry("Hedera Lifesteal %", "Weapons", "toggle:hederaLifesteal", c -> Math.round(c.getHederaDaggerLifestealPercent() * 100) + "%", "dagger hedera percent"),
-        new SearchEntry("Blazefist Burn", "Weapons", "toggle:blazefist", c -> c.isBlazefistBurnEnabled() ? "ON" : "OFF", "fire gauntlet"),
-        new SearchEntry("Blazefist Burn DMG", "Weapons", "toggle:blazefist", c -> String.format("%.0f", c.getBlazefistBurnDamage()), "fire gauntlet damage"),
-        new SearchEntry("Blazefist Burn Ticks", "Weapons", "toggle:blazefist", c -> c.getBlazefistBurnTicks() + " ticks", "fire gauntlet"),
-        new SearchEntry("Prisma Mirage", "Weapons", "toggle:prismaMirage", c -> c.isPrismaMirageEnabled() ? "ON" : "OFF"),
-        new SearchEntry("Void Mark", "Weapons", "toggle:voidMark", c -> c.isVoidMarkEnabled() ? "ON" : "OFF"),
-        new SearchEntry("Dagger Blink", "Weapons", "toggle:daggerBlink", c -> c.isDaggerBlinkEnabled() ? "ON" : "OFF", "teleport"),
-        new SearchEntry("Dagger Trail", "Weapons", "toggle:daggerTrail", c -> c.isDaggerTrailEnabled() ? "ON" : "OFF", "particle"),
+        new SearchEntry("Blazefist Burn", "Weapons", "toggle:blazefist", c -> c.isBlazefistBurnEnabled() ? "ON" : "OFF", "fire accessory"),
+        new SearchEntry("Blazefist Burn DMG", "Weapons", "toggle:blazefist", c -> String.format("%.0f", c.getBlazefistBurnDamage()), "fire accessory damage"),
+        new SearchEntry("Blazefist Burn Ticks", "Weapons", "toggle:blazefist", c -> c.getBlazefistBurnTicks() + " ticks", "fire accessory"),
         new SearchEntry("Mana Regen Armor", "Armor", "toggle:manaRegen", c -> c.isManaRegenArmorEnabled() ? "ON" : "OFF", "mana regeneration"),
         new SearchEntry("HP Regen Armor", "Armor", "toggle:hpRegen", c -> c.isArmorHPRegenEnabled() ? "ON" : "OFF", "health regeneration"),
         new SearchEntry("PvP Enabled", "Misc", "toggle:pvp", c -> c.isPvpEnabled() ? "ON" : "OFF", "player versus player combat"),
@@ -104,6 +100,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         new SearchEntry("Warden Trials", "Misc", "toggle:warden", c -> c.isWardenTrialEnabled() ? "ON" : "OFF", "warden trial challenge"),
         new SearchEntry("Vorthak Merchant", "Misc", "toggle:vorthak", c -> c.isVorthakEnabled() ? "ON" : "OFF", "shop trade npc"),
         new SearchEntry("Temporal Portals", "Misc", "toggle:temporalPortal", c -> c.getTemporalPortalConfig().isEnabled() ? "ON" : "OFF", "temporal portal random dungeon"),
+        new SearchEntry("Respawn Inside Instance", "Misc", "toggle:respawnInside", c -> c.getTemporalPortalConfig().getDungeons().values().stream().anyMatch(endgame.plugin.systems.portal.DungeonDefinition::isAllowRespawnInside) ? "ON" : "OFF", "dungeon respawn death instance"),
         new SearchEntry("Pet System", "Misc", "toggle:pets", c -> c.pets().isEnabled() ? "ON" : "OFF", "pet companion system"),
         new SearchEntry("Portal Spawn Interval", "Misc", "field:portalSpawnMin", c -> c.getTemporalPortalConfig().getSpawnIntervalMinSeconds() + "-" + c.getTemporalPortalConfig().getSpawnIntervalMaxSeconds() + "s", "temporal portal spawn timer"),
         new SearchEntry("Max Portals", "Misc", "field:maxPortals", c -> String.valueOf(c.getTemporalPortalConfig().getMaxConcurrentPortals()), "temporal portal max concurrent"),
@@ -336,21 +333,6 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         bindAdjust(events, "#BlazefistTicksDown", "adjust:blazefistTicksDown");
         bindAdjust(events, "#BlazefistTicksUp", "adjust:blazefistTicksUp");
 
-        // Prisma Mirage
-        setToggleValue(cmd, "#TogglePrismaMirage", config.isPrismaMirageEnabled());
-        events.addEventBinding(CustomUIEventBindingType.Activating, "#TogglePrismaMirage", EventData.of("Action", "toggle:prismaMirage"), false);
-
-        // Void Mark
-        setToggleValue(cmd, "#ToggleVoidMark", config.isVoidMarkEnabled());
-        events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleVoidMark", EventData.of("Action", "toggle:voidMark"), false);
-
-        // Dagger Blink
-        setToggleValue(cmd, "#ToggleDaggerBlink", config.isDaggerBlinkEnabled());
-        events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleDaggerBlink", EventData.of("Action", "toggle:daggerBlink"), false);
-
-        // Dagger Trail
-        setToggleValue(cmd, "#ToggleDaggerTrail", config.isDaggerTrailEnabled());
-        events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleDaggerTrail", EventData.of("Action", "toggle:daggerTrail"), false);
     }
 
     // ==================== ARMOR ====================
@@ -586,6 +568,9 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         setToggleValue(cmd, "#ToggleWarden", config.isWardenTrialEnabled());
         setToggleValue(cmd, "#ToggleVorthak", config.isVorthakEnabled(), true);
         setToggleValue(cmd, "#ToggleTemporalPortal", config.getTemporalPortalConfig().isEnabled());
+        boolean anyRespawnInside = config.getTemporalPortalConfig().getDungeons().values().stream()
+                .anyMatch(endgame.plugin.systems.portal.DungeonDefinition::isAllowRespawnInside);
+        setToggleValue(cmd, "#ToggleRespawnInside", anyRespawnInside);
         setToggleValue(cmd, "#TogglePets", config.pets().isEnabled());
         cmd.set("#MaxPortals.Value", String.valueOf(config.getTemporalPortalConfig().getMaxConcurrentPortals()));
 
@@ -606,6 +591,7 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleWarden", EventData.of("Action", "toggle:warden"), false);
         events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleVorthak", EventData.of("Action", "toggle:vorthak"), false);
         events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleTemporalPortal", EventData.of("Action", "toggle:temporalPortal"), false);
+        events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleRespawnInside", EventData.of("Action", "toggle:respawnInside"), false);
         events.addEventBinding(CustomUIEventBindingType.Activating, "#TogglePets", EventData.of("Action", "toggle:pets"), false);
         bindNumField(events, "#MaxPortals", "maxPortals");
         bindAdjust(events, "#MaxPortalsDown", "adjust:maxPortalsDown");
@@ -642,13 +628,13 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
         events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleEndlessLeveling", EventData.of("Action", "toggle:endlessLeveling"), false);
         events.addEventBinding(CustomUIEventBindingType.Activating, "#ToggleOrbisGuard", EventData.of("Action", "toggle:orbisGuard"), false);
 
-        // Addons section — EndgamePets
-        boolean epetsPresent = p.isEndgamePetsModPresent();
-        cmd.set("#AddonEPets.Visible", epetsPresent);
-        cmd.set("#AddonEmpty.Visible", !epetsPresent);
-        if (epetsPresent) {
-            cmd.set("#AddonEPetsStatus.Text", "ACTIVE");
-            cmd.set("#AddonEPetsStatus.Style.TextColor", "#4aff7f");
+        // Addons section — Pets Reforged
+        boolean prPresent = p.isPetsReforgedModPresent();
+        cmd.set("#AddonPR.Visible", prPresent);
+        cmd.set("#AddonEmpty.Visible", !prPresent);
+        if (prPresent) {
+            cmd.set("#AddonPRStatus.Text", "ACTIVE");
+            cmd.set("#AddonPRStatus.Style.TextColor", "#4aff7f");
         }
     }
 
@@ -958,10 +944,6 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
             case "hederaPoison" -> config.setEnableHederaDaggerPoison(!config.isEnableHederaDaggerPoison());
             case "hederaLifesteal" -> config.setEnableHederaDaggerLifesteal(!config.isEnableHederaDaggerLifesteal());
             case "blazefist" -> config.setBlazefistBurnEnabled(!config.isBlazefistBurnEnabled());
-            case "prismaMirage" -> config.setPrismaMirageEnabled(!config.isPrismaMirageEnabled());
-            case "voidMark" -> config.setVoidMarkEnabled(!config.isVoidMarkEnabled());
-            case "daggerBlink" -> config.setDaggerBlinkEnabled(!config.isDaggerBlinkEnabled());
-            case "daggerTrail" -> config.setDaggerTrailEnabled(!config.isDaggerTrailEnabled());
             case "manaRegen" -> config.setManaRegenArmorEnabled(!config.isManaRegenArmorEnabled());
             case "hpRegen" -> config.setArmorHPRegenEnabled(!config.isArmorHPRegenEnabled());
             case "pvp" -> { config.setPvpEnabled(!config.isPvpEnabled()); plugin.applyPvpToAllWorlds(config.isPvpEnabled()); }
@@ -975,6 +957,14 @@ public class NativeConfigPage extends InteractiveCustomUIPage<NativeConfigPage.C
             case "warden" -> config.setWardenTrialEnabled(!config.isWardenTrialEnabled());
             case "vorthak" -> config.setVorthakEnabled(!config.isVorthakEnabled());
             case "temporalPortal" -> config.getTemporalPortalConfig().setEnabled(!config.getTemporalPortalConfig().isEnabled());
+            case "respawnInside" -> {
+                // Apply to all dungeons (single master toggle, per-dungeon overrides available via config JSON)
+                boolean anyOn = config.getTemporalPortalConfig().getDungeons().values().stream()
+                        .anyMatch(endgame.plugin.systems.portal.DungeonDefinition::isAllowRespawnInside);
+                boolean target = !anyOn;
+                config.getTemporalPortalConfig().getDungeons().values()
+                        .forEach(d -> d.setAllowRespawnInside(target));
+            }
             case "pets" -> config.pets().setEnabled(!config.pets().isEnabled());
             case "rpgLeveling" -> {
                 boolean newVal = !config.isRPGLevelingEnabled();

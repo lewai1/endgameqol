@@ -13,7 +13,6 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.Message;
 import endgame.plugin.EndgameQoL;
-import endgame.plugin.ui.NativeGauntletPage;
 import endgame.plugin.ui.NativeJournalPage;
 import endgame.plugin.ui.NativeStatusPage;
 import endgame.plugin.ui.nativeconfig.NativeConfigPage;
@@ -36,7 +35,6 @@ import java.util.UUID;
  *   /eg achievements — Achievements page
  *   /eg lang         — Language selection
  *   /eg bounty       — Bounty Board
- *   /eg gauntlet     — The Gauntlet leaderboard
  */
 public class EgCommand extends AbstractCommandCollection {
 
@@ -49,7 +47,6 @@ public class EgCommand extends AbstractCommandCollection {
         this.addSubCommand(new StatusSubCommand(plugin));
         this.addSubCommand(new LangSubCommand());
         this.addSubCommand(new JournalSubCommand(plugin));
-        this.addSubCommand(new GauntletSubCommand(plugin));
         this.addSubCommand(new PetSubCommand(plugin));
     }
 
@@ -72,19 +69,24 @@ public class EgCommand extends AbstractCommandCollection {
         playerRef.sendMessage(Message.raw("[EndgameQoL] You don't have permission to use this command.").color("#ff5555"));
     }
 
-    // /eg config — opens config UI
+    // /eg config — opens config UI (default-allow, deny with "-endgameqol.config")
     private static class ConfigSubCommand extends AbstractPlayerCommand {
         private final EndgameQoL plugin;
 
         ConfigSubCommand(EndgameQoL plugin) {
             super("config", "Open the EndgameQoL configuration UI");
             this.plugin = plugin;
-            requirePermission("endgameqol.config");
+        }
+
+        @Override
+        protected boolean canGeneratePermission() {
+            return false;
         }
 
         @Override
         protected void execute(@Nonnull CommandContext context, @Nonnull Store<EntityStore> store,
                                @Nonnull Ref<EntityStore> ref, @Nonnull PlayerRef playerRef, @Nonnull World world) {
+            if (!hasPermissionDefaultAllow(playerRef, "endgameqol.config")) { sendNoPermission(playerRef); return; }
             NativeConfigPage.open(playerRef, store, plugin);
         }
     }
@@ -175,35 +177,6 @@ public class EgCommand extends AbstractCommandCollection {
         }
     }
 
-
-    // /eg gauntlet
-    private static class GauntletSubCommand extends AbstractPlayerCommand {
-        private final EndgameQoL plugin;
-
-        GauntletSubCommand(EndgameQoL plugin) {
-            super("gauntlet", "The Gauntlet leaderboard");
-            this.plugin = plugin;
-        }
-
-        @Override
-        protected boolean canGeneratePermission() {
-            return false;
-        }
-
-        @Override
-        protected void execute(@Nonnull CommandContext context, @Nonnull Store<EntityStore> store,
-                               @Nonnull Ref<EntityStore> ref, @Nonnull PlayerRef playerRef, @Nonnull World world) {
-            if (!hasPermissionDefaultAllow(playerRef, "endgameqol.gauntlet")) { sendNoPermission(playerRef); return; }
-            if (CommandRateLimit.isRateLimited(playerRef.getUuid())) return;
-
-            if (plugin.getGauntletManager() == null) {
-                playerRef.sendMessage(Message.raw("[The Gauntlet] " + I18n.getForPlayer(playerRef, "commands.gauntlet.unavailable")).color("#ff5555"));
-                return;
-            }
-
-            NativeGauntletPage.open(plugin, playerRef, store);
-        }
-    }
 
     // /eg pet
     private static class PetSubCommand extends AbstractPlayerCommand {

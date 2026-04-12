@@ -6,8 +6,6 @@ import endgame.plugin.config.AccessoryPouchData;
 import endgame.plugin.config.AchievementData;
 import endgame.plugin.config.BestiaryData;
 import endgame.plugin.config.BountyData;
-import endgame.plugin.config.GauntletLeaderboard;
-import endgame.plugin.config.VoidPocketData;
 import endgame.plugin.database.DatabaseConfig;
 import endgame.plugin.database.DatabaseSyncService;
 import endgame.plugin.database.DataSourceFactory;
@@ -24,9 +22,6 @@ public class DatabaseInitializer {
 
     private final EndgameQoL plugin;
     private DatabaseSyncService databaseSyncService;
-
-    // References needed for syncPlayerToDatabase
-    private Config<GauntletLeaderboard> gauntletLeaderboard;
 
     public DatabaseInitializer(EndgameQoL plugin) {
         this.plugin = plugin;
@@ -53,13 +48,6 @@ public class DatabaseInitializer {
     }
 
     /**
-     * Set references needed for player data sync. Called after SystemRegistry.register().
-     */
-    public void setSyncReferences(Config<GauntletLeaderboard> gauntletLeaderboard) {
-        this.gauntletLeaderboard = gauntletLeaderboard;
-    }
-
-    /**
      * Sync player data to the database (async). Called on disconnect.
      * Reads all per-player data from the ECS component.
      */
@@ -74,24 +62,6 @@ public class DatabaseInitializer {
                 var state = comp.getBountyState();
                 if (state != null) {
                     bountyJson = serializeBountyState(state);
-                }
-            }
-
-            // Void pocket
-            String voidPocketJson = null;
-            if (comp != null) {
-                var voidPocket = comp.getVoidPocketData();
-                if (voidPocket.getOccupiedCount() > 0) {
-                    voidPocketJson = serializeVoidPocket(voidPocket);
-                }
-            }
-
-            // Gauntlet best wave (still from global leaderboard config)
-            int bestWave = 0;
-            for (var entry : this.gauntletLeaderboard.get().getTop(100)) {
-                if (uuid.equals(entry.getPlayerUuid())) {
-                    bestWave = Math.max(bestWave, entry.getWave());
-                    break;
                 }
             }
 
@@ -126,13 +96,8 @@ public class DatabaseInitializer {
             int comboPersonalBest = comp != null ? comp.getComboPersonalBest() : 0;
 
             databaseSyncService.syncAsync(new PlayerDataSnapshot(
-                    uuid, username, bountyJson, voidPocketJson, bestWave,
+                    uuid, username, bountyJson,
                     achievementJson, bestiaryJson, accessoryPouchJson, comboPersonalBest));
-
-            // Also update leaderboard if player has a gauntlet score
-            if (bestWave > 0) {
-                databaseSyncService.updateLeaderboardAsync(uuid, username, bestWave);
-            }
         } catch (Exception e) {
             plugin.getLogger().atFine().log("[Database] Failed to build snapshot for %s: %s", uuid, e.getMessage());
         }
@@ -210,18 +175,6 @@ public class DatabaseInitializer {
             sb.append("{\"id\":\"").append(pouch.getItemId(i))
               .append("\",\"n\":").append(pouch.getCount(i))
               .append(",\"d\":").append(pouch.getDurability(i)).append("}");
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
-    private String serializeVoidPocket(VoidPocketData vp) {
-        var sb = new StringBuilder("[");
-        for (int i = 0; i < VoidPocketData.MAX_SLOTS; i++) {
-            if (i > 0) sb.append(",");
-            sb.append("{\"id\":\"").append(vp.getItemId(i))
-              .append("\",\"n\":").append(vp.getCount(i))
-              .append(",\"d\":").append(vp.getDurability(i)).append("}");
         }
         sb.append("]");
         return sb.toString();

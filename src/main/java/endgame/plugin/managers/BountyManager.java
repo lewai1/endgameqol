@@ -37,7 +37,10 @@ public class BountyManager {
     private static final long WEEK_MS = 7 * 24 * HOUR_MS;
 
     private final EndgameQoL plugin;
-    private final ConcurrentHashMap<UUID, PlayerEndgameComponent> components = new ConcurrentHashMap<>();
+    // Track active player UUIDs (components are always resolved fresh via
+    // plugin.getPlayerComponent to survive archetype migration — storing direct
+    // refs here would go stale when the ECS archetype changes under a player).
+    private final java.util.Set<UUID> activePlayers = java.util.concurrent.ConcurrentHashMap.newKeySet();
 
     public BountyManager(EndgameQoL plugin) {
         this.plugin = plugin;
@@ -45,7 +48,7 @@ public class BountyManager {
 
 
     public void onPlayerConnect(UUID playerUuid, PlayerEndgameComponent comp) {
-        components.put(playerUuid, comp);
+        activePlayers.add(playerUuid);
     }
 
     /**
@@ -55,10 +58,8 @@ public class BountyManager {
         EndgameConfig config = plugin.getConfig().get();
         if (!config.isBountyEnabled()) return null;
 
-        PlayerEndgameComponent comp = components.get(playerUuid);
-        if (comp == null) {
-            comp = plugin.getPlayerComponent(playerUuid);
-        }
+        // Always resolve component fresh — archetype migration invalidates cached refs
+        PlayerEndgameComponent comp = plugin.getPlayerComponent(playerUuid);
         if (comp == null) return null;
         PlayerBountyState state = comp.getBountyState();
 
@@ -523,10 +524,12 @@ public class BountyManager {
      */
     public int forceRefreshAll() {
         int count = 0;
-        for (Map.Entry<UUID, PlayerEndgameComponent> entry : components.entrySet()) {
-            PlayerBountyState state = entry.getValue().getBountyState();
-            generateBounties(entry.getKey(), state);
-            generateWeeklyBounty(entry.getKey(), state);
+        for (UUID uuid : activePlayers) {
+            PlayerEndgameComponent comp = plugin.getPlayerComponent(uuid);
+            if (comp == null) continue;
+            PlayerBountyState state = comp.getBountyState();
+            generateBounties(uuid, state);
+            generateWeeklyBounty(uuid, state);
             count++;
         }
         LOGGER.atFine().log("[Bounty] Admin forced refresh for all %d cached players", count);
@@ -537,7 +540,7 @@ public class BountyManager {
      * Get the number of players with cached bounty state.
      */
     public int getCachedPlayerCount() {
-        return components.size();
+        return activePlayers.size();
     }
 
     /**
@@ -545,7 +548,7 @@ public class BountyManager {
      */
     public void onPlayerDisconnect(UUID playerUuid) {
         if (playerUuid == null) return;
-        components.remove(playerUuid);
+        activePlayers.remove(playerUuid);
     }
 
 
@@ -634,7 +637,6 @@ public class BountyManager {
                 ComboMeterManager combo = plugin.getComboMeterManager();
                 yield combo != null && combo.getComboTier(playerUuid) >= 4;
             }
-            case DURING_GAUNTLET -> false; // Gauntlet disabled
             case AT_FULL_HP -> isPlayerAtFullHP(playerUuid);
             default -> false;
         };

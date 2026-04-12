@@ -50,7 +50,6 @@ public class ComboMeterManager {
         volatile boolean hudActive = false;
         int personalBest = 0;
         boolean newRecord = false;
-        float comboTimerBonusSeconds = 0;
 
         ComboState(UUID playerUuid) {
             this.playerUuid = playerUuid;
@@ -191,7 +190,7 @@ public class ComboMeterManager {
 
     /**
      * Tick to check for expired combos and manage HUD lifecycle.
-     * Called periodically from GauntletTickSystem (200ms interval).
+     * Called periodically (200ms interval).
      */
     public void tick() {
         if (playerStates.isEmpty()) return;
@@ -204,6 +203,8 @@ public class ComboMeterManager {
             Map.Entry<UUID, ComboState> entry = iterator.next();
             ComboState state = entry.getValue();
 
+            // Decide what needs to happen inside the lock, then execute HUD rebuilds outside it
+            boolean needsRebuild = false;
             synchronized (state) {
                 long timerMs = getEffectiveTimerMs(state, config);
 
@@ -222,7 +223,7 @@ public class ComboMeterManager {
                         state.lastKillTime = now;
 
                         if (newTier > 0) {
-                            rebuildHud(state);
+                            needsRebuild = true;
                             LOGGER.atFine().log("[Combo] Player %s decayed to tier %d", entry.getKey(), newTier);
                         } else {
                             endCombo(state, iterator);
@@ -231,6 +232,12 @@ public class ComboMeterManager {
                         endCombo(state, iterator);
                     }
                 }
+            }
+
+            // HUD rebuild outside the state lock (rebuildHud may internally lock again
+            // to re-acquire state — calling it outside avoids re-entrant locking fragility)
+            if (needsRebuild) {
+                rebuildHud(state);
             }
         }
     }
@@ -246,7 +253,6 @@ public class ComboMeterManager {
         }
         state.comboCount = 0;
         state.comboTier = 0;
-        state.comboTimerBonusSeconds = 0;
         hideHud(state);
         iterator.remove();
     }
@@ -400,33 +406,8 @@ public class ComboMeterManager {
         }
     }
 
-    /**
-     * Add per-player combo timer bonus (e.g., from Gauntlet COMBO_SURGE buff).
-     * Stacks additively with each call.
-     */
-    public void addComboTimerBonus(UUID playerUuid, float bonusSeconds) {
-        ComboState state = playerStates.computeIfAbsent(playerUuid, ComboState::new);
-        synchronized (state) {
-            state.comboTimerBonusSeconds += bonusSeconds;
-        }
-    }
-
-    /**
-     * Reset per-player combo timer bonus (called when gauntlet ends).
-     */
-    public void resetComboTimerBonus(UUID playerUuid) {
-        ComboState state = playerStates.get(playerUuid);
-        if (state != null) {
-            synchronized (state) {
-                state.comboTimerBonusSeconds = 0;
-            }
-        }
-    }
-
     private long getEffectiveTimerMs(ComboState state, EndgameConfig config) {
-        // Must be called while holding synchronized(state) or from a safe context
-        float bonus = state.comboTimerBonusSeconds;
-        return (long) ((config.getComboTimerSeconds() + bonus) * 1000);
+        return (long) (config.getComboTimerSeconds() * 1000);
     }
 
     private boolean isExpired(ComboState state, EndgameConfig config) {
@@ -542,11 +523,6 @@ public class ComboMeterManager {
     }
 
     private PlayerRef findPlayerRef(UUID playerUuid) {
-        for (PlayerRef pRef : Universe.get().getPlayers()) {
-            if (pRef != null && playerUuid.equals(endgame.plugin.utils.EntityUtils.getUuid(pRef))) {
-                return pRef;
-            }
-        }
-        return null;
+        return endgame.plugin.utils.PlayerRefCache.getByUuid(playerUuid);
     }
 }

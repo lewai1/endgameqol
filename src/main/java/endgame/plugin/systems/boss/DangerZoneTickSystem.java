@@ -22,9 +22,6 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.math.vector.Vector3d;
 import endgame.plugin.EndgameQoL;
-import endgame.plugin.systems.weapon.DaggerVanishSystem;
-import endgame.plugin.systems.weapon.PrismaManaCostSystem;
-import endgame.plugin.systems.weapon.PrismaMirageSystem;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -77,11 +74,6 @@ public class DangerZoneTickSystem extends EntityTickingSystem<EntityStore> {
     private final ConcurrentHashMap<Store<EntityStore>, Long> lastBossTickTimes = new ConcurrentHashMap<>();
     private static final long BOSS_TICK_INTERVAL_MS = 200;
 
-    // Weapon system references for periodic cleanup (set after registration via wireCleanupReferences)
-    private volatile DaggerVanishSystem daggerVanishSystem;
-    private volatile PrismaManaCostSystem prismaManaCostSystem;
-    private volatile PrismaMirageSystem prismaMirageSystem;
-
 
     // Query for players with transform and stats
     private static final Query<EntityStore> QUERY = Query.and(
@@ -97,16 +89,6 @@ public class DangerZoneTickSystem extends EntityTickingSystem<EntityStore> {
         this.enrageTracker = enrageTracker;
         plugin.getLogger().atFine().log("[DangerZoneTickSystem] Initialized (radius: %.1f, damage: %.1f)",
                 DANGER_ZONE_RADIUS, TICK_DAMAGE);
-    }
-
-    /**
-     * Set weapon system references for periodic cleanup.
-     */
-    public void setWeaponSystems(DaggerVanishSystem dagger, PrismaManaCostSystem manaCost, PrismaMirageSystem mirage) {
-        this.daggerVanishSystem = dagger;
-        this.prismaManaCostSystem = manaCost;
-        this.prismaMirageSystem = mirage;
-        plugin.getLogger().atFine().log("[DangerZoneTickSystem] Weapon systems wired for cleanup");
     }
 
     @Override
@@ -323,14 +305,6 @@ public class DangerZoneTickSystem extends EntityTickingSystem<EntityStore> {
                     innerMap.keySet().removeIf(ref -> !ref.isValid()));
             genericBossBarState.values().removeIf(Map::isEmpty);
         }
-
-        // Periodic cleanup of expired/invalid void marks (prevents unbounded accumulation)
-        endgame.plugin.utils.VoidMarkTracker.getInstance().cleanup();
-
-        // Weapon system stale entry cleanup (prevents memory leaks on long-running servers)
-        if (daggerVanishSystem != null) daggerVanishSystem.cleanupStaleEntries(now);
-        if (prismaManaCostSystem != null) prismaManaCostSystem.cleanupStaleEntries(now);
-        if (prismaMirageSystem != null) prismaMirageSystem.cleanupStaleEntries(now);
 
         // EndgameSpawnNPC interaction stale caster cleanup
         endgame.plugin.systems.npc.EndgameSpawnNPCInteraction.cleanupStaleEntries();

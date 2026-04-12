@@ -1,0 +1,195 @@
+{
+  "Type": "StatsCondition",
+  "Costs": {
+    "SignatureEnergy": 100
+  },
+  "ValueType": "Percent",
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "Simple",
+        "RunTime": 0.4,
+        "Effects": {
+          "ItemAnimationId": "RazorstrikeSweep",
+          "WorldSoundEventId": "SFX_Daggers_T2_Signature_P3",
+          "LocalSoundEventId": "SFX_Daggers_T2_Signature_P3_Local",
+          "Particles": [
+            {
+              "SystemId": "Daggers_Signature_Dash",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 2.0
+            }
+          ]
+        }
+      },
+      {
+        "Type": "Selector",
+        "RunTime": 0.05,
+        "Effects": {
+          "ItemAnimationId": "RazorstrikeSweep",
+          "WorldSoundEventId": "SFX_Daggers_T2_Signature_P3",
+          "Particles": [
+            {
+              "SystemId": "Impact_Critical",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 2.0
+            }
+          ]
+        },
+        "Selector": {
+          "Id": "AOECircle",
+          "Range": 5
+        },
+        "HitEntity": {
+          "Interactions": [
+            {
+              "Type": "DamageEntity",
+              "Parent": "DamageEntityParent",
+              "DamageCalculator": {
+                "BaseDamage": {
+                  "Physical": 80
+                },
+                "Type": "Absolute"
+              },
+              "DamageEffects": {
+                "WorldSoundEventId": "SFX_Daggers_T2_Slash_Impact",
+                "WorldParticles": [
+                  {
+                    "SystemId": "Impact_Critical",
+                    "Scale": 1
+                  }
+                ],
+                "Knockback": {
+                  "Type": "Point",
+                  "Force": 12,
+                  "VelocityType": "Add",
+                  "VelocityConfig": {
+                    "AirResistance": 0.99,
+                    "AirResistanceMax": 0.98,
+                    "GroundResistance": 0.94,
+                    "GroundResistanceMax": 0.82,
+                    "Threshold": 3.0,
+                    "Style": "Linear"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 0.2
+      },
+      {
+        "Type": "Selector",
+        "RunTime": 0.05,
+        "Effects": {
+          "Particles": [
+            {
+              "SystemId": "Impact_Critical",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 2.0
+            }
+          ]
+        },
+        "Selector": {
+          "Id": "AOECircle",
+          "Range": 5
+        },
+        "HitEntity": {
+          "Interactions": [
+            {
+              "Type": "DamageEntity",
+              "Parent": "DamageEntityParent",
+              "DamageCalculator": {
+                "BaseDamage": {
+                  "Physical": 80
+                },
+                "Type": "Absolute"
+              },
+              "DamageEffects": {
+                "WorldSoundEventId": "SFX_Daggers_T2_Slash_Impact",
+                "WorldParticles": [
+                  {
+                    "SystemId": "Impact_Critical",
+                    "Scale": 1
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 0.2
+      },
+      {
+        "Type": "Selector",
+        "RunTime": 0.05,
+        "Effects": {
+          "Particles": [
+            {
+              "SystemId": "Impact_Critical",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 3.0
+            }
+          ]
+        },
+        "Selector": {
+          "Id": "AOECircle",
+          "Range": 5
+        },
+        "HitEntity": {
+          "Interactions": [
+            {
+              "Type": "DamageEntity",
+              "Parent": "DamageEntityParent",
+              "DamageCalculator": {
+                "BaseDamage": {
+                  "Physical": 80
+                },
+                "Type": "Absolute"
+              },
+              "DamageEffects": {
+                "WorldSoundEventId": "SFX_Daggers_T2_Slash_Impact",
+                "WorldParticles": [
+                  {
+                    "SystemId": "Impact_Critical",
+                    "Scale": 2
+                  }
+                ],
+                "Knockback": {
+                  "Type": "Point",
+                  "Force": 15,
+                  "VelocityType": "Add",
+                  "VelocityConfig": {
+                    "AirResistance": 0.99,
+                    "AirResistanceMax": 0.98,
+                    "GroundResistance": 0.94,
+                    "GroundResistanceMax": 0.82,
+                    "Threshold": 3.0,
+                    "Style": "Linear"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Type": "ChangeStat",
+        "StatModifiers": {
+          "SignatureEnergy": -100
+        },
+        "ValueType": "Percent"
+      }
+    ]
+  }
+}

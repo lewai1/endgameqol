@@ -164,14 +164,14 @@ items.Build_Lightsource_Plum.name = Luz Ameixa
 items.Endgame_Accessory_Pouch.name = Bolsa de Amuletos
 items.Endgame_Accessory_Pouch.description = Uma bolsa reforcada feita com os melhores materiais do endgame. Comporta ate <color is="#FFD700">5 acessorios</color> que concedem bonus passivos de combate.\n<color is="#b8860b">Clique Direito</color> para abrir.
 items.Endgame_Accessory_Frostwalkers.name = Caminhantes de Gelo
-items.Endgame_Accessory_Frostwalkers.description = Botas imbuidas com magia de gelo, congelando a agua sob os pes do portador.\n<color is="#05c09a">Efeito:</color> <color is="#66ccff">Andar sobre a agua (gelo derrete apos 3s)</color>
+items.Endgame_Accessory_Frostwalkers.description = <color is="#b8860b">Acessorio — guardar na bolsa de bugigangas</color>\nBotas imbuidas com magia de gelo, congelando a agua sob os pes do portador.\n<color is="#05c09a">Efeito:</color> <color is="#66ccff">Andar sobre a agua (gelo derrete apos 3s)</color>
 items.Endgame_Accessory_Ocean_Striders.name = Passos do Oceano
-items.Endgame_Accessory_Ocean_Striders.description = Nadadeiras encantadas abencoadas pelo mar, propulsionando o portador pela agua em velocidade incrivel.\n<color is="#05c09a">Efeito:</color> <color is="#00BFFF">2x velocidade de nado na agua</color>
+items.Endgame_Accessory_Ocean_Striders.description = <color is="#b8860b">Acessorio — guardar na bolsa de bugigangas</color>\nNadadeiras encantadas abencoadas pelo mar, propulsionando o portador pela agua em velocidade incrivel.\n<color is="#05c09a">Efeito:</color> <color is="#00BFFF">2x velocidade de nado na agua</color>
 items.Endgame_Accessory_Void_Amulet.name = Amuleto do Vazio
-items.Endgame_Accessory_Void_Amulet.description = Um amuleto pulsando com energia do vazio. Quando um golpe fatal atingi-lo, sobreviva com 1 HP e 3 segundos de invulnerabilidade.\n<color is="#05c09a">Efeito:</color> <color is="#800080">Enganar a morte (5min CD)</color>
+items.Endgame_Accessory_Void_Amulet.description = <color is="#b8860b">Acessorio — guardar na bolsa de bugigangas</color>\nUm amuleto pulsando com energia do vazio. Quando um golpe fatal atingi-lo, sobreviva com 1 HP e 3 segundos de invulnerabilidade.\n<color is="#05c09a">Efeito:</color> <color is="#800080">Enganar a morte (5min CD)</color>
 items.Endgame_Accessory_Blazefist.name = Punho Flamejante
-items.Endgame_Accessory_Blazefist.description = Um punho forjado em fogo de dragao, incendiando todos que ousam ficar perto do seu alvo.\n<color is="#05c09a">Efeito:</color> <color is="#ff5555">Queimadura no alvo + fogo AOE 3m</color>
+items.Endgame_Accessory_Blazefist.description = <color is="#b8860b">Acessorio — guardar na bolsa de bugigangas</color>\nUm punho forjado em fogo de dragao, incendiando todos que ousam ficar perto do seu alvo.\n<color is="#05c09a">Efeito:</color> <color is="#ff5555">Queimadura no alvo + fogo AOE 3m</color>
 items.Endgame_Accessory_Pocket_Garden.name = Jardim de Bolso
-items.Endgame_Accessory_Pocket_Garden.description = Um amuleto vivo contendo um jardim em miniatura que irradia energia curativa.\n<color is="#05c09a">Efeito:</color> <color is="#2E8B57">+1 HP/seg de regeneracao passiva</color>
+items.Endgame_Accessory_Pocket_Garden.description = <color is="#b8860b">Acessorio — guardar na bolsa de bugigangas</color>\nUm amuleto vivo contendo um jardim em miniatura que irradia energia curativa.\n<color is="#05c09a">Efeito:</color> <color is="#2E8B57">+1 HP/seg de regeneracao passiva</color>
 items.Endgame_Accessory_Hedera_Seed.name = Semente de Hedera
-items.Endgame_Accessory_Hedera_Seed.description = Uma semente adormecida de Hedera, retaliando contra aqueles que ousam ferir seu portador com raizes envolventes.\n<color is="#05c09a">Efeito:</color> <color is="#2E8B57">15% de chance de enraizar o atacante por 2s</color>
+items.Endgame_Accessory_Hedera_Seed.description = <color is="#b8860b">Acessorio — guardar na bolsa de bugigangas</color>\nUma semente adormecida de Hedera, retaliando contra aqueles que ousam ferir seu portador com raizes envolventes.\n<color is="#05c09a">Efeito:</color> <color is="#2E8B57">15% de chance de enraizar o atacante por 2s</color>

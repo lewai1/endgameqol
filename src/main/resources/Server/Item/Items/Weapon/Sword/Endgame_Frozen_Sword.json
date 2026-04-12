@@ -162,71 +162,6 @@
         }
       ]
     },
-    "Vortexstrike_Spin_Damage": {
-      "Interactions": [
-        {
-          "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Damage",
-          "DamageCalculator": {
-            "BaseDamage": {
-              "Physical": 28,
-              "Ice": 22
-            }
-          },
-          "EntityStatsOnHit": [],
-          "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact",
-            "WorldParticles": [
-              {
-                "SystemId": "Impact_Sword_Basic"
-              },
-              {
-                "SystemId": "Impact_Ice"
-              }
-            ]
-          },
-          "Next": {
-            "Type": "ApplyEffect",
-            "EffectId": "Endgame_Frost_Chill",
-            "Entity": "Target"
-          }
-        }
-      ]
-    },
-    "Vortexstrike_Stab_Damage": {
-      "Interactions": [
-        {
-          "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Damage",
-          "DamageCalculator": {
-            "BaseDamage": {
-              "Physical": 75,
-              "Ice": 55
-            }
-          },
-          "EntityStatsOnHit": [],
-          "DamageEffects": {
-            "WorldSoundEventId": "SFX_Ice_Ball_Death",
-            "LocalSoundEventId": "SFX_Ice_Ball_Death",
-            "WorldParticles": [
-              {
-                "SystemId": "Impact_Sword_Basic"
-              },
-              {
-                "SystemId": "Impact_Ice"
-              },
-              {
-                "SystemId": "IceBall_Explosion"
-              }
-            ]
-          },
-          "Next": {
-            "Type": "ApplyEffect",
-            "EffectId": "Endgame_Frost_Frozen",
-            "Entity": "Target"
-          }
-        }
-      ]
-    },
     "Guard_Wield": {
       "Interactions": [
         {
@@ -257,6 +192,10 @@
         }
       ]
     }
+  },
+  "Interactions": {
+    "Ability1": "Root_Endgame_Frozen_Sword_Blizzard",
+    "Ability3": "Root_Endgame_Frozen_Sword_IceField"
   },
   "MaxDurability": 240,
   "DurabilityLossOnHit": 0.21,

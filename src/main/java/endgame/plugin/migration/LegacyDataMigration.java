@@ -12,8 +12,6 @@ import endgame.plugin.config.BestiaryData.PlayerBestiaryState;
 import endgame.plugin.config.BountyData;
 import endgame.plugin.config.BountyData.PlayerBountyState;
 import endgame.plugin.config.PlayerLocaleStorage;
-import endgame.plugin.config.VoidPocketData;
-import endgame.plugin.config.VoidPocketStorage;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -37,7 +35,6 @@ public class LegacyDataMigration {
     private final Config<AchievementData> achievementData;
     private final Config<BestiaryData> bestiaryData;
     private final Config<BountyData> bountyData;
-    private final Config<VoidPocketStorage> voidPocketConfig;
     private final Config<AccessoryPouchStorage> accessoryPouchConfig;
     private final Config<PlayerLocaleStorage> playerLocaleConfig;
     private final AtomicInteger migratedCount = new AtomicInteger(0);
@@ -45,25 +42,22 @@ public class LegacyDataMigration {
     public LegacyDataMigration(Config<AchievementData> achievementData,
                                Config<BestiaryData> bestiaryData,
                                Config<BountyData> bountyData,
-                               Config<VoidPocketStorage> voidPocketConfig,
                                Config<AccessoryPouchStorage> accessoryPouchConfig,
                                Config<PlayerLocaleStorage> playerLocaleConfig) {
         this.achievementData = achievementData;
         this.bestiaryData = bestiaryData;
         this.bountyData = bountyData;
-        this.voidPocketConfig = voidPocketConfig;
         this.accessoryPouchConfig = accessoryPouchConfig;
         this.playerLocaleConfig = playerLocaleConfig;
     }
 
     /**
      * Check if there's any legacy data loaded (i.e., old config files exist).
-     * Quick heuristic: check if bounty, void pocket, or accessory data has entries.
+     * Quick heuristic: check if bounty or accessory data has entries.
      */
     public boolean hasLegacyData() {
         try {
             if (bountyData != null && !bountyData.get().getPlayers().isEmpty()) return true;
-            if (voidPocketConfig != null && !voidPocketConfig.get().getAllVoidPockets().isEmpty()) return true;
             if (accessoryPouchConfig != null && !accessoryPouchConfig.get().getAllAccessoryPouches().isEmpty()) return true;
             // Achievement/Bestiary don't expose iteration, but if the above have data, migration is needed
         } catch (Exception e) {
@@ -122,19 +116,6 @@ public class LegacyDataMigration {
             }
         } catch (Exception e) {
             LOGGER.atWarning().log("[Migration] Failed to migrate bounties for %s: %s", uuid, e.getMessage());
-        }
-
-        // Void Pocket
-        try {
-            if (voidPocketConfig != null) {
-                VoidPocketData vpData = voidPocketConfig.get().getAllVoidPockets().get(uuid);
-                if (vpData != null) {
-                    comp.setVoidPocketData(vpData);
-                    migrated = true;
-                }
-            }
-        } catch (Exception e) {
-            LOGGER.atWarning().log("[Migration] Failed to migrate void pocket for %s: %s", uuid, e.getMessage());
         }
 
         // Accessory Pouch

@@ -1,0 +1,11 @@
+{
+  "Interactions": [
+    "Endgame_Sword_Prisma_Beam"
+  ],
+  "Tags": {
+    "Attack": [
+      "Ranged"
+    ]
+  },
+  "RequireNewClick": true
+}

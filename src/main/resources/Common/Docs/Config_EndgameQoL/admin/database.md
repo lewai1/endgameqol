@@ -25,8 +25,6 @@ EndgameQoL stores all per-player data in <#55ff55>ECS components</#55ff55> that 
 
 <#aaaaaa>Combo Personal Best</#aaaaaa> — Highest kill streak record (never decreases)
 
-<#aaaaaa>Gauntlet Best Wave</#aaaaaa> — Highest gauntlet wave reached (never decreases)
-
 !! Not synced: Server config, difficulty settings, recipe overrides, and player language — these stay in local JSON files.
 
 ---
@@ -37,7 +35,7 @@ Data is saved to the database <#55ffff>when a player disconnects</#55ffff>. Ther
 
 On <#55ffff>server shutdown</#55ffff>, the plugin waits up to 5 seconds for any pending writes to complete before stopping.
 
-!v Personal bests are protected: Combo and Gauntlet best scores use a "max" comparison in SQL — a lower value will <#ff5555>never</#ff5555> overwrite a higher one, even if the player disconnects mid-run.
+!v Personal best is protected: Combo best scores use a "max" comparison in SQL — a lower value will <#ff5555>never</#ff5555> overwrite a higher one, even if the player disconnects mid-run.
 
 ---
 
@@ -219,25 +217,11 @@ One row per player. Stores all synced features as JSON blobs.
 
 <#aaaaaa>accessory_pouch</#aaaaaa> — Trinket Pouch JSON
 
-<#aaaaaa>gauntlet_best_wave</#aaaaaa> — Best gauntlet wave (integer)
-
 <#aaaaaa>combo_personal_best</#aaaaaa> — Best combo streak (integer)
 
 <#55ffff>last_updated</#55ffff> — Timestamp of last save
 
-### Endgame_Leaderboard
-
-Gauntlet wave leaderboard. One row per player.
-
-<#55ffff>player_uuid</#55ffff> — Player UUID (primary key)
-
-<#55ffff>player_name</#55ffff> — Display name at time of record
-
-<#55ffff>best_wave</#55ffff> — Best wave reached (indexed for fast sorting)
-
-<#55ffff>timestamp</#55ffff> — When the record was set
-
-> Both tables use <#55ff55>CREATE TABLE IF NOT EXISTS</#55ff55> — safe to run every startup. Columns added in v4.0.0 are automatically migrated via ALTER TABLE.
+> The <#55ff55>Endgame_PlayerData</#55ff55> table uses <#55ff55>CREATE TABLE IF NOT EXISTS</#55ff55> — safe to run every startup. Columns added in v4.0.0 are automatically migrated via ALTER TABLE.
 
 ---
 

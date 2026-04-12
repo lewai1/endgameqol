@@ -19,10 +19,9 @@ import endgame.plugin.EndgameQoL;
 import endgame.plugin.config.EndgameConfig;
 import endgame.plugin.config.RecipeOverrideConfig;
 import endgame.plugin.managers.BountyManager;
-import endgame.plugin.managers.GauntletManager;
 import endgame.plugin.managers.boss.GenericBossManager;
 import endgame.plugin.managers.boss.GolemVoidBossManager;
-import endgame.plugin.systems.trial.WardenTrialManager;
+import endgame.wavearena.WaveArenaEngine;
 
 import javax.annotation.Nonnull;
 import java.util.Map;
@@ -121,22 +120,15 @@ public class NativeStatusPage extends InteractiveCustomUIPage<NativeStatusPage.S
         int totalBosses = golemCount + genericCount;
         setEncounter(cmd, "#Bosses", totalBosses, totalBosses > 0 ? golemCount + " Golem, " + genericCount + " Other" : null);
 
-        GauntletManager gauntletMgr = plugin.getGauntletManager();
-        setEncounter(cmd, "#Gauntlets", gauntletMgr != null ? gauntletMgr.getActiveGauntletCount() : 0, null);
-
-        WardenTrialManager trialMgr = plugin.getWardenTrialManager();
-        setEncounter(cmd, "#Trials", trialMgr != null ? trialMgr.getActiveTrialCount() : 0, null);
+        WaveArenaEngine waveEngine = plugin.getWaveArenaEngine();
+        setEncounter(cmd, "#Trials", waveEngine != null ? waveEngine.getActiveSessionCount() : 0, null);
 
         // Stats
         BountyManager bountyMgr = plugin.getBountyManager();
         cmd.set("#BountyPlayers.Text", (bountyMgr != null ? bountyMgr.getCachedPlayerCount() : 0) + " cached");
-        int lbEntries = 0;
-        if (plugin.getGauntletLeaderboard() != null) lbEntries = plugin.getGauntletLeaderboard().get().getEntryCount();
-        cmd.set("#Leaderboard.Text", lbEntries + " entries");
 
         // Features
         setFeature(cmd, "Combo", config.isComboEnabled());
-        setFeature(cmd, "Gauntlet", config.isGauntletEnabled());
         setFeature(cmd, "Bounty", config.isBountyEnabled());
         setFeature(cmd, "Warden", config.isWardenTrialEnabled());
         setFeature(cmd, "Pvp", config.isPvpEnabled());

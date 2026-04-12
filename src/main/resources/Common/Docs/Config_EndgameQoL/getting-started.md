@@ -49,7 +49,7 @@ Open the config UI with <#55ffff>/eg config</#55ffff> (requires <#aaaaaa>endgame
 | **Difficulty** | Preset (Easy/Medium/Hard/Extreme) or custom multipliers |
 | **Scaling** | Per-boss HP, damage, player scaling, enrage (sub-tabs: Bosses, Mobs, Zone 4) |
 | **Integration** | RPG Leveling, Endless Leveling, OrbisGuard toggles |
-| **Weapons** | Hedera poison/lifesteal, Prisma clones, Void Mark, blink mode |
+| **Weapons** | Hedera poison/lifesteal, Blazefist burn (Prisma abilities are data-driven in JSON, no runtime toggle) |
 | **Armor** | Mana regen per tier, HP regen, system toggles |
 | **Crafting** | Enable/disable specific recipes (glider, portal keys, Mithril Ore) |
 | **Misc** | PvP toggle, dungeon block protection, boss target switch, combo meter |

@@ -20,34 +20,55 @@ Legendary weapons with unique signature abilities, passives, and special effects
 
 *Legendary*
 
-The pinnacle sword. Signature attack **Vortexstrike** performs an AOE spin that hits all nearby enemies. Summons **2 Prisma Mirage clones** that fight alongside you for 5 seconds (15s cooldown). All attacks apply Prisma Resonance slow.
+The pinnacle sword. Heavy melee with two prismatic active abilities: a long-range AOE projectile (**Prismatic Beam**) and a devastating ground slam ultimate (**Prismatic Judgment**).
 
-| Stat         | Value                                      |
-|--------------|--------------------------------------------|
-| Signature    | **Vortexstrike** (AOE spin, 2-hit)         |
-| Clone Summon | 2 Prisma Mirages, 5s duration, 15s cooldown |
-| Mana Cost    | -15                                        |
-| Damage Boost | **1.5x**                                   |
+| Attack slot   | Ability                                      | Cost           |
+|---------------|----------------------------------------------|----------------|
+| Primary       | Sword swings + thrust (vanilla chain)        | Stamina        |
+| Secondary     | Guard / block (vanilla)                      | Stamina        |
+| Ability1 (SIG)| **Prismatic Judgment** — ground slam         | 100 SE         |
+| Ability3      | **Prismatic Beam** — ranged projectile       | 80 Mana        |
 
-- **On-Hit Effect — Prisma Resonance:** 30% slow for 3s
-- **Signature Finisher — Prisma Shatter:** 60% slow for 4s
+**Base melee damage:** Swing 38–42 Physical, Swing Down 72, Thrust 105.
+
+#### Prismatic Beam (Ability3 — 80 Mana)
+Fires a fast prismatic projectile forward (~20 blocks range). On impact, triggers an AOE explosion in a 3-block radius. Hits the primary target plus any clustered enemies nearby.
+- **Damage:** 100 Physical direct + AOE
+- **Identity:** Ranged poke — complements the sword's melee kit.
+
+#### Prismatic Judgment (Signature — 100 Signature Energy)
+Raises the sword, then slams the ground in a massive 10-block radius AOE burst. Single devastating hit with crowd control.
+- **Damage:** 250 Physical single hit
+- **Knockup:** Force 22 straight up
+- **Debuff:** Applies **Prisma Shatter** (60% slow, 4s) on all hit targets
+- **Identity:** Melee nuke — the sword's ultimate, clears adds in a single press.
 
 ### Prisma Daggers
 
 *Legendary*
 
-Assassin-class daggers with **Vanish** (teleport behind the nearest Void Marked target, 2s invulnerability, 10s cooldown), **Blink** mode (12m forward dash), and **Void Mark** (execute targets below 25% HP for 3x damage). Signature **Razorstrike** is a devastating 3-hit combo.
+Assassin-class daggers. Fast multi-hit combat with a directional mobility skill (**Prisma Dash**) and a 360° omnidirectional burst ultimate (**Razor Storm**).
 
-| Stat         | Value                                       |
-|--------------|---------------------------------------------|
-| Signature    | **Razorstrike** (3-hit combo)               |
-| Vanish       | Teleport behind target, 2s invuln, 10s cd   |
-| Blink        | 12m forward dash                            |
-| Mana Cost    | -12                                         |
-| Damage Boost | **1.3x**                                    |
+| Attack slot   | Ability                                      | Cost           |
+|---------------|----------------------------------------------|----------------|
+| Primary       | Dagger swings + stabs + pounce (vanilla chain) | Stamina      |
+| Secondary     | Guard / block (vanilla)                      | Stamina        |
+| Ability1 (SIG)| **Razor Storm** — 3 chained AOE bursts       | 100 SE         |
+| Ability3      | **Prisma Dash** — lunge forward              | 60 Mana        |
 
-- **Mechanic — Vanish:** Teleport behind Void Marked target
-- **Passive — Void Mark Execution:** 3x damage on targets below 25% HP
+**Base melee damage:** Swing 15–19, Stab 48–62 (head crit 62–72), Pounce Sweep 125, Pounce Stab 152 (head 198). Backstab (180° angle) adds ~50% bonus on all primary hits.
+
+#### Prisma Dash (Ability3 — 60 Mana)
+Player lunges 10 blocks straight forward via an `ApplyForce` impulse. A Stab selector hits every entity along the dash path. Leaves a prismatic particle trail.
+- **Damage:** 80 Physical per entity hit in the line
+- **Knockback:** Force 8, direction Y+1 / Z−2
+- **Identity:** Directional mobility skill — gap closer, escape tool, multi-hit sweep.
+
+#### Razor Storm (Signature — 100 Signature Energy)
+Short charge (0.4s), then releases 3 chained AOECircle bursts around the player, spaced 0.2s apart (total duration ~0.6s). Each burst hits everything within 5 blocks.
+- **Damage:** 80 Physical × 3 bursts = **240 total**
+- **Knockback:** Radial (Type: Point) — pushes enemies outward. Last burst has increased force (15).
+- **Identity:** Omnidirectional AOE burst — complements Dash's line damage with a circular cleave.
 
 ### Hedera Daggers
 

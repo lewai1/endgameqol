@@ -39,7 +39,6 @@ public class BountyTemplate {
         NONE("", ""),
         COMBO_X3("combo_x3", "while at Combo x3+"),
         COMBO_FRENZY("combo_frenzy", "while maintaining FRENZY"),
-        DURING_GAUNTLET("during_gauntlet", "during a Gauntlet run"), // Kept for save compatibility
         AT_FULL_HP("at_full_hp", "at full HP");
 
         private final String id;
@@ -55,7 +54,7 @@ public class BountyTemplate {
 
         private static final Map<String, BonusType> BY_ID = Map.of(
                 "combo_x3", COMBO_X3, "combo_frenzy", COMBO_FRENZY,
-                "during_gauntlet", DURING_GAUNTLET, "at_full_hp", AT_FULL_HP);
+                "at_full_hp", AT_FULL_HP);
 
         public static BonusType fromId(String id) {
             return BY_ID.getOrDefault(id, NONE);

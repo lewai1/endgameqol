@@ -1,0 +1,32 @@
+{
+  "Appearance": "Fireball",
+  "PitchAdjustShot": true,
+  "SticksVertically": false,
+  "MuzzleVelocity": 150,
+  "TerminalVelocity": 200,
+  "Gravity": 0,
+  "Damage": 100,
+  "DeathEffectsOnHit": true,
+  "TimeToLive": 0.5,
+  "DeadTime": 0,
+  "DeadTimeMiss": 0,
+  "ImpactSlowdown": 0,
+  "DepthShot": 1,
+  "HitParticles": {
+    "SystemId": "Impact_Critical"
+  },
+  "DeathParticles": {
+    "SystemId": "Explosion_Medium"
+  },
+  "HorizontalCenterShot": 0.0,
+  "VerticalCenterShot": 0.0,
+  "HitSoundEventId": "SFX_Sword_T2_Impact",
+  "MissSoundEventId": "SFX_Sword_T2_Impact",
+  "ExplosionConfig": {
+    "EntityDamageRadius": 3,
+    "EntityDamage": 100,
+    "DamageEntities": true,
+    "DamageBlocks": false,
+    "EntityDamageFalloff": 0.3
+  }
+}

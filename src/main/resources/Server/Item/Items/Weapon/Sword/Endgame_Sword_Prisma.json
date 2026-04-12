@@ -168,98 +168,6 @@
         }
       ]
     },
-    "Vortexstrike_Spin_Damage": {
-      "Interactions": [
-        {
-          "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Damage",
-          "DamageCalculator": {
-            "BaseDamage": {
-              "Physical": 80
-            }
-          },
-          "EntityStatsOnHit": [],
-          "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact",
-            "Knockback": {
-              "Direction": {
-                "X": 0,
-                "Y": 1,
-                "Z": -2
-              },
-              "Type": "Force",
-              "Force": 4,
-              "VelocityType": "Set",
-              "VelocityConfig": {
-                "AirResistance": 0.99,
-                "AirResistanceMax": 0.98,
-                "GroundResistance": 0.94,
-                "GroundResistanceMax": 0.3,
-                "Threshold": 3.0,
-                "Style": "Linear"
-              }
-            },
-            "WorldParticles": [
-              {
-                "SystemId": "Impact_Critical",
-                "Scale": 2
-              }
-            ]
-          },
-          "Next": {
-            "Type": "ApplyEffect",
-            "EffectId": "Endgame_Prisma_Resonance",
-            "Entity": "Target"
-          }
-        }
-      ]
-    },
-    "Vortexstrike_Stab_Damage": {
-      "Interactions": [
-        {
-          "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Damage",
-          "DamageCalculator": {
-            "BaseDamage": {
-              "Physical": 230
-            }
-          },
-          "EntityStatsOnHit": [],
-          "DamageEffects": {
-            "WorldSoundEventId": "SFX_Sword_T2_Impact",
-            "LocalSoundEventId": "SFX_Sword_T2_Impact",
-            "Knockback": {
-              "Direction": {
-                "X": 0,
-                "Y": 1,
-                "Z": -3
-              },
-              "Type": "Force",
-              "Force": 8,
-              "VelocityType": "Set",
-              "VelocityConfig": {
-                "AirResistance": 0.99,
-                "AirResistanceMax": 0.98,
-                "GroundResistance": 0.94,
-                "GroundResistanceMax": 0.3,
-                "Threshold": 3.0,
-                "Style": "Linear"
-              }
-            },
-            "WorldParticles": [
-              {
-                "SystemId": "Impact_Critical",
-                "Scale": 3
-              }
-            ]
-          },
-          "Next": {
-            "Type": "ApplyEffect",
-            "EffectId": "Endgame_Prisma_Shatter",
-            "Entity": "Target"
-          }
-        }
-      ]
-    },
     "Guard_Wield": {
       "Interactions": [
         {
@@ -296,6 +204,10 @@
         }
       ]
     }
+  },
+  "Interactions": {
+    "Ability1": "Root_Endgame_Sword_Prisma_Judgment",
+    "Ability3": "Root_Endgame_Sword_Prisma_Beam"
   },
   "MaxDurability": 350,
   "DurabilityLossOnHit": 0.14,

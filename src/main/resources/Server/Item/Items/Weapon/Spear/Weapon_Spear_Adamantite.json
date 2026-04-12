@@ -104,8 +104,7 @@
       "Spear"
     ]
   },
-  "MaxDurability": 180,
-  "DurabilityLossOnHit": 0.21,
+  "MaxStack": 1,
   "Weapon": {},
   "ItemSoundSetId": "ISS_Weapons_Wood"
 }

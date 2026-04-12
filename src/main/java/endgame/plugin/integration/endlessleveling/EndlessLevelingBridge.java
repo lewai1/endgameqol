@@ -60,7 +60,7 @@ public class EndlessLevelingBridge {
     }
 
     /**
-     * Award arbitrary XP to a player (bounty, achievement, gauntlet, warden trial, etc.).
+     * Award arbitrary XP to a player (bounty, achievement, warden trial, etc.).
      */
     public void addXP(UUID playerUuid, int xp, String sourceName) {
         if (api == null || playerUuid == null || xp <= 0) return;

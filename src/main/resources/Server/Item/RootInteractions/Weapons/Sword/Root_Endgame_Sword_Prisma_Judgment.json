@@ -1,0 +1,11 @@
+{
+  "Interactions": [
+    "Endgame_Sword_Prisma_Judgment"
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  },
+  "RequireNewClick": true
+}

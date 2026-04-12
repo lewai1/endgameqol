@@ -31,8 +31,6 @@ public class MiscConfig {
                     (c, v) -> c.endlessLevelingAutoDetected = v != null ? v : "pending", c -> c.endlessLevelingAutoDetected).add()
             .append(new KeyedCodec<Float>("EndlessLevelingXpShareRange", Codec.FLOAT),
                     (c, v) -> c.setElXpShareRange(v != null ? v : 30.0f), c -> c.elXpShareRange).add()
-            .append(new KeyedCodec<Integer>("EndlessLevelingGauntletXpBase", Codec.INTEGER),
-                    (c, v) -> c.setElGauntletXpBase(v != null ? v : 50), c -> c.elGauntletXpBase).add()
             .append(new KeyedCodec<Integer>("EndlessLevelingWardenXpBase", Codec.INTEGER),
                     (c, v) -> c.setElWardenXpBase(v != null ? v : 150), c -> c.elWardenXpBase).add()
             .append(new KeyedCodec<Integer>("EndlessLevelingAchievementXp", Codec.INTEGER),
@@ -77,8 +75,6 @@ public class MiscConfig {
                     (c, v) -> c.frostDragonSpiritMaxCount = v != null ? Math.max(0, Math.min(10, v)) : 4, c -> c.frostDragonSpiritMaxCount).add()
             .append(new KeyedCodec<Integer>("FrostDragonNovaBoltCount", Codec.INTEGER),
                     (c, v) -> c.frostDragonNovaBoltCount = v != null ? Math.max(1, Math.min(20, v)) : 10, c -> c.frostDragonNovaBoltCount).add()
-            .append(new KeyedCodec<Float>("GauntletVampiricHealPercent", Codec.FLOAT),
-                    (c, v) -> c.gauntletVampiricHealPercent = v != null ? Math.max(0f, Math.min(0.5f, v)) : 0.05f, c -> c.gauntletVampiricHealPercent).add()
             .build();
 
     private boolean pvpEnabled = false;
@@ -91,7 +87,6 @@ public class MiscConfig {
     private boolean endlessLevelingEnabled = false;
     private String endlessLevelingAutoDetected = "pending";
     private float elXpShareRange = 30.0f;
-    private int elGauntletXpBase = 50;
     private int elWardenXpBase = 150;
     private int elAchievementXp = 50;
     private boolean orbisGuardEnabled = false;
@@ -113,8 +108,6 @@ public class MiscConfig {
     private long frostDragonNovaCooldownMs = 25000L;
     private int frostDragonSpiritMaxCount = 4;
     private int frostDragonNovaBoltCount = 10;
-    // Gauntlet
-    private float gauntletVampiricHealPercent = 0.05f;
 
     // === PVP ===
 
@@ -163,9 +156,6 @@ public class MiscConfig {
 
     public float getElXpShareRange() { return elXpShareRange; }
     public void setElXpShareRange(float r) { this.elXpShareRange = Math.max(5.0f, Math.min(100.0f, r)); }
-
-    public int getElGauntletXpBase() { return elGauntletXpBase; }
-    public void setElGauntletXpBase(int v) { this.elGauntletXpBase = Math.max(0, Math.min(500, v)); }
 
     public int getElWardenXpBase() { return elWardenXpBase; }
     public void setElWardenXpBase(int v) { this.elWardenXpBase = Math.max(0, Math.min(1000, v)); }
@@ -243,8 +233,4 @@ public class MiscConfig {
     public long getFrostDragonNovaCooldownMs() { return frostDragonNovaCooldownMs; }
     public int getFrostDragonSpiritMaxCount() { return frostDragonSpiritMaxCount; }
     public int getFrostDragonNovaBoltCount() { return frostDragonNovaBoltCount; }
-
-    // === GAUNTLET VAMPIRIC ===
-
-    public float getGauntletVampiricHealPercent() { return gauntletVampiricHealPercent; }
 }

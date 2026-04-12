@@ -1,8 +1,0 @@
-{
-  "Type": "Simple",
-  "RunTime": 0,
-  "Next": {
-    "Type": "EndgameStanceChange",
-    "TargetState": "Blink"
-  }
-}

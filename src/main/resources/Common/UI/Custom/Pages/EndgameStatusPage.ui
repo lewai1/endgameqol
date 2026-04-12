@@ -63,10 +63,6 @@ $C.@PageOverlay {
               Label #Bosses { Style: (FontSize: 11, TextColor: #4ade80, RenderBold: true, VerticalAlignment: Center); FlexWeight: 1; Text: "None"; }
             }
             Group { LayoutMode: Left; Anchor: (Height: 22);
-              Label { Style: (FontSize: 11, TextColor: #777777, VerticalAlignment: Center); Anchor: (Width: 100); Text: "Gauntlets"; }
-              Label #Gauntlets { Style: (FontSize: 11, TextColor: #4ade80, RenderBold: true, VerticalAlignment: Center); FlexWeight: 1; Text: "None"; }
-            }
-            Group { LayoutMode: Left; Anchor: (Height: 22);
               Label { Style: (FontSize: 11, TextColor: #777777, VerticalAlignment: Center); Anchor: (Width: 100); Text: "Warden Trials"; }
               Label #Trials { Style: (FontSize: 11, TextColor: #4ade80, RenderBold: true, VerticalAlignment: Center); FlexWeight: 1; Text: "None"; }
             }
@@ -78,10 +74,6 @@ $C.@PageOverlay {
             Group { LayoutMode: Left; Anchor: (Height: 22);
               Label { Style: (FontSize: 11, TextColor: #777777, VerticalAlignment: Center); Anchor: (Width: 100); Text: "Bounty Players"; }
               Label #BountyPlayers { Style: (FontSize: 11, TextColor: #c0c0c0, RenderBold: true, VerticalAlignment: Center); FlexWeight: 1; Text: "0"; }
-            }
-            Group { LayoutMode: Left; Anchor: (Height: 22);
-              Label { Style: (FontSize: 11, TextColor: #777777, VerticalAlignment: Center); Anchor: (Width: 100); Text: "Leaderboard"; }
-              Label #Leaderboard { Style: (FontSize: 11, TextColor: #c0c0c0, RenderBold: true, VerticalAlignment: Center); FlexWeight: 1; Text: "0 entries"; }
             }
           }
         }
@@ -97,12 +89,6 @@ $C.@PageOverlay {
               Group { Anchor: (Width: 6); }
               Label { Style: (FontSize: 11, TextColor: #bbbbbb, VerticalAlignment: Center); FlexWeight: 1; Text: "Combo Meter"; }
               Label #FeatCombo { Style: (FontSize: 11, TextColor: #4ade80, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 30); Text: "ON"; }
-            }
-            Group { LayoutMode: Left; Anchor: (Height: 24);
-              Group #DotGauntlet { Anchor: (Width: 8, Height: 8); Background: #ff4444; }
-              Group { Anchor: (Width: 6); }
-              Label { Style: (FontSize: 11, TextColor: #bbbbbb, VerticalAlignment: Center); FlexWeight: 1; Text: "Gauntlet"; }
-              Label #FeatGauntlet { Style: (FontSize: 11, TextColor: #ff4444, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 30); Text: "OFF"; }
             }
             Group { LayoutMode: Left; Anchor: (Height: 24);
               Group #DotBounty { Anchor: (Width: 8, Height: 8); Background: #4ade80; }

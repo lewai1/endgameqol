@@ -2,11 +2,11 @@ package endgame.plugin.utils;
 
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
-import com.hypixel.hytale.server.core.universe.Universe;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import endgame.plugin.EndgameQoL;
 import endgame.plugin.config.AccessoryPouchData;
@@ -57,13 +57,10 @@ public final class AccessoryUtils {
                                         @Nonnull String itemId,
                                         @Nonnull Store<EntityStore> store, @Nonnull Ref<EntityStore> playerRef) {
         try {
-            InventoryComponent.Hotbar hotbar = store.getComponent(playerRef, InventoryComponent.Hotbar.getComponentType());
-            InventoryComponent.Backpack backpack = store.getComponent(playerRef, InventoryComponent.Backpack.getComponentType());
-
-            boolean hasPouchInHotbar = hotbar != null && containsItem(hotbar.getInventory(), POUCH_ITEM_ID);
-            boolean hasPouchInBackpack = backpack != null && containsItem(backpack.getInventory(), POUCH_ITEM_ID);
-
-            if (!hasPouchInHotbar && !hasPouchInBackpack) {
+            // Use CombinedItemContainer to scan ALL inventory slots (hotbar + backpack)
+            // in a single pass — avoids issues with InventoryComponent.Backpack not resolving
+            CombinedItemContainer combined = InventoryComponent.getCombined(store, playerRef, InventoryComponent.HOTBAR_FIRST);
+            if (combined == null || !containsItem(combined, POUCH_ITEM_ID)) {
                 return false;
             }
 
@@ -118,25 +115,15 @@ public final class AccessoryUtils {
      * Check if the player has the Trinket Pouch item in their hotbar or backpack.
      */
     private static boolean playerHasPouchInInventory(@Nonnull UUID uuid) {
-        for (PlayerRef pr : Universe.get().getPlayers()) {
-            if (pr == null) continue;
-            UUID prUuid = EntityUtils.getUuid(pr);
-            if (!uuid.equals(prUuid)) continue;
+        PlayerRef pr = PlayerRefCache.getByUuid(uuid);
+        if (pr == null) return false;
 
-            Ref<EntityStore> ref = pr.getReference();
-            if (ref == null || !ref.isValid()) return false;
+        Ref<EntityStore> ref = pr.getReference();
+        if (ref == null || !ref.isValid()) return false;
 
-            Store<EntityStore> store = ref.getStore();
-
-            InventoryComponent.Hotbar hotbar = store.getComponent(ref, InventoryComponent.Hotbar.getComponentType());
-            InventoryComponent.Backpack backpack = store.getComponent(ref, InventoryComponent.Backpack.getComponentType());
-
-            boolean hasPouchInHotbar = hotbar != null && containsItem(hotbar.getInventory(), POUCH_ITEM_ID);
-            boolean hasPouchInBackpack = backpack != null && containsItem(backpack.getInventory(), POUCH_ITEM_ID);
-
-            return hasPouchInHotbar || hasPouchInBackpack;
-        }
-        return false;
+        Store<EntityStore> store = ref.getStore();
+        CombinedItemContainer combined = InventoryComponent.getCombined(store, ref, InventoryComponent.HOTBAR_FIRST);
+        return combined != null && containsItem(combined, POUCH_ITEM_ID);
     }
 
     private static boolean containsItem(ItemContainer container, String itemId) {

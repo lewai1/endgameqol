@@ -1,0 +1,29 @@
+{
+  "Id": "Portal_Wave_Arena",
+  "DisplayName": "Temporal Arena",
+  "DisplayColor": "#44cc66",
+  "WaveCount": 10,
+  "TimeLimitSeconds": 600,
+  "SpawnRadius": 8.0,
+  "IntervalSeconds": 5,
+  "CountdownSeconds": 5,
+  "RewardDropTable": "Endgame_Drop_Reward_25",
+  "XpReward": 30,
+  "XpSource": "WAVE_ARENA",
+  "XpPerWave": true,
+  "MobPool": [
+    {"Type": "Goblin_Scrapper", "Weight": 100, "MinWave": 1},
+    {"Type": "Skeleton_Archer", "Weight": 90, "MinWave": 1},
+    {"Type": "Skeleton_Soldier", "Weight": 80, "MinWave": 2},
+    {"Type": "Trork_Brawler", "Weight": 70, "MinWave": 3},
+    {"Type": "Skeleton_Ranger", "Weight": 60, "MinWave": 4},
+    {"Type": "Outlander_Marauder", "Weight": 50, "MinWave": 5},
+    {"Type": "Endgame_Saurian_Warrior", "Weight": 40, "MinWave": 6},
+    {"Type": "Endgame_Werewolf", "Weight": 30, "MinWave": 7},
+    {"Type": "Endgame_Goblin_Duke", "Weight": 15, "MinWave": 8, "Boss": true},
+    {"Type": "Alpha_Rex", "Weight": 10, "MinWave": 9, "Boss": true}
+  ],
+  "BaseCount": 4,
+  "CountScaling": 1.2,
+  "BossEveryN": 5
+}

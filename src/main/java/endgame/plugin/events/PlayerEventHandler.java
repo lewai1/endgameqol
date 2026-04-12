@@ -7,6 +7,7 @@ import endgame.plugin.EndgameQoL;
 import endgame.plugin.config.RecipeOverrideConfig;
 import endgame.plugin.managers.RecipeManager;
 import endgame.plugin.utils.I18n;
+import endgame.plugin.utils.PlayerRefCache;
 
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -35,6 +36,8 @@ public class PlayerEventHandler {
             if (entityRef == null || !entityRef.isValid()) return;
             for (PlayerRef pRef : Universe.get().getPlayers()) {
                 if (pRef != null && entityRef.equals(pRef.getReference())) {
+                    // Populate reverse lookup cache (O(1) lookups in hot paths)
+                    PlayerRefCache.register(pRef);
                     RecipeManager.syncRecipesToPlayer(pRef);
                     I18n.sendUpdateTranslationsPacket(pRef);
                     // Migrate renamed item IDs in player inventory

@@ -6,12 +6,9 @@ import com.hypixel.hytale.server.npc.entities.NPCEntity;
 import endgame.plugin.components.PlayerEndgameComponent;
 import endgame.plugin.components.BurnComponent;
 import endgame.plugin.components.PoisonComponent;
-import endgame.plugin.components.VoidMarkComponent;
-import endgame.plugin.config.GauntletLeaderboard;
 import endgame.plugin.managers.BossHealthManager;
 import endgame.plugin.managers.BountyManager;
 import endgame.plugin.managers.ComboMeterManager;
-import endgame.plugin.managers.GauntletManager;
 import endgame.plugin.managers.MobManager;
 import endgame.plugin.managers.boss.EnrageTracker;
 import endgame.plugin.managers.boss.GenericBossManager;
@@ -29,28 +26,18 @@ import endgame.plugin.systems.combat.ComboDamageBoostSystem;
 import endgame.plugin.systems.combat.ComboKillTracker;
 import endgame.plugin.systems.effect.BurnTickSystem;
 import endgame.plugin.systems.effect.PoisonTickSystem;
-import endgame.plugin.systems.trial.GauntletDamageBoostSystem;
-import endgame.plugin.systems.trial.GauntletDeathSystem;
-import endgame.plugin.systems.trial.GauntletLifestealSystem;
-import endgame.plugin.systems.trial.GauntletTickSystem;
-import endgame.plugin.systems.trial.WardenTrialDeathSystem;
-import endgame.plugin.systems.trial.WardenTrialManager;
-import endgame.plugin.systems.trial.WardenTrialTickSystem;
-import endgame.plugin.systems.weapon.BlinkTrailDamageSystem;
-import endgame.plugin.systems.weapon.DaggerVanishSystem;
+import endgame.wavearena.WaveArenaConfig;
+import endgame.wavearena.WaveArenaDeathSystem;
+import endgame.wavearena.WaveArenaEngine;
+import endgame.wavearena.WaveArenaTickSystem;
+import endgame.wavearena.WaveArenaAPI;
 import endgame.plugin.systems.weapon.HederaDaggerEffectSystem;
 import endgame.plugin.systems.weapon.LongswordChargedStaminaSystem;
-import endgame.plugin.systems.weapon.PrismaManaCostSystem;
-import endgame.plugin.systems.weapon.PrismaMirageCleanupSystem;
-import endgame.plugin.systems.weapon.PrismaMirageSystem;
-import endgame.plugin.systems.weapon.VoidMarkApplySystem;
-import endgame.plugin.systems.weapon.VoidMarkExpirySystem;
 import endgame.plugin.systems.accessory.AccessoryAttackSystem;
 import endgame.plugin.systems.accessory.AccessoryDefenseSystem;
 import endgame.plugin.systems.accessory.AccessoryPassiveSystem;
 import endgame.plugin.systems.accessory.FrostwalkerBlockInitializer;
 import endgame.plugin.systems.accessory.FrostwalkerBlockTickSystem;
-import endgame.plugin.utils.VoidMarkTracker;
 
 import com.hypixel.hytale.server.core.util.Config;
 
@@ -68,9 +55,8 @@ public class SystemRegistry {
     private EnrageTracker enrageTracker;
     private BossHealthManager bossHealthManager;
     private MobManager mobManager;
-    private WardenTrialManager wardenTrialManager;
+    private WaveArenaEngine waveArenaEngine;
     private ComboMeterManager comboMeterManager;
-    private GauntletManager gauntletManager;
     private BountyManager bountyManager;
 
     // Accessory systems
@@ -83,15 +69,8 @@ public class SystemRegistry {
     private GenericBossDamageSystem genericBossDamageSystem;
     private BossTargetSwitchSystem bossTargetSwitchSystem;
     private DangerZoneTickSystem dangerZoneTickSystem;
-    private DaggerVanishSystem daggerVanishSystem;
-    private PrismaManaCostSystem prismaManaCostSystem;
     private FrostDragonSkyBoltSystem frostDragonSkyBoltSystem;
-    private PrismaMirageSystem prismaMirageSystem;
-    private PrismaMirageCleanupSystem prismaMirageCleanupSystem;
-    private VoidMarkExpirySystem voidMarkExpirySystem;
-    private BlinkTrailDamageSystem blinkTrailDamageSystem;
     private endgame.plugin.systems.ArmorHPRegenSystem armorHPRegenSystem;
-    private WardenTrialTickSystem wardenTrialTickSystem;
     private ComboKillTracker comboKillTracker;
 
     public SystemRegistry(EndgameQoL plugin) {
@@ -101,16 +80,13 @@ public class SystemRegistry {
     /**
      * Register all managers, systems, and components. Called from setup().
      */
-    public void register(Config<GauntletLeaderboard> gauntletLeaderboard,
-                         ComponentType<EntityStore, PlayerEndgameComponent> playerEndgameComponentType) {
+    public void register(ComponentType<EntityStore, PlayerEndgameComponent> playerEndgameComponentType) {
         registerManagers();
         registerPlayerDataSystem(playerEndgameComponentType);
         registerBossSystems();
         registerWeaponSystems();
-        wireCleanupReferences();
         registerTrialSystems();
         registerComboSystems();
-        registerGauntletSystems(gauntletLeaderboard);
         registerBountySystems();
         registerAccessorySystems();
         registerPetSystems();
@@ -120,13 +96,6 @@ public class SystemRegistry {
         plugin.getLogger().atInfo().log("[EndgameQoL] Registering PlayerDataEnsureSystem...");
         plugin.getEntityStoreRegistry().registerSystem(
                 new endgame.plugin.systems.PlayerDataEnsureSystem(playerEndgameComponentType));
-    }
-
-    private void wireCleanupReferences() {
-        if (this.dangerZoneTickSystem != null) {
-            this.dangerZoneTickSystem.setWeaponSystems(
-                    this.daggerVanishSystem, this.prismaManaCostSystem, this.prismaMirageSystem);
-        }
     }
 
     private void registerManagers() {
@@ -202,26 +171,10 @@ public class SystemRegistry {
     private void registerWeaponSystems() {
         plugin.getLogger().atInfo().log("[EndgameQoL] Registering weapon systems...");
 
-        this.daggerVanishSystem = new DaggerVanishSystem(plugin);
-        plugin.getEntityStoreRegistry().registerSystem(this.daggerVanishSystem);
-
-        this.blinkTrailDamageSystem = new BlinkTrailDamageSystem(plugin);
-        plugin.getEntityStoreRegistry().registerSystem(this.blinkTrailDamageSystem);
-        this.daggerVanishSystem.setBlinkTrailSystem(this.blinkTrailDamageSystem);
-
-        this.prismaManaCostSystem = new PrismaManaCostSystem(plugin);
-        plugin.getEntityStoreRegistry().registerSystem(this.prismaManaCostSystem);
-
         plugin.getEntityStoreRegistry().registerSystem(new LongswordChargedStaminaSystem(plugin));
         plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.weapon.FrostSlowSystem(plugin));
         plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.weapon.FireBurnSystem(plugin));
         plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.weapon.StaffEffectSystem(plugin));
-
-        // Prisma Mirage (Sword signature clones)
-        this.prismaMirageSystem = new PrismaMirageSystem(plugin);
-        plugin.getEntityStoreRegistry().registerSystem(this.prismaMirageSystem);
-        this.prismaMirageCleanupSystem = new PrismaMirageCleanupSystem(plugin);
-        plugin.getEntityStoreRegistry().registerSystem(this.prismaMirageCleanupSystem);
 
         // Mana Regen Armor (Mithril/Onyxium/Prisma bonus regen)
         plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.ManaRegenArmorSystem(plugin));
@@ -230,29 +183,109 @@ public class SystemRegistry {
         this.armorHPRegenSystem = new endgame.plugin.systems.ArmorHPRegenSystem(plugin);
         plugin.getEntityStoreRegistry().registerSystem(this.armorHPRegenSystem);
         plugin.getEntityStoreRegistry().registerSystem(new endgame.plugin.systems.ArmorHPRegenDamageTracker());
-
-        // Void Mark (Dagger mark + blink execution)
-        ComponentType<EntityStore, VoidMarkComponent> voidMarkType =
-                plugin.getEntityStoreRegistry().registerComponent(VoidMarkComponent.class, VoidMarkComponent::new);
-        VoidMarkTracker tracker = VoidMarkTracker.getInstance();
-        plugin.getEntityStoreRegistry().registerSystem(new VoidMarkApplySystem(plugin, voidMarkType, tracker));
-        this.voidMarkExpirySystem = new VoidMarkExpirySystem(plugin, voidMarkType, tracker);
-        plugin.getEntityStoreRegistry().registerSystem(this.voidMarkExpirySystem);
-        this.daggerVanishSystem.setVoidMarkSupport(voidMarkType, tracker);
     }
 
     private void registerTrialSystems() {
-        plugin.getLogger().atInfo().log("[EndgameQoL] Registering trial systems...");
+        plugin.getLogger().atInfo().log("[EndgameQoL] Registering wave arena systems...");
 
         if (NPCEntity.getComponentType() == null) {
-            plugin.getLogger().atWarning().log("[EndgameQoL] NPCEntity not available - trial systems disabled.");
+            plugin.getLogger().atWarning().log("[EndgameQoL] NPCEntity not available - wave arena disabled.");
             return;
         }
 
-        this.wardenTrialManager = new WardenTrialManager(plugin);
-        this.wardenTrialTickSystem = new WardenTrialTickSystem(plugin, this.wardenTrialManager);
-        plugin.getEntityStoreRegistry().registerSystem(this.wardenTrialTickSystem);
-        plugin.getEntityStoreRegistry().registerSystem(new WardenTrialDeathSystem(plugin, this.wardenTrialManager));
+        this.waveArenaEngine = new WaveArenaEngine();
+        WaveArenaAPI.init(this.waveArenaEngine);
+
+        // Register EndgameQoL callbacks (XP, bounty, rewards, chat)
+        this.waveArenaEngine.addCallbacks(new endgame.plugin.wave.EndgameWaveCallbacks(plugin));
+
+        // Load arena configs from JSON assets
+        loadWaveArenaConfigs();
+
+        // Register ECS systems
+        plugin.getEntityStoreRegistry().registerSystem(new WaveArenaTickSystem(this.waveArenaEngine));
+        plugin.getEntityStoreRegistry().registerSystem(new WaveArenaDeathSystem(this.waveArenaEngine));
+    }
+
+    private void loadWaveArenaConfigs() {
+        java.util.function.BiFunction<String, Integer, endgame.wavearena.WaveDef.MobEntry> M =
+                endgame.wavearena.WaveDef.MobEntry::new;
+
+        waveArenaEngine.registerConfig(WaveArenaConfig.builder("Warden_Trial_I")
+                .displayName("Warden Trial — Tier I").displayColor("#ffaa00")
+                .waveCount(5).timeLimitSeconds(270).spawnRadius(6f).intervalSeconds(8).countdownSeconds(3).mobLevel(60)
+                .rewardDropTable("Endgame_Drop_Warden_Challenge_I").xpReward(150).xpSource("WARDEN_TRIAL")
+                .bountyHook("COMPLETE_TRIAL").bountyTier(1)
+                .instanceBlacklist(java.util.List.of("instance-")).blockedMessage("You cannot start a Warden Trial inside a dungeon instance.").zoneParticleId("Warden_Trial_Zone").zoneParticleScale(16f).zoneParticleYOffset(-0.3)
+                .waves(java.util.List.of(
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Goblin_Scrapper",3), M.apply("Skeleton_Archer",2))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Skeleton_Soldier",2), M.apply("Skeleton_Mage",2), M.apply("Spider",1))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Hyena",2), M.apply("Goblin_Lobber",2), M.apply("Skeleton_Ranger",1))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Outlander_Brute",1), M.apply("Skeleton_Archmage",1), M.apply("Skeleton_Soldier",2))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Toad_Rhino",1), M.apply("Outlander_Hunter",2), M.apply("Skeleton_Knight",2)))
+                )).build());
+
+        waveArenaEngine.registerConfig(WaveArenaConfig.builder("Warden_Trial_II")
+                .displayName("Warden Trial — Tier II").displayColor("#55aaff")
+                .waveCount(5).timeLimitSeconds(360).spawnRadius(6f).intervalSeconds(8).countdownSeconds(3).mobLevel(70)
+                .rewardDropTable("Endgame_Drop_Warden_Challenge_II").xpReward(150).xpSource("WARDEN_TRIAL")
+                .bountyHook("COMPLETE_TRIAL").bountyTier(2)
+                .instanceBlacklist(java.util.List.of("instance-")).blockedMessage("You cannot start a Warden Trial inside a dungeon instance.").zoneParticleId("Warden_Trial_Zone").zoneParticleScale(16f).zoneParticleYOffset(-0.3)
+                .waves(java.util.List.of(
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Trork_Brawler",2), M.apply("Skeleton_Ranger",2), M.apply("Trork_Hunter",1))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Outlander_Marauder",2), M.apply("Outlander_Stalker",2), M.apply("Skeleton_Archmage",1))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Tiger_Sabertooth",2), M.apply("Trork_Sentry",2), M.apply("Skeleton_Mage",1))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Endgame_Saurian_Warrior",2), M.apply("Endgame_Ghoul",2), M.apply("Outlander_Sorcerer",1))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Endgame_Goblin_Duke",1), M.apply("Endgame_Saurian_Hunter",1), M.apply("Skeleton_Burnt_Wizard",1), M.apply("Endgame_Werewolf",1)))
+                )).build());
+
+        waveArenaEngine.registerConfig(WaveArenaConfig.builder("Warden_Trial_III")
+                .displayName("Warden Trial — Tier III").displayColor("#ff6600")
+                .waveCount(5).timeLimitSeconds(450).spawnRadius(6f).intervalSeconds(8).countdownSeconds(3).mobLevel(80)
+                .rewardDropTable("Endgame_Drop_Warden_Challenge_III").xpReward(150).xpSource("WARDEN_TRIAL")
+                .bountyHook("COMPLETE_TRIAL").bountyTier(3)
+                .instanceBlacklist(java.util.List.of("instance-")).blockedMessage("You cannot start a Warden Trial inside a dungeon instance.").zoneParticleId("Warden_Trial_Zone").zoneParticleScale(16f).zoneParticleYOffset(-0.3)
+                .waves(java.util.List.of(
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Endgame_Saurian_Rogue",2), M.apply("Skeleton_Sand_Mage",2), M.apply("Endgame_Ghoul",1))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Endgame_Werewolf",2), M.apply("Skeleton_Burnt_Gunner",2), M.apply("Skeleton_Burnt_Wizard",1))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Endgame_Goblin_Duke",1), M.apply("Endgame_Saurian_Warrior",1), M.apply("Skeleton_Sand_Archmage",1), M.apply("Skeleton_Burnt_Gunner",1))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Endgame_Shadow_Knight",2), M.apply("Skeleton_Burnt_Gunner",2), M.apply("Golem_Eye_Void",1))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Endgame_Necromancer_Void",1), M.apply("Endgame_Shadow_Knight",1), M.apply("Skeleton_Sand_Archmage",1), M.apply("Skeleton_Burnt_Gunner",2)))
+                )).build());
+
+        waveArenaEngine.registerConfig(WaveArenaConfig.builder("Warden_Trial_IV")
+                .displayName("Warden Trial — Tier IV").displayColor("#d16eff")
+                .waveCount(5).timeLimitSeconds(540).spawnRadius(6f).intervalSeconds(8).countdownSeconds(3).mobLevel(90)
+                .rewardDropTable("Endgame_Drop_Warden_Challenge_IV").xpReward(150).xpSource("WARDEN_TRIAL")
+                .bountyHook("COMPLETE_TRIAL").bountyTier(4)
+                .instanceBlacklist(java.util.List.of("instance-")).blockedMessage("You cannot start a Warden Trial inside a dungeon instance.").zoneParticleId("Warden_Trial_Zone").zoneParticleScale(16f).zoneParticleYOffset(-0.3)
+                .waves(java.util.List.of(
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Endgame_Goblin_Duke",1), M.apply("Endgame_Necromancer_Void",1), M.apply("Skeleton_Burnt_Gunner",2), M.apply("Skeleton_Burnt_Wizard",1))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Alpha_Rex",1), M.apply("Endgame_Werewolf",1), M.apply("Skeleton_Burnt_Wizard",2), M.apply("Golem_Eye_Void",1))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Endgame_Necromancer_Void",1), M.apply("Alpha_Rex",1), M.apply("Skeleton_Sand_Archmage",2), M.apply("Golem_Eye_Void",2))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Alpha_Rex",2), M.apply("Endgame_Goblin_Duke",1), M.apply("Skeleton_Burnt_Gunner",2))),
+                        new endgame.wavearena.WaveDef(java.util.List.of(M.apply("Endgame_Shadow_Knight",1), M.apply("Alpha_Rex",1), M.apply("Skeleton_Sand_Archmage",1), M.apply("Skeleton_Burnt_Gunner",1), M.apply("Golem_Eye_Void",1), M.apply("Endgame_Necromancer_Void",1)))
+                )).build());
+
+        waveArenaEngine.registerConfig(WaveArenaConfig.builder("Portal_Wave_Arena")
+                .displayName("Temporal Arena").displayColor("#44cc66")
+                .waveCount(10).timeLimitSeconds(600).spawnRadius(8f).intervalSeconds(5).countdownSeconds(5)
+                .rewardDropTable("Endgame_Drop_Reward_25").xpReward(30).xpSource("WAVE_ARENA").xpPerWave(true)
+                .baseCount(4).countScaling(1.2f).bossEveryN(5)
+                .mobPool(java.util.List.of(
+                        new WaveArenaConfig.PoolEntry("Goblin_Scrapper", 100, 1, false),
+                        new WaveArenaConfig.PoolEntry("Skeleton_Archer", 90, 1, false),
+                        new WaveArenaConfig.PoolEntry("Skeleton_Soldier", 80, 2, false),
+                        new WaveArenaConfig.PoolEntry("Trork_Brawler", 70, 3, false),
+                        new WaveArenaConfig.PoolEntry("Skeleton_Ranger", 60, 4, false),
+                        new WaveArenaConfig.PoolEntry("Outlander_Marauder", 50, 5, false),
+                        new WaveArenaConfig.PoolEntry("Endgame_Saurian_Warrior", 40, 6, false),
+                        new WaveArenaConfig.PoolEntry("Endgame_Werewolf", 30, 7, false),
+                        new WaveArenaConfig.PoolEntry("Endgame_Goblin_Duke", 15, 8, true),
+                        new WaveArenaConfig.PoolEntry("Alpha_Rex", 10, 9, true)
+                )).build());
+
+        plugin.getLogger().atInfo().log("[WaveArena] Registered %d arena configs", waveArenaEngine.getRegisteredIds().size());
     }
 
     private void registerComboSystems() {
@@ -267,21 +300,6 @@ public class SystemRegistry {
         this.comboKillTracker = new ComboKillTracker(plugin, this.comboMeterManager);
         plugin.getEntityStoreRegistry().registerSystem(this.comboKillTracker);
         plugin.getEntityStoreRegistry().registerSystem(new ComboDamageBoostSystem(plugin, this.comboMeterManager));
-    }
-
-    private void registerGauntletSystems(Config<GauntletLeaderboard> gauntletLeaderboard) {
-        plugin.getLogger().atInfo().log("[EndgameQoL] Registering gauntlet systems...");
-
-        if (NPCEntity.getComponentType() == null) {
-            plugin.getLogger().atWarning().log("[EndgameQoL] NPCEntity not available - gauntlet systems disabled.");
-            return;
-        }
-
-        this.gauntletManager = new GauntletManager(plugin, gauntletLeaderboard, this.comboMeterManager);
-        plugin.getEntityStoreRegistry().registerSystem(new GauntletTickSystem(plugin, this.gauntletManager, this.comboMeterManager));
-        plugin.getEntityStoreRegistry().registerSystem(new GauntletDeathSystem(plugin, this.gauntletManager));
-        plugin.getEntityStoreRegistry().registerSystem(new GauntletDamageBoostSystem(plugin, this.gauntletManager));
-        plugin.getEntityStoreRegistry().registerSystem(new GauntletLifestealSystem(plugin, this.gauntletManager, this.comboMeterManager));
     }
 
     private void registerBountySystems() {
@@ -429,38 +447,9 @@ public class SystemRegistry {
             plugin.getLogger().atInfo().log("[EndgameQoL] Cleared MobManager tracking");
         }
 
-        if (this.daggerVanishSystem != null) {
-            this.daggerVanishSystem.forceClear();
-            plugin.getLogger().atInfo().log("[EndgameQoL] Cleared DaggerVanishSystem state");
-        }
-
-        if (this.blinkTrailDamageSystem != null) {
-            this.blinkTrailDamageSystem.forceClear();
-        }
-
-        if (this.prismaManaCostSystem != null) {
-            this.prismaManaCostSystem.forceClear();
-            plugin.getLogger().atInfo().log("[EndgameQoL] Cleared PrismaManaCostSystem state");
-        }
-
         if (this.frostDragonSkyBoltSystem != null) {
             this.frostDragonSkyBoltSystem.forceClear();
             plugin.getLogger().atInfo().log("[EndgameQoL] Cleared FrostDragonSkyBoltSystem state");
-        }
-
-        if (this.prismaMirageSystem != null) {
-            this.prismaMirageSystem.forceClear();
-            plugin.getLogger().atInfo().log("[EndgameQoL] Cleared PrismaMirageSystem state");
-        }
-
-        if (this.prismaMirageCleanupSystem != null) {
-            this.prismaMirageCleanupSystem.forceClear();
-            plugin.getLogger().atInfo().log("[EndgameQoL] Cleared PrismaMirageCleanupSystem state");
-        }
-
-        if (this.voidMarkExpirySystem != null) {
-            this.voidMarkExpirySystem.forceClear();
-            plugin.getLogger().atInfo().log("[EndgameQoL] Cleared VoidMarkExpirySystem state");
         }
 
         if (this.armorHPRegenSystem != null) {
@@ -468,19 +457,14 @@ public class SystemRegistry {
             plugin.getLogger().atInfo().log("[EndgameQoL] Cleared ArmorHPRegenSystem state");
         }
 
-        if (this.wardenTrialManager != null) {
-            this.wardenTrialManager.forceClear();
-            plugin.getLogger().atInfo().log("[EndgameQoL] Cleared WardenTrialManager state");
+        if (this.waveArenaEngine != null) {
+            this.waveArenaEngine.forceClear();
+            plugin.getLogger().atInfo().log("[EndgameQoL] Cleared WaveArenaEngine state");
         }
 
         if (this.comboMeterManager != null) {
             this.comboMeterManager.forceClear();
             plugin.getLogger().atInfo().log("[EndgameQoL] Cleared ComboMeterManager state");
-        }
-
-        if (this.gauntletManager != null) {
-            this.gauntletManager.forceClear();
-            plugin.getLogger().atInfo().log("[EndgameQoL] Cleared GauntletManager state");
         }
 
         // BountyManager data auto-persisted via ECS component — no manual save needed
@@ -494,8 +478,6 @@ public class SystemRegistry {
             this.accessoryDefenseSystem.forceClear();
             plugin.getLogger().atInfo().log("[EndgameQoL] Cleared AccessoryDefenseSystem state");
         }
-
-        VoidMarkTracker.getInstance().clear();
 
         if (this.petManager != null) {
             this.petManager.forceClear();
@@ -529,32 +511,8 @@ public class SystemRegistry {
         return dangerZoneTickSystem;
     }
 
-    public DaggerVanishSystem getDaggerVanishSystem() {
-        return daggerVanishSystem;
-    }
-
-    public PrismaManaCostSystem getPrismaManaCostSystem() {
-        return prismaManaCostSystem;
-    }
-
     public FrostDragonSkyBoltSystem getFrostDragonSkyBoltSystem() {
         return frostDragonSkyBoltSystem;
-    }
-
-    public PrismaMirageSystem getPrismaMirageSystem() {
-        return prismaMirageSystem;
-    }
-
-    public PrismaMirageCleanupSystem getPrismaMirageCleanupSystem() {
-        return prismaMirageCleanupSystem;
-    }
-
-    public VoidMarkExpirySystem getVoidMarkExpirySystem() {
-        return voidMarkExpirySystem;
-    }
-
-    public BlinkTrailDamageSystem getBlinkTrailDamageSystem() {
-        return blinkTrailDamageSystem;
     }
 
     public AccessoryPassiveSystem getAccessoryPassiveSystem() {
@@ -565,12 +523,8 @@ public class SystemRegistry {
         return armorHPRegenSystem;
     }
 
-    public WardenTrialManager getWardenTrialManager() {
-        return wardenTrialManager;
-    }
-
-    public WardenTrialTickSystem getWardenTrialTickSystem() {
-        return wardenTrialTickSystem;
+    public WaveArenaEngine getWaveArenaEngine() {
+        return waveArenaEngine;
     }
 
     public ComboMeterManager getComboMeterManager() {
@@ -579,10 +533,6 @@ public class SystemRegistry {
 
     public ComboKillTracker getComboKillTracker() {
         return comboKillTracker;
-    }
-
-    public GauntletManager getGauntletManager() {
-        return gauntletManager;
     }
 
     public BountyManager getBountyManager() {

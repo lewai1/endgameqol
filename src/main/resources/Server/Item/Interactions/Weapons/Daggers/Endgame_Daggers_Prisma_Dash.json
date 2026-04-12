@@ -1,0 +1,132 @@
+{
+  "Type": "StatsCondition",
+  "Costs": {
+    "Mana": 60
+  },
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "Simple",
+        "RunTime": 0.15,
+        "Effects": {
+          "ItemAnimationId": "RazorstrikeLunge",
+          "WorldSoundEventId": "SFX_Daggers_T2_Slash_Impact",
+          "LocalSoundEventId": "SFX_Daggers_T2_Slash_Impact",
+          "CameraEffect": "Daggers_Stab"
+        }
+      },
+      {
+        "Type": "Parallel",
+        "Interactions": [
+          {
+            "Interactions": [
+              {
+                "Type": "ApplyForce",
+                "Direction": {
+                  "X": 0,
+                  "Y": 0.3,
+                  "Z": -10
+                },
+                "AdjustVertical": true,
+                "WaitForGround": false,
+                "Force": 20,
+                "VelocityConfig": {
+                  "AirResistance": 0.99,
+                  "AirResistanceMax": 0.98,
+                  "GroundResistance": 0.94,
+                  "GroundResistanceMax": 0.82,
+                  "Threshold": 3.0,
+                  "Style": "Linear"
+                },
+                "ChangeVelocityType": "Add"
+              }
+            ]
+          },
+          {
+            "Interactions": [
+              {
+                "Type": "Selector",
+                "RunTime": 0.3,
+                "Selector": {
+                  "Id": "Stab",
+                  "TestLineOfSight": true,
+                  "ExtendTop": 1.0,
+                  "ExtendBottom": 1.0,
+                  "ExtendLeft": 1.0,
+                  "ExtendRight": 1.0,
+                  "StartDistance": 0.1,
+                  "EndDistance": 10
+                },
+                "Effects": {
+                  "Particles": [
+                    {
+                      "SystemId": "Daggers_Lunge_Trail",
+                      "TargetEntityPart": "Entity",
+                      "TargetNodeName": "Hip",
+                      "PositionOffset": {
+                        "Y": 0.5,
+                        "Z": 0.5
+                      },
+                      "RotationOffset": {
+                        "Yaw": -90.0
+                      }
+                    }
+                  ]
+                },
+                "HitEntity": {
+                  "Interactions": [
+                    {
+                      "Type": "DamageEntity",
+                      "Parent": "DamageEntityParent",
+                      "DamageCalculator": {
+                        "BaseDamage": {
+                          "Physical": 80
+                        },
+                        "Type": "Absolute"
+                      },
+                      "DamageEffects": {
+                        "WorldSoundEventId": "SFX_Daggers_T2_Slash_Impact",
+                        "LocalSoundEventId": "SFX_Daggers_T2_Slash_Impact",
+                        "WorldParticles": [
+                          {
+                            "SystemId": "Impact_Critical",
+                            "Scale": 1
+                          }
+                        ],
+                        "Knockback": {
+                          "Type": "Force",
+                          "Direction": {
+                            "X": 0,
+                            "Y": 1,
+                            "Z": -2
+                          },
+                          "Force": 8,
+                          "VelocityType": "Add",
+                          "VelocityConfig": {
+                            "AirResistance": 0.99,
+                            "AirResistanceMax": 0.98,
+                            "GroundResistance": 0.94,
+                            "GroundResistanceMax": 0.82,
+                            "Threshold": 3.0,
+                            "Style": "Linear"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Type": "ChangeStat",
+        "StatModifiers": {
+          "Mana": -60
+        }
+      }
+    ]
+  }
+}

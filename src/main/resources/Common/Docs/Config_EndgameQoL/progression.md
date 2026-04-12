@@ -65,9 +65,9 @@ A step above Mithril with stronger stats and unique effects. Onyxium Bars are fo
 
 The ultimate endgame tier. Prisma gear is crafted from <#d16eff>Prisma Bars</#d16eff> and <#d16eff>Prismic Leather</#d16eff>. Requires Endgame Workbench at Tier 5.
 
-**<#d16eff>Prisma Sword</#d16eff>** — Signature summons 2 spectral <#d16eff>Prisma Clones</#d16eff> (5s, 15s cooldown). Every hit applies <#d16eff>Prisma Resonance</#d16eff> (30% slow). Finisher applies <#d16eff>Prisma Shatter</#d16eff> (60% slow). +200 Mana, +30 Signature Energy, +25 Stamina.
+**<#d16eff>Prisma Sword</#d16eff>** — Two active abilities. **Ability3 <#d16eff>Prismatic Beam</#d16eff>** (80 Mana) fires a 20-block projectile with 3-block AOE explosion on impact (100 Physical direct + AOE). **Signature <#d16eff>Prismatic Judgment</#d16eff>** (100 SE) is a 10-block AOECircle ground slam (250 Physical, knockup Force 22, applies <#d16eff>Prisma Shatter</#d16eff> slow for 4s). +200 Mana, +30 SE, +25 Stamina.
 
-**<#d16eff>Prisma Daggers</#d16eff>** — Hits apply <#d16eff>Void Mark</#d16eff> (10s). Signature teleports behind marked targets. 3x execution damage below 25% HP. **Stance Switch** — Press Ability3 to toggle between Combat Mode (teleport behind target) and Blink Mode (teleport ~12 blocks forward). 1.5x backstab damage.
+**<#d16eff>Prisma Daggers</#d16eff>** — Two active abilities. **Ability3 <#d16eff>Prisma Dash</#d16eff>** (60 Mana) lunges 10 blocks forward via ApplyForce, Stab selector hits every entity in the path (80 Physical each). **Signature <#d16eff>Razor Storm</#d16eff>** (100 SE) charges 0.4s then releases 3 chained AOECircle bursts (Range 5) spaced 0.2s apart (80 Physical × 3 = 240 total, Point knockback). 1.5x backstab on primary melee. +200 Mana, +30 SE, +20 Stamina.
 
 **<#d16eff>Prisma Pickaxe</#d16eff>** — Best mining tool in the game (3x Mithril for rare ores). Press <#ff8800>Ability3</#ff8800> to toggle <#d16eff>3x3 Area Break</#d16eff> mode — breaks surrounding blocks in a 3x3 area (rocks and ores only). Orange glow when active. 1500 durability.
 

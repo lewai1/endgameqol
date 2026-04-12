@@ -515,28 +515,6 @@ $C.@PageOverlay {
             TextButton #BlazefistTicksUp { Anchor: (Width: 40, Height: 28); Text: "+"; Style: @AdjustBtnStyle; }
           }
         }
-        Group { Anchor: (Height: 8); }
-
-        // Simple toggle weapons
-        Group { Background: #0b141f(0.84); LayoutMode: Top; Padding: (Full: 12);
-          Label { Style: (FontSize: 14, TextColor: #96a9be, RenderBold: true); Anchor: (Height: 20); Text: "Other Weapon Effects"; }
-          Group { LayoutMode: Left; Anchor: (Height: 32, Bottom: 4);
-            Label { Style: @LabelStyle; FlexWeight: 1; Text: "Prisma Mirage"; }
-            TextButton #TogglePrismaMirage { Anchor: (Width: 80, Height: 28); Text: "ON"; Style: @ToggleOnStyle; }
-          }
-          Group { LayoutMode: Left; Anchor: (Height: 32, Bottom: 4);
-            Label { Style: @LabelStyle; FlexWeight: 1; Text: "Void Mark"; }
-            TextButton #ToggleVoidMark { Anchor: (Width: 80, Height: 28); Text: "ON"; Style: @ToggleOnStyle; }
-          }
-          Group { LayoutMode: Left; Anchor: (Height: 32, Bottom: 4);
-            Label { Style: @LabelStyle; FlexWeight: 1; Text: "Dagger Blink"; }
-            TextButton #ToggleDaggerBlink { Anchor: (Width: 80, Height: 28); Text: "ON"; Style: @ToggleOnStyle; }
-          }
-          Group { LayoutMode: Left; Anchor: (Height: 32, Bottom: 4);
-            Label { Style: @LabelStyle; FlexWeight: 1; Text: "Dagger Trail"; }
-            TextButton #ToggleDaggerTrail { Anchor: (Width: 80, Height: 28); Text: "ON"; Style: @ToggleOnStyle; }
-          }
-        }
       }
 
       // ==================== ARMOR TAB ====================
@@ -1001,6 +979,11 @@ $C.@PageOverlay {
             Group { Anchor: (Width: 4); }
             TextButton #InstanceTimeLimitUp { Anchor: (Width: 40, Height: 28); Text: "+"; Style: @AdjustBtnStyle; }
           }
+          Group { LayoutMode: Left; Anchor: (Height: 32, Bottom: 4);
+            Label { Style: @LabelStyle; FlexWeight: 1; Text: "Respawn Inside Instance"; }
+            TextButton #ToggleRespawnInside { Anchor: (Width: 80, Height: 28); Text: "OFF"; Style: @ToggleOffStyle; }
+          }
+          Label { Style: (FontSize: 10, TextColor: #6a7a8e); Anchor: (Height: 14, Bottom: 4); Text: "  Lets players respawn inside the instance on death (applies to all dungeons)"; }
 
           // ---- Pet System ----
           Group { Anchor: (Height: 8); }
@@ -1086,6 +1069,22 @@ $C.@PageOverlay {
         Group { Anchor: (Height: 8); }
 
         Label #AddonEmpty { Style: (FontSize: 11, TextColor: #3a4a5a, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Height: 40); Text: "No addons detected."; }
+
+        // Pets Reforged addon
+        Group #AddonPR { LayoutMode: Left; Anchor: (Bottom: 8); Background: #0b141f(0.88); Padding: (Full: 0); Visible: false;
+          Group #AddonPRAccent { Anchor: (Width: 3, Height: 70); Background: #ff8844; }
+          Group { LayoutMode: Top; FlexWeight: 1; Padding: (Full: 12);
+            Group { LayoutMode: Left; Anchor: (Height: 22);
+              Label { Style: (FontSize: 14, TextColor: #ff8844, RenderBold: true, VerticalAlignment: Center); FlexWeight: 1; Text: "Pets Reforged"; }
+              Label #AddonPRStatus { Style: (FontSize: 10, TextColor: #4aff7f, RenderBold: true, VerticalAlignment: Center); Anchor: (Width: 90); Text: "ACTIVE"; }
+            }
+            Label { Style: (FontSize: 10, TextColor: #5a6a7a); Anchor: (Height: 16); Text: "Bond progression, personalities, trinkets, and custom egg drops"; }
+            Group { Anchor: (Height: 4); }
+            Group { LayoutMode: Left; Anchor: (Height: 18);
+              Label { Style: (FontSize: 10, TextColor: #5a6a7a, VerticalAlignment: Center); FlexWeight: 1; Text: "Pets, reforged from the ground up."; }
+            }
+          }
+        }
       }
     }
   }

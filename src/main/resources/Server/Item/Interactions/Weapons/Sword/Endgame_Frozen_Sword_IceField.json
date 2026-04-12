@@ -1,0 +1,123 @@
+{
+  "Type": "StatsCondition",
+  "Costs": {
+    "Mana": 50
+  },
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "Simple",
+        "RunTime": 0.15,
+        "Effects": {
+          "ItemAnimationId": "SwingDownCharged",
+          "WorldSoundEventId": "SFX_Ice_Hit",
+          "LocalSoundEventId": "SFX_Ice_Hit",
+          "Particles": [
+            {
+              "SystemId": "Impact_Ice",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 2.0
+            }
+          ]
+        }
+      },
+      {
+        "Type": "Selector",
+        "RunTime": 0.05,
+        "Effects": {
+          "Particles": [
+            {
+              "SystemId": "Impact_Ice",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 2.5
+            }
+          ]
+        },
+        "Selector": {
+          "Id": "AOECircle",
+          "Range": 6
+        },
+        "HitEntity": {
+          "Interactions": [
+            {
+              "Type": "ApplyEffect",
+              "EffectId": "Endgame_Frost_Chill",
+              "Entity": "Target"
+            }
+          ]
+        }
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 1.0
+      },
+      {
+        "Type": "Selector",
+        "RunTime": 0.05,
+        "Effects": {
+          "Particles": [
+            {
+              "SystemId": "Impact_Ice",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 2.5
+            }
+          ]
+        },
+        "Selector": {
+          "Id": "AOECircle",
+          "Range": 6
+        },
+        "HitEntity": {
+          "Interactions": [
+            {
+              "Type": "ApplyEffect",
+              "EffectId": "Endgame_Frost_Chill",
+              "Entity": "Target"
+            }
+          ]
+        }
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 1.0
+      },
+      {
+        "Type": "Selector",
+        "RunTime": 0.05,
+        "Effects": {
+          "Particles": [
+            {
+              "SystemId": "Impact_Ice",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 2.5
+            }
+          ]
+        },
+        "Selector": {
+          "Id": "AOECircle",
+          "Range": 6
+        },
+        "HitEntity": {
+          "Interactions": [
+            {
+              "Type": "ApplyEffect",
+              "EffectId": "Endgame_Frost_Chill",
+              "Entity": "Target"
+            }
+          ]
+        }
+      },
+      {
+        "Type": "ChangeStat",
+        "StatModifiers": {
+          "Mana": -50
+        }
+      }
+    ]
+  }
+}

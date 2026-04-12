@@ -19,9 +19,17 @@ Endgame & QoL adds 40+ weapons across 9 types, spanning 8 material tiers. Higher
 
 **<#ff6600>Onyxium Sword</#ff6600>** — 27-30 damage (swings), 52 (down swing), 77 (thrust). Signature: Vortex Spin (55) into Vortex Stab (165). Drains 2 stamina per hit. 260 durability.
 
-**<#55ffff>Frostbite Blade</#55ffff>** — 22-26 swings (Physical + Ice), 44 (down swing), 63 (thrust). Signature: Spin (50) into Stab (130, freezes 3s). Every hit applies 50% slow. +20 Signature Energy, +15 Stamina. 240 durability. Buyable from Korvyn (45 Flocons) or rare Dragon Frost drop (2%).
+**<#55ffff>Frostbite Blade</#55ffff>** — Epic Ice hybrid sword (Physical + Ice split). Base melee: 22-26 swings, 44 down swing, 63 thrust. Every primary hit applies <#66ccff>Frost Chill</#66ccff> slow. Two active abilities:
+- **Ability3 — <#55ffff>Ice Field</#55ffff>** (50 Mana): pulses a 6-block AOECircle around the player **3 times over 2 seconds** (follows the player as you move). Pure CC — applies <#66ccff>Frost Chill</#66ccff> to every entity caught in any of the pulses. No damage, pure zone control.
+- **Signature — <#55ffff>Blizzard Stance</#55ffff>** (100 Signature Energy): mobile channeled blizzard. 3 chained 8-block AOECircle pulses spaced 1s apart (total ~2.5s), following the player as you move. 80 Ice damage per pulse = <#ff5555>240 total</#ff5555>. Pulses 1 & 2 apply <#66ccff>Frost Chill</#66ccff>, pulse 3 (finisher) applies <#55ffff>Frost Frozen</#55ffff> (full freeze).
 
-**<#d16eff>Prisma Sword</#d16eff>** — Legendary. Signature summons 2 <#d16eff>Prisma Clones</#d16eff> that fight for you (5s duration, 15s cooldown). Every hit applies <#d16eff>Prisma Resonance</#d16eff> (30% slow, 3s). Finisher applies <#d16eff>Prisma Shatter</#d16eff> (60% slow, 4s). +200 Mana, +30 Signature Energy, +25 Stamina. Signature energy glow at 25%+, full glow + VFX at 100%.
++20 Signature Energy, +15 Stamina, 240 durability. Buyable from Korvyn (45 Flocons) or rare Dragon Frost drop (2%). Identity: pure zone control — unique in the weapon roster, especially strong in multi-mob dungeons.
+
+**<#d16eff>Prisma Sword</#d16eff>** — Legendary. Base melee: 38-42 swings, 72 down swing, 105 thrust. Two active abilities:
+- **Ability3 — <#d16eff>Prismatic Beam</#d16eff>** (80 Mana): fires a fast prismatic projectile ~20 blocks. Explodes on impact in a 3-block AOE. 100 Physical direct + AOE.
+- **Signature — <#d16eff>Prismatic Judgment</#d16eff>** (100 Signature Energy): charging ground slam. 10-block AOECircle around the player, 250 Physical single hit, knockup Y+3 Force 22, applies <#d16eff>Prisma Shatter</#d16eff> (60% slow, 4s).
+
++200 Mana, +30 Signature Energy, +25 Stamina. 350 durability. Signature energy glow at 25%+, full glow + VFX at 100%.
 
 ---
 
@@ -35,12 +43,11 @@ All daggers deal <#ff6600>1.5x backstab damage</#ff6600> when hitting enemies fr
 
 **<#55ff55>Hedera Daggers</#55ff55>** — 10-12 swings, 34-39 stabs, 105 pounce (155 backstab). Scream: 130 damage (AOE). Poison on hit (5/tick, 4 ticks). 8% lifesteal. Configurable in <#55ffff>/eg config</#55ffff>. 1.5x backstab. 290 durability.
 
-**<#d16eff>Prisma Daggers</#d16eff>** — Legendary. 15-19 basic, 145 signature lunge (210 backstab). Hits apply <#d16eff>Void Mark</#d16eff> (10s). Signature teleports behind marked targets. <#ff5555>3x execution damage below 25% HP</#ff5555>. 30% headshot bonus on stabs. 1.5x backstab. +200 Mana, +30 Signature Energy, +20 Stamina. 400 durability.
+**<#d16eff>Prisma Daggers</#d16eff>** — Legendary. Base melee: 15-19 swings, 48-55 stabs (62-72 headshot), 125-152 pounce (198 head stab). 30% headshot bonus on stabs. 1.5x backstab (180-degree rear arc, 80-degree tolerance). Two active abilities:
+- **Ability3 — <#d16eff>Prisma Dash</#d16eff>** (60 Mana): lunge 10 blocks straight forward via ApplyForce impulse. Stab selector hits every entity in the line. 80 Physical per target hit, Force 8 knockback. Prismatic trail.
+- **Signature — <#d16eff>Razor Storm</#d16eff>** (100 Signature Energy): 0.4s charge, then 3 chained AOECircle bursts (Range 5) around the player spaced 0.2s apart. 80 Physical per burst = <#ff5555>240 total</#ff5555>. Radial Point knockback (Force 12, last burst 15).
 
-**<#d16eff>Stance Switch</#d16eff>** — Press Ability3 to toggle between:
-- **Combat Mode** (purple glow) — Signature teleports behind target
-- **Blink Mode** (cyan glow) — Signature teleports ~12 blocks forward. <#d16eff>Shadow Trail</#d16eff> damages enemies along the path (15 Physical, configurable). Safe teleport checks for solid blocks before blinking
-2-second cooldown between switches. Configurable blink distance via <#55ffff>/eg config</#55ffff>.
++200 Mana, +30 Signature Energy, +20 Stamina. 400 durability.
 
 ---
 

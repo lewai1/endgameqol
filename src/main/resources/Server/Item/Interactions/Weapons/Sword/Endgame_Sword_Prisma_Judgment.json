@@ -1,0 +1,109 @@
+{
+  "Type": "StatsCondition",
+  "Costs": {
+    "SignatureEnergy": 100
+  },
+  "ValueType": "Percent",
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "Simple",
+        "RunTime": 0.5,
+        "Effects": {
+          "ItemAnimationId": "VortexstrikeSpin",
+          "WorldSoundEventId": "SFX_Sword_T2_Signature_Part_1",
+          "LocalSoundEventId": "SFX_Sword_T2_Signature_Part_1_Local",
+          "Particles": [
+            {
+              "SystemId": "Sword_Signature_Ready",
+              "TargetEntityPart": "PrimaryItem",
+              "TargetNodeName": "Handle"
+            }
+          ]
+        }
+      },
+      {
+        "Type": "Selector",
+        "RunTime": 0.1,
+        "Effects": {
+          "ItemAnimationId": "VortexstrikeStab",
+          "WorldSoundEventId": "SFX_Mace_T2_Signature_Impact",
+          "LocalSoundEventId": "SFX_Mace_T2_Signature_Impact_Local",
+          "CameraEffect": "Impact",
+          "Particles": [
+            {
+              "SystemId": "Impact_Critical",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 4.0
+            },
+            {
+              "SystemId": "Sword_Signature_Status_Spawn",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 3.0
+            }
+          ]
+        },
+        "Selector": {
+          "Id": "AOECircle",
+          "Range": 10
+        },
+        "HitEntity": {
+          "Interactions": [
+            {
+              "Type": "DamageEntity",
+              "Parent": "DamageEntityParent",
+              "DamageCalculator": {
+                "BaseDamage": {
+                  "Physical": 250
+                },
+                "Type": "Absolute"
+              },
+              "DamageEffects": {
+                "WorldSoundEventId": "SFX_Mace_T2_Signature_Impact",
+                "WorldParticles": [
+                  {
+                    "SystemId": "Impact_Critical",
+                    "Scale": 2
+                  }
+                ],
+                "Knockback": {
+                  "Type": "Force",
+                  "Direction": {
+                    "X": 0,
+                    "Y": 3,
+                    "Z": 0
+                  },
+                  "Force": 22,
+                  "VelocityType": "Set",
+                  "VelocityConfig": {
+                    "AirResistance": 0.99,
+                    "AirResistanceMax": 0.98,
+                    "GroundResistance": 0.94,
+                    "GroundResistanceMax": 0.82,
+                    "Threshold": 3.0,
+                    "Style": "Linear"
+                  }
+                }
+              },
+              "Next": {
+                "Type": "ApplyEffect",
+                "EffectId": "Endgame_Prisma_Shatter",
+                "Entity": "Target"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Type": "ChangeStat",
+        "StatModifiers": {
+          "SignatureEnergy": -100
+        },
+        "ValueType": "Percent"
+      }
+    ]
+  }
+}

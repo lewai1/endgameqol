@@ -1,0 +1,46 @@
+{
+  "Type": "StatsCondition",
+  "Costs": {
+    "Mana": 80
+  },
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "Simple",
+        "RunTime": 0.2,
+        "Effects": {
+          "ItemAnimationId": "VortexstrikeStab",
+          "WorldSoundEventId": "SFX_Sword_T2_Signature_Part_1",
+          "LocalSoundEventId": "SFX_Sword_T2_Signature_Part_1_Local",
+          "Particles": [
+            {
+              "SystemId": "Sword_Signature_Ready",
+              "TargetEntityPart": "PrimaryItem",
+              "TargetNodeName": "Handle",
+              "PositionOffset": {
+                "X": 0.5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Type": "LaunchProjectile",
+        "RunTime": 0.1,
+        "Effects": {
+          "ItemAnimationId": "VortexstrikeStab",
+          "WorldSoundEventId": "SFX_Sword_T2_Signature_Part_2",
+          "LocalSoundEventId": "SFX_Sword_T2_Signature_Part_2_Local"
+        },
+        "ProjectileId": "Endgame_Prisma_Beam"
+      },
+      {
+        "Type": "ChangeStat",
+        "StatModifiers": {
+          "Mana": -80
+        }
+      }
+    ]
+  }
+}

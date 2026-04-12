@@ -48,21 +48,11 @@ Change your display language. Supported: <#aaaaaa>EN</#aaaaaa>, <#aaaaaa>FR</#aa
 
 ---
 
-## <#55ffff>/eg gauntlet</#55ffff>
-
-The Gauntlet leaderboard (wave survival mode). <#ff5555>Currently disabled</#ff5555> — the feature is still in development.
-
-**Permission** — <#aaaaaa>endgameqol.gauntlet</#aaaaaa>
-
----
-
 ## <#ff5555>/eg admin</#ff5555>
 
 Admin subcommands for server operators.
 
 **<#55ffff>/eg admin debug boss</#55ffff>** — Debug active boss state
-
-**<#55ffff>/eg admin reset leaderboard</#55ffff>** — Reset the Gauntlet leaderboard
 
 **<#55ffff>/eg admin reset bounties</#55ffff>** — Reset all player bounty progress
 
@@ -85,12 +75,11 @@ Opens the Voile documentation browser (requires the Voile mod). Browse this wiki
 | /eg config | endgameqol.config |
 | /eg journal | endgameqol.journal (default-allow) |
 | /eg status, /eg admin | endgameqol.admin |
-| /eg gauntlet | endgameqol.gauntlet |
 | /eg lang, /voile | None (all players) |
 
 ! All commands have a 1-second per-player rate limit.
 
-!v **Player commands use default-allow.** Journal and gauntlet commands work for all players by default. To restrict a command, add the negated permission to the player or group (e.g. <#ff5555>-endgameqol.journal</#ff5555>). Use <#ff5555>-endgameqol.*</#ff5555> to deny all at once.
+!v **Player commands use default-allow.** Journal commands work for all players by default. To restrict a command, add the negated permission to the player or group (e.g. <#ff5555>-endgameqol.journal</#ff5555>). Use <#ff5555>-endgameqol.*</#ff5555> to deny all at once.
 
 !v NPC-triggered UIs (Bounty Board, Bestiary NPCs) bypass command permissions — players can always interact with NPCs regardless of command permissions.
 

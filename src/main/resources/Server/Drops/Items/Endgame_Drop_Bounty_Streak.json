@@ -47,15 +47,6 @@
               "QuantityMin": 12,
               "QuantityMax": 18
             }
-          },
-          {
-            "Type": "Single",
-            "Weight": 30,
-            "Item": {
-              "ItemId": "Gauntlet_Sigil",
-              "QuantityMin": 1,
-              "QuantityMax": 1
-            }
           }
         ]
       }

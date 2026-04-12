@@ -254,6 +254,7 @@ public class GolemVoidBossManager {
 
             // Get the world from the store - only spawn in THIS world, not all worlds
             final com.hypixel.hytale.server.core.universe.world.World bossWorld = store.getExternalData().getWorld();
+            if (bossWorld == null || !bossWorld.isAlive()) return;
 
             final double spawnRadius = plugin.getConfig().get().getMinionSpawnRadius();
             final float healthMultiplier = plugin.getConfig().get().getEyeVoidHealthMultiplier();
@@ -352,7 +353,7 @@ public class GolemVoidBossManager {
             if (!bossRef.isValid()) return;
             Store<EntityStore> bossStore = bossRef.getStore();
             World bossWorld = bossStore.getExternalData().getWorld();
-            if (bossWorld == null) return;
+            if (bossWorld == null || !bossWorld.isAlive()) return;
 
             // ALL ECS access must run on the boss's world thread (not the ticking player's thread)
             bossWorld.execute(() -> {
@@ -436,9 +437,11 @@ public class GolemVoidBossManager {
         // Clear removed flag so the new HUD's refresh will work
         removedPlayerHuds.remove(playerUuid);
 
-        // Get the first active boss state (thread-safe)
+        // Get the first active boss state (thread-safe). Captured by the closure
+        // so onRefresh doesn't re-stream activeBosses on every tick.
         GolemVoidState state = activeBosses.values().stream().findFirst().orElse(null);
         if (state == null) return;
+        final GolemVoidState capturedState = state;
 
         String html = buildBossBarHtml(state);
 
@@ -453,7 +456,10 @@ public class GolemVoidBossManager {
                     if (removedPlayerHuds.contains(playerUuid)) return;
                     if (playerHuds.get(playerUuid) != h) return;
 
-                    GolemVoidState currentState = activeBosses.values().stream().findFirst().orElse(null);
+                    // Use captured state — volatile fields (lastHealthPercent, currentPhase, isInvulnerable)
+                    // are updated in place on the same instance. A new boss spawn creates a new state
+                    // + new HUD closure, so stale capture is impossible.
+                    GolemVoidState currentState = capturedState;
                     if (currentState == null || !currentState.bossRef.isValid()
                             || currentState.lastHealthPercent <= 0.001f) {
                         // Boss dead/invalid — defer removal to tick(), do NOT call h.remove() here

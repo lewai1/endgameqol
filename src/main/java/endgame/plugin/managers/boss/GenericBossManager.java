@@ -48,6 +48,9 @@ public class GenericBossManager {
 
     private final Map<Ref<EntityStore>, GenericBossState> activeBosses = new ConcurrentHashMap<>();
     private final Map<HudKey, HyUIHud> playerHuds = new ConcurrentHashMap<>();
+    // Secondary indices for O(1) hide-by-player / hide-by-boss (avoid linear scan of playerHuds)
+    private final Map<UUID, Set<HudKey>> hudsByPlayer = new ConcurrentHashMap<>();
+    private final Map<Ref<EntityStore>, Set<HudKey>> hudsByBoss = new ConcurrentHashMap<>();
     // Track HUDs that have been removed — onRefresh must bail immediately if key is
     // in this set
     private final Set<HudKey> removedHudKeys = ConcurrentHashMap.newKeySet();
@@ -309,6 +312,7 @@ public class GenericBossManager {
                 return;
 
             final var bossWorld = store.getExternalData().getWorld();
+            if (bossWorld == null || !bossWorld.isAlive()) return;
 
             bossWorld.execute(() -> {
                 try {
@@ -390,6 +394,17 @@ public class GenericBossManager {
             for (HudKey key : Set.copyOf(pendingHudRemovals)) {
                 removedHudKeys.add(key);
                 HyUIHud hud = playerHuds.remove(key);
+                // Keep secondary indices in sync
+                Set<HudKey> byPlayer = hudsByPlayer.get(key.playerUuid);
+                if (byPlayer != null) {
+                    byPlayer.remove(key);
+                    if (byPlayer.isEmpty()) hudsByPlayer.remove(key.playerUuid);
+                }
+                Set<HudKey> byBoss = hudsByBoss.get(key.bossRef);
+                if (byBoss != null) {
+                    byBoss.remove(key);
+                    if (byBoss.isEmpty()) hudsByBoss.remove(key.bossRef);
+                }
                 if (hud != null) {
                     try {
                         hud.remove();
@@ -594,6 +609,9 @@ public class GenericBossManager {
                     .show();
 
             playerHuds.put(hudKey, hud);
+            // Maintain secondary indices
+            hudsByPlayer.computeIfAbsent(playerUuid, k -> ConcurrentHashMap.newKeySet()).add(hudKey);
+            hudsByBoss.computeIfAbsent(bossRef, k -> ConcurrentHashMap.newKeySet()).add(hudKey);
             plugin.getLogger().atFine().log("[GenericBoss] Boss bar shown: %s", state.config.displayName);
         } catch (Exception e) {
             plugin.getLogger().atWarning().log("[GenericBoss] Failed to show boss bar: %s", e.getMessage());
@@ -633,11 +651,11 @@ public class GenericBossManager {
         UUID playerUuid = endgame.plugin.utils.EntityUtils.getUuid(playerRef);
         if (playerUuid == null)
             return;
-        for (HudKey key : playerHuds.keySet()) {
-            if (playerUuid.equals(key.playerUuid)) {
-                removedHudKeys.add(key);
-                pendingHudRemovals.add(key);
-            }
+        Set<HudKey> keys = hudsByPlayer.get(playerUuid);
+        if (keys == null || keys.isEmpty()) return;
+        for (HudKey key : keys) {
+            removedHudKeys.add(key);
+            pendingHudRemovals.add(key);
         }
     }
 
@@ -665,20 +683,20 @@ public class GenericBossManager {
     public void hideBossBarForPlayerUuid(UUID playerUuid) {
         if (playerUuid == null)
             return;
-        for (HudKey key : playerHuds.keySet()) {
-            if (playerUuid.equals(key.playerUuid)) {
-                removedHudKeys.add(key);
-                pendingHudRemovals.add(key);
-            }
+        Set<HudKey> keys = hudsByPlayer.get(playerUuid);
+        if (keys == null || keys.isEmpty()) return;
+        for (HudKey key : keys) {
+            removedHudKeys.add(key);
+            pendingHudRemovals.add(key);
         }
     }
 
     private void hideAllBossBarsForBoss(Ref<EntityStore> bossRef) {
-        for (HudKey key : playerHuds.keySet()) {
-            if (bossRef.equals(key.bossRef)) {
-                removedHudKeys.add(key);
-                pendingHudRemovals.add(key);
-            }
+        Set<HudKey> keys = hudsByBoss.get(bossRef);
+        if (keys == null || keys.isEmpty()) return;
+        for (HudKey key : keys) {
+            removedHudKeys.add(key);
+            pendingHudRemovals.add(key);
         }
     }
 
@@ -702,6 +720,8 @@ public class GenericBossManager {
             }
         }
         playerHuds.clear();
+        hudsByPlayer.clear();
+        hudsByBoss.clear();
         removedHudKeys.clear();
         plugin.getLogger().atFine().log("[GenericBoss] Force cleared all boss bars and state");
     }

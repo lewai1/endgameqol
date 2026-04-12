@@ -34,8 +34,6 @@ public class EndgameRepository {
                         uuid VARCHAR(36) PRIMARY KEY,
                         username VARCHAR(64) NOT NULL,
                         bounty_state TEXT,
-                        void_pocket TEXT,
-                        gauntlet_best_wave INT DEFAULT 0,
                         achievement_data TEXT,
                         bestiary_data TEXT,
                         accessory_pouch TEXT,
@@ -106,8 +104,7 @@ public class EndgameRepository {
             int rows;
             try (PreparedStatement ps = conn.prepareStatement("""
                     UPDATE Endgame_PlayerData
-                    SET username = ?, bounty_state = ?, void_pocket = ?,
-                        gauntlet_best_wave = CASE WHEN ? > gauntlet_best_wave THEN ? ELSE gauntlet_best_wave END,
+                    SET username = ?, bounty_state = ?,
                         achievement_data = ?, bestiary_data = ?, accessory_pouch = ?,
                         combo_personal_best = CASE WHEN ? > combo_personal_best THEN ? ELSE combo_personal_best END,
                         last_updated = ?
@@ -115,36 +112,31 @@ public class EndgameRepository {
                     """)) {
                 ps.setString(1, snapshot.username());
                 ps.setString(2, snapshot.bountyStateJson());
-                ps.setString(3, snapshot.voidPocketJson());
-                ps.setInt(4, snapshot.gauntletBestWave());
-                ps.setInt(5, snapshot.gauntletBestWave());
-                ps.setString(6, snapshot.achievementJson());
-                ps.setString(7, snapshot.bestiaryJson());
-                ps.setString(8, snapshot.accessoryPouchJson());
-                ps.setInt(9, snapshot.comboPersonalBest());
-                ps.setInt(10, snapshot.comboPersonalBest());
-                ps.setLong(11, System.currentTimeMillis());
-                ps.setString(12, snapshot.uuid());
+                ps.setString(3, snapshot.achievementJson());
+                ps.setString(4, snapshot.bestiaryJson());
+                ps.setString(5, snapshot.accessoryPouchJson());
+                ps.setInt(6, snapshot.comboPersonalBest());
+                ps.setInt(7, snapshot.comboPersonalBest());
+                ps.setLong(8, System.currentTimeMillis());
+                ps.setString(9, snapshot.uuid());
                 rows = ps.executeUpdate();
             }
 
             if (rows == 0) {
                 try (PreparedStatement ps = conn.prepareStatement("""
                         INSERT INTO Endgame_PlayerData
-                        (uuid, username, bounty_state, void_pocket, gauntlet_best_wave,
+                        (uuid, username, bounty_state,
                          achievement_data, bestiary_data, accessory_pouch, combo_personal_best, last_updated)
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                         """)) {
                     ps.setString(1, snapshot.uuid());
                     ps.setString(2, snapshot.username());
                     ps.setString(3, snapshot.bountyStateJson());
-                    ps.setString(4, snapshot.voidPocketJson());
-                    ps.setInt(5, snapshot.gauntletBestWave());
-                    ps.setString(6, snapshot.achievementJson());
-                    ps.setString(7, snapshot.bestiaryJson());
-                    ps.setString(8, snapshot.accessoryPouchJson());
-                    ps.setInt(9, snapshot.comboPersonalBest());
-                    ps.setLong(10, System.currentTimeMillis());
+                    ps.setString(4, snapshot.achievementJson());
+                    ps.setString(5, snapshot.bestiaryJson());
+                    ps.setString(6, snapshot.accessoryPouchJson());
+                    ps.setInt(7, snapshot.comboPersonalBest());
+                    ps.setLong(8, System.currentTimeMillis());
                     ps.executeUpdate();
                 }
             }
@@ -158,7 +150,7 @@ public class EndgameRepository {
     public PlayerDataSnapshot loadPlayerData(String uuid) throws SQLException {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement(
-                     "SELECT uuid, username, bounty_state, void_pocket, gauntlet_best_wave, " +
+                     "SELECT uuid, username, bounty_state, " +
                      "achievement_data, bestiary_data, accessory_pouch, combo_personal_best " +
                      "FROM Endgame_PlayerData WHERE uuid = ?")) {
             ps.setString(1, uuid);
@@ -168,8 +160,6 @@ public class EndgameRepository {
                             rs.getString("uuid"),
                             rs.getString("username"),
                             rs.getString("bounty_state"),
-                            rs.getString("void_pocket"),
-                            rs.getInt("gauntlet_best_wave"),
                             rs.getString("achievement_data"),
                             rs.getString("bestiary_data"),
                             rs.getString("accessory_pouch"),

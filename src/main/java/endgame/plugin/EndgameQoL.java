@@ -16,7 +16,6 @@ import endgame.plugin.config.EndgameConfig;
 import endgame.plugin.config.PlayerLocaleStorage;
 import endgame.plugin.config.RecipeOverrideConfig;
 import endgame.plugin.config.AccessoryPouchStorage;
-import endgame.plugin.config.GauntletLeaderboard;
 import endgame.plugin.config.BountyData;
 import endgame.plugin.config.AchievementData;
 import endgame.plugin.config.BestiaryData;
@@ -24,15 +23,12 @@ import endgame.plugin.managers.AchievementManager;
 import endgame.plugin.managers.BossHealthManager;
 import endgame.plugin.managers.BountyManager;
 import endgame.plugin.managers.ComboMeterManager;
-import endgame.plugin.managers.GauntletManager;
 import endgame.plugin.managers.boss.GenericBossManager;
 import endgame.plugin.managers.boss.GolemVoidBossManager;
 import endgame.plugin.migration.LegacyDataMigration;
 import endgame.plugin.systems.boss.DangerZoneTickSystem;
-import endgame.plugin.systems.trial.WardenTrialManager;
-import endgame.plugin.systems.trial.StartWardenTrialInteraction;
-import endgame.plugin.systems.trial.StartGauntletInteraction;
 import endgame.plugin.utils.I18n;
+import endgame.wavearena.WaveArenaEngine;
 import endgame.plugin.watchers.ForgottenTempleWatcher;
 
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Interaction;
@@ -53,7 +49,6 @@ public class EndgameQoL extends JavaPlugin {
     private final Config<EndgameConfig> config;
     private final Config<AccessoryPouchStorage> accessoryPouchConfig;
     private final Config<RecipeOverrideConfig> recipeOverrideConfig;
-    private final Config<GauntletLeaderboard> gauntletLeaderboard;
     private final Config<BountyData> bountyData;
     private final Config<PlayerLocaleStorage> playerLocaleConfig;
     private final Config<endgame.plugin.database.DatabaseConfig> databaseConfig;
@@ -85,7 +80,7 @@ public class EndgameQoL extends JavaPlugin {
     private volatile Boolean cachedRpgLevelingPresent;
     private volatile Boolean cachedEndlessLevelingPresent;
     private volatile Boolean cachedOrbisGuardPresent;
-    private volatile Boolean cachedEndgamePetsPresent;
+    private volatile Boolean cachedPetsReforgedPresent;
 
     public EndgameQoL(@Nonnull JavaPluginInit init) {
         super(init);
@@ -93,7 +88,6 @@ public class EndgameQoL extends JavaPlugin {
         this.config = this.withConfig("EndgameConfig", EndgameConfig.CODEC);
         this.accessoryPouchConfig = this.withConfig("EndgameAccessories", AccessoryPouchStorage.CODEC);
         this.recipeOverrideConfig = this.withConfig("RecipeOverrides", RecipeOverrideConfig.CODEC);
-        this.gauntletLeaderboard = this.withConfig("GauntletLeaderboard", GauntletLeaderboard.CODEC);
         this.bountyData = this.withConfig("BountyData", BountyData.CODEC);
         this.playerLocaleConfig = this.withConfig("PlayerLocales", PlayerLocaleStorage.CODEC);
         this.databaseConfig = this.withConfig("DatabaseConfig", endgame.plugin.database.DatabaseConfig.CODEC);
@@ -134,12 +128,11 @@ public class EndgameQoL extends JavaPlugin {
                 "EndgameStanceChange", endgame.plugin.systems.weapon.EndgameStanceChangeInteraction.class,
                 endgame.plugin.systems.weapon.EndgameStanceChangeInteraction.CODEC);
         this.getCodecRegistry(Interaction.CODEC).register(
-                "StartWardenTrial", StartWardenTrialInteraction.class, StartWardenTrialInteraction.CODEC);
+                "StartWaveArena", endgame.plugin.wave.StartWaveArenaInteraction.class,
+                endgame.plugin.wave.StartWaveArenaInteraction.CODEC);
         this.getCodecRegistry(Interaction.CODEC).register(
                 "EndgameSpawnNPC", endgame.plugin.systems.npc.EndgameSpawnNPCInteraction.class,
                 endgame.plugin.systems.npc.EndgameSpawnNPCInteraction.CODEC);
-        this.getCodecRegistry(Interaction.CODEC).register(
-                "StartGauntlet", StartGauntletInteraction.class, StartGauntletInteraction.CODEC);
         this.getCodecRegistry(Interaction.CODEC).register(
                 "Unlock", endgame.plugin.systems.block.UnlockInteraction.class,
                 endgame.plugin.systems.block.UnlockInteraction.CODEC);
@@ -157,6 +150,10 @@ public class EndgameQoL extends JavaPlugin {
         this.getEntityStoreRegistry().registerSystem(
                 new endgame.plugin.systems.boss.BossKnockbackSuppressionSystem());
 
+        // Spear pickup after throw
+        this.getEntityStoreRegistry().registerSystem(
+                new endgame.plugin.systems.weapon.SpearPickupSystem());
+
         // Commands
         this.getCommandRegistry().registerCommand(new EgCommand(this));
 
@@ -173,18 +170,14 @@ public class EndgameQoL extends JavaPlugin {
         // Legacy data migration (keeps references to old configs for per-player migration on connect)
         this.legacyMigration = new LegacyDataMigration(
                 this.achievementData, this.bestiaryData, this.bountyData,
-                null, this.accessoryPouchConfig, this.playerLocaleConfig);
+                this.accessoryPouchConfig, this.playerLocaleConfig);
 
         // ECS systems & managers
         this.systemRegistry = new SystemRegistry(this);
-        this.systemRegistry.register(this.gauntletLeaderboard,
-                this.playerEndgameComponentType);
+        this.systemRegistry.register(this.playerEndgameComponentType);
 
         // Achievement + Bestiary system
         this.achievementManager = new AchievementManager(this);
-
-        // Wire database sync references
-        this.databaseInitializer.setSyncReferences(this.gauntletLeaderboard);
 
         // Event handlers
         this.eventRegistry = new EventRegistry(this, this.systemRegistry, this.databaseInitializer);
@@ -429,15 +422,15 @@ public class EndgameQoL extends JavaPlugin {
         }
     }
 
-    public boolean isEndgamePetsModPresent() {
-        Boolean cached = cachedEndgamePetsPresent;
+    public boolean isPetsReforgedModPresent() {
+        Boolean cached = cachedPetsReforgedPresent;
         if (cached != null) return cached;
         try {
-            Class.forName("me.lewai.endgamepets.api.PetAPI");
-            cachedEndgamePetsPresent = true;
+            Class.forName("me.lewai.petsreforged.api.PetAPI");
+            cachedPetsReforgedPresent = true;
             return true;
         } catch (ClassNotFoundException e) {
-            cachedEndgamePetsPresent = false;
+            cachedPetsReforgedPresent = false;
             return false;
         }
     }
@@ -515,6 +508,7 @@ public class EndgameQoL extends JavaPlugin {
         endgame.plugin.migration.ItemIdMigration.clear();
         endgame.plugin.events.PlayerEventHandler.reset();
         endgame.plugin.managers.RecipeManager.reset();
+        endgame.plugin.utils.PlayerRefCache.clear();
 
         this.getLogger().atInfo().log("[EndgameQoL] Shutdown complete!");
     }
@@ -615,10 +609,6 @@ public class EndgameQoL extends JavaPlugin {
         return recipeOverrideSystem;
     }
 
-    public Config<GauntletLeaderboard> getGauntletLeaderboard() {
-        return gauntletLeaderboard;
-    }
-
     public Config<endgame.plugin.database.DatabaseConfig> getDatabaseConfig() {
         return databaseConfig;
     }
@@ -641,16 +631,13 @@ public class EndgameQoL extends JavaPlugin {
         return systemRegistry != null ? systemRegistry.getBossHealthManager() : null;
     }
 
-    public WardenTrialManager getWardenTrialManager() {
-        return systemRegistry != null ? systemRegistry.getWardenTrialManager() : null;
+    @Nullable
+    public WaveArenaEngine getWaveArenaEngine() {
+        return systemRegistry != null ? systemRegistry.getWaveArenaEngine() : null;
     }
 
     public ComboMeterManager getComboMeterManager() {
         return systemRegistry != null ? systemRegistry.getComboMeterManager() : null;
-    }
-
-    public GauntletManager getGauntletManager() {
-        return systemRegistry != null ? systemRegistry.getGauntletManager() : null;
     }
 
     public BountyManager getBountyManager() {

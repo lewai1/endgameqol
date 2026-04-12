@@ -27,7 +27,6 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * Subcommands:
  *   /egadmin debug boss <type>           — Dump active boss state
- *   /egadmin reset leaderboard           — Clear gauntlet leaderboard (requires confirmation)
  *   /egadmin reset bounties <player|all> — Force refresh bounties
  *   /egadmin reload                      — Hot-reload config from disk
  */
@@ -44,7 +43,6 @@ public class EgAdminCommand extends AbstractCommandCollection {
 
         // /egadmin reset ...
         AbstractCommandCollection resetCollection = new AbstractCommandCollection("reset", "Reset subcommands") {};
-        resetCollection.addSubCommand(new ResetLeaderboardCommand(plugin));
         resetCollection.addSubCommand(new ResetBountiesCommand(plugin));
         this.addSubCommand(resetCollection);
 
@@ -227,70 +225,6 @@ public class EgAdminCommand extends AbstractCommandCollection {
             playerRef.sendMessage(Message.join(
                     Message.raw("[EgAdmin] ").color("#bb44ff"),
                     Message.raw("Spawning " + dungeonDef.getDisplayName() + " portal near you...").color("#4ade80")
-            ));
-        }
-    }
-
-    // =========================================================================
-    // /egadmin reset leaderboard
-    // =========================================================================
-    private static class ResetLeaderboardCommand extends AbstractPlayerCommand {
-        private final EndgameQoL plugin;
-        private static final ConcurrentHashMap<UUID, Long> confirmMap = new ConcurrentHashMap<>();
-        private static final long CONFIRM_TIMEOUT_MS = 10_000;
-
-        ResetLeaderboardCommand(EndgameQoL plugin) {
-            super("leaderboard", "Clear gauntlet leaderboard (requires confirmation)");
-            this.plugin = plugin;
-        }
-
-        @Override
-        protected void execute(@Nonnull CommandContext context, @Nonnull Store<EntityStore> store,
-                               @Nonnull Ref<EntityStore> ref, @Nonnull PlayerRef playerRef, @Nonnull World world) {
-            UUID playerUuid = playerRef.getUuid();
-            if (playerUuid == null) return;
-
-            long now = System.currentTimeMillis();
-            // Evict stale entries to prevent unbounded growth
-            confirmMap.entrySet().removeIf(e -> now - e.getValue() > CONFIRM_TIMEOUT_MS * 3);
-            if (confirmMap.size() > 100) confirmMap.clear();
-            Long confirmTime = confirmMap.get(playerUuid);
-
-            if (confirmTime != null && (now - confirmTime) < CONFIRM_TIMEOUT_MS) {
-                confirmMap.remove(playerUuid);
-
-                if (plugin.getGauntletLeaderboard() != null) {
-                    int oldCount = plugin.getGauntletLeaderboard().get().getEntryCount();
-                    plugin.getGauntletLeaderboard().get().clearAll();
-                    plugin.getGauntletLeaderboard().save();
-
-                    playerRef.sendMessage(Message.join(
-                            Message.raw("[EgAdmin] ").color("#bb44ff"),
-                            Message.raw("Gauntlet leaderboard cleared! (" + oldCount + " entries removed)").color("#4ade80")
-                    ));
-                } else {
-                    playerRef.sendMessage(Message.join(
-                            Message.raw("[EgAdmin] ").color("#bb44ff"),
-                            Message.raw("Leaderboard not available.").color("#ff4444")
-                    ));
-                }
-                return;
-            }
-
-            confirmMap.put(playerUuid, now);
-            int entryCount = 0;
-            if (plugin.getGauntletLeaderboard() != null) {
-                entryCount = plugin.getGauntletLeaderboard().get().getEntryCount();
-            }
-
-            playerRef.sendMessage(Message.join(
-                    Message.raw("[EgAdmin] ").color("#bb44ff"),
-                    Message.raw("WARNING: ").color("#ff4444"),
-                    Message.raw("This will delete all " + entryCount + " leaderboard entries!").color("#ffaa00")
-            ));
-            playerRef.sendMessage(Message.join(
-                    Message.raw("[EgAdmin] ").color("#bb44ff"),
-                    Message.raw("Run /egadmin reset leaderboard again within 10s to confirm.").color("#ffffff")
             ));
         }
     }

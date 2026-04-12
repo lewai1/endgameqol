@@ -1,0 +1,197 @@
+{
+  "Type": "StatsCondition",
+  "Costs": {
+    "SignatureEnergy": 100
+  },
+  "ValueType": "Percent",
+  "Next": {
+    "Type": "Serial",
+    "Interactions": [
+      {
+        "Type": "Simple",
+        "RunTime": 0.3,
+        "Effects": {
+          "ItemAnimationId": "VortexstrikeSpin",
+          "WorldSoundEventId": "SFX_Ice_Ball_Death",
+          "LocalSoundEventId": "SFX_Ice_Ball_Death",
+          "Particles": [
+            {
+              "SystemId": "Impact_Ice",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 3.0
+            }
+          ]
+        }
+      },
+      {
+        "Type": "Selector",
+        "RunTime": 0.05,
+        "Effects": {
+          "Particles": [
+            {
+              "SystemId": "IceBall_Explosion",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 2.5
+            },
+            {
+              "SystemId": "Impact_Ice",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 2.0
+            }
+          ]
+        },
+        "Selector": {
+          "Id": "AOECircle",
+          "Range": 8
+        },
+        "HitEntity": {
+          "Interactions": [
+            {
+              "Type": "DamageEntity",
+              "Parent": "DamageEntityParent",
+              "DamageCalculator": {
+                "BaseDamage": {
+                  "Ice": 80
+                },
+                "Type": "Absolute"
+              },
+              "DamageEffects": {
+                "WorldSoundEventId": "SFX_Ice_Hit",
+                "WorldParticles": [
+                  {
+                    "SystemId": "Impact_Ice",
+                    "Scale": 1.5
+                  }
+                ]
+              },
+              "Next": {
+                "Type": "ApplyEffect",
+                "EffectId": "Endgame_Frost_Chill",
+                "Entity": "Target"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 1.0
+      },
+      {
+        "Type": "Selector",
+        "RunTime": 0.05,
+        "Effects": {
+          "WorldSoundEventId": "SFX_Ice_Ball_Death",
+          "Particles": [
+            {
+              "SystemId": "IceBall_Explosion",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 2.5
+            }
+          ]
+        },
+        "Selector": {
+          "Id": "AOECircle",
+          "Range": 8
+        },
+        "HitEntity": {
+          "Interactions": [
+            {
+              "Type": "DamageEntity",
+              "Parent": "DamageEntityParent",
+              "DamageCalculator": {
+                "BaseDamage": {
+                  "Ice": 80
+                },
+                "Type": "Absolute"
+              },
+              "DamageEffects": {
+                "WorldSoundEventId": "SFX_Ice_Hit",
+                "WorldParticles": [
+                  {
+                    "SystemId": "Impact_Ice",
+                    "Scale": 1.5
+                  }
+                ]
+              },
+              "Next": {
+                "Type": "ApplyEffect",
+                "EffectId": "Endgame_Frost_Chill",
+                "Entity": "Target"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Type": "Simple",
+        "RunTime": 1.0
+      },
+      {
+        "Type": "Selector",
+        "RunTime": 0.05,
+        "Effects": {
+          "WorldSoundEventId": "SFX_Ice_Ball_Death",
+          "CameraEffect": "Impact",
+          "Particles": [
+            {
+              "SystemId": "IceBall_Explosion",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 3.5
+            },
+            {
+              "SystemId": "Impact_Ice",
+              "TargetEntityPart": "Entity",
+              "TargetNodeName": "Hip",
+              "Scale": 3.0
+            }
+          ]
+        },
+        "Selector": {
+          "Id": "AOECircle",
+          "Range": 8
+        },
+        "HitEntity": {
+          "Interactions": [
+            {
+              "Type": "DamageEntity",
+              "Parent": "DamageEntityParent",
+              "DamageCalculator": {
+                "BaseDamage": {
+                  "Ice": 80
+                },
+                "Type": "Absolute"
+              },
+              "DamageEffects": {
+                "WorldSoundEventId": "SFX_Ice_Break",
+                "WorldParticles": [
+                  {
+                    "SystemId": "Impact_Ice",
+                    "Scale": 2
+                  }
+                ]
+              },
+              "Next": {
+                "Type": "ApplyEffect",
+                "EffectId": "Endgame_Frost_Frozen",
+                "Entity": "Target"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "Type": "ChangeStat",
+        "StatModifiers": {
+          "SignatureEnergy": -100
+        },
+        "ValueType": "Percent"
+      }
+    ]
+  }
+}

@@ -164,17 +164,17 @@ items.Build_Lightsource_Plum.name = Plum Lightsource
 items.Endgame_Accessory_Pouch.name = Trinket Pouch
 items.Endgame_Accessory_Pouch.description = A reinforced pouch crafted from the finest endgame materials. Holds up to <color is="#FFD700">5 accessories</color> that grant passive combat bonuses.\n<color is="#b8860b">Right Click</color> to open.
 items.Endgame_Accessory_Frostwalkers.name = Frostwalkers
-items.Endgame_Accessory_Frostwalkers.description = Boots imbued with frost magic, freezing water beneath the wearer's feet.\n<color is="#05c09a">Effect:</color> <color is="#66ccff">Walk on water (ice melts after 3s)</color>
+items.Endgame_Accessory_Frostwalkers.description = <color is="#b8860b">Accessory — store in trinket pouch</color>\nBoots imbued with frost magic, freezing water beneath the wearer's feet.\n<color is="#05c09a">Effect:</color> <color is="#66ccff">Walk on water (ice melts after 3s)</color>
 items.Endgame_Accessory_Ocean_Striders.name = Ocean Striders
-items.Endgame_Accessory_Ocean_Striders.description = Enchanted fins blessed by the sea, propelling the wearer through water at incredible speed.\n<color is="#05c09a">Effect:</color> <color is="#00BFFF">2x swim speed in water</color>
+items.Endgame_Accessory_Ocean_Striders.description = <color is="#b8860b">Accessory — store in trinket pouch</color>\nEnchanted fins blessed by the sea, propelling the wearer through water at incredible speed.\n<color is="#05c09a">Effect:</color> <color is="#00BFFF">2x swim speed in water</color>
 items.Endgame_Accessory_Void_Amulet.name = Void Amulet
-items.Endgame_Accessory_Void_Amulet.description = An amulet pulsing with void energy. When a killing blow would fell you, survive at 1 HP with 3 seconds of invulnerability.\n<color is="#05c09a">Effect:</color> <color is="#800080">Cheat death (5min CD)</color>
+items.Endgame_Accessory_Void_Amulet.description = <color is="#b8860b">Accessory — store in trinket pouch</color>\nAn amulet pulsing with void energy. When a killing blow would fell you, survive at 1 HP with 3 seconds of invulnerability.\n<color is="#05c09a">Effect:</color> <color is="#800080">Cheat death (5min CD)</color>
 items.Endgame_Accessory_Blazefist.name = Blazefist
-items.Endgame_Accessory_Blazefist.description = A fist forged in dragonfire, igniting all those who dare stand near your target.\n<color is="#05c09a">Effect:</color> <color is="#ff5555">Burn hit target + 3m AOE fire</color>
+items.Endgame_Accessory_Blazefist.description = <color is="#b8860b">Accessory — store in trinket pouch</color>\nA fist forged in dragonfire, igniting all those who dare stand near your target.\n<color is="#05c09a">Effect:</color> <color is="#ff5555">Burn hit target + 3m AOE fire</color>
 items.Endgame_Accessory_Pocket_Garden.name = Pocket Garden
-items.Endgame_Accessory_Pocket_Garden.description = A living charm containing a miniature garden that radiates healing energy.\n<color is="#05c09a">Effect:</color> <color is="#2E8B57">+1 HP/sec passive regeneration</color>
+items.Endgame_Accessory_Pocket_Garden.description = <color is="#b8860b">Accessory — store in trinket pouch</color>\nA living charm containing a miniature garden that radiates healing energy.\n<color is="#05c09a">Effect:</color> <color is="#2E8B57">+1 HP/sec passive regeneration</color>
 items.Endgame_Accessory_Hedera_Seed.name = Hedera Seed
-items.Endgame_Accessory_Hedera_Seed.description = A dormant seed of Hedera, retaliating against those who would harm its bearer with entangling roots.\n<color is="#05c09a">Effect:</color> <color is="#2E8B57">15% chance to root attacker for 2s</color>
+items.Endgame_Accessory_Hedera_Seed.description = <color is="#b8860b">Accessory — store in trinket pouch</color>\nA dormant seed of Hedera, retaliating against those who would harm its bearer with entangling roots.\n<color is="#05c09a">Effect:</color> <color is="#2E8B57">15% chance to root attacker for 2s</color>
 
 memories.categories.Endgame.title = Endgame
 server.npcRoles.Endgame_Bramble_Elite.name = Bramble Elite

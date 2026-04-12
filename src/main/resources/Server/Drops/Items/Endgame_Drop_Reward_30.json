@@ -43,21 +43,6 @@
             }
           }
         ]
-      },
-      {
-        "Type": "Choice",
-        "Weight": 100,
-        "Containers": [
-          {
-            "Type": "Single",
-            "Weight": 50,
-            "Item": {
-              "ItemId": "Gauntlet_Sigil",
-              "QuantityMin": 1,
-              "QuantityMax": 1
-            }
-          }
-        ]
       }
     ]
   }

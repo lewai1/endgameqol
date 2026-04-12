@@ -1,0 +1,25 @@
+{
+  "Id": "Warden_Trial_IV",
+  "DisplayName": "Warden Trial — Tier IV",
+  "DisplayColor": "#d16eff",
+  "WaveCount": 5,
+  "TimeLimitSeconds": 540,
+  "SpawnRadius": 6.0,
+  "IntervalSeconds": 8,
+  "CountdownSeconds": 3,
+  "MobLevel": 90,
+  "RewardDropTable": "Endgame_Drop_Warden_Challenge_IV",
+  "XpReward": 150,
+  "XpSource": "WARDEN_TRIAL",
+  "BountyHook": "COMPLETE_TRIAL",
+  "BountyTier": 4,
+  "InstanceBlacklist": ["instance-"],
+  "BlockedMessage": "You cannot start a Warden Trial inside a dungeon instance.",
+  "Waves": [
+    { "Mobs": [{"Type": "Endgame_Goblin_Duke", "Count": 1}, {"Type": "Endgame_Necromancer_Void", "Count": 1}, {"Type": "Skeleton_Burnt_Gunner", "Count": 2}, {"Type": "Skeleton_Burnt_Wizard", "Count": 1}] },
+    { "Mobs": [{"Type": "Alpha_Rex", "Count": 1}, {"Type": "Endgame_Werewolf", "Count": 1}, {"Type": "Skeleton_Burnt_Wizard", "Count": 2}, {"Type": "Golem_Eye_Void", "Count": 1}] },
+    { "Mobs": [{"Type": "Endgame_Necromancer_Void", "Count": 1}, {"Type": "Alpha_Rex", "Count": 1}, {"Type": "Skeleton_Sand_Archmage", "Count": 2}, {"Type": "Golem_Eye_Void", "Count": 2}] },
+    { "Mobs": [{"Type": "Alpha_Rex", "Count": 2}, {"Type": "Endgame_Goblin_Duke", "Count": 1}, {"Type": "Skeleton_Burnt_Gunner", "Count": 2}] },
+    { "Mobs": [{"Type": "Endgame_Shadow_Knight", "Count": 1}, {"Type": "Alpha_Rex", "Count": 1}, {"Type": "Skeleton_Sand_Archmage", "Count": 1}, {"Type": "Skeleton_Burnt_Gunner", "Count": 1}, {"Type": "Golem_Eye_Void", "Count": 1}, {"Type": "Endgame_Necromancer_Void", "Count": 1}] }
+  ]
+}

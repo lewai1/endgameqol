@@ -9,7 +9,8 @@
   "TimeToLive": 10,
   "Damage": 25,
   "DeathEffectsOnHit": true,
-  "DeadTime": 0,
+  "DeadTime": 3,
+  "DeadTimeMiss": 3,
   "DepthShot": 1,
   "HorizontalCenterShot": 0.1,
   "HitParticles": {

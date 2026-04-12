@@ -88,9 +88,9 @@ Craft a <#d16eff>Shard of the Void</#d16eff> (5 Onyxium Bars, 50 Void Essence) a
 
 The ultimate tier. Craft Prisma gear at the Endgame Bench Tier 5 using Prisma Bars, Prismic Leather, and Emerald Gems.
 
-**<#d16eff>Prisma Sword</#d16eff>** — Signature summons 2 Prisma Clones that fight for you
+**<#d16eff>Prisma Sword</#d16eff>** — Prismatic Beam (Ability3, 80 Mana, 20-block projectile with AOE explosion) + Prismatic Judgment signature (100 SE, 10-block ground slam, 250 dmg + knockup + slow)
 
-**<#d16eff>Prisma Daggers</#d16eff>** — Void Mark + execution (3x damage below 25% HP) + stance switch (combat/blink modes)
+**<#d16eff>Prisma Daggers</#d16eff>** — Prisma Dash (Ability3, 60 Mana, 10-block line lunge, 80 dmg per hit) + Razor Storm signature (100 SE, 3 AOE bursts, 240 dmg total)
 
 **<#d16eff>Prisma Pickaxe</#d16eff>** — 3x3 area break toggle, best mining tool
 

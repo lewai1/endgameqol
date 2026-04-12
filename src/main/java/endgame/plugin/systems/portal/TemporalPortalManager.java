@@ -306,23 +306,31 @@ public class TemporalPortalManager {
             final String dungeonColor = session.getDungeonDef().getColor();
 
             portalWorld.execute(() -> {
+                // Collect players in this portal's world ONCE — reused by warnings + proximity loop
+                List<PlayerRef> playersInWorld = new ArrayList<>();
+                for (PlayerRef p : Universe.get().getPlayers()) {
+                    if (p == null) continue;
+                    Ref<EntityStore> r = p.getReference();
+                    if (r == null || !r.isValid()) continue;
+                    World pw = r.getStore().getExternalData().getWorld();
+                    if (pw != null && pw.getName().equals(portalWorldName)) {
+                        playersInWorld.add(p);
+                    }
+                }
+
                 // [3] Warnings — must be inside world.execute for ECS access
                 if (warn5) {
-                    broadcastNearPortal(portalWorldName, portalPos, 100, dungeonColor,
+                    broadcastNearPortalFiltered(playersInWorld, portalPos, 100, dungeonColor,
                             "The portal is destabilizing... 5 minutes remaining!");
                 }
                 if (warn1) {
-                    broadcastNearPortal(portalWorldName, portalPos, 100, "#ff4444",
+                    broadcastNearPortalFiltered(playersInWorld, portalPos, 100, "#ff4444",
                             "The portal is collapsing! 1 minute remaining!");
                 }
                 long tick = System.currentTimeMillis();
-                for (PlayerRef player : Universe.get().getPlayers()) {
-                    if (player == null) continue;
+                for (PlayerRef player : playersInWorld) {
                     Ref<EntityStore> ref = player.getReference();
                     if (ref == null || !ref.isValid()) continue;
-
-                    World playerWorld = ref.getStore().getExternalData().getWorld();
-                    if (playerWorld == null || !playerWorld.getName().equals(portalWorldName)) continue;
 
                     TransformComponent tc = ref.getStore().getComponent(ref, TransformComponent.getComponentType());
                     if (tc == null) continue;
@@ -662,6 +670,24 @@ public class TemporalPortalManager {
             if (ref == null || !ref.isValid()) continue;
             World pw = ref.getStore().getExternalData().getWorld();
             if (pw == null || !pw.getName().equals(worldName)) continue;
+            TransformComponent tc = ref.getStore().getComponent(ref, TransformComponent.getComponentType());
+            if (tc != null && tc.getPosition().distanceSquaredTo(position) <= radiusSq) {
+                p.sendMessage(Message.raw("[Temporal Portal] " + message).color(color));
+            }
+        }
+    }
+
+    /**
+     * Variant of {@link #broadcastNearPortal} that skips the full
+     * {@code Universe.get().getPlayers()} scan by operating on a pre-filtered
+     * list (players already confirmed to be in the target world).
+     */
+    private void broadcastNearPortalFiltered(List<PlayerRef> playersInWorld, Vector3d position,
+                                              double radius, String color, String message) {
+        double radiusSq = radius * radius;
+        for (PlayerRef p : playersInWorld) {
+            Ref<EntityStore> ref = p.getReference();
+            if (ref == null || !ref.isValid()) continue;
             TransformComponent tc = ref.getStore().getComponent(ref, TransformComponent.getComponentType());
             if (tc != null && tc.getPosition().distanceSquaredTo(position) <= radiusSq) {
                 p.sendMessage(Message.raw("[Temporal Portal] " + message).color(color));

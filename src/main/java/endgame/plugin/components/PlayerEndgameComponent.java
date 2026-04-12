@@ -11,7 +11,6 @@ import endgame.plugin.config.AchievementData.PlayerAchievementState;
 import endgame.plugin.config.BestiaryData.PlayerBestiaryState;
 import endgame.plugin.config.BountyData.PlayerBountyState;
 import endgame.plugin.config.PetData;
-import endgame.plugin.config.VoidPocketData;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -40,7 +39,6 @@ public class PlayerEndgameComponent implements Component<EntityStore> {
     private PlayerAchievementState achievementState = new PlayerAchievementState();
     private PlayerBountyState bountyState = new PlayerBountyState();
     private PlayerBestiaryState bestiaryState = new PlayerBestiaryState();
-    private VoidPocketData voidPocketData = new VoidPocketData();
     private AccessoryPouchData accessoryPouchData = new AccessoryPouchData();
     private PetData petData = new PetData();
     private String locale = "";
@@ -66,9 +64,6 @@ public class PlayerEndgameComponent implements Component<EntityStore> {
                             endgame.plugin.config.BestiaryData.PLAYER_STATE_CODEC),
                     (c, v) -> { if (v != null) c.bestiaryState = v; },
                     c -> c.bestiaryState).add()
-            .append(new KeyedCodec<VoidPocketData>("VoidPocket", VoidPocketData.CODEC),
-                    (c, v) -> { if (v != null) c.voidPocketData = v; },
-                    c -> c.voidPocketData).add()
             .append(new KeyedCodec<AccessoryPouchData>("AccessoryPouch", AccessoryPouchData.CODEC),
                     (c, v) -> { if (v != null) c.accessoryPouchData = v; },
                     c -> c.accessoryPouchData).add()
@@ -90,7 +85,6 @@ public class PlayerEndgameComponent implements Component<EntityStore> {
         this.achievementState = new PlayerAchievementState(other.achievementState);
         this.bountyState = new PlayerBountyState(other.bountyState);
         this.bestiaryState = new PlayerBestiaryState(other.bestiaryState);
-        this.voidPocketData = new VoidPocketData(other.voidPocketData);
         this.accessoryPouchData = new AccessoryPouchData(other.accessoryPouchData);
         this.petData = new PetData(other.petData);
         this.locale = other.locale;
@@ -120,10 +114,6 @@ public class PlayerEndgameComponent implements Component<EntityStore> {
     @Nonnull
     public PlayerBestiaryState getBestiaryState() { return bestiaryState; }
     public void setBestiaryState(@Nonnull PlayerBestiaryState state) { this.bestiaryState = state; }
-
-    @Nonnull
-    public VoidPocketData getVoidPocketData() { return voidPocketData; }
-    public void setVoidPocketData(@Nonnull VoidPocketData data) { this.voidPocketData = data; }
 
     @Nonnull
     public AccessoryPouchData getAccessoryPouchData() { return accessoryPouchData; }

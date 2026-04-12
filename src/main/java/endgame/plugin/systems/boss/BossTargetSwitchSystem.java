@@ -139,7 +139,7 @@ public class BossTargetSwitchSystem extends EntityTickingSystem<EntityStore> {
 
         // Must set target on the boss's world thread
         World bossWorld = store.getExternalData().getWorld();
-        if (bossWorld == null) return;
+        if (bossWorld == null || !bossWorld.isAlive()) return;
         bossWorld.execute(() -> {
             try {
                 if (!bossRef.isValid()) return;

@@ -1,0 +1,25 @@
+{
+  "Id": "Warden_Trial_II",
+  "DisplayName": "Warden Trial — Tier II",
+  "DisplayColor": "#55aaff",
+  "WaveCount": 5,
+  "TimeLimitSeconds": 360,
+  "SpawnRadius": 6.0,
+  "IntervalSeconds": 8,
+  "CountdownSeconds": 3,
+  "MobLevel": 70,
+  "RewardDropTable": "Endgame_Drop_Warden_Challenge_II",
+  "XpReward": 150,
+  "XpSource": "WARDEN_TRIAL",
+  "BountyHook": "COMPLETE_TRIAL",
+  "BountyTier": 2,
+  "InstanceBlacklist": ["instance-"],
+  "BlockedMessage": "You cannot start a Warden Trial inside a dungeon instance.",
+  "Waves": [
+    { "Mobs": [{"Type": "Trork_Brawler", "Count": 2}, {"Type": "Skeleton_Ranger", "Count": 2}, {"Type": "Trork_Hunter", "Count": 1}] },
+    { "Mobs": [{"Type": "Outlander_Marauder", "Count": 2}, {"Type": "Outlander_Stalker", "Count": 2}, {"Type": "Skeleton_Archmage", "Count": 1}] },
+    { "Mobs": [{"Type": "Tiger_Sabertooth", "Count": 2}, {"Type": "Trork_Sentry", "Count": 2}, {"Type": "Skeleton_Mage", "Count": 1}] },
+    { "Mobs": [{"Type": "Endgame_Saurian_Warrior", "Count": 2}, {"Type": "Endgame_Ghoul", "Count": 2}, {"Type": "Outlander_Sorcerer", "Count": 1}] },
+    { "Mobs": [{"Type": "Endgame_Goblin_Duke", "Count": 1}, {"Type": "Endgame_Saurian_Hunter", "Count": 1}, {"Type": "Skeleton_Burnt_Wizard", "Count": 1}, {"Type": "Endgame_Werewolf", "Count": 1}] }
+  ]
+}

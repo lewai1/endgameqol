@@ -588,12 +588,7 @@ public class PetManager {
 
     @Nullable
     private PlayerRef findPlayerRef(@Nonnull UUID uuid) {
-        for (PlayerRef p : Universe.get().getPlayers()) {
-            if (p == null) continue;
-            UUID pUuid = EntityUtils.getUuid(p);
-            if (uuid.equals(pUuid)) return p;
-        }
-        return null;
+        return endgame.plugin.utils.PlayerRefCache.getByUuid(uuid);
     }
 
     public static float getBaseScale(@Nonnull String petId) {

@@ -178,10 +178,6 @@ public class PetFollowSystem extends TickingSystem<EntityStore> {
 
     @Nullable
     private PlayerRef findPlayerRef(@Nonnull UUID uuid) {
-        for (PlayerRef p : Universe.get().getPlayers()) {
-            if (p == null) continue;
-            if (uuid.equals(p.getUuid())) return p;
-        }
-        return null;
+        return endgame.plugin.utils.PlayerRefCache.getByUuid(uuid);
     }
 }

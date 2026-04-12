@@ -1,0 +1,11 @@
+{
+  "Interactions": [
+    "Endgame_Daggers_Prisma_Dash"
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  },
+  "RequireNewClick": true
+}

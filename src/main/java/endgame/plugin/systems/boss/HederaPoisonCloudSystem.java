@@ -57,6 +57,8 @@ public class HederaPoisonCloudSystem extends EntityTickingSystem<EntityStore> {
     private volatile GenericBossManager genericBossManager;
 
     private final Map<Ref<EntityStore>, HederaCloudState> hederaStates = new ConcurrentHashMap<>();
+    private volatile long lastStaleCleanupMs = 0L;
+    private static final long STALE_CLEANUP_INTERVAL_MS = 60_000L;
 
     private static class PoisonCloud {
         final Vector3d position;
@@ -119,7 +121,14 @@ public class HederaPoisonCloudSystem extends EntityTickingSystem<EntityStore> {
         World world = store.getExternalData().getWorld();
         HederaCloudState state = hederaStates.computeIfAbsent(hederaRef, k -> new HederaCloudState());
 
-        // Collect player refs for particles
+        // Periodic stale-ref eviction (runs once per minute from any Hedera tick)
+        long now = System.currentTimeMillis();
+        if (now - lastStaleCleanupMs >= STALE_CLEANUP_INTERVAL_MS) {
+            lastStaleCleanupMs = now;
+            hederaStates.keySet().removeIf(k -> !k.isValid());
+        }
+
+        // Collect player refs once — shared by particles + poison application
         List<Ref<EntityStore>> viewers = collectViewers(world);
 
         // Tick active clouds
@@ -130,7 +139,7 @@ public class HederaPoisonCloudSystem extends EntityTickingSystem<EntityStore> {
             cloud.tickTimer -= dt;
             if (cloud.tickTimer <= 0) {
                 cloud.tickTimer = CLOUD_TICK_INTERVAL;
-                applyPoisonToNearbyPlayers(world, cloud.position, commandBuffer);
+                applyPoisonToViewers(world, cloud.position, viewers);
                 spawnCloudParticle(cloud.position, viewers, store);
             }
             return false;
@@ -184,23 +193,24 @@ public class HederaPoisonCloudSystem extends EntityTickingSystem<EntityStore> {
         return viewers;
     }
 
-    private void applyPoisonToNearbyPlayers(World world, Vector3d center,
-                                             CommandBuffer<EntityStore> commandBuffer) {
-        for (PlayerRef playerRef : Universe.get().getPlayers()) {
-            if (playerRef == null) continue;
-            Ref<EntityStore> ref = playerRef.getReference();
+    /**
+     * Applies poison to players within the cloud radius. Uses the pre-collected
+     * viewer list (already filtered to the current world) instead of re-iterating
+     * {@code Universe.get().getPlayers()} per cloud tick.
+     */
+    private void applyPoisonToViewers(World world, Vector3d center,
+                                       List<Ref<EntityStore>> viewers) {
+        double radiusSq = CLOUD_RADIUS * CLOUD_RADIUS;
+        for (Ref<EntityStore> ref : viewers) {
             if (ref == null || !ref.isValid()) continue;
-
             Store<EntityStore> playerStore = ref.getStore();
-            if (!playerStore.getExternalData().getWorld().equals(world)) continue;
-
             TransformComponent playerTransform = playerStore.getComponent(ref, TransformComponent.getComponentType());
             if (playerTransform == null) continue;
 
             Vector3d playerPos = playerTransform.getPosition();
             double dx = playerPos.x - center.x;
             double dz = playerPos.z - center.z;
-            if (dx * dx + dz * dz > CLOUD_RADIUS * CLOUD_RADIUS) continue;
+            if (dx * dx + dz * dz > radiusSq) continue;
 
             // Must use player's own store — commandBuffer belongs to the NPC entity
             world.execute(() -> {

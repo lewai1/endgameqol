@@ -16,7 +16,6 @@ All EndgameQoL commands are under `/eg`.
 | `/eg journal` | Open the Journal (Bounty Board, Bestiary, Achievements) | endgameqol.journal |
 | `/eg config` | Open the configuration UI (7 tabs, search, recipe editor) | endgameqol.config |
 | `/eg status` | Diagnostics dashboard | endgameqol.admin |
-| `/eg gauntlet` | Gauntlet leaderboard (currently disabled) | endgameqol.gauntlet |
 | `/eg lang <locale|auto>` | Set display language (EN, FR, ES, PT-BR, RU) | None |
 
 ## /eg config
@@ -34,13 +33,12 @@ Permission: **endgameqol.admin** (op-only)
 | Subcommand | Description |
 |:-----------|:------------|
 | `/eg admin debug boss <type>` | Dump active boss state |
-| `/eg admin reset leaderboard` | Clear gauntlet leaderboard (10s confirmation) |
 | `/eg admin reset bounties <player|all>` | Force refresh bounties |
 | `/eg admin reload` | Reload config from disk (async) |
 
 ## Permission Model
 
-**Default-allow** — `/eg journal`, `/eg gauntlet`, `/eg lang` work for all players by default.
+**Default-allow** — `/eg journal`, `/eg lang` work for all players by default.
 
 **Op-only** — `endgameqol.admin` and `endgameqol.config` require operator.
 

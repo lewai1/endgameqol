@@ -95,9 +95,9 @@ public class EnrageTracker {
      * Called from DangerZoneTickSystem at the boss tick rate (200ms).
      */
     public void tick(long now) {
-        // Snapshot entries to avoid weakly-consistent iteration issues when
-        // recordDamage()/removeBoss() modify the map concurrently
-        for (Map.Entry<Ref<EntityStore>, BossEnrageState> entry : Map.copyOf(states).entrySet()) {
+        // ConcurrentHashMap iteration is weakly-consistent safe — concurrent
+        // recordDamage()/removeBoss() mutations are tolerated without copy.
+        for (Map.Entry<Ref<EntityStore>, BossEnrageState> entry : states.entrySet()) {
             BossEnrageState state = entry.getValue();
             BossConfig config = getBossConfig(state.bossType);
             if (config == null) continue;

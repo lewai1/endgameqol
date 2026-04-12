@@ -37,7 +37,7 @@ public class SnakeGamePage extends InteractiveCustomUIPage<SnakeEventData> {
     private volatile ScheduledFuture<?> tickTask;
     private volatile boolean started;
     private volatile int lastProcessedLength;
-    private int highScore;
+    private volatile int highScore;
 
     public SnakeGamePage(@Nonnull PlayerRef playerRef) {
         super(playerRef, CustomPageLifetime.CanDismiss, SnakeEventData.CODEC);

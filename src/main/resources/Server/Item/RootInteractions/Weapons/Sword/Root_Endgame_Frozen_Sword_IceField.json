@@ -1,0 +1,11 @@
+{
+  "Interactions": [
+    "Endgame_Frozen_Sword_IceField"
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  },
+  "RequireNewClick": true
+}

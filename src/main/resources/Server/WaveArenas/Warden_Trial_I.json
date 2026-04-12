@@ -1,0 +1,25 @@
+{
+  "Id": "Warden_Trial_I",
+  "DisplayName": "Warden Trial — Tier I",
+  "DisplayColor": "#ffaa00",
+  "WaveCount": 5,
+  "TimeLimitSeconds": 270,
+  "SpawnRadius": 6.0,
+  "IntervalSeconds": 8,
+  "CountdownSeconds": 3,
+  "MobLevel": 60,
+  "RewardDropTable": "Endgame_Drop_Warden_Challenge_I",
+  "XpReward": 150,
+  "XpSource": "WARDEN_TRIAL",
+  "BountyHook": "COMPLETE_TRIAL",
+  "BountyTier": 1,
+  "InstanceBlacklist": ["instance-"],
+  "BlockedMessage": "You cannot start a Warden Trial inside a dungeon instance.",
+  "Waves": [
+    { "Mobs": [{"Type": "Goblin_Scrapper", "Count": 3}, {"Type": "Skeleton_Archer", "Count": 2}] },
+    { "Mobs": [{"Type": "Skeleton_Soldier", "Count": 2}, {"Type": "Skeleton_Mage", "Count": 2}, {"Type": "Spider", "Count": 1}] },
+    { "Mobs": [{"Type": "Hyena", "Count": 2}, {"Type": "Goblin_Lobber", "Count": 2}, {"Type": "Skeleton_Ranger", "Count": 1}] },
+    { "Mobs": [{"Type": "Outlander_Brute", "Count": 1}, {"Type": "Skeleton_Archmage", "Count": 1}, {"Type": "Skeleton_Soldier", "Count": 2}] },
+    { "Mobs": [{"Type": "Toad_Rhino", "Count": 1}, {"Type": "Outlander_Hunter", "Count": 2}, {"Type": "Skeleton_Knight", "Count": 2}] }
+  ]
+}

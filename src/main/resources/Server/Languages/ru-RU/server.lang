@@ -164,14 +164,14 @@ items.Build_Lightsource_Plum.name = Сливовый Светильник
 items.Endgame_Accessory_Pouch.name = Сумка Талисманов
 items.Endgame_Accessory_Pouch.description = Усиленная сумка из лучших материалов эндгейма. Вмещает до <color is="#FFD700">5 аксессуаров</color>, дающих пассивные боевые бонусы.\n<color is="#b8860b">ПКМ</color> для открытия.
 items.Endgame_Accessory_Frostwalkers.name = Ледоступы
-items.Endgame_Accessory_Frostwalkers.description = Сапоги, пропитанные магией льда, замораживающие воду под ногами носителя.\n<color is="#05c09a">Эффект:</color> <color is="#66ccff">Хождение по воде (лёд тает через 3с)</color>
+items.Endgame_Accessory_Frostwalkers.description = <color is="#b8860b">Аксессуар — хранить в сумке талисманов</color>\nСапоги, пропитанные магией льда, замораживающие воду под ногами носителя.\n<color is="#05c09a">Эффект:</color> <color is="#66ccff">Хождение по воде (лёд тает через 3с)</color>
 items.Endgame_Accessory_Ocean_Striders.name = Океанские Шагатели
-items.Endgame_Accessory_Ocean_Striders.description = Зачарованные ласты, благословлённые морем, толкающие носителя сквозь воду с невероятной скоростью.\n<color is="#05c09a">Эффект:</color> <color is="#00BFFF">2x скорость плавания в воде</color>
+items.Endgame_Accessory_Ocean_Striders.description = <color is="#b8860b">Аксессуар — хранить в сумке талисманов</color>\nЗачарованные ласты, благословлённые морем, толкающие носителя сквозь воду с невероятной скоростью.\n<color is="#05c09a">Эффект:</color> <color is="#00BFFF">2x скорость плавания в воде</color>
 items.Endgame_Accessory_Void_Amulet.name = Амулет Пустоты
-items.Endgame_Accessory_Void_Amulet.description = Амулет, пульсирующий энергией пустоты. Когда смертельный удар должен сразить вас, выживите с 1 HP и 3 секундами неуязвимости.\n<color is="#05c09a">Эффект:</color> <color is="#800080">Обман смерти (5мин КД)</color>
+items.Endgame_Accessory_Void_Amulet.description = <color is="#b8860b">Аксессуар — хранить в сумке талисманов</color>\nАмулет, пульсирующий энергией пустоты. Когда смертельный удар должен сразить вас, выживите с 1 HP и 3 секундами неуязвимости.\n<color is="#05c09a">Эффект:</color> <color is="#800080">Обман смерти (5мин КД)</color>
 items.Endgame_Accessory_Blazefist.name = Пылающий Кулак
-items.Endgame_Accessory_Blazefist.description = Кулак, выкованный в драконьем пламени, поджигающий всех, кто посмеет встать рядом с вашей целью.\n<color is="#05c09a">Эффект:</color> <color is="#ff5555">Поджог цели + огонь AOE 3м</color>
+items.Endgame_Accessory_Blazefist.description = <color is="#b8860b">Аксессуар — хранить в сумке талисманов</color>\nКулак, выкованный в драконьем пламени, поджигающий всех, кто посмеет встать рядом с вашей целью.\n<color is="#05c09a">Эффект:</color> <color is="#ff5555">Поджог цели + огонь AOE 3м</color>
 items.Endgame_Accessory_Pocket_Garden.name = Карманный Сад
-items.Endgame_Accessory_Pocket_Garden.description = Живой амулет с миниатюрным садом, излучающим целительную энергию.\n<color is="#05c09a">Эффект:</color> <color is="#2E8B57">+1 HP/сек пассивной регенерации</color>
+items.Endgame_Accessory_Pocket_Garden.description = <color is="#b8860b">Аксессуар — хранить в сумке талисманов</color>\nЖивой амулет с миниатюрным садом, излучающим целительную энергию.\n<color is="#05c09a">Эффект:</color> <color is="#2E8B57">+1 HP/сек пассивной регенерации</color>
 items.Endgame_Accessory_Hedera_Seed.name = Семя Хедеры
-items.Endgame_Accessory_Hedera_Seed.description = Спящее семя Хедеры, мстящее тем, кто осмелится навредить его носителю, опутывающими корнями.\n<color is="#05c09a">Эффект:</color> <color is="#2E8B57">15% шанс обездвижить атакующего на 2с</color>
+items.Endgame_Accessory_Hedera_Seed.description = <color is="#b8860b">Аксессуар — хранить в сумке талисманов</color>\nСпящее семя Хедеры, мстящее тем, кто осмелится навредить его носителю, опутывающими корнями.\n<color is="#05c09a">Эффект:</color> <color is="#2E8B57">15% шанс обездвижить атакующего на 2с</color>

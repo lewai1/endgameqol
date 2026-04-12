@@ -36,8 +36,6 @@ public class EndgameConfig {
                     (c, v) -> { if (v != null) c.armor = v; }, c -> c.armor).add()
             .append(new KeyedCodec<ComboConfig>("Combo", ComboConfig.CODEC),
                     (c, v) -> { if (v != null) c.combo = v; }, c -> c.combo).add()
-            .append(new KeyedCodec<GauntletConfig>("Gauntlet", GauntletConfig.CODEC),
-                    (c, v) -> { if (v != null) c.gauntlet = v; }, c -> c.gauntlet).add()
             .append(new KeyedCodec<BountyConfig>("Bounty", BountyConfig.CODEC),
                     (c, v) -> { if (v != null) c.bounty = v; }, c -> c.bounty).add()
             .append(new KeyedCodec<CraftingConfig>("Crafting", CraftingConfig.CODEC),
@@ -59,7 +57,6 @@ public class EndgameConfig {
     private WeaponsConfig weapons = new WeaponsConfig();
     private ArmorConfig armor = new ArmorConfig();
     private ComboConfig combo = new ComboConfig();
-    private GauntletConfig gauntlet = new GauntletConfig();
     private BountyConfig bounty = new BountyConfig();
     private CraftingConfig crafting = new CraftingConfig();
     private MiscConfig misc = new MiscConfig();
@@ -77,7 +74,6 @@ public class EndgameConfig {
     public WeaponsConfig weapons() { return weapons; }
     public ArmorConfig armor() { return armor; }
     public ComboConfig combo() { return combo; }
-    public GauntletConfig gauntlet() { return gauntlet; }
     public endgame.plugin.systems.portal.TemporalPortalConfig getTemporalPortalConfig() { return temporalPortal; }
     public PetConfig pets() { return pets; }
     public BountyConfig bounty() { return bounty; }
@@ -173,38 +169,6 @@ public class EndgameConfig {
     public float getHederaDaggerLifestealPercent() { return weapons.getHederaLifestealPercent(); }
     public void setHederaDaggerLifestealPercent(float p) { weapons.setHederaLifestealPercent(p); }
 
-    // --- Weapons: Prisma Mirage ---
-    public boolean isPrismaMirageEnabled() { return weapons.isPrismaMirageEnabled(); }
-    public void setPrismaMirageEnabled(boolean e) { weapons.setPrismaMirageEnabled(e); }
-    public int getPrismaMirageCooldownMs() { return weapons.getPrismaMirageCooldownMs(); }
-    public void setPrismaMirageCooldownMs(int ms) { weapons.setPrismaMirageCooldownMs(ms); }
-    public int getPrismaMirageLifetimeMs() { return weapons.getPrismaMirageLifetimeMs(); }
-    public void setPrismaMirageLifetimeMs(int ms) { weapons.setPrismaMirageLifetimeMs(ms); }
-
-    // --- Weapons: Void Mark ---
-    public boolean isVoidMarkEnabled() { return weapons.isVoidMarkEnabled(); }
-    public void setVoidMarkEnabled(boolean e) { weapons.setVoidMarkEnabled(e); }
-    public int getVoidMarkDurationMs() { return weapons.getVoidMarkDurationMs(); }
-    public void setVoidMarkDurationMs(int ms) { weapons.setVoidMarkDurationMs(ms); }
-    public boolean isVoidMarkExecutionEnabled() { return weapons.isVoidMarkExecutionEnabled(); }
-    public void setVoidMarkExecutionEnabled(boolean e) { weapons.setVoidMarkExecutionEnabled(e); }
-    public float getVoidMarkExecutionThreshold() { return weapons.getVoidMarkExecutionThreshold(); }
-    public void setVoidMarkExecutionThreshold(float t) { weapons.setVoidMarkExecutionThreshold(t); }
-    public float getVoidMarkExecutionMultiplier() { return weapons.getVoidMarkExecutionMultiplier(); }
-    public void setVoidMarkExecutionMultiplier(float m) { weapons.setVoidMarkExecutionMultiplier(m); }
-
-    // --- Weapons: Dagger Blink ---
-    public boolean isDaggerBlinkEnabled() { return weapons.isDaggerBlinkEnabled(); }
-    public void setDaggerBlinkEnabled(boolean e) { weapons.setDaggerBlinkEnabled(e); }
-    public float getDaggerBlinkDistance() { return weapons.getDaggerBlinkDistance(); }
-    public void setDaggerBlinkDistance(float d) { weapons.setDaggerBlinkDistance(d); }
-
-    // --- Weapons: Dagger Trail ---
-    public boolean isDaggerTrailEnabled() { return weapons.isDaggerTrailEnabled(); }
-    public void setDaggerTrailEnabled(boolean e) { weapons.setDaggerTrailEnabled(e); }
-    public float getDaggerTrailDamage() { return weapons.getDaggerTrailDamage(); }
-    public void setDaggerTrailDamage(float d) { weapons.setDaggerTrailDamage(d); }
-
     // --- Weapons: Blazefist Burn ---
     public boolean isBlazefistBurnEnabled() { return weapons.isBlazefistBurnEnabled(); }
     public void setBlazefistBurnEnabled(boolean e) { weapons.setBlazefistBurnEnabled(e); }
@@ -212,12 +176,6 @@ public class EndgameConfig {
     public void setBlazefistBurnDamage(float d) { weapons.setBlazefistBurnDamage(d); }
     public int getBlazefistBurnTicks() { return weapons.getBlazefistBurnTicks(); }
     public void setBlazefistBurnTicks(int t) { weapons.setBlazefistBurnTicks(t); }
-
-    // --- Weapons: Dagger Vanish ---
-    public int getDaggerVanishCooldownMs() { return weapons.getDaggerVanishCooldownMs(); }
-    public void setDaggerVanishCooldownMs(int ms) { weapons.setDaggerVanishCooldownMs(ms); }
-    public int getDaggerVanishInvulnerabilityMs() { return weapons.getDaggerVanishInvulnerabilityMs(); }
-    public void setDaggerVanishInvulnerabilityMs(int ms) { weapons.setDaggerVanishInvulnerabilityMs(ms); }
 
     // --- Armor: Mana Regen ---
     public boolean isManaRegenArmorEnabled() { return armor.isManaRegenEnabled(); }
@@ -256,14 +214,6 @@ public class EndgameConfig {
     public void setComboTierEffectsEnabled(boolean e) { combo.setTierEffectsEnabled(e); }
     public boolean isComboDecayEnabled() { return combo.isDecayEnabled(); }
     public void setComboDecayEnabled(boolean e) { combo.setDecayEnabled(e); }
-
-    // --- Gauntlet ---
-    public boolean isGauntletEnabled() { return gauntlet.isEnabled(); }
-    public void setGauntletEnabled(boolean e) { gauntlet.setEnabled(e); }
-    public int getGauntletScalingPercent() { return gauntlet.getScalingPercent(); }
-    public void setGauntletScalingPercent(int p) { gauntlet.setScalingPercent(p); }
-    public int getGauntletBuffCount() { return gauntlet.getBuffCount(); }
-    public void setGauntletBuffCount(int c) { gauntlet.setBuffCount(c); }
 
     // --- Bounty ---
     public boolean isBountyEnabled() { return bounty.isEnabled(); }
@@ -311,8 +261,6 @@ public class EndgameConfig {
     public boolean isEndlessLevelingAutoDetectPending() { return misc.isEndlessLevelingAutoDetectPending(); }
     public float getElXpShareRange() { return misc.getElXpShareRange(); }
     public void setElXpShareRange(float r) { misc.setElXpShareRange(r); }
-    public int getElGauntletXpBase() { return misc.getElGauntletXpBase(); }
-    public void setElGauntletXpBase(int v) { misc.setElGauntletXpBase(v); }
     public int getElWardenXpBase() { return misc.getElWardenXpBase(); }
     public void setElWardenXpBase(int v) { misc.setElWardenXpBase(v); }
     public int getElAchievementXp() { return misc.getElAchievementXp(); }
@@ -351,9 +299,6 @@ public class EndgameConfig {
     public long getFrostDragonNovaCooldownMs() { return misc.getFrostDragonNovaCooldownMs(); }
     public int getFrostDragonSpiritMaxCount() { return misc.getFrostDragonSpiritMaxCount(); }
     public int getFrostDragonNovaBoltCount() { return misc.getFrostDragonNovaBoltCount(); }
-
-    // --- Gauntlet ---
-    public float getGauntletVampiricHealPercent() { return misc.getGauntletVampiricHealPercent(); }
 
     // ========================================================================
     // LEGACY CODEC — reads old flat format for migration

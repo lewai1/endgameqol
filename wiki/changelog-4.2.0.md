@@ -3,96 +3,89 @@
 ## New Features
 
 ### Temporal Portal System
-Random portals spawn near players every 5-10 minutes (configurable). Walk into the portal to enter a temporary dungeon instance. A return portal inside the dungeon sends you back automatically. Portals auto-despawn after 3 minutes and respect OrbisGuard/SimpleClaims protected zones.
+Random portals spawn near players every 5-10 minutes (configurable, 80-300 blocks range). Particle-only portals (no block placement). Walk in to enter a temporary dungeon instance. Return portal inside sends you back. Warnings at 5min and 1min before expiration, 30s grace period. Lifetime status (STABLE > DESTABILIZING > CRITICAL > COLLAPSING). Respects OrbisGuard/SimpleClaims protected zones.
 
-**Admin command:** `/eg admin portal <frozen|swamp>`
+**3 temporal instances:** Eldergrove Hollow, Oakwood Refuge, Canopy Shrine. Data-driven dungeon system: per-dungeon enable, portal duration, instance time limit, respawn toggle.
 
 ### Pet Companion System
-4 boss pets unlocked by killing bosses (10-15% chance per kill):
-
-| Pet | Source Boss | Special |
-|-----|-----------|---------|
-| Dragon Frost | Dragon Frost | Alternates fly/walk |
-| Dragon Fire | Dragon Fire | Fast ground companion |
-| Golem Void | Golem Void | Slow, intimidating |
-| Hedera | Hedera | Nature companion |
-
-Pets follow the player, teleport if too far, and chase the owner's attack target. Configurable in `/eg config`.
+4 boss pets (Dragon Frost, Dragon Fire, Golem Void, Hedera) unlocked by killing bosses (10-15% chance). 6-tier progression (D → SS) via item feeding. Each tier scales damage (1.0x → 2.5x), health, and visual size. Mount system at Tier C+. Passive perks at S, aura at SS. 30s respawn cooldown. EndlessLeveling bridge for cross-mod stat access.
 
 **Command:** `/eg pet`
-**API for modders:** `PetAPI.getPetOwner()`, `PetAPI.getPetDamage()`, `PetAPI.getPetKill()`
 
 ### Void Realm
-New dimension with a floating island arena surrounded by smaller islands. Home of the Golem Void boss. Accessible via portal key.
+New dimension with a floating island arena. Home of the Golem Void boss. Replaces the old Shard of the Void portal key.
 
-### Dragon Frost rework
-Fly/walk boss with aerial frost bolt attacks, controller transitions, stuck recovery, and timed phase system (15-20s air, 10-15s ground cycle).
-
-### Hedera Rework
-Three new attacks added to Hedera:
-- **Vine Grab** (Phase 2+) - Pulls the player toward Hedera
-- **Ground Slam** (Phase 2+) - AOE 7 blocks + camera shake
-- **Charge** (Phase 3 only) - Forward lunge, 80 Physical damage
-
-Lingering **Poison Clouds** spawn every 18-25s during Phase 2+, last 6 seconds, 5-block radius.
+### Boss Reworks
+- **Dragon Frost** — Fly/walk boss with aerial frost bolt attacks, timed phase cycling (15-20s air, 10-15s ground), controller transitions, stuck recovery
+- **Hedera** — 3 new attacks: Vine Grab (pull, Phase 2+), Ground Slam (AOE 7 blocks + camera shake, Phase 2+), Charge (lunge, Phase 3). Lingering poison clouds every 18-25s during Phase 2+
 
 ### UI Overhaul
-- **Native Journal Page** - Unified Bounty Board, Bestiary, and Achievements into a single page with 3 tabs
-- **Custom Trade UI** - All 3 merchants use a custom interface with item icons, affordability coloring, and stock display
-- **Combo Meter** - Migrated to native UI, positioned lower to avoid overlap
-- **Native Config UI** - Rewritten with 7 tabs, dark theme, global search bar, recipe editor
+- **Native Journal Page** — Unified Bounty Board, Bestiary, Achievements with 3 tabs
+- **Custom Trade UI** — Item icons, affordability coloring, stock display for all merchants
+- **Combo Meter** — Migrated to native CustomUIHud
+- **Native Config UI** — 7 tabs, dark theme, global search bar, recipe editor
 
 ### Other
-- **Endgame Memories Category** - Custom "Endgame" tab in the Bench Memories with dedicated icon. 19 NPCs grouped under one category
-- **Pet toggle in /eg config** - Enable/disable the pet system from the Misc tab
-- **Integration tab rework** - Auto-detection status per mod (DETECTED/NOT FOUND), addons section for future extensions
-- **Integration auto-disable** - Mods auto-disable when their JAR is removed (RPG Leveling, Endless Leveling, OrbisGuard)
-- **SimpleClaims compatibility** - 3x3 area break and portal spawning respect claimed chunks
-- **Item ID Migration** - Automatic item ID conversion on player connect and chunk load
-- **Unified commands** - All commands now under `/eg`: config, admin, pet, journal, gauntlet
-
----
-
-## Bug Fixes
-- **DeathAnimationTime crash** - Mods overriding Template_Intelligent.json could strip engine parameters. Fixed with custom templates per boss
-- **Frostwalker destroying waterlogged blocks** - Ice no longer replaces stairs, slabs, or other solid blocks in water
-- **Boss registration race condition** - Fixed in GolemVoidBossManager and GenericBossManager
-- **Dragon Fire not tracked by boss system** - Added missing config for Dragon Fire and Zombie Aberrant
-- **Hedera Summon not spawning spirits** - Spawn marker delay and trigger range fixed
-- **Boss friendly fire** - Bosses no longer damage their own minions
-- **Hedera/Spirit_Root attacking each other** - Fixed with shared attitude group
-- **Boss kill sound** - Now only plays for the killer, not all players
-- **Dragon Fire burns in lava** - Added fire immunity
-- **OrbisGuard blocks chests in dungeons** - Added access flags on dungeon regions
-- **AccessoryAttackSystem crash** - Added ref validity check on burn apply
-- **Prisma 3x3 drops lost** - Blocks now drop as world items when inventory is full
-- **Endless Leveling level override** - Dungeon mob levels handled natively
-- **Boss XP cap** - Increased from 100k to 1M
-- **Empty "beast" Memories category** - Grooble reclassified from "Beast" to "Predator"
-- **Bestiary drops outdated** - Updated all drop lists to match actual drop tables
+- **WaveArena framework** — Warden Trials migrated onto a generic data-driven wave engine. Configurable wave compositions, mob pools, scaling, rewards, zone particles, instance blacklist. Public API for external mods
+- **Warden Trials blocked in instances** — Warden Challenge items can no longer be used inside dungeon instances
+- **Spear pickup after throw** — MC Trident style: thrown spears drop at landing point, 100% return
+- **Endgame Memories** — Custom tab in Bench Memories with dedicated icon, 19 NPCs
+- **Item ID Migration** — Automatic item conversion on connect/chunk load. Currently migrates: `Big_Rex_Cave_Leather` → `Alpha_Rex_Leather`, `Endgame_Portal_Golem_Void` → `Endgame_Portal_Void_Realm`
+- **Integration auto-detection** — RPG Leveling, Endless Leveling, OrbisGuard auto-enable/disable
 
 ---
 
 ## Balance
-- **Hedera Phase 2** (66-33% HP) - Significantly harder with new attacks + poison clouds + spirits
-- **Hedera Phase 3** (<33% HP) - Charge attack added
-- **Alpha Rex Leather** - Renamed from Big_Rex_Cave_Leather (auto-migrated)
+
+### Weapon Reworks
+- **Prisma Daggers rework** — All previous abilities removed (Vanish, Blink stance, Void Mark, execution bonus). Replaced with: Signature **Razor Storm** (100 SE, 3 AOE bursts = 240 dmg), Ability3 **Prisma Dash** (60 Mana, 10-block lunge, 80 dmg per entity)
+- **Prisma Sword rework** — All previous abilities removed (Mirage clones, mana cost system). Replaced with: Signature **Prismatic Judgment** (100 SE, 10-block AOE slam, 250 dmg + knockup + slow), Ability3 **Prismatic Beam** (80 Mana, 20-block projectile + AOE explosion)
+- **Frostbite Blade** — Signature: **Blizzard Stance** (100 SE, 3 mobile AOE pulses = 240 Ice dmg, final pulse freezes). Ability3: **Ice Field** (50 Mana, 3 slow pulses, pure CC)
+
+### Boss Difficulty
+- **Hedera Phase 2** (66-33% HP) — Significantly harder with new attacks + poison clouds + spirits
+- **Hedera Phase 3** (<33% HP) — Charge attack added (80 Physical)
+
+### Other
+- **Accessory tooltips** — `Accessory — store in trinket pouch` marker on all 6 accessories (5 locales)
+- **Alpha Rex Leather** — Renamed from Big_Rex_Cave_Leather (auto-migrated)
+
+---
+
+## Removed
+- **Gauntlet system** — Infinite-wave arena removed (was disabled by default). Will be replaced by a new wave system integrated into temporal portal instances
 
 ---
 
 ## Config Changes
-- Native Config UI with 7 tabs and dark theme
-- Global search bar across all settings
-- Recipe Override Editor with category filters and pagination
-- Numeric settings support direct text input
-- RPG Leveling and Endless Leveling auto-detected
+- Native Config UI with 7 tabs
+- Unified commands under `/eg`: config, admin, pet, journal
+- Global search bar, recipe editor, editable value fields
+- Respawn Inside Instance toggle (disabled by default)
+- LuckPerms compatible (default-allow player commands)
+
+---
+
+## Bug Fixes
+- DeathAnimationTime crash — custom templates per boss
+- Frostwalker waterlogged blocks — ice no longer replaces solid blocks
+- Boss registration race condition — fixed in GolemVoid/GenericBossManager
+- Boss friendly fire — bosses no longer damage own minions
+- Boss kill sound — only plays for the killer
+- Dragon Fire lava immunity — added
+- OrbisGuard dungeon chests — access flags on regions
+- Prisma 3x3 drops — blocks drop as world items
+- Hedera camera shake — invalid CameraEffect ID fixed
+- Boss XP cap — raised from 100k to 1M
+- Bestiary drops — all boss/elite drop lists updated
+- Trinket Pouch only worked in hotbar — accessories now work from any inventory slot
+- RPGLeveling config override — no longer overwrites RPGLeveling's config (uses Config Defaults Override API)
+- Dragon Fire melee — fixed Dragon Fire not attacking in melee
 
 ---
 
 ## Technical
-- NPC assets reorganized into semantic directories
-- NPC IDs uniformized with `Endgame_` prefix
-- Full HyUI to native .ui migration (HyUI only for boss bar overlays)
-- Custom NPC actions: SetMotionController, EnterTemporalPortal, OpenTradeUI
-- Dependencies: RPGLeveling 0.3.4, EndlessLeveling 7.3.4
-- Hygradle build system with hot-reload
+- NPC assets reorganized into semantic directories with Endgame_ prefix
+- Full HyUI to native .ui migration (HyUI only for boss bars)
+- SimpleClaims compatibility for Prisma 3x3 + portal spawning
+- Dependencies: EndlessLeveling 7.7.4

@@ -71,14 +71,8 @@ public class AccessoryPassiveSystem extends DelayedEntitySystem<EntityStore> {
         UUID uuid = EntityUtils.getUuid(store, ref);
         if (uuid == null) return;
 
-        // Find PlayerRef for world access and movement updates
-        PlayerRef playerRef = null;
-        for (PlayerRef pr : Universe.get().getPlayers()) {
-            if (pr != null && pr.getReference() != null && ref.equals(pr.getReference())) {
-                playerRef = pr;
-                break;
-            }
-        }
+        // Find PlayerRef via O(1) cache lookup
+        PlayerRef playerRef = endgame.plugin.utils.PlayerRefCache.getByRef(ref);
         if (playerRef == null) return;
 
         World world = store.getExternalData().getWorld();

@@ -1,4 +1,4 @@
 {
-  "Type": "StartWardenTrial",
-  "Tier": 4
+  "Type": "StartWaveArena",
+  "ArenaId": "Warden_Trial_IV"
 }

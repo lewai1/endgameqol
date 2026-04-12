@@ -125,8 +125,7 @@
       "Spear"
     ]
   },
-  "MaxDurability": 260,
-  "DurabilityLossOnHit": 0.21,
+  "MaxStack": 1,
   "Weapon": {
     "StatModifiers": {
       "Stamina": [
